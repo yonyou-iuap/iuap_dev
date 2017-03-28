@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.yonyou.iuap</groupId>
+  <artifactId>iuap-droolsrule-example</artifactId>
+  <name>规则引擎示例</name>
+  <description>一个使用规则引擎的简单示例</description>
+  <version>3.1.0-RELEASE</version>
+  <properties>
+      <iuap.modules.version>3.1.0-RELEASE</iuap.modules.version>
+      <iuap.saas.modules.version>3.1.0-RC001</iuap.saas.modules.version>
+      <!-- 依赖drools规则引擎的版本 -->
+      <drools.version>5.5.0.Final</drools.version>
+      <!-- 单元测试版本 -->
+      <junit.version>4.11</junit.version>
+  </properties>
+  <dependencies>
+  <dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-core</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>drools-compiler</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>knowledge-api</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.drools</groupId>
+			<artifactId>knowledge-internal-api</artifactId>
+			<version>${drools.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

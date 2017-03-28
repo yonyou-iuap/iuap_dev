@@ -1,0 +1,155 @@
+<!doctype html >
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="./static/ios-desktop.png">
+    <meta name="msapplication-TileImage" content="./static/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="shortcut icon" href="./static/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="vendor/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/googleapis/roboto.css">
+    <link rel="stylesheet" type="text/css" href="vendor/googleapis/icon.css">
+    <link rel="stylesheet" type="text/css" href="vendor/uui/css/u.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/widget.css">
+    <script type="text/javascript" src="vendor/jquery/jquery-1.11.2.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/html5shiv.min.js"></script>
+    <!--[if lt IE 9]>
+    	<script src="vendor/es5-shim.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="vendor/uui/js/u-polyfill.js"></script>
+		<script src="vendor/es5-sham.min.js"></script>
+	<![endif]-->
+	
+</head>
+
+<body>
+<div class="demo-layout  u-navlayout u-navlayout-fixed-drawer u-navlayout-fixed-header">
+    <header>
+        <div class="u-container">
+            <div class="u-row">
+                <div class="col-xs-12 col-sm-12 height-full ">
+                    <div class="foldingpad"><i class="uf uf-navmenu"></i></div>
+                    <div class="text-right" >
+                        <ul class="nav-list u-navbar-toolbar u-navbar-right u-navbar-toolbar-right margin-top-0">
+                            <li class="dropdown">
+                                <a class="u-avatar w-32  u-avatar-online">
+                                    <img src="./static/avator.png" alt="..."
+                                         class="img-circle">
+                                    <i></i>
+                                </a>
+                            </li>
+                            <li class="dropdown">
+                                <a class="u-badge w-20 m margin-right-5" data-badge="1">
+                                    <i class="uf uf-bell"></i>
+                                </a>
+
+                            </li>
+                            <li class="dropdown">
+                                <a class="u-badge u-badge-info w-20 m" data-badge="3">
+                                    <i class="uf uf-mail"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav-list u-navbar-toolbar u-navbar-right margin-top-0">
+                            <li class="dropdown">
+                                <a style="color:#fff;">
+                                    <span>管理员</span><i class="uf uf-arrow-down"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="page-sidebar">
+        <div class="log">
+            <span title="管理平台" class="title">
+	        	<i class="uf uf-iuapdesign-col" style="color:#fff;font-size: 100px;"></i>
+            </span>
+        </div>
+        <ul class="nav-menu height-full" id="menu">
+            <li class='nav-li'>
+                <a href="#/mainPage/main">
+                    <i class="uf uf-picture"></i>
+                    <span class="nav-title">开发者导引</span>
+                </a>
+            </li>
+            <li class='nav-li'>
+                <a href="#dict/dicttype">
+                    <i class="uf uf-role"></i>
+                    <span class="nav-title">档案</span>
+                </a>
+            </li>
+            <li class='nav-li'>
+                <a href="#user/user">
+                    <i class="uf uf-caven "></i>
+                    <span class="nav-title">用户</span>
+                </a>
+            </li>
+            <li class='nav-li'>
+                <a href="#addressBook/contacts">
+                    <i class="uf uf-map "></i>
+                    <span class="nav-title">地址簿</span>
+                </a>
+            </li>
+            <li class='nav-li'>
+                <a href="#cardtable/cardtable">
+                    <i class="uf uf-4square-3"></i>
+                    <span class="nav-title">应用管理</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="page-small-sidebar" style="margin-left:-55px">
+        <div class="log">
+            <a title="管理后台">
+                <i class="uf uf-iuap-col" style="color:#fff;font-size: 40px;line-height:1.3;"></i>
+            </a>
+        </div>
+        <ul id="nav-zone">
+            <li class='nav-li'>
+                <a href="#/mainPage/main">
+                    <i class="uf uf-picture"></i>
+                </a>
+            </li> 
+            <li class='nav-li'>
+                <a href="#dict/dicttype">
+                    <i class="uf uf-role"></i>
+                </a>
+            </li>
+            <li class='nav-li'>
+                <a href="#user/user">
+                    <i class="uf uf-caven "></i>
+                </a>
+            </li>
+            <li class='nav-li'>
+                <a href="#addressBook/contacts.js">
+                    <i class="uf uf-map "></i>
+                </a>
+            </li>
+            <li class='nav-li'>
+                <a href="#cardtable/cardtable.js">
+                    <i class="uf uf-4square-3"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 内容 -->
+    <div id="content" class="demo-content u-navlayout-content u-color-grey-100 page-container" style="margin-top:44px">
+    </div>
+</div>
+
+<script type="text/javascript" src="vendor/requirejs/require.js"></script>
+<script type="text/javascript" src="config/require.config.js"></script>
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

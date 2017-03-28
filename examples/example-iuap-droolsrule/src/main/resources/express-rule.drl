@@ -1,0 +1,60 @@
+package com.sample
+
+import com.toolkit.drools.bean.Order;
+
+	
+// 加急订单统一收取49元邮费
+
+rule "URGENT_ORDER"
+	no-loop  true
+	lock-on-active true
+	activation-group "expressType"
+	salience 99
+	
+    when
+        $order : Order( expressType == 99 ) 
+    then
+		$order.setExpressFee(49); 	
+end
+
+// 自提订单免邮
+
+rule "BYYOURSELFT_ORDER"
+	no-loop  true
+	lock-on-active true
+	activation-group "expressType"
+	salience 90
+	
+    when
+        $order : Order( expressType == -1 ) 
+    then
+		$order.setExpressFee(0); 		
+end
+
+// 钻石会员以上不管买多少都是免邮,其他满88元免邮费
+
+rule "NORMAL_ORDER_FREEE"
+	no-loop  true
+	lock-on-active true
+	activation-group "expressType"
+	salience 1
+    
+    when
+        $order : Order( expressType == 0 && (userRank == 99 || amount >= 88)) 
+    then
+		$order.setExpressFee(0); 	 	
+end
+
+// 钻石会员以下没买满88固定收取15邮费
+
+rule "NORMAL_ORDER_CHARGE"
+	no-loop  true
+	lock-on-active true
+	activation-group "expressType"
+	salience 1
+	
+    when
+        $order : Order( expressType == 0 && userRank != 99 && amount < 88 ) 
+    then
+		$order.setExpressFee(15); 	 	
+end

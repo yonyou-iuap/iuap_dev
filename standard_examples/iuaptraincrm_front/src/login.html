@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+        <title>阳明汽配销售及服务系统</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="#1 selling multi-purpose bootstrap admin theme sold in themeforest marketplace packed with angularjs, material design, rtl support with over thausands of templates and ui elements and plugins to power any type of web applications including saas and admin dashboards. Preview page of Theme #1 for "
+            name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="vendor/assets/global/css/fonts-googleapis.css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+		
+        <link rel="stylesheet" href="vendor/bootstrap-3.3.5/css/bootstrap.min.css" type="text/css" media="screen" title="no title"/>
+		
+        <link href="vendor/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL STYLES -->
+        <link href="vendor/assets/pages/css/login.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="vendor/uui/css/u.css">
+        <link href="login.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="index.css"/>
+
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+
+	<body class=" login">
+        <!-- BEGIN LOGO -->
+        <div class="logo">
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN LOGIN -->
+        <div class="content"> 
+            <!-- BEGIN LOGIN FORM -->
+                <h3 class="form-title font-green">阳明汽配销售及服务系统</small></span></h3>
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <span> Enter any username and password. </span>
+                </div>
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">用户名</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="username" id="username"  /> </div>
+                    <div class="txt_bor clearfix" style="display:none">
+								<input type="hidden" name="isqtlogin" id="isqtlogin" value="2"/>
+							</div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">密码</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password" id="password" /> </div>
+                <div class="form-actions">
+                    <button type="submit" onclick="javascript:login();" class="btn green uppercase" style="background-color: #32c5d2;border-color: #32c5d2;color:#ffffff !important">登录</button>
+                    <label class="rememberme check mt-checkbox mt-checkbox-outline">
+                        <input type="checkbox" id="rmpassword" />记住我
+                        <span></span>
+                    </label>
+                    <a href="#" onclick="findPassword()" class="forget-password">忘记密码?</a>
+                </div>
+            <!-- END LOGIN FORM -->
+        </div>
+        
+        <!-- 找回密码模态框 start -->
+	    <div id="dialog_findpassword" style="display:none;">
+			<div class="u-container-fluid u-widget-bg example">
+				<div class="u-msg-title">
+					<h4>找回密码</h4>
+					<h5 style="color:red;font-family: 'Microsoft YaHei', Helvetica, Arial, sans-serif;">（请正确填写账号、姓名和邮箱，系统审核通过后将重置后的密码发送到您的邮箱!）</h5>
+				</div>
+				<div class="u-row">
+					<div class="u-col-12" style="padding-bottom:20px;padding-top:5px;">
+						<div class="u-widget mtb-1015" style="background-color:transparent; background-color:transparent;margin: -6px 0 -6px 0;">
+							<button class="u-button raised primary" onclick="commitPsw()">提交申请</button>
+							<button class="u-button raised " style="background-color: rgb(170, 172, 180);border-color: rgb(170, 172, 180);color:#fff;" onclick="onClosePasswordWindow()">关闭</button>
+						</div>
+					</div>	
+				</div>	
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="u-widget">
+							<div class="search-section">
+								<div class="u-widget-body form-container">
+									<div class="u-container-fluid">
+										<div class="u-row">
+											<div class="u-col-3 u-col-sm-4">
+												<label class="u-input-label right">账号：</label>
+											</div>
+											<div class="u-col-8 u-col-sm-8">
+												<div class="u-input-group-before " style="color: red;">*</div>
+												<input type="text" class="u-form-control u-input-write" name="userNameFind" id="userNameFind">
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-3 u-col-sm-4">
+												<label class="u-input-label right">姓名：</label>
+											</div>
+											<div class="u-col-8 u-col-sm-8 ">
+												<div class="u-input-group-before " style="color: red;">*</div>
+												<input type="text" class="u-form-control u-input-write" name="releNameFind" id="releNameFind"> 
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-3 u-col-sm-4">
+												<label class="u-input-label right">邮箱：</label>
+											</div>
+											<div class="u-col-8 u-col-sm-8 ">
+												<div class="u-input-group-before " style="color: red;">*</div>
+												<input type="text" class="u-form-control u-input-write" name="emailFind" id="emailFind">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+		<!-- 修改密码模态框 end -->
+        
+        <!--[if lt IE 9]>
+<script src="assets/global/plugins/respond.min.js"></script>
+<script src="assets/global/plugins/excanvas.min.js"></script> 
+<script src="assets/global/plugins/ie8.fix.min.js"></script> 
+<![endif]-->
+<script src="vendor/jquery/jquery-1.11.2.js" charset="utf-8"></script>
+		<script type="text/javascript" src="vendor/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+		<script src="vendor/knockout/knockout-3.2.0.debug.js" charset="utf-8"></script>
+	    <script src="vendor/uui/js/u-polyfill.js" charset="utf-8"></script>
+	    <script src="vendor/uui/js/u.js" charset="utf-8"></script>
+	    <script src="vendor/director/director.js" charset="utf-8"></script>
+	    <script src="vendor/requirejs/require.debug.js" charset="utf-8"></script>
+	    <script src="config/require.config.js" charset="utf-8"></script>
+	    <script src="vendor/security/security.js" charset="utf-8"></script>
+	    <script src="vendor/jQuery-cookie/jquery.cookie.js" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.cturl = '/iuaptraincrm';
+			var d,s="";
+			var x=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+			d=new Date();
+			s+=d.toLocaleDateString().replace(/\//g,".");
+			s+=" ";
+			s+=x[d.getDay()];
+			$("#datetime").html(s);
+			
+			$("#username").on("focus",function(){
+				$(this).parent("div").addClass("div_act");
+				$(this).siblings("span").addClass("icon_nameAct");
+			})
+			$("#username").on("blur",function(){
+				$(this).parent("div").removeClass("div_act");
+				$(this).siblings("span").removeClass("icon_nameAct");
+			})
+			$("#password").on("focus",function(){
+				$(this).parent("div").addClass("div_act");
+				$(this).siblings("span").addClass("icon_pwdAct");
+			})
+			$("#password").on("blur",function(){
+				$(this).parent("div").removeClass("div_act");
+				$(this).siblings("span").removeClass("icon_pwdAct");
+			})
+		
+			$(".login_tl li").on("click",function(){
+				$(this).addClass("liAct").siblings("li").removeClass("liAct");
+			})
+			
+			var exponent = null;
+			var modulus = null;
+			$(function(){
+				$.ajax({
+	  				    async:false,
+					    type: 'get',
+						url: window.cturl+'/login/getKey',
+						success: function(data) {
+							exponent = data.exponent;
+							modulus = data.modulus;
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							//临时注释doo
+							// u.messageDialog({ msg: XMLHttpRequest.responseText, title: "错误", btnText: "确定" });
+							// return;
+						}
+					})
+			})
+			
+/**
+ * 利用cookie记住密码
+ */
+function saveUserInfo() { 
+	if ($("#rmpassword").prop("checked") == true) { 
+		//在这里添加新的变量
+		var password = $("#password").val(); 
+		var userName = $("#username").val(); 
+		$.cookie("mep_rmbUser", "true", { expires: 7 }); // 存储一个带7天期限的 cookie 
+		$.cookie("mep_userName", userName, { expires: 7 }); 
+		$.cookie("mep_password", password, { expires: 7 }); 
+	}else { 
+		$.cookie("mep_rmbUser", "false", { expires: -1 }); 
+		$.cookie("mep_userName", '', { expires: -1 }); 
+		$.cookie("mep_password", '', { expires: -1 }); 
+	} 
+} 
+
+$(document).ready(function() { 
+	if ($.cookie("mep_rmbUser") == "true") { 
+		$("#rmpassword").attr("checked", true); 
+		$("#username").val($.cookie("mep_userName")); 
+		$("#password").val($.cookie("mep_password")); 
+		$("#username").css("color","#000"); 
+	} else{
+		//选中用户名input
+		$.cookie("mep_rmbUser", "false", { expires: -1 }); 
+		$.cookie("mep_userName", '', { expires: -1 }); 
+		$.cookie("mep_password", '', { expires: -1 }); 
+		$("#rmpassword").prop("checked",'');
+		$("#username").focus();
+	}
+}); 
+			document.onkeydown = function (event) {
+                var e = event || window.event || arguments.callee.caller.arguments[0];
+                if (e && e.keyCode == 13) {
+                    login();
+                }
+            };
+			function login(){
+				var username = $("#username").val();
+				var isqtlogin= $("#isqtlogin").val();
+				var plainPassword = $("#password").val(); 
+	            if(plainPassword.indexOf("_encrypted") < 0){
+		            var key = RSAUtils.getKeyPair(exponent, '', modulus);
+		            var encryptedPwd = RSAUtils.encryptedString(key, plainPassword);
+		            $("#password").val(encryptedPwd+"_encrypted");
+		         }
+		        var password = $("#password").val();
+				$.ajax({
+	  				async:false,
+					type: 'post',
+						url: window.cturl+'/login/formLogin',
+						data:"username="+username+"&isqtlogin="+isqtlogin+"&password="+password,
+						success: function(data) {
+							if(data.flag != undefined && data.flag != null && data.flag =="success"){
+								// if(data.passerror != undefined ){
+									// if(data.passerror =="0"){
+									saveUserInfo();
+								    window.location.href="index.html";
+								    // return;
+							    // }else{
+							     	// u.confirmDialog({
+		                               // msg: "离密码过期还有"+data.passerror+"天，是否修改密码？",
+		                               // title: "提示",
+		                               // onOk: function () {
+		                                   // //window.location.href="login.html";
+		                                   // return;
+		                               // },
+		                               // onCancel: function () {
+		                               	   // saveUserInfo();
+                                           // window.location.href="index.html";
+								           // return;
+		                               // }
+							     // });
+							      // }
+								// }else{
+									// u.confirmDialog({
+		                               // msg: data.accounterror,
+		                               // title: "提示",
+		                               // onOk: function () {
+		                                   // //window.location.href="login.html";
+		                                   // return;
+		                               // },
+		                               // onCancel: function () {
+		                               	   // saveUserInfo();
+                                           // window.location.href="index.html";
+								           // return;
+		                               // }
+							     // });
+								// }
+								  
+							}else{
+								//临时注释doo
+								u.messageDialog({ msg: data.accounterror, title: "提示", btnText: "确定" });
+								return;
+							}
+							
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							//临时注释doo
+							u.messageDialog({ msg: XMLHttpRequest.responseText, title: "错误", btnText: "确定" });
+							return;
+						}
+					})
+			}
+			
+			
+			function findPassword(){
+				window.md = u.dialog({id:'findpasswordDialg',content:"#dialog_findpassword",hasCloseMenu:true});
+			}
+			
+			function onClosePasswordWindow(){
+				window.md.close();
+			}
+			
+			function commitPsw(){
+				var userNameFind = $("#userNameFind").val();
+				var releNameFind = $("#releNameFind").val();
+				var emailFind = $("#emailFind").val();
+				var errorMsg = "";
+				if(null == userNameFind || userNameFind.length==0){
+					errorMsg = errorMsg+"请输入账号；"
+				}
+				if(null == releNameFind || releNameFind.length==0){
+					errorMsg = errorMsg+"请输入姓名；"
+				}
+				if(null == emailFind || emailFind.length==0){
+					errorMsg = errorMsg+"请输入邮箱；"
+				}
+				var pwdObj = {};
+				pwdObj["userNameFind"] = userNameFind;
+				pwdObj["releNameFind"] = releNameFind;
+				pwdObj["emailFind"] = emailFind;
+				$.ajax({
+						type : 'post',
+						url : window.cturl+"/system/user/findpwd",
+						data : pwdObj,
+						dataType : 'json',
+						success : function(data) {
+							u.messageDialog({msg:data.msg,title:"提示", btnText:"OK"});
+							if("true" == data.flag){
+								onClosePasswordWindow();
+							}
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							errors.error(XMLHttpRequest);
+						}
+					});
+			}
+	</script>
+    </body>
+
+</html>

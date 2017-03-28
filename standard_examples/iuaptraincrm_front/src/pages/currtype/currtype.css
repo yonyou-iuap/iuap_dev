@@ -1,0 +1,206 @@
+/*outside frame*/
+div#content {
+    background: #ECEFF1;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+div#content .u-mdlayout {
+    background: #EEEFF1;
+    box-shadow: none;
+}
+
+header > .u-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header > .u-container > .u-row {
+    margin-left: 0;
+    margin-right: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.u-col-xs-12.u-col-sm-12.text-right {
+    padding-right: 0;
+}
+
+/*搜索框部分*/
+#dicctype-mdlayout .u-panel {
+    width: 100%;
+}
+
+.form-search {
+    background: #fff;
+    border-bottom: 1px solid #cecece;
+}
+
+#dicttype-mdlayout .u-panel.form-search {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    font-size: 14px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 15px;
+}
+
+#dicttype-mdlayout .u-row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.u-navlayout-fixed-drawer .u-navlayout-content {
+    margin-left: 200px;
+}
+
+#condition-toggle-dic .u-link:focus, .u-link:hover {
+    text-decoration: none;
+}
+
+#dicttype-mdlayout .u-panel-title {
+    font-size: 14px;
+}
+
+#condition-toggle-dic .uf {
+    font-size: 12px;
+}
+
+.form-search .gray-btn {
+    color: #2196f3;
+    background-color: #F7F7F7;
+    border: 1px #F7F7F7 solid;
+}
+
+/*中间列表的样式*/
+#grid_dicttype_content_table .u-grid td {
+    height: 36px;
+    line-height: 36px;
+}
+
+div#list {
+    background: #fff;
+}
+
+/*表格最前方单选按钮*/
+.u-grid-content-multiSelect {
+    margin: 0.02rem !important;
+}
+
+#dicttype-mdlayout .u-mdlayout-page-section {
+    top: 0;
+    bottom: 35px;
+}
+
+#dicttype-mdlayout .u-mdlayout-page-section {
+    top: 0;
+    bottom: 72px;
+}
+
+.user-datagrid {
+    padding: 0px 0px 15px 0px;
+
+}
+
+#dicttype_list_button {
+    width: 100%;
+    background: white;
+    z-index: 2000;
+    position: fixed;
+    padding: 15px;
+}
+
+/*  按钮列表复制修改 */
+.u-mdlayout-btn {
+    background: #fff;
+    border-bottom: 1px solid #cecece;
+}
+
+#dicttype_list_button_2 {
+    padding: 5px 15px 5px 15px;
+    float: right;
+}
+
+.u-button-group .u-button-primary.u-button-sm {
+    color: rgb(255, 255, 255);
+    background-color: #1E7BE2;
+    border: 1px #1E7BE2 solid;
+}
+
+/*加上分割线*/
+.u-button-group .u-button-primary.u-button-sm:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+#dicttype_list_button_2 .u-button-group {
+    float: right;
+}
+
+#dicttype_list_button_2 .u-button {
+    min-width: 2.5rem;
+}
+
+.center-title {
+    float: right;
+    text-align: center;
+    line-height: 2.5;
+}
+
+/* 与user不同的是去掉table的最上层border */
+div#grid_dicttype {
+    border-top: 1px solid transparent;
+}
+
+#grid_dicttype_header_thead .u-grid-header-link {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    display: block;
+    padding: 0 18px 0 18px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 12px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+}
+
+.u-grid-header-th {
+    height: 32px !important;
+}
+
+.u-grid-header-multi-select {
+    height: 32px !important;
+    line-height: 32px !important;
+}
+
+.u-grid-content-multiSelect {
+    height: 43px !important;
+}
+
+.u-grid-header .u-grid-checkbox-outline {
+    top: 9px !important;
+}
+/*页码*/
+#pagination {
+    margin: 5px 5px 5px 15px;
+}
+
+/*测试collapse*/
+.u-panel-body {
+    padding: 0px;
+}
+
+.collapse.in {
+    height: auto;
+}
+
+.collapse {
+    -webkit-transition: height 0.35s ease;
+    -moz-transition: height 0.35s ease;
+    -ms-transition: height 0.35s ease;
+    -o-transition: height 0.35s ease;
+    transition: height 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    height: 0;
+
+}

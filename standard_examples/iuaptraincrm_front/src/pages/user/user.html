@@ -1,0 +1,217 @@
+<!-- 内容 -->
+<div class="u-mdlayout user" id="user-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail" style="overflow-y: auto;">
+	<div class="u-mdlayout-page u-navlayout-fixed-header current" id="user_list">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">系统管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>用户维护</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">用户编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write"  u-meta='{"type":"string", "data":"searchData", "field":"loginName"}'>
+							</div>
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">用户名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"type":"string", "data":"searchData", "field":"name"}'>
+							</div>
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属公司：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"type":"string", "data":"searchData", "field":"pkCorp"}'>
+							</div>
+						</div>
+						<div class="u-row">
+						  	<div class="btnBox pull-right mb-5" >
+								<button class="u-button raised primary" id="table-search" data-bind="click: searchClick">查询</button>
+								<button class="u-button raised primary" id="table-add" data-bind="click:addClick">新增</button>
+								<button class="u-button raised primary" id="table-edit" data-bind="click:editClick">修改</button>
+								<button class="u-button raised primary" id="table-del" data-bind="click:delClick">删除</button>
+								<button class="u-button raised primary" id="table-finish" data-bind="click:lockClick">解锁/锁定</button>
+								<button class="u-button raised primary" id="table-unfinish" data-bind="click:openClick">启用/停用</button>
+								<button class="u-button raised primary" id="table-unfinish" data-bind="click:editClickPosition">关联岗位</button>
+								<button class="u-button raised primary" id="table-unfinish" data-bind="click:pwClick">重置密码</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-widget-body">
+						<div class="page-content-box">
+							<div class="row">
+								<div class="col-md-12">
+									<div type="text" u-meta='{"id":"user_grid3","data":"listData","type":"grid","editable":false,"multiSelect":true,"showNumCol":true,"onDblClickFun":"rowDblClick"}'>
+										<div options='{"field":"loginName","dataType":"String","title":"用户编码","width":125}'></div>
+										<div options='{"field":"name","dataType":"String","title":"用户名称","width":125}'></div>
+										<div options='{"field":"pkCorp","dataType":"String","title":"所属公司","width":125,"renderType":"ReferRender","refCode":"corp"}'></div>
+										<div options='{"field":"pkDept","dataType":"String","title":"所属部门","width":125,"renderType":"ReferRender","refCode":"dept"}'></div>
+										<div options='{"field":"pkPsndoc","dataType":"String","title":"关联人员","width":125,"renderType":"ReferRender","refCode":"psn"}'></div>
+										<div options='{"field":"lockedT","dataType":"String","title":"用户状态","width":125}'></div>
+										<!--<div options='{"field":"pk_propt","dataType":"String","title":"用户属性","width":125,"renderType":"ReferRender","refCode":"userattr"}'></div>
+										<div options='{"field":"pkUsertype","dataType":"String","title":"用户类型","width":125,"renderType":"ReferRender","refCode":"usertyperef"}'></div>-->
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="u-mdlayout-page u-navlayout-fixed-header" id="user_addPage">
+		<div class="u-mdlayout-page-section">
+			<div class="u-container-fluid u-widget-bg example">
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <a href="#">权限管理</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <a href="#">用户维护</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span>编辑</span>
+                                </li>
+                            </ul>
+
+                        </div>
+					</div>	
+				</div>
+				<div class="u-row">
+					<div class="u-col-12" style="padding-bottom:15px;">
+						<div class="u-widget mtb-1015" style="background-color:transparent;">
+							<button class="u-button raised primary" data-bind="click: backClick,visible: gridStatus() =='read'">返回</button>
+							<button class="u-button raised primary" data-bind="click: saveClick, visible: gridStatus() =='edit'">保存</button>
+							<button class="u-button raised primary" data-bind="click: canlClick, visible: gridStatus() =='edit'">取消</button>
+							<button class="u-button raised primary" data-bind="click: addClick,visible: gridStatus() =='read'">新增</button>
+							<button class="u-button raised primary" data-bind="click: editClick,visible: gridStatus() =='read'">修改</button>
+							<button class="u-button raised primary" data-bind="click: canlClick, visible: gridStatus() =='position'">返回</button>
+						</div>
+					</div>	
+				</div>
+				
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">用户编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8"  u-meta='{"id":"loginName","name":"用户编码","type":"u-text","data":"cardData","field":"loginName"}'>
+								<div class="u-input-group-before " style="color: red;">*</div>
+								<input type="text" class="u-input u-input-write" data-bind="enable: gridStatus() =='edit'" >
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">用户名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8" u-meta='{"id":"name","name":"用户名称","type":"u-text","data":"cardData","field":"name"}'>
+								<div class="u-input-group-before " style="color: red;">*</div>
+								<input type="text" class="u-input u-input-write" data-bind="enable: gridStatus() =='edit'">
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">关联人员：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<div class="input-group date form_date col-md-3 ref" id="user_user" u-meta='{"refCode":"psn","name":"关联人员","type":"uiRefer", "data":"cardData", "field":"pkPsndoc"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input id="testRefMuGridTree2" class="u-input" type="text"data-bind="event:{mousedown:getdeptref},enable: gridStatus() =='edit'" >
+									<span class="u-form-control-feedback fa fa-search refer" data-bind="click: getdeptref"></span>
+								</div>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属组织：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<div class="input-group date form_date col-md-3 ref" id="user_corp" u-meta='{"refCode":"corp","name":"所属组织","type":"uiRefer", "data":"cardData", "field":"pkCorp"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input id="testRefMuGridTree2" class="u-input" type="text"data-bind="enable: gridStatus() =='edit'" >
+									<span class="u-form-control-feedback fa fa-search refer"></span>
+								</div>
+							</div>
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属部门：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<div class="input-group date form_date col-md-3 ref" id="userinfo_deptref" u-meta='{"refCode":"dept","name":"所属部门","type":"uiRefer", "data":"cardData", "field":"pkDept"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input id="testRefMuGridTree2" class="u-input" type="text"data-bind="event:{mousedown:filerDept},enable: gridStatus() =='edit'" >
+									<span class="u-form-control-feedback fa fa-search refer" data-bind="click:filerDept,visible: gridStatus() =='edit'"></span>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+					
+					<div class="row" id="user_rolediv"style="display: none">
+						<div class="u-widget mtb-1015" style="background-color:transparent;margin: 10px 15px 10px 15px;">
+							<button class="u-button raised primary" data-bind="click:roleaddClick">关联岗位</button>
+							<button class="u-button raised primary" data-bind="click:deluserClick">删除关联岗位</button>
+							<button class="u-button raised primary" id="saverole"style="display: none" data-bind="click:saveuserClick">保存</button>
+							<button class="u-button raised primary" id="faderole" style="display: none" data-bind="click:cancelroleClick">取消</button>
+						</div>
+
+						<div type="text" style="margin:0px 15px 0px 15px" u-meta='{"id":"user_grid2","data":"rolelistData","type":"grid","editable":false,"multiSelect":true,"showNumCol":true}'>
+							<div options='{"field":"position_code","dataType":"String","title":"岗位编码"}'></div>
+							<div options='{"field":"position_name","dataType":"String","title":"岗位名称"}'></div>
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="user_light" class="white_content" style="display: none">
+			<div style="width:100%" class="plat clearfix">
+				<div class="title clearfix">
+					<h4><span class="glyphicon glyphicon-list" style="color:#ed4047"></span>关联岗位列表</h4>
+					<div class="btnBox pull-right" style="margin-right:15px;margin-bottom:10px;">
+						<button class="u-button raised primary" id="demo-table-ok" data-bind="click: okClick">确定</button>
+						<button class="u-button raised primary" id="demo-table-cancel" data-bind="click: canceluserClick">取消</button>
+					</div>
+				</div>
+				<div class="padding-bottom:10px;">
+					<div class="demoe-page-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div type="text" u-meta='{"id":"user_grid4","data":"roleData","type":"grid","multiSelect":true,"showNumCol":true,"editable":false,"editType":"default"}'>
+									<div options='{"field":"position_code","dataType":"String","title":"关联岗位编码","editType":"string"}'></div>
+									<div options='{"field":"position_name","dataType":"String","editType":"string","title":"关联岗位名称"}'></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="user_fade" class="black_overlay" style="display: none"></div>
+	</div>

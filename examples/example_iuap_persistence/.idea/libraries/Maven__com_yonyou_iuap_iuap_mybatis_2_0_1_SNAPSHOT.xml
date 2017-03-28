@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.yonyou.iuap:iuap-mybatis:2.0.1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://D:/ieop/ext/Maven/Maven3.2.2/local/repo-solr/com/yonyou/iuap/iuap-mybatis/2.0.1-SNAPSHOT/iuap-mybatis-2.0.1-20160531.085702-13.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/ieop/ext/Maven/Maven3.2.2/local/repo-solr/com/yonyou/iuap/iuap-mybatis/2.0.1-SNAPSHOT/iuap-mybatis-2.0.1-20160531.085702-13-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/ieop/ext/Maven/Maven3.2.2/local/repo-solr/com/yonyou/iuap/iuap-mybatis/2.0.1-SNAPSHOT/iuap-mybatis-2.0.1-20160531.085702-13-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

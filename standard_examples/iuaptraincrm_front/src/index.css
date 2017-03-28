@@ -1,0 +1,338 @@
+.u-grid-err-td {
+  background-color: transparent !important;
+}
+.u-grid-err-td * {
+  background-color: transparent !important;
+}
+.slidhid {
+  display: none !important;
+}
+.slidshow {
+  display: block !important;
+}
+.children {
+  margin: 0;
+  padding: 0;
+}
+.list-group .list-group-item {
+  border: 0;
+}
+.u-pagination .active {
+  z-index: 2;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+/*复写layout logo*/
+.page-header.navbar .page-logo>a{
+  display:block;
+  text-decoration:none;
+  padding: 10px 5px;
+}
+.page-header.navbar .page-logo>a:hover{
+  text-decoration:none;
+}
+.page-header.navbar .page-logo>a b{
+  font-size:18px;
+  color:orangered;
+  
+}
+.page-header.navbar .page-logo>a small{
+  font-size:14px;
+  color:white;
+  
+}
+
+/*logo end*/
+/*复写右侧容器*/
+#content{
+  padding: 0px;
+}
+#content>.u-mdlayout{
+  height: 50px;
+}
+
+.u-mdlayout{
+  box-shadow:0px 0px 0px #ffffff !important;
+}
+/*针对form－group复习*/
+.clear_pd_0{
+  padding: 0px;
+}
+.clear_mr_0{
+margin-right: 0px;
+}
+.padding-15{
+  padding: 5px 15px;
+}
+
+input.u-form-control{
+  height: 25px;
+  padding-right:22px;
+}
+
+/*复习表格样式*/
+.u-table tbody tr,.u-table tbody tr td{
+  height: 35px;
+}
+
+.u-table tbody tr td{
+  padding: 0px 5px !important;
+}
+
+/*up1129*/
+.u-mdlayout-page-section{
+  top:0px;
+  bottom: 0px;
+ /*padding: 15px 0px;*/
+}
+
+.u-widget{
+	margin: 0px;
+}
+
+.u-widget-body{
+	padding: 0px;
+}
+.u-table th{
+  line-height: 35px;
+  height: 35px;
+}
+
+/*分页复习*/
+.u-pagination{
+  margin: 15px;
+}
+.u-pagination > li{
+  margin-top: 4px;
+}
+
+.u-pagination > li > a, .u-pagination > li > span{
+  padding: 2px 10px;
+}
+.pagination-state{
+  line-height: 34px;
+  height: 34px;
+}
+.pagination-state > .page_j,.pagination-state > .page_z{
+  height: 25px;
+  line-height: 25px;
+}
+.pagination-state > .pagination-jump{
+  margin: 0px 10px;
+  line-height: 18px;
+  font-size: 13px;
+}
+/*复习面包屑*/
+.page-container-bg-solid .page-bar,.page-content-white .page-bar{
+margin: -15px -15px 15px !important;
+display:none;
+}
+
+/*复写按钮组*/
+.u-widget-inner-right{
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+/*复写u-tab页签*/
+.u-tabs.u-tab-inner-left .u-tabs__tab-bar{
+  justify-content:flex-start;
+}
+.u-tabs__tab:hover,.u-tabs__tab:active,.u-tabs__tab:focus{
+  text-decoration: none;
+}
+
+.u-tabs.is-upgraded .u-tabs__tab.is-active{
+  background-color:#f1f1f1; 
+}
+
+/*禁止换行*/
+.nowrap{
+  white-space: nowrap;
+}
+
+/*行距*/
+.line-h-35{
+  line-height: 35px;
+}
+
+/*下划虚线*/
+.dash-bb{
+  border-bottom: 1px dashed #e7ecf1;
+}
+
+/*菜单修正*/
+.page-sidebar .page-sidebar-menu .sub-menu{
+  margin: 0px;
+}
+
+
+/*up1129*/
+/*复写日期选择框样式*/
+.fx-datepicker{
+  padding: 0px 15px !important;
+}
+
+.fx-datepicker .input-group-addon{
+  padding: 2px 4px;
+  border: none;
+}
+
+/*复写layout logo*/
+.page-header.navbar .page-logo>a{
+  display:block;
+  text-decoration:none;
+  padding: 10px 5px;
+  background: url('static/logo.png') no-repeat;
+    width: 160px;
+    height: 60px;
+    margin-top: 10px;
+    background-size: 90%;
+}
+.page-header.navbar .page-logo>a:hover{
+  text-decoration:none;
+}
+.page-header.navbar .page-logo>a b{
+  font-size:18px;
+  color:orangered;
+  
+}
+.page-header.navbar .page-header-title{
+    color: white;
+    display: inline-block;
+    padding: 9px 0px 0px 34px;
+    letter-spacing: 2px;
+    font-size: 1.5em;
+  
+}
+
+/*更多查询条件up1129*/
+.much-more{
+  display: none;
+}
+.much-more.reveal{
+  display: inline-block;
+}
+/*查询框区域*/
+.search-section{
+  display: inline-block;
+  background-color: #fafafa;
+ /* background-color: #f2f9fa;*/
+ /* margin: -15px 15px 0px;*/
+  padding: 15px;
+  border:1px solid rgba(0,0,0, 0.12);
+  width:100%;
+}
+
+.u-input{
+	border:1px solid rgba(0,0,0, 0.12);
+	height:25px;
+}
+
+.input-group{
+	width:100%;
+}
+
+.pull-right{
+	padding-right:15px;
+}
+
+.fa-search{
+	padding-top:7px;
+}
+
+.u-input-label{
+	line-height:25px;
+}
+
+.u-tabs__tab-bar{
+	height:35px;
+}
+
+.u-tabs__tab{
+	height:35px;
+}
+
+.u-form-control{
+	background-color:#fafafa;
+}
+
+.u-input-write{
+	background-color:#ffffff;
+}
+
+.u-input-readonly{
+	background-color:#fafafa;
+}
+
+.u-col-12{
+	margin-bottom:-7px;
+}
+
+.u-checkbox-floatl{
+	margin-left: 19px;
+}
+
+.u-widget-bg{
+	background-color:#ffffff;
+}
+
+.ztree li.focusNode span.button.switch{
+	color:#333333;
+}
+.u-widget{
+	background-color:#fafafa;
+}
+.u-form-control-feedback.refer{
+	margin-right: -6px;
+}
+.u-date-content{
+	height:262px;
+}
+
+.u-grid-content-td-div {
+    text-align: left !important;
+}
+
+.byd-checkbox-col-2 .u-checkbox{
+	width: 45%;
+}
+.nav-pills, .nav-tabs{
+	margin-bottom:0px;
+}
+
+.u-mdlayout-detail{
+	margin-top:-5px;
+}
+
+.u-form-control-feedback.fa-caret-down {
+	margin-right:10px;
+}
+
+.u-grid a {
+	color:#337ab7 !important;
+}
+/*左侧菜单出滚动条up1129
+.page-sidebar-wrapper{
+  position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+@media screen and (max-width: 991px){
+.page-sidebar-wrapper{
+  position: inherit;
+    height: auto;
+  }
+}*/
+
+#menuDiv *{
+	font-family: 'Microsoft YaHei', 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', sans-serif;
+	color: rgb(51, 51, 51);
+}
+
+.table-is-hidden{
+	display: none;
+}

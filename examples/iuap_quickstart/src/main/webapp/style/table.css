@@ -1,0 +1,46 @@
+/**
+ *表格样式：
+ *以人员为参考设置表格基本样式
+ *from: lizhik
+ */
+ table{
+ 	width:100%;
+ }
+
+ table thead {
+ 	background-color: #F7F7F7;
+ }
+ .table-responsive tbody i{
+     display: none;
+ }
+ .table-responsive  tbody tr:hover i{
+ 	display: inline;
+ }
+ 
+#content .thead th{
+	height:40px;
+	color:#212121;
+	border-bottom: 1px solid #D6D7D6;
+	font: 14px "microsoft yahei" bold ;
+}
+#content tbody tr td,
+#content tbody tr{
+	height:40px;
+}
+#content tbody tr:hover{
+	background:#EFF9FC;
+}
+
+
+/**
+ * 表头排序样式
+ * from: lizhik
+ */
+/*.sort{
+	padding-left:6px;
+}
+.sort i{
+	position: absolute;
+	top:12px;
+	color:#C5C5C5;
+}*/

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yonyou.iuap.example.repository.mybatis.SysDictTypeMapper">
+    <resultMap id="BaseResultMap" type="com.yonyou.iuap.example.entity.mybatis.SysDictType">
+        <id column="dict_id" property="dictid" jdbcType="VARCHAR"/>
+        <result column="dict_type_code" property="dicttypecode" jdbcType="VARCHAR"/>
+        <result column="dict_type_name" property="dicttypename" jdbcType="VARCHAR"/>
+        <result column="is_fixed" property="isfixed" jdbcType="CHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="creator_id" property="creatorid" jdbcType="VARCHAR"/>
+        <result column="creator" property="creator" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createtime" jdbcType="DATE"/>
+        <result column="modifier_id" property="modifierid" jdbcType="VARCHAR"/>
+        <result column="modifier" property="modifier" jdbcType="VARCHAR"/>
+        <result column="modify_time" property="modifytime" jdbcType="DATE"/>
+        <result column="dr" property="dr" jdbcType="CHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        dict_id, dict_type_code, dict_type_name, is_fixed, remark, creator_id, creator, create_time,
+        modifier_id, modifier, modify_time, dr
+    </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_type
+        where dict_id = #{dictid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from sys_dict_type
+        where dict_id = #{dictid,jdbcType=VARCHAR}
+    </delete>
+    <delete id="batchDeleteByPrimaryKey" parameterType="java.util.List">
+        delete from sys_dict_type
+        where
+        dict_id in
+        <foreach collection="list" item="item" index="index" separator="," open="(" close=")">
+            #{item.dictid,jdbcType=VARCHAR}
+        </foreach>
+    </delete>
+
+    <insert id="insert" parameterType="com.yonyou.iuap.example.entity.mybatis.SysDictType">
+        insert into sys_dict_type (dict_id, dict_type_code, dict_type_name,
+        is_fixed, remark, creator_id,
+        creator, create_time, modifier_id,
+        modifier, modify_time, dr)
+        values (#{dictid,jdbcType=VARCHAR}, #{dicttypecode,jdbcType=VARCHAR}, #{dicttypename,jdbcType=VARCHAR},
+        #{isfixed,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR},
+        #{creator,jdbcType=VARCHAR}, #{createtime,jdbcType=DATE}, #{modifierid,jdbcType=VARCHAR},
+        #{modifier,jdbcType=VARCHAR}, #{modifytime,jdbcType=DATE}, #{dr,jdbcType=CHAR})
+    </insert>
+
+    <insert id="batchInsert" parameterType="java.util.List">
+        insert into sys_dict_type (dict_id, dict_type_code, dict_type_name,
+        is_fixed, remark, creator_id,
+        creator, create_time, modifier_id,
+        modifier, modify_time, dr)
+
+        <foreach collection="list" item="item" index="index" separator="union" open="(" close=")">
+            select
+            #{item.dictid,jdbcType=VARCHAR}, #{item.dicttypecode,jdbcType=VARCHAR},
+            #{item.dicttypename,jdbcType=VARCHAR},
+            #{item.isfixed,jdbcType=CHAR}, #{item.remark,jdbcType=VARCHAR}, #{item.creatorid,jdbcType=VARCHAR},
+            #{item.creator,jdbcType=VARCHAR}, #{item.createtime,jdbcType=DATE}, #{item.modifierid,jdbcType=VARCHAR},
+            #{item.modifier,jdbcType=VARCHAR}, #{item.modifytime,jdbcType=DATE}, #{item.dr,jdbcType=CHAR}
+            from dual
+        </foreach>
+    </insert>
+    <insert id="insertSelective" parameterType="com.yonyou.iuap.example.entity.mybatis.SysDictType">
+        insert into sys_dict_type
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="dictid != null">
+                dict_id,
+            </if>
+            <if test="dicttypecode != null">
+                dict_type_code,
+            </if>
+            <if test="dicttypename != null">
+                dict_type_name,
+            </if>
+            <if test="isfixed != null">
+                is_fixed,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="creatorid != null">
+                creator_id,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="createtime != null">
+                create_time,
+            </if>
+            <if test="modifierid != null">
+                modifier_id,
+            </if>
+            <if test="modifier != null">
+                modifier,
+            </if>
+            <if test="modifytime != null">
+                modify_time,
+            </if>
+            <if test="dr != null">
+                dr,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="dictid != null">
+                #{dictid,jdbcType=VARCHAR},
+            </if>
+            <if test="dicttypecode != null">
+                #{dicttypecode,jdbcType=VARCHAR},
+            </if>
+            <if test="dicttypename != null">
+                #{dicttypename,jdbcType=VARCHAR},
+            </if>
+            <if test="isfixed != null">
+                #{isfixed,jdbcType=CHAR},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="creatorid != null">
+                #{creatorid,jdbcType=VARCHAR},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=DATE},
+            </if>
+            <if test="modifierid != null">
+                #{modifierid,jdbcType=VARCHAR},
+            </if>
+            <if test="modifier != null">
+                #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="modifytime != null">
+                #{modifytime,jdbcType=DATE},
+            </if>
+            <if test="dr != null">
+                #{dr,jdbcType=CHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.yonyou.iuap.example.entity.mybatis.SysDictType">
+        update sys_dict_type
+        <set>
+            <if test="dicttypecode != null">
+                dict_type_code = #{dicttypecode,jdbcType=VARCHAR},
+            </if>
+            <if test="dicttypename != null">
+                dict_type_name = #{dicttypename,jdbcType=VARCHAR},
+            </if>
+            <if test="isfixed != null">
+                is_fixed = #{isfixed,jdbcType=CHAR},
+            </if>
+            <if test="remark != null">
+                remark = #{remark,jdbcType=VARCHAR},
+            </if>
+            <if test="creatorid != null">
+                creator_id = #{creatorid,jdbcType=VARCHAR},
+            </if>
+            <if test="creator != null">
+                creator = #{creator,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                create_time = #{createtime,jdbcType=DATE},
+            </if>
+            <if test="modifierid != null">
+                modifier_id = #{modifierid,jdbcType=VARCHAR},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=VARCHAR},
+            </if>
+            <if test="modifytime != null">
+                modify_time = #{modifytime,jdbcType=DATE},
+            </if>
+            <if test="dr != null">
+                dr = #{dr,jdbcType=CHAR},
+            </if>
+        </set>
+        where dict_id = #{dictid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.yonyou.iuap.example.entity.mybatis.SysDictType">
+        update sys_dict_type
+        set dict_type_code = #{dicttypecode,jdbcType=VARCHAR},
+        dict_type_name = #{dicttypename,jdbcType=VARCHAR},
+        is_fixed = #{isfixed,jdbcType=CHAR},
+        remark = #{remark,jdbcType=VARCHAR},
+        creator_id = #{creatorid,jdbcType=VARCHAR},
+        creator = #{creator,jdbcType=VARCHAR},
+        create_time = #{createtime,jdbcType=DATE},
+        modifier_id = #{modifierid,jdbcType=VARCHAR},
+        modifier = #{modifier,jdbcType=VARCHAR},
+        modify_time = #{modifytime,jdbcType=DATE},
+        dr = #{dr,jdbcType=CHAR}
+        where dict_id = #{dictid,jdbcType=VARCHAR}
+    </update>
+
+    <update id="batchUpdate" parameterType="java.util.List">
+        begin
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            update sys_dict_type
+            <set>
+                dict_type_code = #{item.dicttypecode,jdbcType=VARCHAR},
+                dict_type_name = #{item.dicttypename,jdbcType=VARCHAR},
+                is_fixed = #{item.isfixed,jdbcType=CHAR},
+                remark = #{item.remark,jdbcType=VARCHAR},
+                creator_id = #{item.creatorid,jdbcType=VARCHAR},
+                creator = #{item.creator,jdbcType=VARCHAR},
+                create_time = #{item.createtime,jdbcType=DATE},
+                modifier_id = #{item.modifierid,jdbcType=VARCHAR},
+                modifier = #{item.modifier,jdbcType=VARCHAR},
+                modify_time = #{item.modifytime,jdbcType=DATE},
+                dr = #{item.dr,jdbcType=CHAR}
+            </set>
+            where dict_id = #{item.dictid,jdbcType=VARCHAR}
+        </foreach>
+        ;end;
+    </update>
+
+
+    <select id="findByCode" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from sys_dict_type
+        where dict_type_code = #{code,jdbcType=VARCHAR}
+    </select>
+
+    <select id="selectAllByPage" resultMap="BaseResultMap" resultType="java.util.List">
+        SELECT
+        <include refid="Base_Column_List"/>
+        from sys_dict_type where 1=1
+        <if test="search != null">
+            <if test="search.dicttypename!=null and search.dicttypename!='' ">
+                and sys_dict_type.dict_type_name LIKE CONCAT(CONCAT('%', #{search.dicttypename}),'%')
+            </if>
+            <if test="search.dicttypecode!=null and search.dicttypecode!='' ">
+                and sys_dict_type.dict_type_code LIKE CONCAT(CONCAT('%', #{search.dicttypecode}),'%')
+            </if>
+        </if>
+    </select>
+
+
+</mapper>

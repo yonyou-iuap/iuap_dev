@@ -1,0 +1,142 @@
+<div class="list-panel" id="manager">
+    <div class="common-header-1">
+        <div class="u-col-4 padding-right-0" style="float:right">
+            <div class="u-button-group margin-0" style="float:right;">
+            	<!--兼容ie9以下enter问题-->
+                <!--[if lt IE 10]><button style="display:block;width:1px;height:1px;border:none;">1</button><![endif]-->
+                <button class="u-button u-button-primary "
+                        id="addButton" data-bind="click: event.addClick" tabindex="-1">新增
+                </button>
+                <button class="u-button u-button-primary "
+                        id="editButton" data-bind="click: event.editClick">编辑
+                </button>
+                <button class="u-button u-button-primary" id="delButton" data-bind="click: event.delClick">删除</button>
+            </div>
+        </div>
+        <div class="u-col-4" style="float:right;text-align:center;">
+            <span>系统管理</span>
+        </div>
+
+    </div>
+    <div class="common-header-2">
+        <div class="pull-left">
+            <div id="searchdiv" class="u-input-group u-has-feedback ">
+                <input type="text" class="u-form-control sm input_enter" id="search"
+                       placeholder="输入系统编码/系统名称"> <span
+                    class="u-form-control-feedback uf uf-search-light-2"
+                    id="searchBtn" data-bind="click: event.searchClick"></span>
+            </div>
+        </div>
+    </div>
+    <!--table-->
+    <div class="main-container cartable-container">
+        <div class="hr-table ">
+            <div class="u-table b-table width-full"
+                 u-meta='{"id":"gridcardtable","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                <div options='{"field":"code","title":"系统编码","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"name","title":"系统名称","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"gateway","title":"网关地址","dataType":"String","editType":"string"}'></div>
+                <div options='{"field":"radiodatacontroller","title":"需要授权","type":"u-checkbox","data":"dt1","editOptions":{"datasource":"radiodatacontroller"},"renderType":"comboRender"}'></div>
+                <div options='{"field":"radiodataassociate","title":"用户自关联","type":"u-checkbox","data":"dt1","editOptions":{"datasource":"radiodataassociate"},"renderType":"comboRender"}'></div>
+                <div options='{"field":"combodatamodel","title":"认证模式","dataType":"String","editType":"string","renderType":"comboRender","editOptions":{"datasource":"combodatamodel"}}'></div>
+            </div>
+        </div>
+        <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+    </div>
+</div>
+
+<!-编辑-->
+<div class="" id="editPage" style="background: #fff; display: none;">
+    <div class="u-msg-title">新增</div>
+    <div class="u-msg-content " id="edit2">
+        <!--第一行-->
+        <div class=" u-row ">
+            <div class="u-col-2 ">
+                <label for="code" class="u-input-label right">系统编码:</label>
+            </div>
+            <div class="u-col-4 ">
+                <div class="u-input-group-before padding-left-10 "
+                     style="color: red;">*
+                </div>
+                <input type="text" id="code"
+                       class="u-form-control padding-left-15"
+                       u-meta='{"type":"string","data":"dtnew","field":"code"}'
+                       placeholder="系统编码不能为空">
+            </div>
+            <div class="u-col-2 right-col">
+                <label class="u-input-label right">系统名称:</label>
+            </div>
+            <div class="u-col-4 ">
+                <div class="u-input-group-before padding-left-10 "
+                     style="color: red;">*
+                </div>
+                <input type="text" id="name"
+                       class="u-form-control padding-left-15"
+                       u-meta='{"type":"string","data":"dtnew","field":"name"}'
+                       placeholder="系统名称不能为空">
+            </div>
+        </div>
+        <!--第二行-->
+        <div class=" system-row u-row margin-top-20">
+            <div class="u-col-2 ">
+                <label class="u-input-label right">网关地址:</label>
+            </div>
+            <div class="u-col-4 ">
+                <input type="text" id="gateway" class="u-form-control"
+                       u-meta='{"id":"gateway","type":"string","data":"dtnew","field":"gateway"}'
+                       placeholder="网关地址">
+            </div>
+            <div class="u-col-2 right-col ">
+                <label class="u-input-label right">认证模式:</label>
+            </div>
+            <div id="model" class="u-col-4 u-combo u-label-floating"
+                 u-meta='{"id":"model","type":"u-combobox","data":"dtnew","field":"combodatamodel","renderType":"comboRender","datasource":"combodatamodel"}'>
+                <input class="u-input"/> <span class="u-combo-icon"></span>
+            </div>
+        </div>
+
+        <!--第三行-->
+        <div class=" system-row u-row margin-top-20">
+            <div class="u-col-2">
+                <label class="u-input-label right">需要授权: </label>
+            </div>
+            <div class="u-col-4" id="underController"
+                 u-meta='{"id":"underController","type":"u-radio","data":"dtnew","field":"radiodatacontroller","renderType":"radioRender","datasource":"radiodatacontroller"}'>
+                <div>
+                    <label class="u-radio"> <input type="radio" class="u-radio-button" name="radiodatacontroller"> <span
+                            class="u-radio-label"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!--第四行-->
+        <div class=" system-row u-row margin-top-20">
+            <div class="u-col-2">
+                <label class="u-input-label right">自行关联: </label>
+            </div>
+            <div class="u-col-4" id="userAssociate"
+                 u-meta='{"id":"userAssociate","type":"u-radio","data":"dtnew","field":"radiodataassociate","renderType":"radioRender","datasource":"radiodataassociate"}'>
+                <div>
+                    <label class="u-radio"> <input type="radio"
+                                                   class="u-radio-button" name="radiodataassociate"> <span
+                            class="u-radio-label"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" u-msg-footer ">
+        <div class="pull-right">
+            <button type="button" class="u-button u-button-white editCancel margin-right-15 "
+                    id="editCancel" data-bind="click: event.saveCancelClick">取消
+            </button>
+            <button type="button"
+                    class="u-button raised u-button-primary margin-right-10" id="editOk"
+                    data-bind="click: event.saveOkClick">保存
+            </button>
+
+        </div>
+    </div>
+</div>
+

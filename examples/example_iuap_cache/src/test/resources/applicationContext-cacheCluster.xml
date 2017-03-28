@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:jee="http://www.springframework.org/schema/jee" 
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa" 
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd
+	    http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.0.xsd"
+        default-lazy-init="true">
+
+	<description>cache</description>
+    
+    <!-- jedisCluster -->
+   	<bean name="genericObjectPoolConfig" class="org.apache.commons.pool2.impl.GenericObjectPoolConfig" >
+			<property name="maxWaitMillis" value="${genericPool.maxWaitMillis}" />
+			<property name="maxTotal" value="${genericPool.maxTotal}" />
+			<property name="minIdle" value="${genericPool.minIdle}" />
+			<property name="maxIdle" value="${genericPool.maxIdle}" />
+	</bean>
+ 
+	<bean id="jedisCluster" class="com.yonyou.iuap.cache.redis.JedisClusterSetFactory">
+		<property name="url" value="${rediscluster.url}" />    
+		<property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />
+	</bean>
+	<bean id="cacheClusterManager" class="com.yonyou.iuap.cache.CacheClusterManager">
+		<property name="jedisCluster" ref="jedisCluster"  />
+	</bean>
+	<!-- 
+	<bean id="iuapJedisCluster" class="com.yonyou.iuap.cache.redis.JedisClusterSetFactory">
+		<property name="url" value="${rediscluster.url}" />    
+		<property name="genericObjectPoolConfig" ref="genericObjectPoolConfig" />
+	</bean>-->
+	
+	
+	<!-- spring cache的 缓存方式
+	  	  默认的值为  cacheManager,为防止冲突 可以显示引入simpleCacheManager
+	 -->
+	<cache:annotation-driven cache-manager="simpleCacheManager"/>    
+	
+	<!--   name: 注解需要的名字 （必填）
+	       cacheManager  缓存操作 （必填）
+	       expireTime 过期时间 ，单位秒  （可空） -->
+	<bean id="simpleCacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+	    <property name="caches"> 
+	    	<set> 
+	    		<bean class="com.yonyou.iuap.cache.spring.ClusterCache" >   <!-- cluster操作-->
+	    			<property name="name"  value="redisClusterCache"></property>   
+	    			<property name="cacheManager" ref="cacheClusterManager"></property>
+	    		</bean>
+	    		<bean  class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean">
+	    			<property name="name"  value="default"></property>   
+                </bean>
+	    	</set>
+	    </property>
+	</bean>
+	
+	<!--   用户自定义的逻辑服务，在此类里用注解 ，调用缓存	 -->
+	<bean id="clusterCacheService" class="com.yonyou.iuap.cache.redis.ClusterCacheService"> </bean>
+	 
+	
+	 
+</beans>

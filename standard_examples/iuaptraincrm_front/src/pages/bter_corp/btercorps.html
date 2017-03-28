@@ -1,0 +1,161 @@
+<!-- 内容 -->
+<div class="u-mdlayout functionactivity" id="demo-crops-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+	<div class="u-mdlayout-detail" style="overflow-y: auto;">
+		<div class="u-mdlayout-page current" id="btercorp_list">
+			<div class="u-mdlayout-page-section" >
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">系统管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">组织管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>组织维护</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" >
+							<div class="u-widget mtb-1015" style="background-color:transparent;">
+								<button class="u-button raised primary" data-bind="click: addClick, visible: gridStatus() =='read'">新增</button>
+								<button class="u-button raised primary" data-bind="click: editClick, visible: gridStatus() =='read'">修改</button>
+								<!--<button class="u-button raised primary" data-bind="click: delClick, visible: gridStatus() =='read'">删除</button>-->
+								<button class="u-button raised primary" data-bind="click: qystaClick, visible: gridStatus() =='read'">启用</button>
+								<button class="u-button raised primary" data-bind="click: tyClick, visible: gridStatus() =='read'">停用</button>
+								<button class="u-button raised primary" data-bind="click: saveClick, visible: gridStatus() =='edit'">保存</button>
+								<button class="u-button raised primary" data-bind="click: cancelClick, visible: gridStatus() =='edit'">取消</button>
+								<button class="u-button raised primary" data-bind="click: qystaClick, visible: gridStatus() =='qystatus'">保存</button>
+								<button class="u-button raised primary" data-bind="click: cancelClick, visible: gridStatus() =='qystatus'">取消</button>
+							</div>
+						</div>	
+					</div>	
+					<div style="width:250px;float:left;padding-top: 10px;overflow:auto;position:relative;">
+						<div class="ztreeHeader">
+							<a  data-bind="click:searchclick" class="searchIcon"><span class="partingLineL"></span><img src="pages/pageImages/searchIcon.png" /><span class="partingLineR"></span></a>
+							<input type="text" name="searchtxt" id="searchtxt" value="请输入关键词" />
+						</div>
+						<div id="corp_zhezhao" style="display:none;width:100%;height:100%;position:absolute;left:0;bottom:0;background:rgb(0,0,0,0.3);z-index:10001;"></div>
+						<div type="text" class="ztree" u-meta='{"multiSelect":true,"id":"corp_ztree1","data":"treeData","type":"tree","idField":"pk_corp","pidField":"fathercorp","nameField":"unitname","setting":"treeSetting"}'></div>
+					</div>
+					<div class="demoe-page-content" style="margin-left: 255px;border:0px solid #E0E0E0" id="corpformref">
+						<div class="search-section " id="input1" style="width:100%;display: inline-block;margin-top:10px;">
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">组织编码：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8" u-meta='{"id":"unitcode","type":"u-text","data":"listData","field":"unitcode","name":"组织编码"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" type="text" id="sample3" data-bind="enable: gridStatus() =='edit'" >
+								</div>
+								
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">组织名称：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8"  u-meta='{"id":"unitname","type":"u-text","data":"listData","field":"unitname","name":"组织名称"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" data-bind="enable: gridStatus() =='edit'" >
+								</div>
+								
+							</div>
+							
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">组织负责人：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref corp" id="person" u-meta='{"refCode":"user","type":"uiRefer", "data":"listData", "field":"pk_user","name":"组织负责人"}'>
+										<input id="testRefMuGridTree" class="u-input" type="text" data-bind="enable: gridStatus() =='edit'">
+										<span class="u-form-control-feedback fa fa-search demoe-icon-btn refer" style="line-height:14px !important" data-bind="click: UserRefClick,enable: gridStatus() =='edit'"></span>
+									</div>
+								</div>
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">上级组织：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref corp" id="corps" u-meta='{"refCode":"corp","type":"uiRefer", "data":"listData", "field":"fathercorp"}'>
+										<input id="testRefMuGridTree2" class="u-input" type="text" data-bind="enable: gridStatus() =='edit'">
+										<span class="u-form-control-feedback fa fa-search refer" style="line-height:14px !important" data-bind="enable: gridStatus() =='edit'"></span>
+									</div>
+								</div>
+								
+							</div>
+							
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">省份：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref corp" id="def2" u-meta='{"refCode":"province","type":"uiRefer", "data":"listData", "field":"def2"}'>
+										<input id="def2refid" class="u-input" type="text" data-bind="enable: gridStatus() =='edit'">
+										<span id="def2refidButton" class="u-form-control-feedback fa fa-search refer" style="line-height:14px !important" data-bind="enable: gridStatus() =='edit'"></span>
+									</div>
+								</div>
+								
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">城市：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref corp" id="def3" u-meta='{"refCode":"city","type":"uiRefer", "data":"listData", "field":"def3"}'>
+										<input id="def3refid" class="u-input" type="text" data-bind="event:{mousedown:filerCity}, enable: gridStatus() =='edit'">
+										<span class="u-form-control-feedback fa fa-search refer" style="line-height:14px !important" data-bind="click:filerCity,enable: gridStatus() =='edit'"></span>
+									</div>
+								</div>
+							</div>
+							
+							
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">组织类型：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="clearfix " u-meta='{"id":"corptype","type":"u-combobox","data":"listData","field":"corptype","datasource":"combodata"}' >
+										<div class="u-text pull-left">
+											<input class="u-input" data-bind="enable: gridStatus() =='edit'">
+											<span class="u-form-control-feedback fa fa-caret-down demoe-icon-btn refer"></span>
+										</div>
+									</div>
+								</div>
+								
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">组织状态：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="clearfix " u-meta='{"id":"isseal","type":"u-combobox","data":"listData","field":"isseal","datasource":"issealdata"}' >
+										<div class="u-text pull-left">
+											<input class="u-input" data-bind="enable: gridStatus() =='edit11'">
+											<span class="u-form-control-feedback fa fa-caret-down demoe-icon-btn refer"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">备注：</label>
+								</div>
+								<div class="u-col-9 u-col-sm-8">
+									<div class="clearfix">
+										<div class="u-text pull-left " u-meta='{"type":"textarea","data":"listData","field":"memo"}'>
+											<textarea class="u-input-write" style="min-width:200px;height:50px;" data-bind="enable: gridStatus() =='edit'" rows="1"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

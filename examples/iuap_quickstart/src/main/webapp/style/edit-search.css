@@ -1,0 +1,224 @@
+
+/**
+ * ======================穿透查询功能页样式--start==========================
+ * @table link-style
+ * @by pengyic
+ */
+table td.check-link {
+	text-decoration: underline;
+	color: #65B0E4;
+	cursor: pointer;
+}
+/*************************
+@edit-page style
+@by pengyic
+*************************/
+.edit-panel {
+	background-color: #FFFFFF;
+}
+
+.common-header {
+	font: 14px '微软雅黑';
+}
+
+
+.common-header .page-name {
+	font-size: 20px;
+    line-height: 32px;
+    font-family: "微软雅黑";
+    color: #232a34;
+    float: left;
+    margin: 0;
+	padding-right: 18px;
+}
+
+div.edit-page {
+	font: 14px '微软雅黑';
+	padding:15px 0 15px 70px;
+	background-color: #FFFFFF;
+	min-height:300px;
+	border-top: 1px solid #D7D7D7;
+	/*margin-right: 155px;*/
+}
+
+
+/*************************
+@form style
+@by pengyic
+*************************/
+.form-row-hide {
+	display: none;
+}
+
+.form-row {
+	margin-bottom: 15px;
+	height: 41px;
+}
+
+.form-row .form-col-odd {
+	line-height: 41px;
+	width: 10%;
+	text-align: right;
+	display: inline-block;
+	padding-right: 16px;
+}
+
+/* 编辑态 */
+.form-row input.form-col-even {
+	line-height: 35px;
+	width: 30%;
+	padding: 0 10px;
+}
+
+/* 非编辑态 */
+.form-row span.form-col-even {
+    line-height: 41px;
+	width: 30%;
+	padding: 0 10px;
+    display: inline-block;
+}
+
+.form-row-textarea {
+	margin: 15px 0;
+	height: 80px;
+}
+
+.form-row-textarea .form-col-odd {
+	line-height: 40px;
+    width: 10%;
+    text-align: right;
+    display: inline-block;
+    padding-right: 16px;
+    vertical-align: top;
+}
+
+/* 编辑态 */
+.form-row-textarea textarea.form-textarea {
+	width: 71%;
+	height: 80px;
+	padding: 10px;
+}
+
+/* 非编辑态 */
+.form-row-textarea span.form-textarea {
+	width: 71%;
+	height: 80px;
+	padding: 10px;
+	display: inline-block;
+}
+
+/*************************
+@switch
+@by pengyic
+*************************/
+
+.switch {
+	width: 60px;
+	padding: 2px;
+	margin: 0px;
+	line-height: 16px;
+	border: 1px solid #61C6ED;
+	border-radius: 10px;
+	vertical-align: middle;
+	background-color: #61C6ED;
+}
+
+.switch > .thumb {
+	display: block;
+	float: right;
+	width: 15px;
+	height: 15px;
+	background-color: #FFFFFF;
+	border-radius: 7.5px;
+}
+
+.switch > .track {
+	display: block;
+	float: left;
+	width: 25px;
+	line-height: 15px;
+	font-size: 10px;
+	font-family: '微软雅黑';
+	font-weight: normal;
+	margin: 0 5px;
+	color: #FFFFFF;
+}
+
+.switch-disable {
+	width: 60px;
+	padding: 2px;
+	line-height: 16px;
+	border: 1px solid #aaa;
+	border-radius: 10px;
+	background-color: #FFFFFF;
+}
+
+.switch-disable > .thumb {
+	display: block;
+	float: left;
+	width: 14px;
+	height: 14px;
+	border: 1px solid #aaa;
+	background-color: #eee;
+	border-radius: 7.5px;
+}
+
+.switch-disable > .track {
+	display: block;
+	float: right;
+	width: 25px;
+	line-height: 15px;
+	font-size: 10px;
+	font-family: '微软雅黑';
+	font-weight: normal;
+	margin: 0 5px;
+	color: #aaa;
+}
+
+/*********************
+@相关操作样式 by pengyic
+*********************/
+ul.related-oper {
+	margin: 0px;
+	padding: 0px;
+	width:150px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	background-color: #FFFFFF;
+	border: 1px solid #CCCCCC;
+	font-size: 13px;
+}
+
+ul.related-oper li {
+	list-style: none;
+	height: 47px;
+	line-height: 47px;
+	padding: 0 0 0 20px;
+}
+
+ul.related-oper li a{
+	color: #000000;
+	display: block;
+}
+
+ul.related-oper li a:hover{
+	text-decoration: none;
+}
+
+ul.related-oper li:first-child{
+	font-weight: bold;
+	border-bottom: 1px solid #CCCCCC;
+	padding-left: 7px;
+}
+
+ul.related-oper li:hover{
+	background-color: #EEEEEE;
+}
+
+ul.related-oper li:first-child:hover{
+	background-color: #FFFFFF;
+}
+/**
+ * ======================穿透查询功能页样式--end==========================
+ */

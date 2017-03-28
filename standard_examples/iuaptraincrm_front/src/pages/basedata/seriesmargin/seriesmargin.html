@@ -1,0 +1,270 @@
+<div class="u-mdlayout demo1" id="seriesmargin-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail" style="overflow-y: auto;">
+		<!-- 列表界面   车系毛利列表-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="seriesmargin_listpage">
+            <div class="u-mdlayout-page-section">
+			   <div class="u-container-fluid u-widget-bg example">
+			   	 <div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">基础档案</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">产品信息</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>车系毛利</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+				<!--查询-->
+				<div class="search-section">
+					<div class="u-row">
+						<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">合同：</label>
+						</div>
+						
+						<div class="u-col-2 u-col-sm-8">
+						<div id="contract" class="input-group" u-meta='{"refCode":"contract","type":"uiRefer","data":"searchData","field":"pk_contract"}'>
+								<input type="text" class="u-form-control"/>
+								<span class="u-form-control-feedback fa fa-search refer"></span>
+						</div>
+						</div>
+						<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">年度：</label>
+						</div>
+						<div class="u-col-2 u-col-sm-4" style="padding:0px !important">
+								<div class="u-datepicke input-group fx-datepicker " u-meta='{"id":"vyear","data":"searchData","field":"vyear","type":"u-year"}'>
+									<input type="text" class="u-input"/>
+									<span class="input-group-addon">
+	                					<span class="glyphicon glyphicon-calendar"></span>
+									</span>
+								</div>
+						</div>
+						<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">季度：</label>
+						</div>
+						<div class="u-combo u-col-2 u-col-sm-8" u-meta='{"id":"vmonth","name":"季度","type":"u-combobox","data":"searchData","datasource":"monthData","field":"vmonth"}'>
+								<input class="u-input"/>
+								<span class="u-combo-icon"></span>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车系编码：</label>
+						</div>
+						
+						<div class="u-col-2 u-col-sm-8">
+						<div id="seriescode" class="input-group" u-meta='{"refCode":"series","type":"uiRefer","data":"searchData","field":"pk_series"}'>
+								<input type="text" class="u-form-control"/>
+								<span class="u-form-control-feedback fa fa-search refer"></span>
+						</div>
+						</div>
+					</div>
+					<div class="u-row">
+					  	<div class="btnBox pull-right mb-5" style="margin: 0 0 10px 0;">
+							<button class="u-button raised primary"  data-bind="click: searchClick">查询</button>
+						    <button class="u-button raised primary " data-bind="click:addClick,visible: addFunShow">新增</button>
+						    <button class="u-button raised primary " data-bind="click:updateClick,visible: editFunShow">修改</button>
+						    <button class="u-button raised primary" data-bind="click:onDownload,visible: impDemFunShow">导入模板下载</button>
+						    <button class="u-button raised primary" data-bind="click:onUploadFile,visible: importFunShow">导入</button>
+               				<!-- <button class="u-button raised primary " data-bind="click:delClick">删除</button> -->
+						</div>
+					</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-body">
+									<table class="u-table" style="width:100%;">
+										<thead>
+											<tr>
+												<th>选择</th>
+												<th>合同</th>
+												<th>车系编码</th>
+												<th>车系名称</th>
+												<th>所属类别</th>
+												<th>所属品牌</th>
+												<th>年度</th>
+												<th>季度</th>
+												<th>毛利</th>
+											</tr>
+										</thead>
+										<tbody data-bind="foreach:{data:listData.rows(),as:'row', afterAdd: afterAdd}" >
+											<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+												<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+														<input type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></td>
+												<td data-bind="text: row.getSimpleData().contractno"></td>
+												<td data-bind="text: row.getSimpleData().vseriescode"></td>
+												<td data-bind="text: row.getSimpleData().vseriesname"></td>
+												<td data-bind="text: row.getSimpleData().classname"></td>
+												<td data-bind="text: row.getSimpleData().brandname"></td>
+												<td data-bind="text: row.getSimpleData().vyear"></td>
+												<td data-bind="text: row.getSimpleData().vmonth"></td>
+												<td data-bind="text: row.getSimpleData().nmargin"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					  <div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+					</div>
+				 </div> 
+				</div>
+			</div>
+		<!-- 卡片界面    新增，修改车系毛利信息-->
+		<div class="u-mdlayout-page" id="seriesmargin_cardpage" >
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">基础档案</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">产品信息</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>车系毛利维护</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					  </div>
+			
+			<div class="u-row">
+			<div class="u-col-12" style="padding-bottom:15px;">
+				<div class="u-widget mtb-1015" style="background-color:transparent;margin: -6px 0 -6px 0;">
+					<button class="u-button raised primary " data-bind="click:saveClick">保存</button>
+                	<button class="u-button raised primary " data-bind="click:backClick">返回</button>
+				</div>
+			</div>	
+			</div>	
+			
+            	<div class="search-section">
+            	<div class="u-row">
+            		<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">合同：</label>
+					</div>
+					<div class="u-col-2 u-col-sm-8">
+				 	 <div id="contract_card" class="input-group" u-meta='{"refCode":"contract","type":"uiRefer","data":"cardData","field":"pk_contract","name":"合同"}'>
+									<div class="u-input-group-before " style="color: red;">* </div>
+								<input type="text" class="u-form-control"/>
+								<span class="u-form-control-feedback fa fa-search refer"></span>
+			    	  </div>
+			    	  </div>
+            		<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">车系名称：</label>
+					</div>
+					<div class="u-col-2 u-col-sm-8">
+				 	 <div id="seriescode_card" class="input-group" u-meta='{"refCode":"series","type":"uiRefer","data":"cardData","field":"pk_series","name":"车系编码"}'>
+									<div class="u-input-group-before " style="color: red;">* </div>
+								<input type="text" class="u-form-control"/>
+								<span class="u-form-control-feedback fa fa-search refer"></span>
+			    	  </div>
+			    	  </div> 
+            		
+	            	<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车系编码：</label>
+						</div>
+					<div class="u-col-2 u-col-sm-8">
+						<input type="text" disabled="true"  class="u-form-control u-input-write"u-meta='{"name":"车系编码","data":"cardData","field":"vseriescode","type":"string"}'>
+					</div>	
+					
+	            </div>
+	            <div class="u-row">
+	            	<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属类别：</label>
+					</div>
+					<div class="u-col-2 u-col-sm-8">
+								<input type="text" disabled="true"  class="u-form-control u-input-write"u-meta='{"name":"所属类别","data":"cardData","field":"vehiclename","type":"string"}'>
+					</div>	
+	            	<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属品牌：</label>
+					</div>
+					<div class="u-col-2 u-col-sm-8">
+								<input type="text" disabled="true"  class="u-form-control u-input-write"u-meta='{"name":"所属品牌","data":"cardData","field":"brandname","type":"string"}'>
+					</div>	
+					<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">年度：</label>
+					</div>
+					<div class="u-col-2 u-col-sm-4" style="padding:0px !important">
+							<div class="u-datepicke input-group fx-datepicker " u-meta='{"name":"年度","id":"vyear","data":"cardData","field":"vyear","type":"u-year"}'>
+							<div class="u-input-group-before " style="color: red;">* </div>
+								<input type="text" class="u-input u-form-control"/>
+								<span class="input-group-addon">
+                					<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
+					</div>
+	            	
+				</div>
+				<div class="u-row">
+	            	<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">季度：</label>
+					</div>
+					<div class="u-combo u-col-2 u-col-sm-8" u-meta='{"name":"季度","type":"u-combobox","data":"cardData","datasource":"monthData","field":"vmonth"}'>
+						<div class="u-input-group-before " style="color: red;">* </div>
+						<input class="u-input u-form-control" data-bind="event:{keydown: function(){return;}}"/>
+						<span class="u-combo-icon"></span>
+					</div>
+					<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">毛利：</label>
+					</div>
+					<div class="u-col-2 u-col-sm-8">
+				 	    <div class="u-input-group-before " style="color: red;">* </div>
+						<input  class="u-form-control u-input-write" u-meta='{"name":"毛利","data":"cardData","field":"nmargin","type":"float"}'>
+					</div>
+            	</div>
+            </div>
+		<!-- 模态框(车系毛利信息导入)start-->	
+	<div id="seriesmargin_dialog_content" style="display:none;">
+		<div class="u-msg-title">
+			<h4>导入</h4>
+		</div>
+		<div class="u-msg-content">
+			<div class="u-row">
+				 <div class="u-col-12" style="margin-bottom: 20px;">
+				 	<div class="u-widget">
+				 		<div class="menu">
+				 			<button class="u-button raised primary sub-list1-new"  data-bind="click:onUploadExcel">导入</button>
+							<button class="u-button raised primary sub-list1-cancel"  data-bind="click:onCloseFileWindow">取消</button>
+						</div>
+				 	</div>
+				 </div>
+			</div>
+			<div class="u-row">
+				 <div class="u-col-12">
+				 	<div class="u-widget">
+				 		<div class="form">
+							<div class="u-col-3 u-col-xs-4 u-col-sm-4 u-col-md-3" style=" width: 330px; padding-left: 0px; ">
+								<div class="u-text u-label-floating-always">
+									<input class="u-input" type="file" id="seriesmargin_fileName" name="fileName" placeholder="*">
+								</div>
+							</div>
+						</div>
+				 	</div>
+				 </div>
+			</div>
+		</div>
+	</div><!--模态框(车系毛利信息导入)end-->
+	</div>
+	</div>
+	</div>
+</div>

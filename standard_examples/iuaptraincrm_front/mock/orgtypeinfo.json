@@ -1,0 +1,18 @@
+{
+    "statusCode": 200,
+    "message": "操作成功",
+    "method": null,
+    "data":[{
+    "name":"集团","value":"1"},
+    "name":"产品公司","value":"21"},
+    "name":"产业链供应商","value":"22"},
+    "name":"分公司","value":"31"},
+    "name":"代理商","value":"32"},
+    "name":"客户","value":"51"},	
+    "name":"用户","value":"52"}
+    ],
+    "callbackType": null
+}
+
+
+

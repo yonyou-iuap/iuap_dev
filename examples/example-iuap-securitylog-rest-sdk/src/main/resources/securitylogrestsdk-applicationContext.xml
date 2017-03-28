@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-lazy-init="true">
+
+    <!-- 将多个配置文件读取到容器中，交给Spring管理 -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:logConfig.properties</value>
+            </list>
+        </property>
+    </bean>
+    
+    <!-- 
+	<bean id="mqService" class="com.yonyou.iuap.mq.rabbit.RabbitMqService">
+		<property name="rabbitTemplate" ref="rabbitTemplate"></property>
+	</bean>
+    -->
+    
+	<!-- <bean id="mnsAccount" class="com.aliyun.mns.client.CloudAccount">
+		<constructor-arg index="0">           
+			<value>${mns.accesskeyid}</value>       
+		</constructor-arg>       
+		<constructor-arg index="1">           
+			<value>${mns.accesskeysecret}</value>       
+		</constructor-arg>
+		<constructor-arg index="2">           
+			<value>${mns.accountendpoint}</value>       
+		</constructor-arg>		
+	</bean>
+	
+	<bean id="mqService" class="com.yonyou.iuap.mq.mns.AliyunMnsService">
+		<property name="mnsAccount" ref="mnsAccount"></property>
+	</bean>
+	
+	<bean id="simpleListener" class="com.yonyou.iuap.mq.mns.MnsSimpleListener">
+		<constructor-arg index="0">           
+			<value>testali-mq-01</value>       
+		</constructor-arg>       
+		<constructor-arg index="1">           
+			<ref bean="mnsAccount"/>    
+		</constructor-arg>
+		<constructor-arg index="2">           
+			<value>5</value>       
+		</constructor-arg>
+	</bean> -->
+	
+	<!--
+	<bean id="otherSimpleListener" class="com.yonyou.iuap.mq.mns.MnsOtherSimpleListener">
+		<constructor-arg index="0">           
+			<value>testali-mq-01</value>       
+		</constructor-arg>       
+		<constructor-arg index="1">           
+			<ref bean="mnsAccount"/>    
+		</constructor-arg>
+		<constructor-arg index="2">           
+			<value>5</value>       
+		</constructor-arg>
+	</bean>
+	-->
+	
+</beans>

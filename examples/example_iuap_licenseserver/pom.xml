@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.yonyou.iuap.example</groupId>
+    <artifactId>iuap-licenseserver-example</artifactId>
+    <version>3.1.0-RELEASE</version>
+    <name>example_iuap_licenseserver</name>
+
+    <properties>
+        <!-- 主要依赖库的版本定义 -->
+        <spring.version>4.0.5.RELEASE</spring.version>
+        <junit.version>4.11</junit.version>
+        <aspectj.version>1.7.4</aspectj.version>
+        <iuap.modules.version>3.1.0-RELEASE</iuap.modules.version>
+
+        <!-- Plugin的属性定义 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.7</java.version>
+    </properties>
+    <!-- 依赖项定义 -->
+    <dependencies>
+		<dependency>
+            <groupId>com.yonyou.iuap</groupId>
+            <artifactId>iuap-licenseclient</artifactId>
+            <version>${iuap.modules.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+ 
+    <build>
+        <plugins>
+            <!-- compiler插件, 设定JDK版本 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

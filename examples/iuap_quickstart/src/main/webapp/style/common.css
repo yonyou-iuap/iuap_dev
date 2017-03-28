@@ -1,0 +1,43 @@
+/**
+ * 头部公共样式
+ * @param  {[type]} './header.css' 宽、高、右侧搜索框等
+ * @return {[type]}                [description]
+ */
+@import url('./header.css');
+
+
+/**
+ * 主要公共样式
+ * @param  {[type]} './main.css' 按钮、下拉箭头、hrfont等
+ * @return {[type]}              [description]
+ */
+@import url('./main.css');
+
+/**
+ * 卡片样式
+ * @param  {[type]} './card.css' 班次假日为例
+ * @return {[type]}              [description]
+ */
+@import url('./card.css');
+
+/**
+ * 表格样式
+ * @param  {[type]} './table.css' [description]
+ * @return {[type]}               [description]
+ */
+
+@import url('./table.css');
+
+/**
+ * 穿透查询样式
+ * @param  {[type]} './edit-search.css' 页面结构参照职等页面
+ * @return {[type]}                     [description]
+ */
+@import url('./edit-search.css');
+
+/**
+ * 树形导航样式
+ * @param  {[type]} './tree-nav.css' 页面结构参照职等页面
+ * @return {[type]}                     [description]
+ */
+@import url('./tree-nav.css');

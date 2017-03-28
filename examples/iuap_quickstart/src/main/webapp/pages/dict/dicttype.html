@@ -1,0 +1,86 @@
+<div class="u-mdlayout " id="dicttype-mdlayout">
+    <div class="u-mdlayout-btn u-row">
+        <div id="dicttype_list_button_2" class="u-col-4 user-actions">
+            <div class=" u-button-group margin-0 padding-0">
+            	<!--兼容ie9以下enter问题-->
+                <!--[if lt IE 10]><button style="display:block;width:1px;height:1px;border:none;">1</button><![endif]-->
+                <button class="u-button u-button-primary u-button-sm" id="user-action-add"
+                        data-bind="click: event.addClick">增加
+                </button>
+                <button class="u-button u-button-primary u-button-sm" id="user-action-edit"
+                        data-bind="click: event.saveClick">保存
+                </button>
+                <button class="u-button u-button-primary u-button-sm" id="user-action-del"
+                        data-bind="click: event.delRow">删除
+                </button>
+            </div>
+        </div>
+        <div class="u-col-4  center-title">
+            <span>档案管理</span>
+        </div>
+    </div>
+    <div class=" form-search " style="z-index:0;">
+        <div class="u-panel-heading  u-collapse-updown" u-data-toggle="collapse" href="#condition-row-dic">
+            <span class="u-panel-title padding-5 padding-left-15">快速查询
+            <span class="u-link u-right u-input-label sm">
+                 <span>展开</span>
+                 <a>
+                     <i class="uf uf-arrow-down"></i>
+                 </a>
+             </span>
+            </span>
+        </div>
+        <div class="u-row  u-panel-body  collapse" id="condition-row-dic">
+            <div class="u-col-8 u-col-sm-12">
+                <div class="u-col-2 u-col-sm-4" style="text-align: right; height: 100%;padding: 5px;">
+                    <label>字典编码</label>
+                </div>
+                <div class="u-col-4 u-col-sm-8 m-b-sm">
+                    <input class="u-form-control sm input_search search-enter" id="search_dicttypecode" name="search_dicttypecode"/>
+                </div>
+                <div class="u-col-2 u-col-sm-4" style="text-align: right; height: 100%;padding: 5px;">
+                    <label>字典名称</label>
+                </div>
+                <div class="u-col-4 u-col-sm-8 m-b-sm">
+                    <input class="u-form-control sm input_search search-enter" id="search_dicttypename" name="search_dicttypename"/>
+                </div>
+            </div>
+            <div class="u-col-4 u-col-sm-12">
+                <div class=" padding-top-2">
+                    <button class="u-button  u-button-primary raised gray-btn u-button-pa margin-right-20"
+                            id="user-action-search" data-bind="click: event.search">搜索
+                    </button>
+                    <button class="u-button u-button-primary raised gray-btn u-button-pa" id="user-action-cleanSearch"
+                            data-bind="click: event.cleanSearch">清空
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-mdlayout-detail width-full">
+        <!-- list -->
+        <div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+            <div class="u-mdlayout-page-section">
+                <div class="user-page-content">
+                    <div class="user-datagrid ">
+                        <div class="table-container">
+                            <div type="text" id="dicttype"
+                                 u-meta='{"id":"grid_dicttype","data":"dictTypeDa","type":"grid","editable":true,"multiSelect":true,"editType":"default","columnWidth":"150px"}'>
+                                <div options='{"field":"dicttypecode","dataType":"String","title":"编码","editType":"string","editOptions":{"validType":"string","required":true}}'></div>
+                                <div options='{"field":"dicttypename","dataType":"String","title":"名称","editType":"string","editOptions":{"validType":"string","required":true}}'></div>
+                                <div options='{"field":"isfixed","dataType":"String","title":"系统预置","editType":"combo","editOptions":{"datasource":"yesOrNo","type":"combo","onlySelect":true},"renderType":"event.showValue"}'></div>
+                                <div options='{"field":"creator","dataType":"String","title":"创建人","editType":"string"}'></div>
+                                <div options='{"field":"createtime","dataType":"date","title":"创建时间","editType":"date","renderType":"dateRender","format":"YYYY-MM-DD"}'></div>
+                                <div options='{"field":"remark","dataType":"String","title":"备注","editType":"string"}'></div>
+                            </div>
+                            <div id='pagination' class='pagination u-pagination pagination-sm '
+                                 u-meta='{"type":"pagination","data":"dictTypeDa","pageChange":"event.pageChange","sizeChange":"event.sizeChange"}'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end list -->
+    </div>
+</div>

@@ -1,0 +1,3096 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="print" class="nc.pubapp.pade.templet.vo.Print">
+		<property name="cellVOs">
+			<list>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="000000000000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="0" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="000001000001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="0" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="000002000002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="0" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="000003000003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="0" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="000004000004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="0" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="001000001000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0210" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="15" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="订单编号：" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="001001001001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="1010" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="15" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="120" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="orderno" />
+					<property name="vvar" value="uap.web.ec.service.print.OrderForm.orderno" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="001002001002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="15" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="001003001003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="15" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="001004001004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="15" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="002000002000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="30" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="002001002001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="30" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="002002002002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="30" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="002003002003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="30" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="002004002004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="30" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="003000003000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0210" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="45" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="订购时间：" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="003001003001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="1010" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="45" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="120" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="orderdate" />
+					<property name="vvar" value="uap.web.ec.service.print.OrderForm.orderdate" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="003002003002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="45" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="003003003003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="45" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="003004003004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="45" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="004000004000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="60" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="宋体" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="004001004001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="60" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="004002004002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="60" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="004003004003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="60" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="004004004004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="60" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="005000005000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0210" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="75" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="客户姓名：" />
+					
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="005001005001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="1010" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="75" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="customername" />
+					<property name="vvar" value="uap.web.ec.service.print.OrderForm.customername" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="005002005002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="75" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="005003005003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="75" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="005004005004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="75" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="006000006000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="90" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="006001006001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="90" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="006002006002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="90" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="006003006003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="90" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="006004006004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="90" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="007000007000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0210" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="105" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="联系方式：" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="007001007001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="1010" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="105" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vtext" value="phoneno" />
+					<property name="vvar" value="uap.web.ec.service.print.OrderForm.phoneno" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="007002007002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="105" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="007003007003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="105" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="007004007004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="105" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="008000008000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="120" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="008001008001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="120" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="008002008002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="120" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="008003008003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="120" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="008004008004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="120" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="009000009000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0210" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="135" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="配送地址：" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="009001009001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="1010" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="135" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="150" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="customeraddr" />
+					<property name="vvar" value="uap.web.ec.service.print.OrderForm.customeraddr" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="009002009002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="135" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="009003009003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="135" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="009004009004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="135" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="010000010000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="150" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="010001010001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="150" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="010002010002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="150" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="010003010003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="150" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="010004010004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="150" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="011000011000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0210" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="165" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="订单总额：" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="011001011001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="1010" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="165" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+					<property name="vtext" value="totalamount" />
+					<property name="vvar" value="uap.web.ec.service.print.OrderForm.totalamount" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="011002011002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="165" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="011003011003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="165" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="011004011004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="165" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="012000012000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="180" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="012001012001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="180" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="012002012002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="180" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="012003012003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="180" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="012004012004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="180" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="013000013000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="195" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="013001013001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="195" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="013002013002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="195" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="013003013003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="195" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="013004013004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="195" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="014000014000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="210" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="014001014001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="210" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="014002014002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="210" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="014003014003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="210" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="014004014004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="210" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="015000015000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="225" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="015001015001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="225" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="015002015002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="225" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="015003015003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="225" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="015004015004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="225" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="016000016000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="240" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="016001016001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="240" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="016002016002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="240" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="016003016003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="240" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="016004016004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="240" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="017000017000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="255" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="017001017001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="255" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="017002017002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="255" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="017003017003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="255" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="017004017004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="255" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="018000018000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="270" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="018001018001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="270" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="018002018002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="270" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="018003018003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="270" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="018004018004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="270" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="019000019000" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="0" />
+					<property name="istarty" value="285" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="019001019001" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="60" />
+					<property name="istarty" value="285" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="019002019002" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="120" />
+					<property name="istarty" value="285" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="019003019003" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="180" />
+					<property name="istarty" value="285" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintCell">
+					<property name="VFixedStyle" value="0000" />
+					<property name="bunderline" value="0" />
+					<property name="ccellcode" value="019004019004" />
+					<property name="ccombineproperty" value="0" />
+					<property name="ccontentproperty" value="0110" />
+					<property name="cisHeadtail" value="00" />
+					<property name="cisfrozen" value="00" />
+					<property name="clineproperty" value="00000000" />
+					<property name="entityName" value="PrintCell" />
+					<property name="ffontstyle" value="0" />
+					<property name="fshadowtype" value="0" />
+					<property name="headtail" value="00" />
+					<property name="ibgcolor" value="-1" />
+					<property name="ibotlinecolor" value="-16777216" />
+					<property name="ifgcolor" value="-16777216" />
+					<property name="ifonrsize" value="12" />
+					<property name="iheight" value="15" />
+					<property name="ileftlinecolor" value="-16777216" />
+					<property name="irightcolor" value="-16777216" />
+					<property name="isDynRowHeight" value="false" />
+					<property name="istartx" value="240" />
+					<property name="istarty" value="285" />
+					<property name="itoplinecolor" value="-16777216" />
+					<property name="iwidth" value="60" />
+					<property name="options"
+						value="&lt;nc.vo.pub.print.PrintCellExtVO>&#xa;  &lt;height__decimal>0.0&lt;/height__decimal>&#xa;  &lt;textDirection>0&lt;/textDirection>&#xa;  &lt;lineSpaceBetween>0&lt;/lineSpaceBetween>&#xa;&lt;/nc.vo.pub.print.PrintCellExtVO>" />
+					<property name="vFixedStyle" value="0000" />
+					<property name="vfontname" value="SimSun" />
+				</bean>
+			</list>
+		</property>
+		<property name="datasourceVOs">
+			<list>
+				<bean class="nc.pubapp.pade.templet.vo.PrintDatasource">
+					<property name="bbreakflag" value="N" />
+					<property name="bhorsubtotal" value="N" />
+					<property name="bisname" value="Y" />
+					<property name="bversubtotal" value="N" />
+					<property name="ccellcode" value="001001001001" />
+					<property name="cextendproperty" value="011" />
+					<property name="pkCorp" value="@@@@" />
+				</bean>
+				<bean class="nc.pubapp.pade.templet.vo.PrintDatasource">
+					<property name="bbreakflag" value="N" />
+					<property name="bhorsubtotal" value="N" />
+					<property name="bisname" value="Y" />
+					<property name="bversubtotal" value="N" />
+					<property name="ccellcode" value="003001003001" />
+					<property name="cextendproperty" value="011" />
+					<property name="pkCorp" value="@@@@" />
+				</bean>
+			</list>
+		</property>
+		<property name="lineVOs">
+			<list>
+			</list>
+		</property>
+		<property name="regionVOs">
+			<list>
+			</list>
+		</property>
+		<property name="templateVO">
+			<bean class="nc.pubapp.pade.templet.vo.PrintTemplate">
+				<property name="itype" value="1" />
+				<property name="layer" value="0" />
+				<property name="m_bdirector" value="true" />
+				<property name="m_bdispagenum" value="false" />
+				<property name="m_bdistotalpagenum" value="false" />
+				<property name="m_bnormalcolor" value="false" />
+				<property name="m_ctemplateid" value="0" />
+				<property name="m_extendattr"
+					value="&lt;nc.vo.pub.print.PrintTemplateExtVO>&#xa;  &lt;isBindUp>false&lt;/isBindUp>&#xa;  &lt;zdline__position>0.0&lt;/zdline__position>&#xa;  &lt;pagehead__position>0.0&lt;/pagehead__position>&#xa;  &lt;pagetail__position>0.0&lt;/pagetail__position>&#xa;  &lt;pagenumber__position>0.0&lt;/pagenumber__position>&#xa;  &lt;m__withFullPageNumber>false&lt;/m__withFullPageNumber>&#xa;  &lt;baseLineWeight>0.65&lt;/baseLineWeight>&#xa;  &lt;initPageNo>1&lt;/initPageNo>&#xa;&lt;/nc.vo.pub.print.PrintTemplateExtVO>" />
+				<property name="m_ffontstyle" value="0" />
+				<property name="m_fpagination" value="0" />
+				<property name="m_ibotmargin" value="20" />
+				<property name="m_ibreakposition" value="0" />
+				<property name="m_ifontsize" value="9" />
+				<property name="m_igridcolor" value="-4144960" />
+				<property name="m_ileftmargin" value="20" />
+				<property name="m_ipageheight" value="842.00000000" />
+				<property name="m_ipagelocate" value="21" />
+				<property name="m_ipagewidth" value="596.00000000" />
+				<property name="m_irightmargin" value="20" />
+				<property name="m_iscale" value="100" />
+				<property name="m_itopmargin" value="20" />
+				<property name="m_pk_corp" value="@@@@" />
+				<property name="m_vfontname" value="SimSun" />
+				<property name="m_vprepare2" value="false" />
+				<property name="m_vtemplatecode" value="111" />
+				<property name="m_vtemplatename" value="1" />
+			</bean>
+		</property>
+
+		<property name="variableVOs">
+			<list>
+			</list>
+		</property>
+	</bean>
+
+</beans>

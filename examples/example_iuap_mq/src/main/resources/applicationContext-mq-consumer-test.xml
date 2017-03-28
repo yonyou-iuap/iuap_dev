@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/rabbit
+	http://www.springframework.org/schema/rabbit/spring-rabbit-1.4.xsd">
+ 
+	<!-- 连接服务配置  -->
+	<rabbit:connection-factory id="connectionFactory" addresses="${mq.addresses}"  username="${mq.username}" password="${mq.password}"/>
+         
+	<rabbit:admin connection-factory="connectionFactory"/>
+	
+	<rabbit:queue id="simple_queue" durable="true" auto-delete="false" exclusive="false" name="simple_queue"/>
+	<rabbit:queue id="iuap-publish-subscribe" durable="true" auto-delete="false" exclusive="false" name="iuap-publish-subscribe"/>
+	<rabbit:queue id="iuap-publish-subscribe-another" durable="true" auto-delete="false" exclusive="false" name="iuap-publish-subscribe-another"/>
+	
+	<rabbit:listener-container connection-factory="connectionFactory">
+		<rabbit:listener queues="simple_queue" ref="queueLitener"/>
+	</rabbit:listener-container>
+	
+    <!-- 手动通知消除消息 -->
+    <!--
+	<rabbit:listener-container connection-factory="connectionFactory" acknowledge="manual">
+		<rabbit:listener queues="simple_queue" ref="menuAckQueueLitener"/>
+	</rabbit:listener-container>
+    -->
+	
+	<!-- queue litener  观察 监听模式 当有消息到达时会通知监听在对应的队列上的监听对象-->
+	<rabbit:listener-container connection-factory="connectionFactory" acknowledge="auto">
+		<rabbit:listener queues="simple_queue" ref="queueLitener"/>
+		<rabbit:listener queues="simple_queue" ref="queueOtherLitener"/>
+		<rabbit:listener queues="iuap-publish-subscribe" ref="queueFanoutLitener"/>
+		<rabbit:listener queues="iuap-publish-subscribe-another" ref="queueFanoutLitener"/>
+	</rabbit:listener-container>
+    
+	<bean id="menuAckQueueLitener" class="com.yonyou.iuap.mq.rabbitmq.MenuAckMqTestListener"></bean>
+	<bean id="queueLitener" class="com.yonyou.iuap.mq.rabbitmq.MqTestListener"></bean>
+	<bean id="queueOtherLitener" class="com.yonyou.iuap.mq.rabbitmq.MqTestOtherListener"></bean>
+	
+	<bean id="queueFanoutLitener" class="com.yonyou.iuap.mq.rabbitmq.MqTestFanoutListener"></bean>
+</beans>

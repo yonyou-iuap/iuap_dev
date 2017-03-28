@@ -1,0 +1,97 @@
+<!-- 内容 -->
+<div class="u-mdlayout functionactivity" id="demo-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+	<div class="u-mdlayout-detail">
+		<div class="u-mdlayout-page  current" id="list">
+		
+			<div class="u-mdlayout-page-section" >
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">系统管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>功能按钮注册</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div style="width:250px;float:left;overflow:auto;position:relative">
+						<div class="ztreeHeader">
+							<a  data-bind="click:searchclick" class="searchIcon"><span class="partingLineL"></span><img src="pages/pageImages/searchIcon.png" /><span class="partingLineR"></span></a>
+							<input type="text" name="searchtxt" id="searchtxt" value="请输入关键词" />
+						</div>
+						<div id="funcaction_zhezhao" style="display:none;width:100%;height:100%;position:absolute;left:0;bottom:0;background:rgb(0,0,0,0.3);z-index:10001;"></div>
+						<div type="text" class="ztree" u-meta='{"id":"tree1","data":"treeData","type":"tree","idField":"id","pidField":"parentId","nameField":"funcName","setting":"treeSetting"}'></div>
+					</div>
+					<div class="" style="margin-left: 255px;">
+						<div class="search-section " style="width:100%;display: inline-block;">
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">功能编码：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12"  >
+									<input class="u-input u-input-write" type="text" data-bind="value:activityData.ref('funcCode'),enable:false" >
+								</div>
+								
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">功能名称：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12">
+									<input class="u-input u-input-write" data-bind="value:activityData.ref('funcName'),enable:false" >
+								</div>
+							</div>
+							<div class="u-row" style="padding-bottom: 15px;">
+								<div class="btnBox pull-right">
+									<button class="u-button raised primary" id="demo-table-add" data-bind="click: addClick, visible: gridStatus() =='read'">
+										增加按钮
+									</button>
+									<button class="u-button raised primary" id="demo-table-edit" data-bind="click: editClick, visible: gridStatus() =='read'">
+										修改按钮
+									</button>
+									<button class="u-button raised primary " id="demo-table-del" data-bind="click: delClick, visible: gridStatus() =='read'">
+										删除按钮
+									</button>
+									<button class="u-button raised primary " id="demo-table-qy" data-bind="click: qyClick, visible: gridStatus() =='read'">
+										启用
+									</button>
+									<button class="u-button raised primary " id="demo-table-ty" data-bind="click: tyClick, visible: gridStatus() =='read'">
+										停用
+									</button>
+									<button class="u-button raised primary" data-bind="click: saveClick, visible: gridStatus() =='edit'">
+										保存
+									</button>
+									<button class="u-button raised primary" data-bind="click: cancelClick, visible: gridStatus() =='edit'">
+										取消
+									</button>
+								</div>
+							</div>
+							<div class="u-row" id="gridid">
+								<div class="col-md-12">
+									<div type="text" u-meta='{"id":"bter_FunctionActivity_grid1","data":"activityChildData","type":"grid","editable":true,"onRowSelected":"rowClick","columnMenu":false,"canDrag":false,"sortable":false,"canSwap":false,"editType":"default"}'>
+										<div options='{"field":"activityCode","dataType":"u-text","editType":"string","title":"按钮编码","editOptions":{"validType":"string","required":true},"required":true}'></div>
+										<div options='{"field":"activityName","dataType":"String","editType":"string","title":"按钮名称","editOptions":{"validType":"string","required":true},"required":true}'></div>
+										<!-- <div options='{"field":"funcCode","dataType":"String","editType":"string","title":"上级编码","editable":false,"visible":false,"editOptions":{"validType":"string"}}'></div> -->
+										<div options='{"field":"isactive","dataType":"combo","title":"是否启用","editType":"string","editable":false,"editOptions":{"validType":"string","id":"combobox1","type":"combo","datasource":"comItems"},"renderType":"comboRender"}'></div>
+										<div options='{"field":"funcID","dataType":"String","editType":"string","title":"上级主键","editable":false,"visible":false,"editOptions":{"validType":"string","required":true}}'></div>
+										<div options='{"field":"id","dataType":"String","editType":"string","title":"主键","editable":false,"visible":false,"editOptions":{"validType":"string"}}'></div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

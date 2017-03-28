@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.yonyou.iuap.example</groupId>
+  <artifactId>iuap-event-local-example</artifactId>
+  <version>3.1.0-RELEASE</version>
+  <name>example-iuap-event-local</name>
+  <packaging>war</packaging>
+
+  <properties>
+    <iuap.modules.version>3.1.0-RELEASE</iuap.modules.version>
+    <iuap.saas.modules.version>3.1.0-RC001</iuap.saas.modules.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+     </dependency>
+    <!-- iuap-event-local中引用了这个jar包，但是是test下采用，这里需要引入 -->
+    <dependency>
+		<groupId>c3p0</groupId>
+		<artifactId>c3p0</artifactId>
+		<version>0.9.1.2</version>
+	</dependency>
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+		<version>1.8.8</version>
+	</dependency>
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+			<scope>provided</scope>
+	</dependency>
+    <dependency>
+	    <groupId>com.yonyou.iuap</groupId>
+	    <artifactId>iuap-event-local</artifactId>
+	    <version>3.1.0-RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>4.0.5.RELEASE</version>
+	</dependency>
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>3.1.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>4.0.5.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>net.sf.json-lib</groupId>
+		<artifactId>json-lib</artifactId>
+	    <version>2.4</version>
+	</dependency>
+	<!-- jackson start -->
+	<dependency>
+	   <groupId>org.codehaus.jackson</groupId>
+	   <artifactId>jackson-core-asl</artifactId>
+	   <version>1.9.13</version>
+	</dependency>
+	<dependency>
+	   <groupId>org.codehaus.jackson</groupId>
+	   <artifactId>jackson-mapper-lgpl</artifactId>
+	   <version>1.9.13</version>
+	</dependency>
+	<!-- jackson end -->
+
+  </dependencies>
+  <build>
+
+    <finalName>example-iuap-event-local</finalName>
+
+		<plugins>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn compile命令时会出现莫名的错误，因为系统默认使用GBK编码 -->
+					    <source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn命令时当发生文件资源copy时将使用系统默认使用GBK编码 -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

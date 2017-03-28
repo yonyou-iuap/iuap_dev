@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Demo</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="../static/images/ios-desktop.png">
+    <meta name="msapplication-TileImage" content="../static/images/touch/ms-touch-icon-144x144-precomposed.png"> 
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <link rel="shortcut icon" href="../static/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="vendor/fontAwesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/googleapis/roboto.css">
+    <link rel="stylesheet" type="text/css" href="vendor/googleapis/icon.css">
+    <link rel="stylesheet" type="text/css" href="vendor/uui/css/u.css">
+    <link rel="stylesheet" type="text/css" href="vendor/uui/css/u-extend.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/widget.css">
+    <script type="text/javascript" src="vendor/jquery/jquery-1.11.2.js"></script>
+</head>
+
+<body>
+    <div class="demo-layout  u-navlayout u-navlayout-fixed-drawer u-navlayout-fixed-header">
+        <header>
+	        <div class="u-container">
+	            <div class="u-row">
+	                <div class="col-xs-12 col-sm-12">
+	                    <div class="foldingpad"><i class="fa fa-dedent"></i></div>
+	                    <!--<div class="u-col-3 u-col-offset-1">
+	                    		<div class="u-input-group u-has-feedback" style="margin-top: 10px;margin-left:20px">
+			                    <input type="text" class="u-form-control round" placeholder="Search...">
+			                    <span class="u-form-control-feedback noborder">
+			                        <i class="icon uf uf-magnifyingglass" aria-hidden="true"></i>
+			                    </span>
+			                </div>
+	                    </div>-->
+	                    <div class="u-col-xs-12 u-col-sm-12 text-right" style="margin-top: 10px;">
+			                <button class="u-button u-button-icon" id="hdrbtn" style="float:right">
+			                  <span class="avatar" style="width: 30px">
+                                    <img src="http://design.yyuap.com/static/img/navimg1.jpg">
+                              </span>
+			                </button>
+			                <ul class="u-menu u-menu-bottom-right" for="hdrbtn">
+			                      <li class="u-menu-item"><i class="fa fa-cog"></i>设置</li>
+			                      <li class="u-menu-item"><i class="fa fa-folder-open-o"></i>关于</li>
+			                      <li class="u-menu-item"><i class="fa fa-lock"></i>注销</li>
+			                </ul>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </header>
+        <div class="page-sidebar">
+	        <div class="log">
+	            <span title="管理平台" class="title">
+	            	<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" style="
+                    width: 24px; height: 24px;">
+                        <path d="M 50 0 L 100 14 L 92 80 Z" fill="rgba(139, 195, 74, 0.5)"></path>
+                        <path d="M 92 80 L 50 0 L 50 100 Z" fill="rgba(139, 195, 74, 0.8)"></path>
+                        <path d="M 8 80 L 50 0 L 50 100 Z" fill="#f3f3f3"></path>
+                        <path d="M 50 0 L 8 80 L 0 14 Z" fill="rgba(220, 220, 220, 0.6)"></path>
+                    </svg>
+	               管理平台
+	            </span>
+	        </div>
+	        <ul class="nav-menu" id="menu">
+	            <li class="nav-li">
+	                <a href="#goods/page">
+	                    <i class="fa fa-balance-scale"></i>
+	                    <span class="nav-title">产品管理</span>
+	                </a>
+	            </li>
+	            <!-- container -->
+	            <li class='nav-li'>
+	                <a href="#page1/page1">
+	                    <i class="fa fa-newspaper-o"></i>
+	                    <span class="nav-title">资讯</span>
+	                </a>
+	            </li>
+	            <li class='nav-li'>
+	                <a href="#page2/page2">
+	                    <i class="fa fa-object-group"></i>
+	                    <span class="nav-title">招聘</span>
+	                </a>
+	            </li>
+	            <li class='nav-li'>
+	                <a href="#page3/page3">
+	                    <i class="fa fa-users"></i>
+	                    <span class="nav-title">会员</span>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+         <div class="page-small-sidebar" style="margin-left:-55px">
+	        <div class="log">
+	            <a title="管理后台">
+	                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" style="
+                    width: 35px; height: 35px;margin-top: 10px;margin-left: 10px">
+                        <path d="M 50 0 L 100 14 L 92 80 Z" fill="rgba(139, 195, 74, 0.5)"></path>
+                        <path d="M 92 80 L 50 0 L 50 100 Z" fill="rgba(139, 195, 74, 0.8)"></path>
+                        <path d="M 8 80 L 50 0 L 50 100 Z" fill="#f3f3f3"></path>
+                        <path d="M 50 0 L 8 80 L 0 14 Z" fill="rgba(220, 220, 220, 0.6)"></path>
+                    </svg>
+	            </a>
+	        </div>
+	        <ul id="nav-zone">
+	            <li class="nav-li-small">
+	                <a href="#goods/page">
+	                    <i class="fa fa-balance-scale"></i>
+	                </a>
+	            </li>
+	            <li class='nav-li-small'>
+	                <a href="#page1/page1">
+	                    <i class="fa fa-newspaper-o"></i>
+	                </a>
+	            </li>
+	            <li class='nav-li-small'>
+	                <a href="#page2/page2">
+	                    <i class="fa fa-object-group"></i>
+	                </a>
+	            </li>
+	            <li class='nav-li-small'>
+	                <a href="#page3/page3">
+	                    <i class="fa fa-users"></i>
+	                </a>
+	            </li>
+	        </ul>
+	    </div>
+        <!-- 内容 -->
+        <div id="content" class="demo-content u-navlayout-content u-color-grey-100 page-container" style="margin-top:60px">
+        
+    		</div>
+    </div>
+    
+    <script type="text/javascript" src="vendor/requirejs/require.js"></script>
+    <script type="text/javascript" src="config/require.config.js"></script>
+    <script type="text/javascript" src="vendor/uui/js/u.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

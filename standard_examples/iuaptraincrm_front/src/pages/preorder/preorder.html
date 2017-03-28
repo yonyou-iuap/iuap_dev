@@ -1,0 +1,548 @@
+<div class="u-mdlayout" id="user-mdlayout">
+    <div class="u-mdlayout-btn u-row">
+        <div id="user_list_button_2" class="u-col-4 user-actions user_list_button_2 ">
+            <div class=" u-button-group margin-0 padding-0">
+                <button class="u-button u-button-primary u-button-sm " data-bind="click: event.addClick">增加</button>
+                <button class="u-button u-button-primary u-button-sm " data-bind="click: event.editClick">编辑</button>
+                <button class="u-button u-button-primary u-button-sm " data-bind="click: event.delRow">删除</button>
+            </div>
+        </div>
+        <div class="u-col-4  center-title">
+            <span>预订单</span>
+        </div>
+    </div>
+    <div class="u-mdlayout-btn u-row hide ">
+        <div id="user_card_button">
+            <div class="u-col-4  ufBack padding-bottom-5" data-bind="click:event.goBack">
+                <a><i class="uf uf-aaleft"></i>返回</a>
+            </div>
+            <div class="u-col-4 padding-bottom-5 " style="text-align:center;">
+                <span>预订单</span>
+            </div>
+            <div class="u-col-4 padding-bottom-5">
+                <button type="button" class=" u-button u-button-primary u-button-sm" style="float:right;"
+                        data-bind="click:event.saveClick">保存
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class=" form-search " style="z-index:0;">
+        <div class="u-panel-heading u-collapse-updown " u-data-toggle="collapse" href="#condition-row-user">
+            <span class="u-panel-title padding-5 padding-left-15  ">快速查询
+            <span class=" u-link u-right u-input-label sm" id="condition-toggle-user">
+                 <span>展开</span>                
+                 <i class="uf uf-aadown"></i>             
+             </span>
+             </span>
+        </div>
+        <div class="u-row u-panel-body collapse" id="condition-row-user">
+            <div class="u-col-6 u-col-sm-12">
+            </div>
+        </div>
+        <div class="u-col-6 u-col-sm-12">
+                <div class=" padding-top-2 ">
+                    <button class="u-button u-button-primary raised gray-btn u-button-pa margin-right-20"
+                            id="user-action-search" data-bind="click: event.search">搜索
+                    </button>
+                    <button class="u-button u-button-primary  raised gray-btn u-button-pa " id="user-action-cleanSearch"
+                            data-bind="click: event.cleanSearch">清空
+                    </button>
+                </div>
+        </div>
+    </div>
+
+	 <div class="u-mdlayout-detail">
+        <!-- list -->
+        <div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+            <div class="u-mdlayout-page-section">
+                <div class="user-datagrid" style="">
+                    <div class="table-container">
+                        <table class="u-table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th name="userCheckbox" style="display: block;border-top:1px solid transparent;">
+                                    <label class="margin-top-5 u-checkbox only-style u-checkbox-floatl"
+                                           data-bind="click: preorderDa.toggleAllSelect.bind(preorderDa), css:{'is-checked': preorderDa.allSelected()}">
+                                        <input id="checkInput" type="checkbox" class="u-checkbox-input">
+                                        <span class="u-checkbox-label"></span>
+                                    </label>
+                                </th>
+                                <th>组织</th>
+                                <th>预订单号</th>
+                                <th>预订日期</th>
+                                <th>业务员</th>
+                                <th>客户</th>
+                                <th>客户银行账户</th>
+                                <th>币种</th>
+                                <th>总金额</th>
+                                <th>所属地区</th>
+                                <th>说明</th>
+                                <th>单据状态</th>
+                                <th>创建人</th>
+                                <th>创建时间</th>
+                                <th>修改人</th>
+                                <th>修改时间</th>
+                                <th>登记员</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach:{data:preorderDa.rows(),as:'row', afterAdd: event.afterAdd}">
+                            <tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}, click: $parent.event.rowClick">
+                                <td name="userCheckbox" class="checkbox1">
+                                    <label class="u-checkbox only-style u-checkbox-floatl"
+                                           data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}">
+                                        <input type="checkbox" class="u-checkbox-input">
+                                        <span class="u-checkbox-label"></span>
+                                    </label>
+                                </td>
+								<td data-bind="text: row.ref('pk_org_name')"></td>
+                                <td data-bind="text: row.ref('preorderno')"></td>
+								<td data-bind="text: u.dateRender(row.ref('billdate'))"></td>
+								<td data-bind="text: row.ref('orderperson_name')"></td>
+                                <td data-bind="text: row.ref('customer')"></td>
+                                <td data-bind="text: row.ref('customerbankacc')"></td>
+								<td data-bind="text: row.ref('pk_currtype_name')"></td>
+                                <td data-bind="text: row.ref('total')"></td>
+								<td data-bind="text: $parent.event.changepreorderarea(row.ref('area'))"></td>
+                                <td data-bind="text: row.ref('memo')"></td>
+                                <td data-bind="text: row.ref('billstatus')"></td>
+								<td data-bind="text: row.ref('creator_name')"></td>
+                                <td data-bind="text: row.ref('creationtime')"></td>
+								<td data-bind="text: row.ref('modifier_name')"></td>
+                                <td data-bind="text: row.ref('modifition')"></td>
+								<td data-bind="text: row.ref('inputperson_name')"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id='pagination' class='u-pagination pagination-sm '></div>
+                </div>
+                <div class="user-datagrid " style="padding:15px 0px 15px 0px;">
+                    <div class="table-container">
+                        <table class="u-table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>组织</th>
+                                <th>物料编码</th>
+                                <th>物料名称</th>
+                                <th>是否折扣</th>
+                                <th>数量</th>
+                                <th>价格</th>
+                                <th>价格折扣</th>
+                                <th>税费金额</th>
+                                <th>最终价格</th>
+                                <th>价税合计</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach:{data:preorder_subDa.rows(),as:'row'}">
+                            <tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}, click: $parent.event.selectUserJob">
+								<td data-bind="text: row.ref('pk_org_name')"></td>
+                                <td data-bind="text: row.ref('materiral')"></td>
+                                <td data-bind="text: row.ref('materialname')"></td>
+                                <td data-bind="text: row.ref('isprice')"></td>
+                                <td data-bind="text: row.ref('num')"></td>
+                                <td data-bind="text: row.ref('price')"></td>
+                                <td data-bind="text: row.ref('disount')"></td>
+                                <td data-bind="text: row.ref('tax')"></td>
+                                <td data-bind="text: row.ref('finalprice')"></td>
+                                <td data-bind="text: row.ref('amount')"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>    
+                    <div style="display:none" id='child_list_pagination' class='u-pagination pagination-sm '></div>        
+                </div>
+            </div>
+        </div>
+        <!-- end list -->
+        <!-- addPage -->
+        <div class="u-mdlayout-page" id="addPage">
+            <div class="u-mdlayout-page-section" id="user-form">
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal" >
+                    <div class="u-container-fluid">
+                        <div class="u-row">
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>组织</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"pk_org_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectBdCorpVO_preorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>预订单号</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"preorderno"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>预订日期</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-date","data":"preorderFormDa","field":"billdate"}'>
+                                        <input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>                            
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>业务员</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"orderperson_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectBdPsndocVO_preorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>客户</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"customer"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>客户银行账户</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"customerbankacc"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>币种</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"pk_currtype_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectCurrtype_preorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>总金额</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"total"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>所属地区</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-combobox","datasource":"preorder_area","data":"preorderFormDa","field":"area","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <div class="u-input-group-before" style="color: red;">*</div>
+                                            <span class="u-form-control-feedback fa fa-angle-down"
+                                                  data-role="combo-button"></span>
+                                            <input class="u-form-control" readonly/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>说明</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"memo"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>单据状态</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"billstatus"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>创建人</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"creator_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectExtIeopUserVO_preorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>创建时间</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"creationtime"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>修改人</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"modifier_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectExtIeopUserVO_preorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>修改时间</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"modifition"}'>
+                                    	<input type="text" class="u-form-control" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>登记员</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"preorderFormDa","field":"inputperson_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectExtIeopUserVO_preorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="u-row">
+                            <div id="preorder_sub-form">
+                                <div class="u-row margin-bottom-15">
+                                    <div class="u-col-md-2">
+                                        <label>预订单子表</label>
+                                    </div>
+                                    <div class="u-col-md-4">
+                                        <div class="preorder_sub-actions">
+                                            <button class="u-button u-button-primary u-button-pa"
+                                                    id="preorder_sub-action-addUserJob"
+                                                    data-bind="click: event.addUserJob">增加
+                                            </button>
+                                            <button class="u-button u-button-primary u-button-pa"
+                                                    id="preorder_sub-action-delUserJob"
+                                                    data-bind="click: event.delUserJob">删除
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="table-container clearfix">
+                                    <div type="text" id="gridUserJob"
+                                         u-meta='{"id":"grid","type":"grid","data":"preorder_subFormDa","columnMenu":false,"canDrag":false,"sortable":false,"canSwap":false,"editable":true,"editType":"default"}'>
+										<div options='{"field":"pk_org_name","dataType":"String","title":"组织","editType":"event.addpreorder_sub_selectBdCorpVO","editOptions":{"validType":"string","required":true} }'></div>
+                                        <div options='{"field":"materiral","dataType":"String","title":"物料编码","editType":"string"}'></div>
+                                        <div options='{"field":"materialname","dataType":"String","title":"物料名称","editType":"string"}'></div>
+                                        <div options='{"field":"isprice","dataType":"String","title":"是否折扣","editType":"string"}'></div>
+                                        <div options='{"field":"num","dataType":"String","title":"数量","editType":"string"}'></div>
+                                        <div options='{"field":"price","dataType":"String","title":"价格","editType":"string"}'></div>
+                                        <div options='{"field":"disount","dataType":"String","title":"价格折扣","editType":"string"}'></div>
+                                        <div options='{"field":"tax","dataType":"String","title":"税费金额","editType":"string"}'></div>
+                                        <div options='{"field":"finalprice","dataType":"String","title":"最终价格","editType":"string"}'></div>
+                                        <div options='{"field":"amount","dataType":"String","title":"价税合计","editType":"string"}'></div>
+                                    </div>
+                                    <div style="" id='child_card_pagination' class='u-pagination pagination-sm '></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END FORM-->
+        </div>
+        <!-- end addPage -->
+        <!-- editPage -->
+        <!-- end editPage -->
+        <!-- showPage -->
+        <div class="u-mdlayout-page" id="showPage">
+            <div class="u-mdlayout-page-section">
+                <div class="u-col-md-12" style="margin:10px 5px 1px 20px;">
+                    <div class="u-widget">
+                        <button type="button" class="u-button u-button-primary u-button-pa"
+                                data-bind="click:event.goBack">返回
+                        </button>
+                    </div>
+                </div>
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal" id="user-view-form">
+                </form>
+            </div>
+            <!-- END FORM-->
+        </div>
+        <!-- end showPage -->
+
+    </div>
+</div>
+
+<!-- 树展示的弹出层  -->
+<div id="tree-org_testForpreorder" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"org_testForpreorderTree","data":"refBdCorpVODa","type":"tree","idField":"pk_corp","pidField":"parentid","nameField":"unitname","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_BdCorpVOTopreorder" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="tree-psndocForpreorder" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"psndocForpreorderTree","data":"refBdPsndocVODa","type":"tree","idField":"pk_psndoc","pidField":"parentid","nameField":"psnname","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_BdPsndocVOTopreorder" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="tree-currtypeForpreorder" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"currtypeForpreorderTree","data":"refCurrtypeDa","type":"tree","idField":"pk_currtype","pidField":"parentid","nameField":"name","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_CurrtypeTopreorder" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="tree-ieop_userForpreorder" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"ieop_userForpreorderTree","data":"refExtIeopUserVODa","type":"tree","idField":"id","pidField":"parentid","nameField":"name","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_ExtIeopUserVOTopreorder" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="tree-ieop_userForpreorder" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"ieop_userForpreorderTree","data":"refExtIeopUserVODa","type":"tree","idField":"id","pidField":"parentid","nameField":"name","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_ExtIeopUserVOTopreorder" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="tree-ieop_userForpreorder" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"ieop_userForpreorderTree","data":"refExtIeopUserVODa","type":"tree","idField":"id","pidField":"parentid","nameField":"name","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_ExtIeopUserVOTopreorder" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+
+<!-- 树展示的弹出层  -->
+<div id="tree-org_testForpreorder_sub" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"org_testForpreorder_subTree","data":"refBdCorpVODa","type":"tree","idField":"pk_corp","pidField":"parentid","nameField":"unitname","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_BdCorpVOTopreorder_sub" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+

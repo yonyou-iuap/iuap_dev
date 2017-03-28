@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><component conRouterType="手动" createIndustry="0" createTime="2008-02-20 13:38:20" creator="" description="" displayName="public" fromSourceBmf="true" gencodestyle="NC传统样式" help="" id="aa1e1c21-6241-4134-a71a-05624e14140f" industry="0" industryChanged="false" industryIncrease="false" industryName="基础行业" isSource="false" isbizmodel="false" mainEntity="" metaType=".bmf" modifier="" modifyIndustry="0" modifyTime="2016-11-16 15:18:32" name="public" namespace="uap" ownModule="baseapp" preLoad="false" programcode="0" resModuleName="public" resid="" version="24" versionType="0">
+    <celllist>
+        <busiIterface bizItfImpClassName="" componentID="aa1e1c21-6241-4134-a71a-05624e14140f" createIndustry="0" createTime="2008-02-20 13:38:36" creator="" description="" displayName="IBDObject" fullClassName="com.yonyou.iuap.example.entity.meta.IBDObject" height="171" help="" id="6c8722b9-911a-489b-8d0d-18bd3734fcf6" industryChanged="false" isSource="false" modifier="" modifyIndustry="0" modifyTime="2016-11-16 15:20:12" name="IBDObject" resid="" versionType="0" visibility="public" width="140" x="205" y="135">
+            <busiItfAttrs>
+                <busiItAttr classID="6c8722b9-911a-489b-8d0d-18bd3734fcf6" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" desc="" displayName="id" id="5dd3c721-22ad-42b1-9c10-4351c236bc77" name="id" sequence="0" typeDisplayName="String" typeName="String"/>
+                <busiItAttr classID="6c8722b9-911a-489b-8d0d-18bd3734fcf6" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" desc="" displayName="pid" id="c8334364-7ab9-4266-8d4b-e74537935e46" name="pid" sequence="1" typeDisplayName="String" typeName="String"/>
+                <busiItAttr classID="6c8722b9-911a-489b-8d0d-18bd3734fcf6" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" desc="" displayName="code" id="d32cc17b-f415-415a-923f-0764443eb102" name="code" sequence="2" typeDisplayName="String" typeName="String"/>
+                <busiItAttr classID="6c8722b9-911a-489b-8d0d-18bd3734fcf6" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" desc="" displayName="name" id="89578a97-42fe-439b-827c-8eabd9e3604c" name="name" sequence="3" typeDisplayName="String" typeName="String"/>
+            </busiItfAttrs>
+        </busiIterface>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

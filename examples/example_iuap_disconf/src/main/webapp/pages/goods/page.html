@@ -1,0 +1,210 @@
+<div class="u-mdlayout" id="demo-mdlayout">
+
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail">
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+			<div class="u-mdlayout-page-section">
+				
+					<div class="u-container-fluid u-widget-bg">
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget" style="background-color:transparent">
+									<button class="u-button raised primary m-r-sm" data-bind="click: events.beforeAdd">
+										新增
+									</button>
+									<button class="u-button raised" data-bind="click: events.delRow">
+										删除
+									</button>
+									<div class="u-input-group u-has-feedback u-right m-r-sm">
+										<!-- 如果多条件查询，定义多个输入框或者修改后端查询方式  -->
+										<input type="text" class="u-form-control sm" placeholder="商品名称" data-bind="value:searchText,event:{keyup: events.searchKeyUp}"/>
+										<span class="u-form-control-feedback sm fa fa-search" data-bind="click:events.search"></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget">
+
+									<div class="u-widget-heading">
+										<h3 class="u-widget-title">产品列表</h3>
+									</div>
+									<div class="u-widget-body">
+										<table class="u-table" style="width:100%;">
+											<thead>
+												<tr>
+													<th><label class="u-checkbox only-style" data-bind="click: mainDataTable.toggleAllSelect.bind(mainDataTable), css:{'is-checked': mainDataTable.allSelected()}">
+														<input id="checkInput" type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></th>
+													<th>名称</th>
+													<th>数量</th>
+													<th>单价</th>
+													<th>供应商</th>
+													<th>生成日期</th>
+													<th>原产地</th>
+													<th>操作</th>
+												</tr>
+											</thead>
+											<tbody data-bind="foreach:{data:mainDataTable.rows(),as:'row', afterAdd: events.afterAdd}" >
+												<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+													<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}">
+														<input type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></td>
+													<td data-bind="text: row.ref('productName')"></td>
+													<td data-bind="text: row.ref('productNum')"></td>
+													<td data-bind="text: row.ref('price')"></td>
+													<td data-bind="text: row.ref('supplier')"></td>
+													<td data-bind="text: u.dateRender(row.ref('proDate'))"></td>
+													<td data-bind="text: row.ref('orgin')"></td>
+													<td><a href="javascript:;" class="m-r-sm" data-bind="click:$parent.events.beforeEdit.bind($data,  $index())">修改</a><a href="javascript:;" data-bind="click:$parent.events.viewRow.bind($data, $index())">查看</a></td>
+												</tr>
+											</tbody>
+										</table>
+										<div id='pagination' class='u-pagination pagination' u-meta='{"type":"pagination","data":"mainDataTable","pageChange":"events.pageChangeFunc","sizeChange":"events.sizeChangeFunc"}'></div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				
+			</div>
+		</div>
+		<!--编辑/新增-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="addPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+								<button class="u-button raised primary" data-bind='click:events.addOrEditRow'>
+									保存
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">商品信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<div class="u-container-fluid">
+										<div class="u-row">
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">商品名称:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="商品名称" u-meta='{"id":"productName","type":"string","data":"infodata","field":"productName"}'>
+											</div>
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">单价:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="单价" u-meta='{"id":"price","type":"float","data":"infodata","field":"price"}'>
+											</div>
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">供应商:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="供应商" u-meta='{"id":"supplier","type":"string","data":"infodata","field":"supplier"}'>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">数量:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="数量" u-meta='{"id":"productNum","type":"integer","data":"infodata","field":"productNum"}'>
+											</div>
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">生成日期:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<div class="u-input-group u-has-feedback" u-meta='{"id":"proDate","type":"u-date","data":"infodata","field":"proDate"}'>
+													<input type="text" class="u-form-control"/>
+													<span class="u-form-control-feedback fa fa-calendar" data-role="date-button"></span>
+												</div>
+											</div>
+											<div class="u-col-1 u-col-sm-4">
+												<label class="u-input-label right">原产地:</label>
+											</div>
+											<div class="u-col-3 u-col-sm-8 m-b-md">
+												<input type="text" class="u-form-control" placeholder="原产地" u-meta='{"id":"orgin","type":"string","data":"infodata","field":"orgin"}'>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="showPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised primary m-r-sm" data-bind="click: events.goBack">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-heading">
+									<h3 class="u-widget-title">商品信息</h3>
+								</div>
+								<div class="u-widget-body form-container">
+									<ul class="u-form-browse">
+										<li class="m-v">
+											<label class="u-control-label w-sm">商品名称:</label>
+											<span data-bind="text:mainDataTable.ref('productName')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">单价:</label>
+											<span data-bind="text: mainDataTable.ref('price')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">供应商:</label>
+											<span data-bind="text:mainDataTable.ref('supplier')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">数量:</label>
+											<span data-bind="text: mainDataTable.ref('productNum')"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">生产日期:</label>
+											<span data-bind="text:u.dateRender(mainDataTable.ref('proDate'))"></span>
+										</li>
+										<li class="m-v">
+											<label class="u-control-label w-sm">原产地:</label>
+											<span data-bind="text:mainDataTable.ref('orgin')"></span>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

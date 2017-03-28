@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+	   "
+	default-lazy-init="true">
+
+	<description>persistence</description>
+
+	<!-- MyBatis配置,注意配置的ds为dynamicDataSource -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dynamicDataSource" />
+		<!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
+		<property name="typeAliasesPackage"
+			value="com.yonyou.iuap.entity,com.yonyou.metadata.spi,com.yonyou.metadata.mybatis.util.publish.model" />
+		<!-- 显式指定Mapper文件位置 -->
+		<property name="mapperLocations">
+			<array>
+				<value>classpath:/mybatis/**/*Mapper.xml</value>
+				<value>classpath:/mybatis/**/*Dao.xml</value>
+			</array>
+		</property>
+	</bean>
+	<!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage"
+			value="com.yonyou.iuap.repository,com.yonyou.metadata.mybatis.dao,com.yonyou.metadata.caches.redis" />
+		<property name="annotationClass"
+			value="com.yonyou.iuap.persistence.mybatis.anotation.MyBatisRepository" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+	</bean>
+
+	<!-- 单独使用mybatis时候事务配置可以采用DataSourceTransactionManager,如果和jpa一起使用，配置JpaTransactionManager -->
+	<!-- <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
+		<property name="dataSource" ref="dynamicDataSource"/> </bean> -->
+
+	<!-- 使用annotation定义事务 -->
+	<aop:aspectj-autoproxy />
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dynamicDataSource" />
+	</bean>
+	<!-- 数据源配置, 使用Tomcat JDBC连接池 -->
+	<bean id="jdbcDataSource" class="org.apache.tomcat.jdbc.pool.DataSource"
+		destroy-method="close">
+		<!-- Connection Info -->
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+
+		<property name="defaultCatalog" value="${jdbc.catalog}" />
+
+		<!-- Connection Pooling Info -->
+		<property name="maxActive" value="${jdbc.pool.maxActive}" />
+		<property name="maxIdle" value="${jdbc.pool.maxIdle}" />
+		<property name="minIdle" value="10" />
+		<property name="maxWait" value="${jdbc.pool.maxWait}" />
+		<property name="defaultAutoCommit" value="true" />
+		<property name="initialSize" value="${jdbc.pool.initialSize}" />
+
+		<property name="minEvictableIdleTimeMillis" value="${jdbc.pool.minEvictableIdleTimeMillis}" />
+		<property name="removeAbandoned" value="${jdbc.pool.removeAbandoned}" />
+		<property name="removeAbandonedTimeout" value="${jdbc.pool.removeAbandonedTimeout}" />
+	</bean>
+
+	<!--配置动态数据源 -->
+	<bean id="dynamicDataSource" class="com.yonyou.iuap.dynamicds.ds.DynamicDataSource">
+		<property name="targetDataSources">
+			<map key-type="java.lang.String">
+				<entry key="jdbcDataSource" value-ref="jdbcDataSource" />
+			</map>
+		</property>
+		<property name="defaultTargetDataSource" ref="jdbcDataSource" />
+		<property name="dsProvider" ref="dsProvider" />
+	</bean>
+
+	<bean id="dsProvider" class="com.yonyou.iuap.dynamicds.ds.DefaultDataSourceProvider" />
+
+	<!-- 数据源配置,使用应用服务器的数据库连接池 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dynamicDataSource"></property>
+	</bean>
+</beans>

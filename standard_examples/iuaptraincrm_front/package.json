@@ -1,0 +1,37 @@
+{
+  "name": "hrcloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@git.yonyou.com:iuap-iweb/quickstart_fe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-plugin-transform-es2015-modules-amd": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
+    "co-request": "^0.2.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "gulp-copy": "0.0.2",
+    "gulp-less": "^3.0.5",
+    "gulp-rename": "^1.2.2",
+    "gulp-util": "^3.0.7",
+    "iconv-lite": "^0.2.11",
+    "koa": "^1.1.2",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0",
+    "node-fetch": "^1.3.3"
+  },
+  "dependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^2.1.0"
+  }
+}

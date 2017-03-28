@@ -1,0 +1,952 @@
+<div class="u-mdlayout" id="customerinfo-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail" style="overflow-y: auto">
+		<!--	客户信息列表  查询界面	START		-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="customerinfo_listpage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础数据</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">客户信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>列表</span>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					<!--查询栏-->
+					<div class="search-section">
+						<div class="u-row">
+
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">客户编码：</label>
+							</div>		
+							<div class="u-col-2 u-col-sm-8" >
+								<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vcustomerno","name":"客户编码","data":"searchData","field":"vcustomerno","type":"string"}'/>
+							</div>
+							
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">客户名称：</label>
+							</div>	
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vcustomername","name":"客户名称","data":"searchData","field":"vcustomername","type":"string"}'/>
+							</div>
+
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">省份：</label>
+							</div>	
+							<div class="u-col-2 u-col-sm-8">
+								<div id="customerinfo_province" class="customerinfo-province input-group" u-meta='{"refCode":"province","type":"uiRefer","data":"searchData","field":"pk_province","name":"省份"}'>
+									<!-- data-bind="event:{keydown: function(){return;}}" -->
+									<input type="text" class="u-form-control u-input-readonly" />
+									<span class="u-form-control-feedback fa fa-search refer"></span>
+								</div>
+							</div>
+
+						</div>
+						<div class="u-row">
+
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">城市：</label>
+							</div>	
+							<div class="u-col-2 u-col-sm-8">
+								<div id="customerinfo_city1" class="customerinfo-city input-group" u-meta='{"refCode":"city","type":"uiRefer","data":"searchData","field":"pk_city","name":"城市"}'>
+									<input type="text" class="u-form-control u-input-readonly" data-bind="event:{mousedown:searchFilerCity }"/>
+									<span class="u-form-control-feedback fa fa-search refer" data-bind="click: searchFilerCity"></span>
+								</div>
+							</div>
+
+
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">状态：</label>
+							</div>	
+							<div id="customerinfo_vstatus" class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"vstatus","name":"状态","type":"u-combobox","onlySelect":true,"isContainNull":true,"data":"searchData","datasource":"statusEnums","field":"vstatus"}'>
+								<input class="u-form-control readonly"/>
+								<span class="u-combo-icon"></span>
+							</div>
+
+						</div>
+						<div class="u-row">
+
+							<div class="btnBox pull-right" >
+								<button class="u-button raised primary"  data-bind="click: searchClick">
+									查询
+								</button>
+							<!-- <button class="u-button raised primary" id="table-edit" data-bind="click: addClick">
+								新增
+							</button> -->
+							<button class="u-button raised primary"  data-bind="click: updateClick,visible: updateFunShow">
+								修改
+							</button>
+							<button class="u-button raised primary"  data-bind="click: mergeClick,visible: mergeFunShow">
+								合并
+							</button>
+							<button class="u-button raised primary"  data-bind="click: startClick,visible: startFunShow">
+								启用
+							</button>
+							<button class="u-button raised primary" id="table-edit" data-bind="click: stopClick,visible: stopFunShow">
+								停用
+							</button>
+						</div>
+					</div>
+				</div>
+				<!-- 客户信息列表 -->
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="u-widget">
+							<div class="u-widget-body">
+								<table class="u-table" style="width:100%;">
+									<thead>
+										<tr>
+											<th>选择</th>
+											<th>客户编码</th>
+											<th>客户名称</th>
+											<th>省份</th>
+											<th>城市</th>
+											<th>地址</th>
+											<th>邮编</th>
+											<th>状态</th>
+										</tr>
+									</thead>
+									<tbody data-bind="foreach:{data:listData.rows(),as:'row', afterAdd: afterAdd}" >
+										<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+											<td class="checkbox1"><span data-bind="text: $index() + 1"></span><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+												<input type="checkbox" class="u-checkbox-input">
+												<span class="u-checkbox-label"></span> </label></td>
+												<td><a href="javascript:;" data-bind="click:$parent.showClick.bind($data, $index())" ><span data-bind="text:row.ref('vcustomerno')"></span></a></td>
+												<td data-bind="text: row.getSimpleData().vcustomername ;"></td>
+												<td data-bind="text: row.getSimpleData().provinceName"></td>
+												<td data-bind="text: row.getSimpleData().cityName"></td>
+												<td data-bind="text: row.getSimpleData().vaddress"></td>
+												<td data-bind="text: row.getSimpleData().vzipcode"></td>
+
+												<td data-bind="text: comToName(row.getSimpleData().vstatus)"></td>
+											</tr>
+										</tbody>
+										<tbody data-bind="css: { 'table-is-hidden' : listData.rows().length>0 }">
+											<tr>
+												<td colspan="8">无数据</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div id='customerinfo_listCutomerinfo' class='u-pagination pagination table_pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--	客户信息列表  查询界面	END		-->
+
+
+		<!--客户合并 START -->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="customerinfo_mergepage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础数据</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">客户信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>合并</span>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget mtb-1015" style="background-color:transparent;margin: 10px">
+								<button class="u-button raised primary" data-bind="click:onMergeClick">
+									保存
+								</button>
+								<button class="u-button raised primary" data-bind="click:backClick">
+									返回
+								</button>
+							</div>
+							<h5 style="color: red">说明：请选择合并后保留客户，此操作不可逆！</h5>
+						</div>
+
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-12 clear_pd_0">
+								<div class="u-widget">
+									<div class="u-widget-body form-container">
+										<div class="u-container-fluid">
+											<table class="u-table" style="width:100%;">
+												<thead>
+													<tr>
+														<th>选择</th>
+														<th>客户编码</th>
+														<th>客户名称</th>
+
+													</tr>
+												</thead>
+												<tbody data-bind="foreach:{data:mergeData.rows(),as:'row', afterAdd: afterAdd}" >
+													<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+														<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.singleSelect, css:{'is-checked': row.selected()}" style="height:20px">
+															<input type="checkbox" class="u-checkbox-input">
+															<span class="u-checkbox-label"></span> </label></td>
+
+															<td data-bind="text: row.ref('vcustomerno') ;"></td>
+															<td data-bind="text: row.ref('vcustomername') ;"></td>
+														</tr>
+													</tbody>
+													<tbody data-bind="css: { 'table-is-hidden' : mergeData.rows().length>0 }">
+														<tr>
+															<td colspan="3">无数据</td>
+														</tr>
+													</tbody>
+												</table>
+
+
+
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<br>
+
+
+					</div>
+				</div>
+
+			</div>
+			<!-- 客户合并 END -->
+
+
+			<!--	客户信息明细修改页面	START		-->
+			<div class="u-mdlayout-page u-navlayout-fixed-header" id="customerinfo_cardpage">
+				<div class="u-mdlayout-page-section">
+					<div class="u-container-fluid u-widget-bg example">
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="page-bar">
+									<ul class="page-breadcrumb">
+										<li>
+											<a href="#">基础数据</a>
+											<i class="fa fa-circle"></i>
+										</li>
+										<li>
+											<a href="#">客户信息</a>
+											<i class="fa fa-circle"></i>
+										</li>
+										<li>
+											<span>编辑</span>
+										</li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="u-col-12" style="padding-bottom:15px;">
+								<div class="u-widget mtb-1015" style="background-color:transparent;">
+									<!-- <button class="u-button raised primary" data-bind="click:saveClick">
+										保存
+									</button> -->
+									<button class="u-button raised primary" data-bind="click:onSaveClick">
+										保存
+									</button>
+
+									<button class="u-button raised primary" data-bind="click:backClick">
+										返回
+									</button>
+								</div>
+							</div>
+						</div>
+						<!-- 	<hr class="hr-15"> -->
+						<div class="search-section">
+							<div class="u-row">
+								<div class="u-col-12 clear_pd_0">
+									<div class="u-widget">
+										<div class="u-widget-body form-container">
+											<div class="u-container-fluid">
+
+												<div class="u-row">
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">客户编码：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8 ">
+														<div class="u-input-group-before " style="color: red;">
+															*
+														</div>
+														<input disabled type="text"  class="u-form-control u-input-write " u-meta='{"id":"vcustomerno","type":"string","data":"cardData","field":"vcustomerno", "name":"客户编码"}'>
+													</div>
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">客户名称：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<div class="u-input-group-before " style="color: red;">
+															*
+														</div>
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vcustomername","type":"string","data":"cardData","field":"vcustomername", "name":"客户名称"}'>
+													</div>
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">省份：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8 ">
+														<div id="customerinfo_province2" class="customerinfo-province input-group" u-meta='{"refCode":"province","type":"uiRefer","data":"cardData","field":"pk_province","name":"省份"}'>
+															<div class="u-input-group-before " style="color: red;">
+																*
+															</div>
+															<input type="text" class="u-form-control u-input-readonly" />
+															<span class="u-form-control-feedback fa fa-search refer"></span>
+														</div>
+													</div>
+												</div>
+												<div class="u-row">
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">城市：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8 ">
+														<div id="customerinfo_city2" class="customerinfo-city input-group" u-meta='{"refCode":"city","type":"uiRefer","data":"cardData","field":"pk_city","name":"城市"}'>
+															<div class="u-input-group-before " style="color: red;">
+																*
+															</div>
+															<input type="text" class="u-form-control u-input-readonly"   data-bind="event:{mousedown:searchFilerData}"/>
+															<span class="u-form-control-feedback fa fa-search refer"  data-bind="click:searchFilerData"></span>
+														</div>
+													</div>
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">地址：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vaddress","type":"string","data":"cardData","field":"vaddress", "name":"地址"}'>
+													</div>
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">邮编：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vzipcode","type":"string","data":"cardData","field":"vzipcode", "name":"邮编"}'>
+													</div>
+
+												</div>
+
+												<div class='u-row'>
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">企业规模：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vcompanysize","type":"string","data":"cardData","field":"vcompanysize", "name":"企业规模"}'>
+													</div>
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">购买意向强烈程度：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vbuyinterest","type":"string","data":"cardData","field":"vbuyinterest", "name":"购买意向强烈程度"}'>
+													</div>
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">当地补贴政策力度：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vsubpower","type":"string","data":"cardData","field":"vsubpower", "name":"当地补贴政策力度"}'>
+													</div>
+												</div>
+												<h5 style="color: blue; padding: 5px;">开票信息</h5>
+												<div class="u-row">
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">纳税人识别号：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vtaxnumber","type":"string","data":"cardData","field":"vtaxnumber", "name":"纳税人识别号"}'>
+													</div>
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">营业执照地址：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vbizlicense","type":"string","data":"cardData","field":"vbizlicense", "name":"营业执照地址"}'>
+													</div>
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">营业执照固定电话：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vbizphone","type":"string","data":"cardData","field":"vbizphone", "name":"营业执照固定电话"}'>
+													</div>
+
+												</div>
+												<div class="u-row">
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">开户银行：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vaccountbank","type":"string","data":"cardData","field":"vaccountbank", "name":"开户银行"}'>
+													</div>
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">开户行账号：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vaccountno","type":"string","data":"cardData","field":"vaccountno", "name":"开户行账号"}'>
+													</div>
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">组织机构代码：</label>
+													</div>
+
+													<div class="u-col-2 u-col-sm-8 ">
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vcusorgcode","type":"string","data":"cardData","field":"vcusorgcode", "name":"组织机构代码"}'>
+													</div>
+
+												</div>
+											</div>
+											<br>
+											<!-- 车辆信息子表列表 start -->
+											<div class="u-tabs u-tab-inner-left">
+												<div class="u-tabs__tab-bar" >
+													<a href="#customerinfo-tab-panel-c1" class="u-tabs__tab is-active">车辆信息</a>
+													<a href="#customerinfo-tab-panel-c2" class="u-tabs__tab">联系人信息</a>
+													<a href="#customerinfo-tab-panel-filev" class="u-tabs__tab">附件信息</a>
+												</div>
+												<div class="u-tabs__panel is-active" id="customerinfo-tab-panel-c1" style="float:clear;">
+													<br>
+													<div class="u-row">
+														<div class="u-col-12">
+
+															<div class="u-widget">
+																<div class="u-widget-body">
+																	<table class="u-table" style="width:100%;">
+																		<thead>
+																			<tr>
+																				<th>序号</th>
+																				<th>VIN码</th>
+																				<th>车型</th>
+																				<th>车系</th>
+																				<th>车牌号</th>
+																				<th>合格证号</th>
+																				<th>发票号</th>
+																				<th>下线日期</th>
+																				<th>交付日期</th>
+																				<th>开票日期</th>
+																				<th>验收日期</th>
+																				<th>上牌日期</th>
+																				<th>是否试运营车</th>
+																			</tr>
+																		</thead>
+																		<tbody data-bind="foreach:{data:subVehicleData.rows(),as:'row'}" >
+																			<tr  data-bind="css: { 'is-selected' : row.selected()} ,attr:{'id': $index()}">
+																				<!-- <td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																					<input type="checkbox" class="u-checkbox-input">
+																					<span class="u-checkbox-label"></span> </label></td> -->
+																					<td data-bind="text: $index() + 1"></td>
+																					<td data-bind="text: row.ref('vvin');"></td>
+																					<td data-bind="text: row.ref('vmodelname')"></td>
+																					<td data-bind="text: row.ref('vseriesname')"></td>
+																					<td data-bind="text: row.ref('vvehiclelicense')"></td>
+																					<td data-bind="text: row.ref('vcertificate')"></td>
+																					<td data-bind="text: row.ref('vinvoiceno')"></td>
+																					<td data-bind="text: row.ref('dofflinedate')"></td>
+																					<td data-bind="text: row.ref('ddeliverydate')"></td>
+																					<td data-bind="text: row.ref('dinvoicedate')"></td>
+																					<td data-bind="text: row.ref('dreceivedate')"></td>
+																					<td data-bind="text: row.ref('dlicensedate')"></td>
+																					<td data-bind="text: comToName(row.getSimpleData().visoperation)"></td>
+																				</tr>
+																			</tbody>
+																			<tbody data-bind="css: { 'table-is-hidden' : subVehicleData.rows().length>0 }">
+																				<tr>
+																					<td colspan="13">无数据</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</div>
+																</div>
+																<div id='customerinfo_eVehicle' class='u-pagination pagination table_pagination'  u-meta='{"type":"pagination","data":"subVehicleData","itemVehiclePageChangeFunc":"itemPageChangeFunc","sizeChange":"itemVehicleSizeChangeFunc"}'></div>
+															</div>
+
+														</div>
+													</div>
+													<div class="u-tabs__panel" id="customerinfo-tab-panel-c2">
+
+														<div class="u-widget mtb-5" style="background-color:transparent;padding:10px;">
+															<button class="u-button raised primary" data-bind="click:addrow">
+																增行
+															</button>
+															<button class="u-button raised primary" data-bind="click:deleteItemsClick">
+																删行
+															</button>
+														</div>
+														<div class="u-row">
+															<div class="u-col-12">
+																<div class="u-widget">
+																	<div class="u-widget-body">
+																		<div type="text" u-meta='{"id":"customerinfoContactorgrid","name":"联系人信息","data":"subContactorData","type":"grid","editable":true,"multiSelect":false,"showNumCol":true}'>
+
+																			<div options='{"field":"vname","dataType":"String","title":"姓名","editType":"string","editOptions":{"validType":"string","required":true,"maxLength":50},"width":200}'></div>
+																			<div options='{"field":"vphone","dataType":"String","title":"电话","editType":"integer","editOptions":{"validType":"integer"},"width":300}'></div>
+																			<div options='{"field":"vduty","dataType":"String","title":"职位","editType":"string","editOptions":{"validType":"string","maxLength":50},"width":200}'></div>
+																			<!-- <div options='{"field":"pk_customerinfo","dataType":"String","editType":"ReferEditType","title":"客户名称","width":150,"renderType":"ReferRender","refCode":"trackinfo"}'></div> -->
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														
+														
+														<div id='customerinfo_editContactor' class='u-pagination pagination table_pagination'  u-meta='{"type":"pagination","data":"subContactorData","pageChange":"itemContactorPageChangeFunc","sizeChange":"itemContactorSizeChangeFunc"}'></div>
+													</div>
+
+													<div class="u-tabs__panel" id="customerinfo-tab-panel-filev">
+														<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px;">
+															<button class="u-button raised primary" data-bind="click:onOpenUploadWin">上传</button>
+															<button class="u-button raised primary" data-bind="click:fileDownload">下载</button>
+															<button class="u-button raised primary" data-bind="click:fileDelete">删除</button>
+														</div>
+														<div class="u-row">
+															<div class="u-col-12">
+																<div class="u-widget">
+																	<div class="u-widget-body">
+																		<table class="u-table" style="width:100%;">
+																			<thead>
+																				<tr>
+																					<th>选择</th>
+																					<th>文件名称</th>
+																					<th>文件大小</th>
+																					<th>上传时间</th>
+																				</tr>
+																			</thead>
+																			<tbody data-bind="foreach:{data:fileData.rows(),as:'row', afterAdd: afterAdd}" >
+																				<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																					<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																						<input type="checkbox" class="u-checkbox-input">
+																						<span class="u-checkbox-label"></span> </label></td>
+																						<td data-bind="text: row.ref('filename')"></td>
+																						<td data-bind="text: row.ref('filesize')"></td>
+																						<td data-bind="text: row.ref('uploadtime')"></td>
+																					</tr>
+																				</tbody>
+																				<tbody data-bind="css: { 'table-is-hidden' : fileData.rows().length>0 }">
+																					<tr>
+																						<td colspan="4">无数据</td>
+																					</tr>
+																				</tbody>
+																			</table>
+
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+														</div>		     <!--  附件上传TAB END -->
+
+													</div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--	客户信息明细  修改页面	END		-->
+
+					<!-- 模态框(附件上传)start-->	
+				<div id="customerinfo_dialog_uploadfile" style="display:none;">
+					<div class="u-msg-title">
+						<h4>附件上传</h4>
+					</div>
+					<div class="u-msg-content">
+						<div class="u-row">
+							<div class="u-col-12" style="margin-bottom: 20px;">
+								<div class="u-widget">
+									<div class="menu">
+										<button class="u-button raised primary sub-list1-new"  data-bind="click:onFileUpload">上传</button>
+										<button class="u-button raised primary sub-list1-cancel"  data-bind="click:onCloseFileWindow">取消</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget">
+									<div class="form">
+										<div class="u-col-3 u-col-xs-4 u-col-sm-4 u-col-md-3" style=" width: 330px; padding-left: 0px; ">
+											<div class="u-text u-label-floating-always">
+												<input class="u-input" type="file"  id = "customerinfo_uploadbatch_id" name="addfile"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!--模态框(申报车辆信息导入)end-->
+
+					<!--	客户信息明细  查看页面	START		-->
+					<div class="u-mdlayout-page u-navlayout-fixed-header" id="customerinfo_viewpage">
+						<div class="u-mdlayout-page-section">
+							<div class="u-container-fluid u-widget-bg example">
+								<div class="u-row">
+									<div class="u-col-12">
+										<div class="page-bar">
+											<ul class="page-breadcrumb">
+												<li>
+													<a href="#">基础数据</a>
+													<i class="fa fa-circle"></i>
+												</li>
+												<li>
+													<a href="#">客户信息</a>
+													<i class="fa fa-circle"></i>
+												</li>
+												<li>
+													<span>详情</span>
+												</li>
+											</ul>
+
+										</div>
+									</div>
+								</div>
+								<div class="u-row">
+									<div class="u-col-12" style="padding-bottom:15px;">
+										<div class="u-widget mtb-1015" style="background-color:transparent;">
+											<button class="u-button raised primary" data-bind="click:backClick">
+												返回
+											</button>
+										</div>
+									</div>
+								</div>
+								<div class="search-section">
+									<div class="u-row">
+										<div class="u-col-12 clear_pd_0">
+											<div class="u-widget">
+												<div class="u-widget-body form-container">
+													<div class="u-container-fluid">
+
+														<div class="u-row">
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">客户编码：</label>
+															</div>
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vcustomerno')"></span>
+															</div>
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">客户名称：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vcustomername')"></span>
+															</div>
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">省份：</label>
+															</div>
+															<div class="u-col-2 u-col-sm-8 ">
+																<span data-bind="text:cardData.ref('provinceName')"></span>
+															</div>
+
+														</div>
+														<div class="u-row">
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">城市：</label>
+															</div>
+															<div  class="u-col-2 u-col-sm-8 ">
+																<span data-bind="text:cardData.ref('cityName')"></span>
+															</div>
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">地址：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vaddress')"></span>
+															</div>
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">邮编：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vzipcode')"></span>
+															</div>
+
+														</div>
+
+														<div class='u-row'>
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">企业规模：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vcompanysize')"></span>
+															</div>
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">购买意向强烈程度：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vbuyinterest')"></span>
+															</div>
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">当地补贴政策力度：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vsubpower')"></span>
+															</div>
+														</div>
+
+														<h4 style="color: blue">开票信息</h4>
+														<div class="u-row">
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">纳税人识别号：</label>
+															</div>
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vtaxnumber')"></span>
+															</div>
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">营业执照地址：</label>
+															</div>
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vbizlicense')"></span>
+															</div>
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">营业执照固定电话：</label>
+															</div>
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vbizphone')"></span>
+															</div>
+
+														</div>
+														<div class="u-row">
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">开户银行：</label>
+															</div>
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vaccountbank')"></span>
+															</div>
+
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">开户行账号：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vaccountno')"></span>
+															</div>
+															<div class="u-col-2 u-col-sm-4">
+																<label class="u-input-label right">组织机构代码：</label>
+															</div>
+
+															<div class="u-col-2 u-col-sm-8 ">
+
+																<span data-bind="text:cardData.ref('vcusorgcode')"></span>
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<br>
+								<!-- 子表修改 start -->
+								<div class="u-tabs u-tab-inner-left">
+									<div class="u-tabs__tab-bar" >
+										<a href="#customerinfo-tab-panel-s1" class="u-tabs__tab is-active">车辆信息</a>
+										<a href="#customerinfo-tab-panel-s2" class="u-tabs__tab">联系人信息</a>
+										<a href="#customerinfo-tab-panel-filev" class="u-tabs__tab">附件信息</a>
+									</div>
+									<br>
+									<div class="u-tabs__panel is-active" id="customerinfo-tab-panel-s1" style="float:clear;">
+
+										<div class="u-row">
+											<div class="u-col-12">
+
+												<div class="u-widget">
+													<div class="u-widget-body">
+														<table class="u-table" style="width:100%;">
+															<thead>
+																<tr>
+																	<th>序号</th>
+																	<th>车辆识别代码</th>
+																	<th>车型</th>
+																	<th>车系</th>
+																	<th>车牌号</th>
+																	<th>合格证号</th>
+																	<th>发票号</th>
+																	<th>下线日期</th>
+																	<th>交付日期</th>
+																	<th>开票日期</th>
+																	<th>验收日期</th>
+																	<th>上牌日期</th>
+																	<th>是否试运营车</th>
+																</tr>
+															</thead>
+															<tbody data-bind="foreach:{data:subVehicleData.rows(),as:'row'}" >
+																<tr  data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																	<td data-bind="text: $index() + 1"></td>
+																	<td data-bind="text: row.ref('vvin');"></td>
+																	<td data-bind="text: row.ref('vmodelname')"></td>
+																	<td data-bind="text: row.ref('vseriesname')"></td>
+																	<td data-bind="text: row.ref('vvehiclelicense')"></td>
+																	<td data-bind="text: row.ref('vcertificate')"></td>
+																	<td data-bind="text: row.ref('vinvoiceno')"></td>
+																	<td data-bind="text: row.ref('dofflinedate')"></td>
+																	<td data-bind="text: row.ref('ddeliverydate')"></td>
+																	<td data-bind="text: row.ref('dinvoicedate')"></td>
+																	<td data-bind="text: row.ref('dreceivedate')"></td>
+																	<td data-bind="text: row.ref('dlicensedate')"></td>
+																	<td data-bind="text: comToName(row.getSimpleData().visoperation)"></td>
+																</tr>
+															</tbody>
+															<tbody data-bind="css: { 'table-is-hidden' : subVehicleData.rows().length>0 }">
+																<tr>
+																	<td colspan="13">无数据</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+
+												</div>
+												<div id='customerinfo_viewVehicle' class='u-pagination pagination table_pagination'  u-meta='{"type":"pagination","data":"subVehicleData","itemVehiclePageChangeFunc":"itemPageChangeFunc","sizeChange":"itemVehicleSizeChangeFunc"}'></div>
+											</div>
+
+										</div>
+									</div>
+									<div class="u-tabs__panel" id="customerinfo-tab-panel-s2">
+
+										<div class="u-row">
+											<div class="u-col-12">
+												<div class="u-widget">
+													<div class="u-widget-body">
+														<table class="u-table" style="width:100%;">
+															<thead>
+																<tr>
+																	<th>序号</th>
+																	<th>姓名</th>
+																	<th>电话</th>
+																	<th>职位</th>
+																</tr>
+															</thead>
+															<tbody data-bind="foreach:{data:subContactorData.rows(),as:'row', afterAdd: afterAdd}" >
+																<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																	<td data-bind="text: $index() + 1"></td>
+																	<td data-bind="text: row.ref('vname')"></td>
+																	<td data-bind="text: row.ref('vphone')"></td>
+																	<td data-bind="text: row.ref('vduty')"></td>
+																</tr>
+															</tbody>
+															<tbody data-bind="css: { 'table-is-hidden' : subContactorData.rows().length>0 }">
+																<tr>
+																	<td colspan="4">无数据</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div id='customerinfo_viewContact' class='u-pagination pagination table_pagination'  u-meta='{"type":"pagination","data":"subContactorData","pageChange":"itemContactorPageChangeFunc","sizeChange":"itemContactorSizeChangeFunc"}'></div>
+									</div>
+
+									<div class="u-tabs__panel" id="customerinfo-tab-panel-filev">
+										<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px;">
+											<button class="u-button raised primary" data-bind="click:fileDownload">下载</button>
+										</div>
+										<div class="u-row">
+											<div class="u-col-12">
+												<div class="u-widget">
+													<div class="u-widget-body">
+														<table class="u-table" style="width:100%;">
+															<thead>
+																<tr>
+																	<th>选择</th>
+																	<th>文件名称</th>
+																	<th>文件大小</th>
+																	<th>上传时间</th>
+																</tr>
+															</thead>                                                                                                                                                                                        
+															<tbody data-bind="foreach:{data:fileData.rows(),as:'row', afterAdd: afterAdd}" >
+																<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																	<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																		<input type="checkbox" class="u-checkbox-input">
+																		<span class="u-checkbox-label"></span> </label></td>
+																		<td data-bind="text: row.ref('filename')"></td>
+																		<td data-bind="text: row.ref('filesize')"></td>
+																		<td data-bind="text: row.ref('uploadtime')"></td>
+																	</tr>
+																</tbody>
+																<tbody data-bind="css: { 'table-is-hidden' : fileData.rows().length>0 }">
+																	<tr>
+																		<td colspan="4">无数据</td>
+																	</tr>
+																</tbody>
+															</table>
+
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div> <!--	客户信息明细  查看页面	END		-->
+
+						
+
+					</div>
+
+				</div>

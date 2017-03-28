@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.yonyou.iuap.example</groupId>
+  <artifactId>iuap-busilog-example </artifactId>
+  <name>example-iuap-busilog</name>
+  <version>3.1.0-RELEASE</version>
+  <packaging>war</packaging>
+
+  <description>业务日志示例工程</description>
+  <properties>
+	<iuap.modules.version>3.1.0-RELEASE</iuap.modules.version>
+	<iuap.saas.modules.version>3.1.0-RC001</iuap.saas.modules.version>
+	<spring.version>4.0.5.RELEASE</spring.version>
+  </properties>
+  <dependencies>
+		<!--依赖业务日志ieop底层框架  -->
+		<dependency>
+		  <groupId>com.yonyou.iuap</groupId>
+		  <artifactId>iuap-busilog</artifactId>
+		  <version>3.1.0-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+	<plugins>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn compile命令时会出现莫名的错误，因为系统默认使用GBK编码 -->
+            <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn命令时当发生文件资源copy时将使用系统默认使用GBK编码 -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

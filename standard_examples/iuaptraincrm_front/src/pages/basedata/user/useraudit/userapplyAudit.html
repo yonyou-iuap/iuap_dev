@@ -1,0 +1,336 @@
+<!-- 内容 -->
+<div class="u-mdlayout" id="userAuditApply-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail">
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="userAuditApply_list">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">用户审核</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>列表</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+						<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">用户编码:</label>
+						</div>
+						<div class="u-col-2 u-col-sm-8">
+							<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vusercode","data":"searchData","field":"vusercode"}'>
+						</div>
+						<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">人员编码:</label>
+						</div>
+						<div class="u-col-2 u-col-sm-8">
+							<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vpsncode","data":"searchData","field":"vpsncode"}'>
+						</div>
+						<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">工号:</label>
+						</div>
+						<div class="u-col-2 u-col-sm-8">
+							<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vworkid","data":"searchData","field":"vworkid"}'>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">所属组织:</label>
+						</div>
+						<div class="u-col-2 u-col-sm-8">
+							<div id="userAuditApply_corp" class="input-group" u-meta='{"refCode":"corp","type":"uiRefer","data":"searchData","field":"pk_org"}'>
+								<input type="text" class="u-form-control"/>
+								<span class="u-form-control-feedback fa fa-search refer"></span>
+							</div>
+						</div>
+						<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">所属部门:</label>
+						</div>
+						<div class="u-col-2 u-col-sm-8">
+							<div id="userAuditApply_dept" class="input-group" u-meta='{"refCode":"dept","type":"uiRefer","data":"searchData","field":"pk_dept"}'>
+								<input type="text" class="u-form-control"/>
+								<span class="u-form-control-feedback fa fa-search refer"></span>
+							</div>
+						</div>
+						<div class="u-col-2 u-col-sm-4">
+							<label class="u-input-label right">状态:</label>
+						</div>
+						<div class="u-col-2 u-col-sm-8">
+							<!--状态下拉-->
+							<div class="u-combo" u-meta='{"type":"u-combobox","data":"searchData","field":"vstatus","datasource":"usapplysts"}'>
+								<input class="u-input"/>
+								<span class="u-combo-icon"></span>
+							</div>
+						</div>
+						<div class="btnBox pull-right" >
+							<button class="u-button raised primary m-r-sm" id="table-search" data-bind="click: searchClick">查询</button>
+							<button class="u-button raised primary m-r-sm" id="table-mdf" data-bind="click: editClick">审核</button>
+						</div>
+					</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-body">
+									<table class="u-table" style="width:100%;">
+										<thead>
+											<tr>
+												<th>选择</th>
+												<th>用户编码</th>
+												<th>人员编码</th>
+												<th>人员名称</th>
+												<th>身份证号</th>
+												<th>工号</th>
+												<th>联系电话</th>
+												<th>联系邮箱</th>
+												<!-- <th>岗位</th> -->
+												<th>所属组织</th>
+												<th>所属部门</th>
+												<th>状态</th>
+											</tr>
+										</thead>
+										<tbody data-bind="foreach:{data:listData.rows(),as:'row', afterAdd: afterAdd}" >
+											<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+												<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+														<input type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></td>
+												<td><a href="javascript:;" data-bind="click:$parent.showClick.bind($data, $index())" ><span data-bind="text:row.ref('vusercode')"></span></a></td>
+												<td data-bind="text: row.ref('vpsncode')"></td>
+												<td data-bind="text: row.ref('vusername')"></td>
+												<td data-bind="text: row.ref('vid')"></td>
+												<td data-bind="text: row.ref('vworkid')"></td>
+												<td data-bind="text: row.ref('vphone')"></td>
+												<td data-bind="text: row.ref('vemail')"></td>
+												<td data-bind="text: row.ref('orgname')"></td>
+												<td data-bind="text: row.ref('deptname')"></td>
+												<td data-bind="text: row.ref('stsname')"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+	                    <div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 卡片界面 -->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="userAuditApply_new">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">用户审核</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>审核</span>
+	                                </li>
+	                            </ul>
+	                        </div>
+						</div>	
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget mtb-1015" style="background-color:transparent;">
+								<button class="u-button raised primary" data-bind="click:onSaveClick,visible: gridStatus() !='view'">保存</button>
+								<button class="u-button raised primary" data-bind="click:onPassClick,visible: gridStatus() !='view'">通过</button>
+								<button class="u-button raised primary" data-bind="click:onRejectClick,visible: gridStatus() !='view'">驳回</button>
+								<button class="u-button raised primary" data-bind="click:onBackClick">返回</button>
+							</div>
+						</div>	
+					</div>	
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-12 clear_pd_0">
+								<div class="u-widget">
+									<div class="u-widget-body form-container">
+										<div class="u-container-fluid">
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">用户编码:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vusercode","data":"cardData","field":"vusercode"}' data-bind="enable: false">
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">人员编码:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vpsncode","data":"cardData","field":"vpsncode"}' data-bind="enable: false">
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">人员名称:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vusername","data":"cardData","field":"vusername"}' data-bind="enable: false">
+												</div>
+											</div>
+											
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">身份证号:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vid","data":"cardData","field":"vid"}' data-bind="enable: false">
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">工号:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vworkid","data":"cardData","field":"vworkid"}' data-bind="enable: false">
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">联系电话:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vphone","data":"cardData","field":"vphone"}' data-bind="enable: false">
+												</div>
+											</div>
+											
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">联系邮箱:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vemail","data":"cardData","field":"vemail"}' data-bind="enable: false">
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属组织:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<div id="userAuditApply_corp_card" class="input-group" u-meta='{"refCode":"corp","type":"uiRefer","data":"cardData","field":"pk_org"}'>
+														<input type="text" class="u-form-control" data-bind="enable: false"/>
+													</div>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属部门:</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<div id="userAuditApply_dept_card" class="input-group" u-meta='{"refCode":"dept","type":"uiRefer","data":"cardData","field":"pk_dept"}'>
+														<input type="text" class="u-form-control" data-bind="enable: false"/>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+					<!--页签-->
+						<div class="u-tabs u-tab-inner-left" id="userAuditApply_bodyTabs">
+						    <div class="u-tabs__tab-bar" >
+						    	<a href="#userAuditApply_posTab" class="u-tabs__tab is-active">岗位</a>
+						    </div>
+						    <div class="u-tabs__panel is-active" id="userAuditApply_posTab" style="float:clear;">
+						       <span>
+							       <div class="u-row">
+										<div class="u-col-12">
+											<div class="u-widget">
+												<div class="u-widget-body">
+													<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+														<button class="u-button raised primary" data-bind="click:roleaddClick,visible: gridStatus() !='view'">关联岗位</button>
+														<button class="u-button raised primary" data-bind="click:delPosClick,visible: gridStatus() !='view'">删除岗位</button>
+														<div type="text" u-meta='{"id":"userAuditApply_posgrid","name":"岗位","data":"posListData","type":"grid","editable":false,"multiSelect":true,"showNumCol":true}'>
+															<div options='{"field":"position_code","dataType":"String","title":"岗位编码","width":125}'></div>
+															<div options='{"field":"position_name","dataType":"String","title":"岗位名称","width":125}'></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</span>
+							</div>
+						</div>
+					<!--页签-->
+				</div>
+			</div>
+		</div>
+		<!--选择岗位-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="userAuditApply_poslist">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">用户申请</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>选择岗位</span>
+	                                </li>
+	                            </ul>
+	                        </div>
+						</div>	
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">岗位编码:</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"position_code","data":"posSearchData","field":"position_code"}'>
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">岗位名称:</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"position_name","data":"posSearchData","field":"position_name"}'>
+							</div>
+							<div class="btnBox pull-right" >
+								<button class="u-button raised primary m-r-sm" id="postable-search" data-bind="click:posSearchClick">查询</button>
+								<button class="u-button raised primary m-r-sm" id="postable-confirm" data-bind="click:confirmClick">确认</button>
+								<button class="u-button raised primary m-r-sm" id="postable-cancel" data-bind="click:posCancelClick">取消</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-body">
+									<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+										<div type="text" u-meta='{"name":"岗位","data":"roleData","type":"grid","editable":false,"multiSelect":true,"showNumCol":true}'>
+											<div options='{"field":"position_code","dataType":"String","title":"岗位编码","width":125}'></div>
+											<div options='{"field":"position_name","dataType":"String","title":"岗位名称","width":125}'></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+	                    <div id='posPagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"roleData","pageChange":"posPageChangeFunc","sizeChange":"posSizeChangeFunc"}'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>

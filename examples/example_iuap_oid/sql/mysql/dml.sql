@@ -1,0 +1,1 @@
+INSERT INTO pub_oid (schemacode, oidbase, id, ts) VALUES (DATABASE(), '100000000001', uuid(), current_timestamp());

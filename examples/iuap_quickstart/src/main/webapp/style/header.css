@@ -1,0 +1,103 @@
+/**
+ *头部样式：
+ *高度、字体、位置样式
+ *form: lizhik
+ */
+.common-header .header-container {
+	height: 32px;
+	line-height: 32px;
+	padding-bottom: 47px;
+	border-bottom: 1px solid #d7d7d7;
+}
+.common-header .name {
+	color: #232a34;
+	float: left;
+	margin: 0;
+	font: 20px/32px "microsoft yahei"  ;
+}
+.common-header .fa-plus{
+	font-size:14px;
+	padding-right:4px;
+}
+.common-header .star {
+	float: left;
+	margin: 10px 20px 0 10px;
+	color: #FB9611;
+	font-size: 18px;
+}
+
+.common-header .btn-lg {
+	padding: 6px 13px;
+	/*margin-top: 15px;*/
+}
+.common-header .btn {
+	float: left;
+	font-size: 14px;
+}
+.common-header form {
+	float: right;
+}
+.common-header form input {
+	height: 32px;
+	line-height: 32px;
+	font-size: 12px;
+	color: #232a34;
+	padding: 0 6px;
+}
+
+/**
+ * 头部右上输入框
+ * from:lizhik
+ */
+.common-header .head-search{
+	border:1px solid #BFBFBF;
+}
+.common-header .head-search input{
+	border: none;
+	border-right:1px solid #BFBFBF;
+	background:#fff;
+	outline:none;
+	height:30px;
+	width:167px;
+	padding-left:6px;
+	font:  12px/30px "microsoft yahei" ;
+}
+.common-header .head-search button{
+	background:#FFF;
+	width:54px;
+	border:none;
+	padding:0;
+	height:30px;
+	outline:none;
+}
+
+.common-header .select-cont{
+	margin: 0 30px 0 0 ;
+}
+.common-header .select-cont span{
+	line-height:30px;
+	padding-right:10px;
+}
+/*右上方使用了.forsearch类的样式-wei-04-06*/
+.org ,.month ,.forsearch ,.forsearch input ,.forsearch label,.forsearch button{
+    float: left;
+}
+.forsearch input{
+    width: 167px;
+    border-top:1px solid #BFBFBF;
+		border-left:1px solid #BFBFBF;
+		border-bottom:1px solid #BFBFBF;
+		border-right:none;
+		font-family: "microsoft yahei";
+}
+.forsearch button{
+   	width: 54px;
+    height: 32px;
+    background-color: #fff;
+    border-radius: 0;
+    font-family: "Microsoft Yahei";
+}
+
+.forsearch button:hover{
+    background-color: #eee;
+}

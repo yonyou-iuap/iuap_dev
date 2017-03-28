@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:http-conf="http://cxf.apache.org/transports/http/configuration"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	                    http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+	                    http://cxf.apache.org/transports/http/configuration
+                        http://cxf.apache.org/schemas/configuration/http-conf.xsd"
+       default-lazy-init="true">
+	
+    <description>Apache CXF Web Service Client端配置</description>
+
+    <jaxws:client id="soapServiceClientDemo"
+                  serviceClass="com.yonyou.iuap.ws.soap.SoapWebServiceDemo"
+                  address="http://localhost:8080/services/soap/demoService"/>
+
+    <!-- 设置cxf全局超时时间 name 格式为 webservice的wsdl名称.http-conduit 如goodService
+    {http://goods.webservice.web.uap/}GoodCXFSoapServiceImplService.http-conduit-->
+    <http-conf:conduit name="*.http-conduit">
+        <http-conf:client ConnectionTimeout="10000" ReceiveTimeout="20000"/>
+    </http-conf:conduit>
+
+
+</beans>

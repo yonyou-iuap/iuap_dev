@@ -1,0 +1,1 @@
+logger=uap.web.log.Slf4jLogger 

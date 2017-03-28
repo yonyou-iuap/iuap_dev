@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><component conRouterType="曼哈顿直角" createIndustry="0" createTime="2017-03-08 16:12:06" creator="" description="" displayName="psn" fromSourceBmf="true" gencodestyle="标准样式" help="" id="b6d126b2-f5fd-42e6-9962-b8e36e9fe394" industry="0" industryChanged="false" industryIncrease="false" industryName="0" isSource="false" isbizmodel="false" mainEntity="19ed62f3-94fc-4e76-bb8a-bddc5bbbc949" metaType=".bmf" modifier="" modifyIndustry="0" modifyTime="2017-03-16 15:49:09" name="psn" namespace="iuaptraincrm" ownModule="iuaptraincrm" preLoad="false" programcode="0" resModuleName="psn" resid="" version="7" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="b6d126b2-f5fd-42e6-9962-b8e36e9fe394" createIndustry="0" createTime="2017-03-08 16:12:09" creator="" czlist="" description="" displayName="人员" fullClassName="com.yonyou.iuap.crm.psn.entity.BdPsndocVO" height="120" help="" id="19ed62f3-94fc-4e76-bb8a-bddc5bbbc949" industryChanged="false" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" isSource="true" keyAttributeId="3099dc4c-feda-42b6-b259-21817a9f064c" modInfoClassName="" modifier="" modifyIndustry="0" modifyTime="2017-03-16 16:00:49" name="psndoc" resid="" stereoType="" tableName="bd_psndoc" userDefClassName="" versionType="0" visibility="public" width="114" x="238" y="128">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="19ed62f3-94fc-4e76-bb8a-bddc5bbbc949" createIndustry="0" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="pk_psndoc" fieldType="char" fixedLength="false" forLocale="false" help="" id="3099dc4c-feda-42b6-b259-21817a9f064c" industryChanged="false" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" isSource="true" length="36" maxValue="" minValue="" modifyIndustry="0" name="pk_psndoc" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="ID" typeName="ID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="19ed62f3-94fc-4e76-bb8a-bddc5bbbc949" createIndustry="0" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="人员名称" dynamic="false" dynamicTable="" fieldName="psnname" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="0b2603cd-b83a-4e88-93f0-385c4c28467b" industryChanged="false" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" isSource="true" length="50" maxValue="" minValue="" modifyIndustry="0" name="psnname" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="19ed62f3-94fc-4e76-bb8a-bddc5bbbc949" createIndustry="0" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="上级ID" dynamic="false" dynamicTable="" fieldName="parent_id" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="2feb2912-5fe7-4663-ae3c-7474e4a555ad" industryChanged="false" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" isSource="true" length="50" maxValue="" minValue="" modifyIndustry="0" name="parent_id" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="19ed62f3-94fc-4e76-bb8a-bddc5bbbc949" createIndustry="0" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="邮箱" dynamic="false" dynamicTable="" fieldName="email" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="d59909bc-14f4-4d9a-8d48-155b480edd08" industryChanged="false" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" isSource="true" length="50" maxValue="" minValue="" modifyIndustry="0" name="email" notSerialize="false" precise="" refModelName="" resid="" sequence="3" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

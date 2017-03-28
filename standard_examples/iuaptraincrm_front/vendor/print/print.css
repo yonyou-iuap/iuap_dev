@@ -1,0 +1,64 @@
+@media print {
+	.noprint {
+		display: none;
+	}
+}
+
+.container {
+	border: solid 1px #aaaaaa;
+	font-size: 12px;
+	font-family: '宋体';
+	min-width: 800px;
+}
+ 
+.logo {
+	height: 90px;
+	margin-bottom:20px;
+	border-bottom: solid 1px #aaaaaa;
+}
+.orderlist {
+	font-size: 12px;
+}
+.orderlist table {
+	width: 60%;
+}
+.orderlist TD {
+	font-weight: bold;
+	padding: 3px;
+}
+.orderlist TD SPAN {
+	font-weight: normal;
+}
+.goodslist {
+	font-size: 12px;
+	padding: 2px;
+	margin-top:5px;
+}
+
+.goodslist table {
+	width: 50%;
+	border-collapse: collapse;
+	border: solid 1px #000000;
+}
+
+.goodslist table th, .goodslist table td {
+	border: solid 1px #000000;
+	padding: 3px;
+}
+.goodslist table th {
+	text-align: center;
+	font-weight: normal;
+}
+
+.totolAmount {
+	text-align: right;
+	font-size: 14px;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 9px;
+}
+
+.totolAmount span {
+	color: #ff0000;
+}

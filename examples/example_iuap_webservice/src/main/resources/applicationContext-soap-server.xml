@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+	default-lazy-init="true">
+
+	<description>Apache CXF的 SOAP Web Service配置</description>
+	
+	<!-- jax-ws endpoint定义  -->
+	<jaxws:endpoint address="/soap/SoapWebServiceDemo">
+		<jaxws:implementor ref="soapWebServiceDemo" />
+	</jaxws:endpoint>
+
+	<!-- WebService的实现Bean定义 -->
+	<bean id="soapWebServiceDemo" class="com.yonyou.iuap.ws.soap.SoapWebServiceDemoImpl"/>
+</beans>

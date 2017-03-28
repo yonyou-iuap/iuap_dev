@@ -1,0 +1,363 @@
+<!-- 内容 -->
+<div class="u-mdlayout" id="salecutratio-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail" style="overflow-y: auto">
+		<!--列表界面-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础档案</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">产品信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>销售提成系数</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- 查询 -->
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">年度：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-4" style="padding:0px !important">
+								<div class="u-datepicke input-group fx-datepicker" u-meta='{"id":"search_nyear","type":"u-year","data":"searchData","field":"search_nyear"}'>
+									<input type="text" class="u-form-control u-input"/>
+									<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span>
+								</div>
+							</div>
+
+						</div>
+						<div class="u-row">
+							<div class="btnBox pull-right mb-5" >
+								<button class="u-button raised primary" id="table-search" data-bind="click: searchClick">
+									查询
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-add" data-bind="click: addClick,visible: addFunShow">
+									新增
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-mdf" data-bind="click: editClick,visible: editFunShow">
+									修改
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-del" data-bind="click: delClick,visible: delFunShow">
+									删除
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-body">
+									<table class="u-table" style="width:100%;">
+										<thead>
+											<tr>
+												<th>选择</th>
+												<th>年度</th>
+												<th>提成系数</th>
+												<th>合同提成占比</th>
+												<th>国补提成占比</th>
+												<th>地补提成占比</th>
+												<th>开票是否包含地补</th>
+												<th>是否申报地补</th>
+												<th>开票是否包含国补</th>
+												<th>是否申报国补</th>
+											</tr>
+										</thead>
+										<tbody data-bind="foreach:{data:listData.rows(),as:'row', afterAdd: afterAdd}" >
+											<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+												<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+													<input type="checkbox" class="u-checkbox-input">
+													<span class="u-checkbox-label"></span> </label></td>
+												<td data-bind="text: row.ref('nyear')"></td>
+												<td data-bind="text: row.ref('ncutratio')"></td>
+												<td data-bind="text: row.ref('ncontract')"></td>
+												<td data-bind="text: row.ref('ncountry')"></td>
+												<td data-bind="text: row.ref('nlocation')"></td>
+												<td data-bind="text: comToName(row.getSimpleData().vinvoice)"></td>
+												<td data-bind="text: comToName(row.getSimpleData().visbyd)"></td>
+												<td data-bind="text: comToName(row.getSimpleData().vinvoice_co)"></td>
+												<td data-bind="text: comToName(row.getSimpleData().visbyd_co)"></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 卡片界面-新增 -->
+		<div class="u-mdlayout-page" id="salecutratio_new">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础档案</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">产品信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>销售提成系数新增</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget mtb-1015" style="background-color:transparent;margin: -6px 0 -6px 0;">
+								<button class="u-button raised primary" data-bind="click:onSaveClick">
+									保存
+								</button>
+								<button class="u-button raised primary" data-bind="click: onBackClick">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+						<div class="search-section">
+							<div class="u-row">
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">年度：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-4" style="padding:0px !important">
+									<div class="u-datepicke input-group fx-datepicker " u-meta='{"name":"年度","id":"nyear","data":"cardData","field":"nyear","type":"u-year"}'>
+										<div class="u-input-group-before " style="color: red;">
+											*
+										</div>
+										<input type="text" class="u-input u-form-control"/>
+										<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span>
+									</div>
+								</div>
+
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">提成系数：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input type="text" class="u-form-control u-input-write" u-meta='{"type": "float","name":"提成系数","id":"ncutratio","data":"cardData","field":"ncutratio"}'/>
+								</div>
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">合同提成占比：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input type="text" class="u-form-control u-input-write" u-meta='{"type": "float","name":"合同提成占比","id":"ncontract","data":"cardData","field":"ncontract"}'/>
+								</div>
+
+							</div>
+							<div class="u-row">
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">国补提成占比：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input type="text" class="u-form-control u-input-write" u-meta='{"type": "float","name":"国补提成占比","id":"ncountry","data":"cardData","field":"ncountry"}'/>
+								</div>
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">开票是否包含地补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " data-bind="enable: false"  u-meta='{"id":"vinvoice","name":"开票是否包含地补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"vinvoice"}'>
+									<input class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">是否申报地补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"visbyd","name":"是否申报地补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"visbyd"}'>
+									<input class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+
+							</div>
+							<div class="u-row">
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">地补提成占比：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8 m-b-md">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input type="text" class="u-form-control u-input-write" u-meta='{"id":"nlocation","name":"地补提成占比","type":"float","data":"cardData","field":"nlocation"}'>
+								</div>
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">开票是否包含国补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"vinvoice_co","name":"开票是否包含国补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"vinvoice_co"}'>
+									<input class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">是否申报国补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"visbyd_co","name":"是否申报国补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"visbyd_co"}'>
+									<input class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<!-- 卡片编辑界面 -->
+		<div class="u-mdlayout-page" id="salecutratio_update">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础档案</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">产品信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>销售提成系数修改</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget mtb-1015" style="background-color:transparent;margin: -6px 0 -6px 0;">
+								<button class="u-button raised primary" data-bind="click:onUpdateClick">
+									保存
+								</button>
+								<button class="u-button raised primary" data-bind="click: onBackClick">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="search-section">
+							<div class="u-row">
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">年度：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-4" style="padding:0px !important">
+									<div class="u-datepicke input-group fx-datepicker " u-meta='{"name":"年度","id":"nyear","data":"cardData","field":"nyear","type":"u-year"}'>
+										<div class="u-input-group-before " style="color: red;">
+											*
+										</div>
+										<input disabled="disabled"  type="text" class="u-input u-form-control"/>
+										<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span>
+									</div>
+								</div>
+
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">提成系数：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input type="text" class="u-form-control u-input-write" u-meta='{"type": "float","name":"提成系数","id":"ncutratio","data":"cardData","field":"ncutratio"}'/>
+								</div>
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">合同提成占比：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input type="text" class="u-form-control u-input-write" u-meta='{"type": "float","name":"合同提成占比","id":"ncontract","data":"cardData","field":"ncontract"}'/>
+								</div>
+
+							</div>
+							<div class="u-row">
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">国补提成占比：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input type="text" class="u-form-control u-input-write" u-meta='{"type": "float","name":"国补提成占比","id":"ncountry","data":"cardData","field":"ncountry"}'/>
+								</div>
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">开票是否包含地补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"vinvoice","name":"开票是否包含地补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"vinvoice"}'>
+									<input   class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">是否申报地补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"visbyd","name":"是否申报地补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"visbyd"}'>
+									<input class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+
+							</div>
+							<div class="u-row">
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">地补提成占比：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8 m-b-md">
+									<div class="u-input-group-before " style="color: red;">
+										*
+									</div>
+									<input  type="text" class="u-form-control u-input-write" u-meta='{"id":"nlocation","name":"地补提成占比","type":"float","data":"cardData","field":"nlocation"}'>
+								</div>
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">开票是否包含国补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"vinvoice_co","name":"开票是否包含国补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"vinvoice_co"}'>
+									<input  class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">是否申报国补：</label>
+								</div>
+								<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"visbyd_co","name":"是否申报国补","type":"u-combobox","data":"cardData","datasource":"yesORno","field":"visbyd_co"}'>
+									<input   class="u-form-control u-input u-input-readonly" />
+									<span class="u-combo-icon"></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

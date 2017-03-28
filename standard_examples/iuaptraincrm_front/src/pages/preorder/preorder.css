@@ -1,0 +1,216 @@
+/*outside frame*/
+div#content {
+    background: #ECEFF1;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+div#content .u-mdlayout {
+    background: #EEEFF1;
+    box-shadow: none;
+}
+
+header > .u-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header > .u-container > .u-row {
+    margin-left: 0;
+    margin-right: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.u-col-xs-12.u-col-sm-12.text-right {
+    padding-right: 0;
+}
+
+/*搜索框部分*/
+#user-mdlayout .u-panel {
+    width: 100%;
+}
+
+.form-search {
+    background: #fff;
+    border-bottom: 1px solid #cecece;
+}
+
+.u-button-accent, .u-button.gray-btn {
+    color: #2196f3;
+    background-color: #F7F7F7;
+    border: 1px #F7F7F7 solid;
+}
+
+#condition-toggle-user .uf.uf-aadown {
+    font-size: 12px;
+}
+
+#condition-toggle-user .uf.uf-aaup {
+    font-size: 12px;
+}
+
+#user-mdlayout .u-panel.form-search {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    font-size: 14px;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 15px;
+}
+
+#user-mdlayout .u-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.u-navlayout-fixed-drawer .u-navlayout-content {
+    margin-left: 200px;
+}
+
+#condition-toggle-user .u-link:focus, .u-link:hover {
+    text-decoration: none;
+}
+
+#user-mdlayout .u-panel-title {
+    font-size: 14px;
+}
+
+/*中间列表部分*/
+div#list, div#addPage {
+    background: #fff;
+}
+
+#user-mdlayout .u-mdlayout-page-section {
+    top: 0;
+    bottom: 50px;
+}
+
+#user_list_button, .user_list_button {
+    width: 100%;
+    background: white;
+    z-index: 2000;
+    position: fixed;
+    padding: 5px 15px 5px 15px;
+}
+
+/*将user_list_button提到最上面，建立一个新的list 三部分*/
+/* 第一部分最右侧按钮组 */
+#user_list_button_2, .user_list_button_2 {
+    padding: 5px 15px 5px 15px;
+    float: right;
+}
+
+#user_list_button_2 .u-button, #user_card_button .u-button {
+    min-width: 2.5rem;
+}
+
+#user_card_button a:hover {
+    cursor: pointer;
+}
+
+.u-button-group.margin-0.padding-0 {
+    float: right;
+}
+
+.u-button-group .u-button-primary.u-button-sm {
+    color: rgb(255, 255, 255);
+    background-color: #1E7BE2;
+    border: 1px #1E7BE2 solid;
+}
+
+/*加上分割线*/
+.u-button-group .u-button-primary.u-button-sm:not(:last-child) {
+    border-right: 1px solid #fff;
+}
+
+.u-mdlayout-btn {
+    background: #fff;
+    border-bottom: 1px solid #cecece;
+}
+
+/* 第二部分 居中标题 */
+.center-title {
+    float: right;
+    text-align: center;
+    line-height: 2.5;
+}
+
+/*页码*/
+#pagination {
+    margin: 5px 5px 5px 15px;
+}
+
+/*新增以及编辑页面的样式*/
+form#user-form {
+    padding-top: 30px;
+}
+
+div#commonShowDialog {
+    height: 100% !important;
+    overflow: auto;
+}
+
+.u-form-control[readonly], .u-form-control[disabled] {
+    background: #fff;
+}
+
+.ztree li span.button.ico_docu {
+    display: none;
+}
+
+.button-cancel {
+    border: 1px #F7F7F7 solid;
+    background: #F7F7F7;
+}
+
+#user_card_button {
+    padding: 5px 0 5px 0;
+}
+
+#user_card_button .u-button {
+    color: rgb(255, 255, 255);
+    background-color: #1E7BE2;
+    border: 1px #1E7BE2 solid;
+}
+
+.ufBack i.uf.uf-longleft {
+    line-height: 0;
+}
+
+.ufBack i.uf.uf-longleft:hover {
+    cursor: pointer;
+}
+
+#addPage .u-input-group {
+    width: 100%;
+}
+
+/*验证*/
+span.u-form-control-info.uf.uf-exclamationsign {
+    font-size: 12px;
+    top: 32px !important;
+}
+
+/*测试collapse*/
+.u-panel-body {
+    padding: 0px;
+}
+
+.collapse.in {
+    height: auto;
+}
+
+.collapse {
+    -webkit-transition: height 0.35s ease;
+    -moz-transition: height 0.35s ease;
+    -ms-transition: height 0.35s ease;
+    -o-transition: height 0.35s ease;
+    transition: height 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    height: 0;
+
+}

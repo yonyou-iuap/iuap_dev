@@ -1,0 +1,230 @@
+<!-- 内容 -->
+<div class="u-mdlayout bterdept" id="dept-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+	<div class="u-mdlayout-detail" style="overflow-y: auto;">
+		<div class="u-mdlayout-page  current" id="dept_list">
+			<div class="u-mdlayout-page-section" >
+				<div class="u-container-fluid u-widget-bg example">
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="page-bar">
+                            <ul class="page-breadcrumb">
+                                <li>
+                                    <a href="#">系统管理</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <a href="#">组织管理</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                                <li>
+                                    <span>部门维护</span>
+                                </li>
+                            </ul>
+
+                        </div>
+					</div>	
+				</div>
+				<div class="u-row">
+					<div class="u-col-12">
+						<div class="u-widget mtb-1015" style="background-color:transparent;">
+							<button class="u-button raised primary" id="demo-table-add" data-bind="click: addClick, visible: gridStatus() =='read'">新增</button>
+							<button class="u-button raised primary" id="demo-table-edit" data-bind="click: editClick, visible: gridStatus() =='read'">修改</button>
+							<!--<button class="u-button raised primary" id="demo-table-del" data-bind="click: delClick, visible: gridStatus() =='read'">删除</button>-->
+							<button class="u-button raised primary" id="demo-table-qy" data-bind="click: qyClick, visible: gridStatus() =='read'">启用</button>
+							<button class="u-button raised primary" id="demo-table-ty" data-bind="click: tyClick, visible: gridStatus() =='read'">停用</button>
+							<button class="u-button raised primary" data-bind="click: saveClick, visible: gridStatus() =='edit'">保存</button>
+							<button class="u-button raised primary" data-bind="click: cancelClick, visible: gridStatus() =='edit'">取消</button>
+						</div>
+					</div>	
+				</div>	
+				<div style="width:250px;float:left;padding-top: 10px;overflow:auto;position:relative;">
+					<div class="ztreeHeader">
+						<a  data-bind="click:searchclick" class="searchIcon"><span class="partingLineL"></span><img src="pages/pageImages/searchIcon.png" /><span class="partingLineR"></span></a>
+						<input type="text" name="searchtxt" id="searchtxt" value="请输入关键词" />
+					</div>
+					
+					<div id="listclear" class="clearfix lableTxt-1">
+						<div class="u-text pull-left">
+							<input id="user_bucorpcode" type="hidden" u-meta='{"id":"pk_corp","type":"string","data":"listdeptData","field":"pk_corp"}' data-bind="value: listdeptData.ref('pk_corp')" >
+							<input id="bucorpname" class="u-input" placeholder="选择所属组织" type="text" u-meta='{"id":"corpname","type":"string","data":"listdeptData","field":"corpname"}' data-bind="value: listdeptData.ref('corpname'),enable: gridStatus() ==''" >
+							<span class="u-form-control-feedback fa fa-search demoe-icon-btn refer" style="line-height:14px !important" data-bind="click: roleaddClick"></span>
+					    </div>
+			        </div>
+					        
+					<div id="dept_ishasdept" class="notip">无部门数据</div>       
+					<div id="dept_zhezhao" style="display:none;width:100%;height:100%;position:absolute;left:0;bottom:0;background:rgb(0,0,0,0.3);z-index:10001;"></div>
+					<div id="dept_tree" type="text" class="ztree" u-meta='{"id":"dept_tree1","data":"treeData","type":"tree","idField":"pk_dept","pidField":"pkFathedept","nameField":"deptname","setting":"treeSetting"}'></div>
+				</div>
+				<div class="demoe-page-content" style="margin-left: 255px;border:0px solid #E0E0E0;padding:0px;" id="user_deptref">
+						<div class="search-section " id = "input1" style="width:100%;display: inline-block;">
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">部门编码：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8" u-meta='{"id":"deptcode","name":"部门编码","type":"string","data":"listData","field":"deptcode"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" type="text" data-bind="value: listData.ref('deptcode'),enable: gridStatus() =='edit'" >
+								</div>
+								
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">部门名称：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8"  u-meta='{"id":"deptname","name":"部门名称","type":"string","data":"listData","field":"deptname"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" data-bind="value: listData.ref('deptname'),enable: gridStatus() =='edit'" >
+								</div>
+								
+							</div>
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">部门负责人：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref corp" id="dept_pk_user" u-meta='{"refCode":"user","type":"uiRefer", "data":"listData", "field":"pk_user"}'>
+											<input id="testRefMuGridTree" class="u-input" type="text" data-bind="enable: gridStatus() =='edit'">
+											<span class="u-form-control-feedback fa fa-search demoe-icon-btn refer" style="line-height:14px !important"></span>
+									    </div>
+								</div>
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">主管领导：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref corp" id="dept_pkLeader" u-meta='{"refCode":"user","type":"uiRefer", "data":"listData", "field":"pkLeader"}'>
+											<input id="testRefMuGridTree1" class="u-input" type="text" data-bind="enable: gridStatus() =='edit'">
+											<span class="u-form-control-feedback fa fa-search demoe-icon-btn refer" style="line-height:14px !important"></span>
+									    </div>
+								</div>
+								
+							</div>
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">所属组织：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref corp" id="dept_pk_corpref" u-meta='{"refCode":"corp","type":"uiRefer", "data":"listData", "field":"pk_corp"}'>
+											<input  class="u-input" type="text" data-bind="enable: gridStatus() =='edit'">
+											<span class="u-form-control-feedback fa fa-search demoe-icon-btn refer" style="line-height:14px !important"></span>
+									    </div>
+								</div>
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">上级部门：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref" id="dept_pkFathedept" u-meta='{"refCode":"dept","type":"uiRefer", "data":"listData", "field":"pkFathedept"}'>
+											<input class="u-input" type="text" data-bind="enable: gridStatus() =='edit'">
+											<!--<span class="u-form-control-feedback fa fa-search refer" style="line-height:14px !important" data-bind="click: getdeptref"></span>-->
+										</div>
+								</div>
+								
+							</div>
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">品牌信息：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="input-group date form_date col-md-3 ref">
+											<input class="u-input" u-meta='{"id":"def2","type":"string","data":"listData","field":"def2"}' data-bind="value: listData.ref('def2'),enable: gridStatus() =='edit'" >
+											<span class="u-form-control-feedback fa fa-search refer" style="line-height:14px !important" data-bind="click: brandAddClick,enable: gridStatus() =='edit'"></span>
+										</div>
+								</div>
+								<div class="u-col-3 u-col-sm-4">
+									<label class="u-input-label right">部门状态：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8">
+									<div class="clearfix lableTxt" u-meta='{"id":"combobox1","type":"u-combobox","data":"listData","field":"canceled","datasource":"enable"}'>
+										<div class="u-text pull-left">
+											<input class="u-input" data-bind="enable: false">
+											<span class="u-form-control-feedback fa fa-caret-down demoe-icon-btn refer"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="dept_light" class="white_content" style="display: none">
+			<div style="width:100%" class="plat clearfix">
+				<div class="title clearfix">
+					<h4><span class="glyphicon glyphicon-list"></span>组织列表</h4>
+					<div class="btnBox pull-right" style="margin-right:15px">
+						<button class="u-button newBtn" id="demo-table-ok" data-bind="click: okClick">
+							确定
+						</button>
+						<button class="u-button newBtn" id="demo-table-cancel" data-bind="click: canceluserClick">
+							取消
+						</button>
+					</div>
+				</div>
+				<div class="padding-bottom:10px;">
+					<div class="demoe-page-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div type="text" u-meta='{"id":"bterdept_grid3","data":"treecorpData","type":"grid","multiSelect":true,"showNumCol":true,"editable":false,"editType":"default","columnWidth":120}'>
+									<div options='{"field":"pk_corp","dataType":"String","title":"pk","editType":"string","visible":false}'></div>
+									<div options='{"field":"unitcode","dataType":"String","editType":"string","title":"组织编码"}'></div>
+									<div options='{"field":"unitname","dataType":"String","editType":"string","title":"组织名称"}'></div>
+								</div>
+							</div>
+						</div>
+						<div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"treecorpData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'>
+    			    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="dept_brand" class="white_content" style="display: none">
+			<div style="width:100%" class="plat clearfix">
+				<div class="title clearfix">
+					<h4><span class="glyphicon glyphicon-list"></span>品牌列表</h4>
+					<div class="btnBox pull-right" style="margin-right:15px">
+						<button class="u-button newBtn" id="demo-table-ok" data-bind="click: onBrandClick">
+							确定
+						</button>
+						<button class="u-button newBtn" id="demo-table-cancel" data-bind="click: cancelBrandClick">
+							取消
+						</button>
+					</div>
+				</div>
+				<div class="padding-bottom:10px;">
+					<div class="demoe-page-content">
+						<div class="row">
+							<div class="col-md-12">
+								<!--<div type="text" u-meta='{"id":"gridbrand","data":"brandData","type":"grid","multiSelect":true,"showNumCol":true,"editable":false,"editType":"default","columnWidth":120}'>
+									<div options='{"field":"pk_corp","dataType":"String","title":"pk","editType":"string","visible":false}'></div>
+									<div options='{"field":"unitcode","dataType":"String","editType":"string","title":"组织编码"}'></div>
+									<div options='{"field":"unitname","dataType":"String","editType":"string","title":"组织名称"}'></div>
+								</div>-->
+								<!----><table class="u-table" style="width:100%;">
+									<thead>
+										<tr>
+											<th>
+												<label class="u-checkbox only-style" data-bind="click: brandData.toggleAllSelect.bind(brandData), css:{'is-checked': brandData.allSelected()}" style="height:20px">
+													<input id="checkInput" type="checkbox" class="u-checkbox-input">
+													<span class="u-checkbox-label"></span>
+												</label>
+											</th>
+											<th>品牌代码</th>
+											<th>品牌名称</th>
+										</tr>
+									</thead>
+									<tbody data-bind="foreach:{data:brandData.rows(),as:'row', afterAdd: afterAdd}" >
+										<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+											<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+												<input type="checkbox" class="u-checkbox-input">
+												<span class="u-checkbox-label"></span> </label></td>
+											<td data-bind="text: row.ref('vbrandcode')"></td>
+											<td data-bind="text: row.ref('vbrandname')"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+    			    </div>
+				</div>
+			</div>
+		</div>
+		<div id="dept_fade" class="black_overlay" style="display: none"></div>
+	</div>

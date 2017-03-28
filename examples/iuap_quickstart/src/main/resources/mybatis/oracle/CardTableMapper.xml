@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yonyou.iuap.example.repository.mybatis.CardTableMapper">
+	<resultMap id="BaseResultMap" type="com.yonyou.iuap.example.entity.mybatis.CardTable">
+		<id column="pk_system" property="pksystem" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="code" property="code" jdbcType="VARCHAR" />
+		<result column="i18n" property="i18n" jdbcType="VARCHAR" />
+		<result column="gateway" property="gateway" jdbcType="VARCHAR" />
+		<result column="radiodatacontroller" property="radiodatacontroller"
+			jdbcType="VARCHAR" />
+		<result column="radiodataassociate" property="radiodataassociate"
+			jdbcType="VARCHAR" />
+		<result column="combodatamodel" property="combodatamodel"
+			jdbcType="VARCHAR" />
+		<result column="tag" property="tag" jdbcType="VARCHAR" />
+		<result column="secretkey" property="secretkey" jdbcType="VARCHAR" />
+		<result column="system" property="system" jdbcType="VARCHAR" />
+		<result column="tenant" property="tenant" jdbcType="VARCHAR" />
+		<result column="ts" property="ts" jdbcType="TIMESTAMP" />
+		<result column="dr" property="dr" jdbcType="NUMERIC" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		pk_system, name, code, i18n, gateway, radiodatacontroller, radiodataassociate,
+		combodatamodel,
+		tag,secretkey, system, tenant, ts, dr
+	</sql>
+
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from cardtable
+		where pk_system = #{pksystem,jdbcType=VARCHAR}
+	</select>
+
+	<select id="findByCode" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from cardtable
+		where code = #{code}
+	</select>
+
+	<select id="selectAllByPage" resultMap="BaseResultMap"
+		resultType="java.util.List">
+		SELECT
+		<include refid="Base_Column_List" />
+		from cardtable where 1=1
+		<if test="search != null">
+			<if
+				test="search.searchMap.searchParam!=null and search.searchMap.searchParam!='' ">
+				and code like CONCAT(CONCAT('%', #{search.searchMap.searchParam}),'%') or name like CONCAT(CONCAT('%', #{search.searchMap.searchParam}),'%')
+			</if>
+		</if>
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from cardtable
+		where pk_system = #{pksystem,jdbcType=VARCHAR}
+	</delete>
+
+	<delete id="batchDeleteByPrimaryKey" parameterType="java.util.List">
+		delete from cardtable
+		where
+		pk_system in
+		<foreach collection="list" item="item" index="index"
+			separator="," open="(" close=")">
+		#{item.pksystem,jdbcType=VARCHAR}
+		</foreach>
+	</delete>
+
+	<insert id="insert" parameterType="com.yonyou.iuap.example.entity.mybatis.CardTable">
+		insert into cardtable (pk_system, name, code,
+		i18n, gateway, radiodatacontroller,
+		radiodataassociate, combodatamodel, tag,
+		secretkey,system, tenant, ts, dr
+		)
+		values (#{pksystem,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+		#{code,jdbcType=VARCHAR},
+		#{i18n,jdbcType=VARCHAR}, #{gateway,jdbcType=VARCHAR}, #{radiodatacontroller,jdbcType=VARCHAR},
+		#{radiodataassociate,jdbcType=VARCHAR},
+		#{combodatamodel,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR},
+		#{secretkey,jdbcType=VARCHAR},#{system,jdbcType=VARCHAR},
+		#{tenant,jdbcType=VARCHAR}, #{ts,jdbcType=TIMESTAMP},
+		#{dr,jdbcType=NUMERIC}
+		)
+	</insert>
+
+	<insert id="batchInsert" parameterType="java.util.List">
+		insert into cardtable (pk_system, name, code,
+		i18n, gateway, radiodatacontroller,
+		radiodataassociate, combodatamodel, tag,
+		secretkey,system, tenant, ts, dr)
+		 <foreach collection="list" item="item" index="index" separator="union" open="(" close=")">
+			select
+			#{item.pksystem,jdbcType=VARCHAR}, #{item.name,jdbcType=VARCHAR}, #{item.code,jdbcType=VARCHAR},
+			#{item.i18n,jdbcType=VARCHAR}, #{item.gateway,jdbcType=VARCHAR},
+			#{item.radiodatacontroller,jdbcType=VARCHAR},
+			#{item.radiodataassociate,jdbcType=VARCHAR},
+			#{item.combodatamodel,jdbcType=VARCHAR},
+			#{item.tag,jdbcType=VARCHAR},
+			#{item.secretkey,jdbcType=VARCHAR},#{item.system,jdbcType=VARCHAR},
+			#{item.tenant,jdbcType=VARCHAR}, #{item.ts,jdbcType=TIMESTAMP},
+			#{item.dr,jdbcType=NUMERIC}
+			from dual
+		</foreach>
+	</insert>
+
+	<insert id="insertSelective" parameterType="com.yonyou.iuap.example.entity.mybatis.CardTable">
+		insert into cardtable
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="pksystem != null">
+				pk_system,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="code != null">
+				code,
+			</if>
+			<if test="i18n != null">
+				i18n,
+			</if>
+			<if test="gateway != null">
+				gateway,
+			</if>
+			<if test="radiodatacontroller != null">
+				radiodatacontroller,
+			</if>
+			<if test="radiodataassociate != null">
+				radiodataassociate,
+			</if>
+			<if test="combodatamodel != null">
+				combodatamodel,
+			</if>
+			<if test="tag != null">
+				tag,
+			</if>
+			<if test="secretkey != null">
+				secretkey,
+			</if>
+			<if test="system != null">
+				system,
+			</if>
+			<if test="tenant != null">
+				tenant,
+			</if>
+			<if test="ts != null">
+				ts,
+			</if>
+			<if test="dr != null">
+				dr,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="pksystem != null">
+				#{pksystem,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="i18n != null">
+				#{i18n,jdbcType=VARCHAR},
+			</if>
+			<if test="gateway != null">
+				#{gateway,jdbcType=VARCHAR},
+			</if>
+			<if test="radiodatacontroller != null">
+				#{radiodatacontroller,jdbcType=VARCHAR},
+			</if>
+			<if test="radiodataassociate != null">
+				#{radiodataassociate,jdbcType=VARCHAR},
+			</if>
+			<if test="combodatamodel != null">
+				#{combodatamodel,jdbcType=VARCHAR},
+			</if>
+			<if test="tag != null">
+				#{tag,jdbcType=VARCHAR},
+			</if>
+			<if test="secretkey != null">
+				#{secretkey,jdbcType=VARCHAR},
+			</if>
+			<if test="system != null">
+				#{system,jdbcType=VARCHAR},
+			</if>
+			<if test="tenant != null">
+				#{tenant,jdbcType=VARCHAR},
+			</if>
+			<if test="ts != null">
+				#{ts,jdbcType=TIMESTAMP},
+			</if>
+			<if test="dr != null">
+				#{dr,jdbcType=NUMERIC},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yonyou.iuap.example.entity.mybatis.CardTable">
+		update cardtable
+		<set>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null">
+				code = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="i18n != null">
+				i18n = #{i18n,jdbcType=VARCHAR},
+			</if>
+			<if test="gateway != null">
+				gateway = #{gateway,jdbcType=VARCHAR},
+			</if>
+			<if test="radiodatacontroller != null">
+				radiodatacontroller = #{radiodatacontroller,jdbcType=VARCHAR},
+			</if>
+			<if test="radiodataassociate != null">
+				radiodataassociate = #{radiodataassociate,jdbcType=VARCHAR},
+			</if>
+			<if test="combodatamodel != null">
+				combodatamodel = #{combodatamodel,jdbcType=VARCHAR},
+			</if>
+			<if test="tag != null">
+				tag = #{tag,jdbcType=VARCHAR},
+			</if>
+			<if test="secretkey != null">
+				secretkey = #{secretkey,jdbcType=VARCHAR},
+			</if>
+			<if test="system != null">
+				system = #{system,jdbcType=VARCHAR},
+			</if>
+			<if test="tenant != null">
+				tenant = #{tenant,jdbcType=VARCHAR},
+			</if>
+			<if test="dr != null">
+				dr = #{dr,jdbcType=NUMERIC},
+			</if>
+		</set>
+		where pk_system = #{pksystem,jdbcType=VARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yonyou.iuap.example.entity.mybatis.CardTable">
+		update cardtable
+		set name = #{name,jdbcType=VARCHAR},
+		code = #{code,jdbcType=VARCHAR},
+		i18n = #{i18n,jdbcType=VARCHAR},
+		gateway = #{gateway,jdbcType=VARCHAR},
+		radiodatacontroller = #{radiodatacontroller,jdbcType=VARCHAR},
+		radiodataassociate = #{radiodataassociate,jdbcType=VARCHAR},
+		combodatamodel = #{combodatamodel,jdbcType=VARCHAR},
+		tag = #{tag,jdbcType=VARCHAR},
+		secretkey = #{secretkey,jdbcType=VARCHAR},
+		system = #{system,jdbcType=VARCHAR},
+		tenant = #{tenant,jdbcType=VARCHAR},
+		dr = #{dr,jdbcType=NUMERIC}
+		where pk_system = #{pksystem,jdbcType=VARCHAR}
+	</update>
+
+	<update id="batchUpdate" parameterType="java.util.List">
+	 begin 
+		<foreach collection="list" item="item" index="index" open="" close="" separator=";">
+			update cardtable
+			<set>
+				name = #{item.name,jdbcType=VARCHAR},
+				code = #{item.code,jdbcType=VARCHAR},
+				i18n = #{item.i18n,jdbcType=VARCHAR},
+				gateway = #{item.gateway,jdbcType=VARCHAR},
+				radiodatacontroller = #{item.radiodatacontroller,jdbcType=VARCHAR},
+				radiodataassociate = #{item.radiodataassociate,jdbcType=VARCHAR},
+				combodatamodel = #{item.combodatamodel,jdbcType=VARCHAR},
+				tag = #{item.tag,jdbcType=VARCHAR},
+				secretkey = #{item.secretkey,jdbcType=VARCHAR},
+				system = #{item.system,jdbcType=VARCHAR},
+				tenant = #{item.tenant,jdbcType=VARCHAR},
+				dr = #{item.dr,jdbcType=NUMERIC}
+			</set>
+			where pk_system = #{item.pksystem,jdbcType=VARCHAR}
+		</foreach>
+		;end;
+	</update>
+</mapper>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yonyou.iuap.repository.quotation.IpuQuotationMapper">
+    <resultMap id="BaseResultMap" type="com.yonyou.iuap.entity.quotation.IpuQuotation">
+        <id column="ipuquotaionid" property="ipuquotaionid" jdbcType="CHAR"/>
+        <result column="buyoffertime" property="buyoffertime" jdbcType="TIMESTAMP"/>
+        <result column="contact" property="contact" jdbcType="VARCHAR"/>
+        <result column="createtime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="processtime" property="processtime" jdbcType="TIMESTAMP"/>
+        <result column="processor" property="processor" jdbcType="VARCHAR"/>
+        <result column="qtexpiredate" property="qtexpiredate" jdbcType="TIMESTAMP"/>
+        <result column="subject" property="subject" jdbcType="VARCHAR"/>
+        <result column="ts" property="ts" jdbcType="TIMESTAMP"/>
+        <result column="dr" property="dr" jdbcType="SMALLINT"/>
+    </resultMap>
+
+    <resultMap id="childrenMap" type="com.yonyou.iuap.entity.quotation.IpuQuotation">
+        <id column="ipuquotaionid" property="ipuquotaionid" jdbcType="CHAR"/>
+        <result column="buyoffertime" property="buyoffertime" jdbcType="TIMESTAMP"/>
+        <result column="contact" property="contact" jdbcType="VARCHAR"/>
+        <result column="createtime" property="createtime" jdbcType="TIMESTAMP"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="processtime" property="processtime" jdbcType="TIMESTAMP"/>
+        <result column="processor" property="processor" jdbcType="VARCHAR"/>
+        <result column="qtexpiredate" property="qtexpiredate" jdbcType="TIMESTAMP"/>
+        <result column="subject" property="subject" jdbcType="VARCHAR"/>
+        <result column="ts" property="ts" jdbcType="TIMESTAMP"/>
+        <result column="dr" property="dr" jdbcType="SMALLINT"/>
+        <collection property="datailentitylist" ofType="com.yonyou.iuap.entity.quotation.IpuQuotationDetail">
+            <id column="c_id" property="ipuquotationdetailid" jdbcType="CHAR"/>
+            <result column="c_productdesc" property="productdesc" jdbcType="VARCHAR"/>
+            <result column="c_productname" property="productname" jdbcType="VARCHAR"/>
+            <result column="c_purchaseamount" property="purchaseamount" jdbcType="NUMERIC"/>
+            <result column="c_unit" property="unit" jdbcType="VARCHAR"/>
+            <result column="c_ipuquotaionid" property="ipuquotaionid" jdbcType="CHAR"/>
+            <result column="c_ts" property="ts" jdbcType="TIMESTAMP"/>
+            <result column="c_dr" property="dr" jdbcType="SMALLINT"/>
+        </collection>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ipuquotaionid, buyoffertime, contact, createtime, description, phone, processtime,
+        processor, qtexpiredate, subject, ts, dr
+    </sql>
+    <sql id="oneToManyColumn">
+        t.ipuquotaionid, t.buyoffertime,
+        t.contact, t.createtime, t.description,
+        t.phone, t.processtime, t.processor, t.qtexpiredate, t.subject, t.ts, t.dr,
+        tc.ipuquotationdetailid as c_id, tc.productdesc as c_productdesc,tc.productname as c_productname,
+        tc.purchaseamount as c_purchaseamount, tc.unit as c_unit,
+        tc.ipuquotaionid as c_ipuquotaionid, tc.ts as c_ts,tc.dr as c_dr
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ipuquotation
+        where ipuquotaionid = #{ipuquotaionid}
+    </select>
+
+    <select id="selectChildrenByPrimaryKey" parameterType="java.lang.String" resultMap="childrenMap">
+        select
+        <include refid="oneToManyColumn"/>
+        from ipuquotation t LEFT OUTER JOIN ipuquotationdetail tc on t.ipuquotaionid=tc.ipuquotaionid
+        where t.ipuquotaionid = #{ipuquotaionid}
+    </select>
+
+    <select id="count" parameterType="map" resultType="int">
+        select
+        count(*)
+        from ipuquotation
+        where 1=1
+        <if test="subject != null and subject!=''">
+            and subject like concat('%',#{subject})
+        </if>
+    </select>
+
+    <select id="queryPage" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ipuquotation
+        where 1=1
+        <if test="subject != null and subject!=''">
+            and subject like concat('%',#{subject})
+        </if>
+        <if test="page.sort!=null">
+            order by
+            <foreach collection="page.sort" item="item" separator=" ">
+                ${item.property} ${item.direction}
+            </foreach>
+        </if>
+        limit #{page.size} offset #{page.offset}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ipuquotation
+    where ipuquotaionid = #{ipuquotaionid}
+  </delete>
+    <insert id="insert" parameterType="com.yonyou.iuap.entity.quotation.IpuQuotation">
+        insert into ipuquotation (ipuquotaionid, buyoffertime, contact,
+          createtime, description, phone,
+          processtime, processor, qtexpiredate,
+          subject, ts, dr)
+        values (#{ipuquotaionid,jdbcType=CHAR}, #{buyoffertime,jdbcType=TIMESTAMP}, #{contact,jdbcType=VARCHAR},
+          #{createtime,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+          #{processtime,jdbcType=TIMESTAMP}, #{processor,jdbcType=VARCHAR}, #{qtexpiredate,jdbcType=TIMESTAMP},
+          #{subject,jdbcType=VARCHAR}, #{ts,jdbcType=TIMESTAMP}, #{dr,jdbcType=SMALLINT})
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.yonyou.iuap.entity.quotation.IpuQuotation">
+        update ipuquotation
+        <set>
+            <if test="buyoffertime != null">
+                buyoffertime = #{buyoffertime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="contact != null">
+                contact = #{contact,jdbcType=VARCHAR},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="processtime != null">
+                processtime = #{processtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="processor != null">
+                processor = #{processor,jdbcType=VARCHAR},
+            </if>
+            <if test="qtexpiredate != null">
+                qtexpiredate = #{qtexpiredate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="subject != null">
+                subject = #{subject,jdbcType=VARCHAR},
+            </if>
+            <if test="ts != null">
+                ts = #{ts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="dr != null">
+                dr = #{dr,jdbcType=SMALLINT},
+            </if>
+        </set>
+        where ipuquotaionid = #{ipuquotaionid,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.yonyou.iuap.entity.quotation.IpuQuotation">
+        update ipuquotation
+        set buyoffertime = #{buyoffertime,jdbcType=TIMESTAMP},
+          contact = #{contact,jdbcType=VARCHAR},
+          createtime = #{createtime,jdbcType=TIMESTAMP},
+          description = #{description,jdbcType=VARCHAR},
+          phone = #{phone,jdbcType=VARCHAR},
+          processtime = #{processtime,jdbcType=TIMESTAMP},
+          processor = #{processor,jdbcType=VARCHAR},
+          qtexpiredate = #{qtexpiredate,jdbcType=TIMESTAMP},
+          subject = #{subject,jdbcType=VARCHAR},
+          ts = #{ts,jdbcType=TIMESTAMP},
+          dr = #{dr,jdbcType=SMALLINT}
+        where ipuquotaionid = #{ipuquotaionid,jdbcType=CHAR}
+    </update>
+
+    <select id="retrievePage" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from ipuquotation
+        where 1=1
+        <if test="subject != null and subject!=''">
+            and subject like concat(#{subject},'%')
+        </if>
+    </select>
+</mapper>

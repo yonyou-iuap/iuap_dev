@@ -1,0 +1,674 @@
+<div class="u-mdlayout" id="order-mdlayout">
+	<div class="u-mdlayout-btn u-row">
+		<div id="user_list_button_2" class="u-col-4 user-actions user_list_button_2 ">
+			<div class=" u-button-group margin-0 padding-0">
+				<button class="u-button u-button-primary u-button-sm " data-bind="click: event.addClick">
+					增加
+				</button>
+				<button class="u-button u-button-primary u-button-sm " data-bind="click: event.editClick">
+					编辑
+				</button>
+				<button class="u-button u-button-primary u-button-sm " data-bind="click: event.delRow">
+					删除
+				</button>
+			</div>
+		</div>
+		<div class="u-col-4  center-title">
+			<span>销售订单</span>
+		</div>
+	</div>
+
+	
+	<div class="u-mdlayout-btn u-row hide ">
+		<div id="user_card_button">
+			<div class="u-col-4  ufBack padding-bottom-5" data-bind="click:event.goBack">
+				<a><i class="uf uf-aaleft"></i>返回</a>
+			</div>
+			<div class="u-col-4 padding-bottom-5 " style="text-align:center;">
+				<span>销售订单</span>
+			</div>
+			<div class="u-col-4 padding-bottom-5">
+				<button type="button" class=" u-button u-button-primary u-button-sm" style="float:right;"
+				data-bind="click:event.saveClick">
+					保存
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class=" form-search " style="z-index:0;">
+		<div class="u-panel-heading u-collapse-updown " u-data-toggle="collapse" href="#condition-row-user">
+			<span class="u-panel-title padding-5 padding-left-15  ">快速查询 <span class=" u-link u-right u-input-label sm" id="condition-toggle-user"> <span>展开</span> <i class="uf uf-aadown"></i> </span> </span>
+		</div>
+		<div class="u-row u-panel-body collapse" id="condition-row-user">
+			<div class="u-col-6 u-col-sm-12">
+				<div class="u-col-2 u-col-sm-4" style="text-align: right; height: 100%;padding: 5px;">
+					<label>销售订单编号</label>
+				</div>
+				<div class="u-col-4 u-col-sm-8 ">
+					<input class="u-form-control sm input_search search-enter" id="projectcode" placeholder=""
+					name="projectcode">
+				</div>
+				<div class="u-col-2 u-col-sm-4" style="text-align: right; height: 100%;padding: 5px;">
+					<label>销售组织</label>
+				</div>
+				<div class="u-col-4 u-col-sm-8 ">
+					<input class="u-form-control sm input_search search-enter" id="pk_org" placeholder=""
+					name="pk_org">
+					<span class="u-form-control-feedback fa fa-list-ul orgsearch"
+											data-bind="click:event.selectOrg_search"></span>
+									
+				</div>
+			</div>
+			<div class="u-col-6 u-col-sm-12">
+				<div class=" padding-top-2 ">
+					<button class="u-button u-button-primary raised gray-btn u-button-pa margin-right-20"
+					id="user-action-search" data-bind="click: event.search">
+						搜索
+					</button>
+					<button class="u-button u-button-primary  raised gray-btn u-button-pa " id="user-action-cleanSearch"
+					data-bind="click: event.cleanSearch">
+						清空
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="u-mdlayout-detail">
+		<!-- list -->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+			<div class="u-mdlayout-page-section">
+				<div class="user-datagrid" style="">
+					<div class="table-container">
+						<table class="u-table" style="width:100%">
+							<thead>
+								<tr>
+									<th name="userCheckbox" style="display: block;border-top:1px solid transparent;"><label class="margin-top-5 u-checkbox only-style u-checkbox-floatl change"
+									data-bind="click: saleorderDa.toggleAllSelect.bind(saleorderDa), css:{'is-checked': saleorderDa.allSelected()}">
+										<input id="checkInput" type="checkbox" class="u-checkbox-input">
+										<span class="u-checkbox-label"></span> </label></th>
+									<th>销售订单编号</th>
+									<th>销售组织</th>
+									<!-- <th>业务流程</th> -->
+									<th>单据号</th>
+									<th>单据日期</th>
+									<th>客户</th>
+									<th>销售渠道类型</th>
+									<th>业务员</th>
+									<th>部门</th>
+									<th>收款协议</th>
+									<th>整单折扣</th>
+									<th>币种</th>
+									<th>运输方式</th>
+									<th>总数量</th>
+									<th>价税合计</th>
+									<th>单据状态</th>
+									<th>备注</th>
+								</tr>
+							</thead>
+							<tbody data-bind="foreach:{data:saleorderDa.rows(),as:'row', afterAdd: event.afterAdd}">
+								<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}, click: $parent.event.rowClick">
+									<td name="userCheckbox" class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl"
+									data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}">
+										<input type="checkbox" class="u-checkbox-input">
+										<span class="u-checkbox-label"></span> </label></td>
+									<td data-bind="text: row.ref('projectcode')"></td>
+									<td data-bind="text: row.ref('pk_org_name')"></td>
+									<td data-bind="text: row.ref('vbillcode')"></td>
+									<td data-bind="text: u.dateRender(row.ref('dbilldate'))"></td>
+									<td data-bind="text: row.ref('ccustomerid_name')"></td>
+									<td data-bind="text: $parent.event.changesaleordercchanneltypeid(row.ref('cchanneltypeid'))"></td>
+									<td data-bind="text: row.ref('cemployeeid_name')"></td>
+									<td data-bind="text: row.ref('cdeptvid_name')"></td>
+									<td data-bind="text: row.ref('cpaytermid')"></td>
+									<td data-bind="text: row.ref('ndiscountrate')"></td>
+									<td data-bind="text: row.ref('corigcurrencyid_name')"></td>
+									<td data-bind="text: row.ref('ctransporttypeid')"></td>
+									<td data-bind="text: row.ref('ntotalnum')"></td>
+									<td data-bind="text: row.ref('ntotalorigmny')"></td>
+									<td data-bind="text: $parent.event.changesaleorderfstatusflag(row.ref('fstatusflag'))"></td>
+									<td data-bind="text: row.ref('vnote')"></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div id='pagination' class='u-pagination pagination-sm '></div>
+				</div>
+
+				<div class="u-widget-body">
+					<div class="u-tabs" id="otab">
+						<div class="u-tabs__tab-bar" >
+							<a href="#detailPage" class="u-tabs__tab">订单明细</a>
+							<a href="#receivePage" class="u-tabs__tab">收货信息</a>
+						</div>
+						<div class="u-tabs__panel mt-5" id="detailPage" style="float:clear;">
+							<div class="table-container">
+								<table class="u-table" style="width:100%">
+									<thead>
+										<tr>
+											<th>物料最新版本</th>
+											<th>物料编码</th>
+											<th>工厂</th>
+											<th>主单位</th>
+											<th>单位</th>
+											<th>主数量</th>
+											<th>数量</th>
+											<th>整单折扣</th>
+											<th>无税单价</th>
+											<th>价税合计</th>
+											<th>组织</th>
+										</tr>
+									</thead>
+									<tbody data-bind="foreach:{data:orderdetailDa.rows(),as:'row'}">
+										<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}">
+											<td data-bind="text: row.ref('cmaterialid')"></td>
+											<td data-bind="text: row.ref('cmaterialvid')"></td>
+											<td data-bind="text: row.ref('cfactoryid')"></td>
+											<td data-bind="text: row.ref('cunitid')"></td>
+											<td data-bind="text: row.ref('castunitid')"></td>
+											<td data-bind="text: row.ref('nnum')"></td>
+											<td data-bind="text: row.ref('nastnum')"></td>
+											<td data-bind="text: row.ref('ndiscountrate')"></td>
+											<td data-bind="text: row.ref('nqtorigprice')"></td>
+											<td data-bind="text: row.ref('norigtaxmny')"></td>
+											<td data-bind="text: row.ref('pk_org_name')"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div class="u-tabs__panel mt-5" id="receivePage" style="float:clear;">
+							<div class="table-container">
+								<table class="u-table" style="width:100%">
+									<thead>
+										<tr>
+											<th>收货地区</th>
+											<th>收货地址</th>
+											<th>收货日期</th>
+											<th>发货日期</th>
+										</tr>
+									</thead>
+									<tbody data-bind="foreach:{data:orderreceiveDa.rows(),as:'row'}">
+										<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}">
+											<td data-bind="text: row.ref('creceivecustid')"></td>
+											<td data-bind="text: row.ref('creceiveadddocid')"></td>
+											<td data-bind="text: row.ref('dreceivedate')"></td>
+											<td data-bind="text: row.ref('dsenddate')"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end list -->
+		<!-- addPage -->
+		<div class="u-mdlayout-page" id="addPage">
+			<div class="u-mdlayout-page-section" id="user-form">
+				<!-- BEGIN FORM-->
+				<form action="#" class="form-horizontal" >
+					<div class="u-container-fluid">
+						<div class="u-row">
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>销售订单编号</label>
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"projectcode"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>销售组织</label>
+
+									<div class="u-combo"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"pk_org_name","onlySelect":true}'>
+										<div class="u-input-group u-has-feedback">
+											<span class="u-form-control-feedback fa fa-list-ul"
+											data-bind="click:event.selectOrg_saleorder"></span>
+											<input class="u-form-control" readonly="readonly"/>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label u-meta='{"type":"u-label","data":"saleorderFormDa","field":"vbillcode"}'>单据号</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"vbillcode"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>单据日期</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-date","data":"saleorderFormDa","field":"dbilldate"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>客户</label>
+
+                                    <div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"saleorderFormDa","field":"ccustomerid_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectCustomer_saleorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>销售渠道类型</label>
+
+									<div class="u-combo"
+									u-meta='{"type":"u-combobox","datasource":"saleorder_cchanneltypeid","data":"saleorderFormDa","field":"cchanneltypeid","onlySelect":true}'>
+										<div class="u-input-group u-has-feedback">
+											<div class="u-input-group-before" style="color: red;">
+												*
+											</div>
+											<span class="u-form-control-feedback fa fa-angle-down"
+											data-role="combo-button"></span>
+											<input class="u-form-control" readonly/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>业务员</label>
+
+									<div class="u-combo"
+                                         u-meta='{"type":"u-text","data":"saleorderFormDa","field":"cemployeeid_name","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectBdPsndocVO_saleorder"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>部门</label>
+
+									<div class="u-combo"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"cdeptvid_name","onlySelect":true}'>
+										<div class="u-input-group u-has-feedback">
+											<input class="u-form-control" readonly="readonly"/> 
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>收款协议</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"cpaytermid"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>整单折扣</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"ndiscountrate"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>币种</label>
+
+									<div class="u-combo"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"corigcurrencyid_name","onlySelect":true}'>
+										<div class="u-input-group u-has-feedback">
+											<span class="u-form-control-feedback fa fa-list-ul"
+											data-bind="click:event.selectCurrtype_saleorder"></span>
+											<input class="u-form-control" readonly="readonly"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>运输方式</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"ctransporttypeid"}'>
+										<input type="text" id="ctransporttypeid" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>总数量</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"ntotalnum"}'>
+										<input type="text" class="u-form-control" disabled placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>价税合计</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"ntotalorigmny"}'>
+										<input type="text" class="u-form-control"disabled  placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>单据状态</label>
+									<div class="u-combo" id="fstatusflag"
+									u-meta='{"type":"u-combobox","datasource":"saleorder_fstatusflag","data":"saleorderFormDa","field":"fstatusflag","onlySelect":true}'>
+										<div class="u-input-group u-has-feedback">
+											<span class="u-form-control-feedback fa fa-angle-down"
+											data-role="combo-button"></span>
+											<input class="u-form-control"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>备注</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"vnote"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>制单人</label>
+
+									<div class="u-combo"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"billmaker_name","onlySelect":true}'>
+										<div class="u-input-group u-has-feedback">
+											<input class="u-form-control" readonly="readonly"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>制单时间</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-date","data":"saleorderFormDa","field":"creationtime"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>修改人</label>
+
+									<div class="u-combo"
+									u-meta='{"type":"u-text","data":"saleorderFormDa","field":"modifier_name","onlySelect":true}'>
+										<div class="u-input-group u-has-feedback">
+											<!-- <span class="u-form-control-feedback fa fa-list-ul"
+											data-bind="click:event.selectSysUser_saleorder"></span> -->
+											<input class="u-form-control" readonly="readonly"/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-col-md-4">
+								<div class="u-form-group">
+									<label>修改时间</label>
+
+									<div class="u-input-group u-has-feedback"
+									u-meta='{"type":"u-date","data":"saleorderFormDa","field":"modifiedtime"}'>
+										<input type="text" class="u-form-control" placeholder="">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+
+				<div class="u-widget-body clearfix">
+					<div class="u-col-md-12">
+						<button class="u-button u-button-primary u-button-pa"
+						id="orderdetail-action-addUserJob"
+						data-bind="click: event.addUserJob">
+							增加
+						</button>
+						<button class="u-button u-button-primary u-button-pa"
+						id="orderdetail-action-delUserJob"
+						data-bind="click: event.delUserJob">
+							删除
+						</button>
+					</div>
+				</div>
+				<div class="u-widget-body">
+					<div class="u-tabs" id="ordertab">
+						<div class="u-tabs__tab-bar" >
+							<a href="#poorder_detailPage" class="u-tabs__tab">订单明细</a>
+							<a href="#poorder_receivePage" class="u-tabs__tab">收货信息</a>
+						</div>
+						<div class="u-tabs__panel mt-5" id="poorder_detailPage" style="float:clear;">
+							<div type="text" id="gridUserJob"
+							u-meta='{"id":"grid","type":"grid","data":"orderdetailFormDa","columnMenu":false,"canDrag":false,"sortable":false,"canSwap":false,"editable":true,"showNumCol":true}'>
+								<div options='{"field":"cmaterialid","dataType":"String","title":"物料最新版本","editType":"string"}'></div>
+								<div options='{"field":"cmaterialvid","dataType":"String","title":"物料编码","editType":"string"}'></div>
+								<div options='{"field":"cfactoryid","dataType":"String","title":"工厂","editType":"string"}'></div>
+								<div options='{"field":"cunitid","dataType":"String","title":"主单位","editType":"string"}'></div>
+								<div options='{"field":"castunitid","dataType":"String","title":"单位","editType":"string"}'></div>
+								<div options='{"field":"nnum","dataType":"String","title":"主数量","editType":"integer"}'></div>
+								<div options='{"field":"nastnum","dataType":"String","title":"数量","editType":"integer"}'></div>
+								<div options='{"field":"ndiscountrate","dataType":"String","title":"整单折扣","editType":"string"}'></div>
+								<div options='{"field":"nqtorigprice","dataType":"String","title":"无税单价","editType":"float"}'></div>
+								<div options='{"field":"norigtaxmny","dataType":"String","title":"价税合计","editType":"float"}'></div>
+								<div options='{"field":"pk_org_name","dataType":"String","title":"组织","editType":"event.addorderdetail_selectBdCorpVO","editOptions":{"validType":"string","required":true} }'></div>
+							</div>
+						</div>
+						<div class="u-tabs__panel mt-5" id="poorder_receivePage" style="float:clear;">
+							<div id="poorder_adjustGridDiv" u-meta='{"id":"poorder_adjustGridViewDiv","data":"orderreceiveFormDa","type":"grid","columnMenu":false,"showNumCol":true,"editable":true}'>
+								<div options='{"field":"creceivecustid","dataType":"String","title":"收货地区","editType":"string"}'></div>
+								<div options='{"field":"creceiveadddocid","dataType":"String","title":"收货地址","editType":"string"}'></div>
+								<div options='{"field":"dreceivedate","dataType":"date","title":"收货日期","editType":"date"}'></div>
+								<div options='{"field":"dsenddate","dataType":"date","title":"发货日期","editType":"date"}'></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- END FORM-->
+		</div>
+		<!-- end addPage -->
+		<!-- editPage -->
+		<!-- end editPage -->
+		<!-- showPage -->
+		<div class="u-mdlayout-page" id="showPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-col-md-12" style="margin:10px 5px 1px 20px;">
+					<div class="u-widget">
+						<button type="button" class="u-button u-button-primary u-button-pa"
+						data-bind="click:event.goBack">
+							返回
+						</button>
+					</div>
+				</div>
+				<!-- BEGIN FORM-->
+				<form action="#" class="form-horizontal" id="user-view-form"></form>
+			</div>
+			<!-- END FORM-->
+		</div>
+		<!-- end showPage -->
+
+	</div>
+</div>
+
+<!-- 树展示的弹出层  -->
+<div id="tree-orgForsaleorder" tabindex="-1" role="dialog" style="display:none">
+	<div class="u-msg-title">
+		<h4 class="treetitle" id="tree-title"></h4>
+	</div>
+	<div class="u-msg-content">
+		<div id="treecom" class="ztree"
+		u-meta='{"id":"orgForsaleorderTree","data":"refOrgDa","type":"tree","idField":"pk_corp","pidField":"parentid","nameField":"unitname","setting":"treeSetting"}'></div>
+	</div>
+	<div class="u-msg-footer">
+		<button type="button" id="confirm_select_OrgTosaleorder" class="u-button u-button-primary pull-right">
+			确定
+		</button>
+		<button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+			取消
+		</button>
+	</div>
+
+</div>
+
+<!-- 树展示的弹出层  查询区的组织参照-->
+<div id="tree-orgForsaleorder-search" tabindex="-1" role="dialog" style="display:none">
+	<div class="u-msg-title">
+		<h4 class="treetitle" id="tree-title"></h4>
+	</div>
+	<div class="u-msg-content">
+		<div id="treecom" class="ztree"
+		u-meta='{"id":"orgForsaleorderTree_search","data":"refOrgDa","type":"tree","idField":"pk_corp","pidField":"parentid","nameField":"unitname","setting":"treeSetting"}'></div>
+	</div>
+	<div class="u-msg-footer">
+		<button type="button" id="confirmSelectOrgSearch" class="u-button u-button-primary pull-right">
+			确定
+		</button>
+		<button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+			取消
+		</button>
+	</div>
+
+</div>
+
+<!-- 树展示的弹出层  -->
+<div id="tree-customerForsaleorder" tabindex="-1" role="dialog" style="display:none">
+	<div class="u-msg-title">
+		<h4 class="treetitle" id="table-title"></h4>
+	</div>
+	<div class="u-msg-content">
+
+		<div class="table-container">
+			<table class="u-table" style="width:100%">
+				<thead>
+					<tr>
+						<th>客户编码</th>
+						<th>客户名称</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach:{data:refCustomerDa.rows(),as:'row', afterAdd: event.afterAdd}">
+					<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}, click: $parent.event.customerRowClick">
+
+						<td data-bind="text: row.ref('vcustomername')"></td>
+						<td data-bind="text: row.ref('vcustomerno')"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="u-msg-footer">
+		<button type="button" id="confirm_select_CustomerTosaleorder" class="u-button u-button-primary pull-right">
+			确定
+		</button>
+		<button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+			取消
+		</button>
+	</div>
+
+</div> 
+
+
+<!-- 树展示的弹出层  -->
+<div id="tree-currtypeForsaleorder" tabindex="-1" role="dialog" style="display:none">
+	<div class="u-msg-title">
+		<h4 class="treetitle" id="tree-title"></h4>
+	</div>
+	<div class="u-msg-content">
+		<div id="treecom" class="ztree"
+		u-meta='{"id":"currtypeForsaleorderTree","data":"refCurrtypeDa","type":"tree","idField":"pk_currtype","pidField":"parentid","nameField":"name","setting":"treeSetting"}'></div>
+	</div>
+	<div class="u-msg-footer">
+		<button type="button" id="confirm_select_CurrtypeTosaleorder" class="u-button u-button-primary pull-right">
+			确定
+		</button>
+		<button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+			取消
+		</button>
+	</div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="table-psndocForsaleorder" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+     <div class="table-container">
+			<table class="u-table" style="width:100%">
+				<thead>
+					<tr>
+						
+						<th>业务员名称</th>
+						<th>邮箱</th>
+					</tr>
+				</thead>
+				<tbody data-bind="foreach:{data:refBdPsndocVODa.rows(),as:'row', afterAdd: event.afterAdd}">
+					<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}, click: $parent.event.bdPsndocRowClick">
+
+						<td data-bind="text: row.ref('psnname')"></td>
+						<td data-bind="text: row.ref('email')"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+</div>
+<div class="u-msg-footer">
+        <button type="button" id="confirm_select_BdPsndocVOTosaleorder" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+</div>
+
+<!-- 树展示的弹出层  字表一的组织参照-->
+<div id="tree-org_testFororderdetail" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"org_testFororderdetailTree","data":"refBdCorpVODa","type":"tree","idField":"pk_corp","pidField":"parentid","nameField":"unitname","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_BdCorpVOToorderdetail" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>

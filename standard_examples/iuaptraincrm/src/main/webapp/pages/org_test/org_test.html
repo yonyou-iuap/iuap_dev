@@ -1,0 +1,81 @@
+<div class="list-panel" id="manager">
+    <div class="common-header-1" >
+      <div class="u-col-4 padding-right-0" style="float:right">
+         <div class="u-button-group margin-0" style="float:right;">
+            <button class="u-button u-button-primary "
+                    id="addButton" data-bind="click: event.addClick">新增
+            </button>             
+            <button class="u-button u-button-primary "
+                    id="editButton" data-bind="click: event.editClick">编辑
+            </button>         
+            <button class="u-button u-button-primary" id="delButton" data-bind="click: event.delClick">删除</button>
+         </div> 
+         </div>     
+        <div class="u-col-4" style="float:right;text-align:center;">
+             <span>组织</span>
+        </div>
+          
+    </div>
+    <div class="common-header-2" >
+         <div class="pull-left">
+            <div id="searchdiv" class="u-input-group u-has-feedback ">
+                <input type="text" class="u-form-control sm input_enter" id="search"
+> 
+                       <span class="u-form-control-feedback uf uf-zoom"
+                    id="searchBtn" data-bind="click: event.searchClick"></span>
+            </div>
+        </div>
+    </div>
+    <!--table-->
+    <div class="main-container cartable-container">
+        <div class="hr-table ">
+            <div class="u-table b-table width-full"
+                 u-meta='{"id":"gridcardtable","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                                        <div options='{"field":"org_name","dataType":"String","title":"名称","editType":"string"}'></div>
+                                        <div options='{"field":"org_code","dataType":"String","title":"组织编号","editType":"string"}'></div>
+            </div>
+        </div>
+        <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+    </div>
+</div>
+
+<!-编辑-->
+<div class="" id="editPage" style="background: #fff; display: none;">
+    <div class="u-msg-title">新增</div>
+    <div class="u-msg-content " id="edit2">
+        <div class=" system-row u-row margin-top-20">
+            <div class="u-col-2 ">
+                <label for="code" class="u-input-label right">名称:</label>
+            </div>
+            
+ 			<div class="u-col-4 ">
+				<div class="u-input-group-before padding-left-10 "
+                     style="color: red;">*
+                </div>   
+                <input type="text" id="code"
+                       class="u-form-control padding-left-15"
+                       u-meta='{"type":"string","data":"dtnew","field":"org_name"}'>
+            </div>
+            <div class="u-col-2 right-col">
+                <label class="u-input-label right">组织编号:</label>
+            </div>
+			<div class="u-col-4 ">
+                <input type="text" id="code"
+                       class="u-form-control padding-left-15"
+                       u-meta='{"type":"string","data":"dtnew","field":"org_code"}'>
+            </div>
+        </div>
+    </div>
+    <div class=" u-msg-footer ">
+        <div class="pull-right">
+            <button type="button" class="u-button u-button-white editCancel margin-right-15 "
+                    id="editCancel" data-bind="click: event.saveCancelClick">取消
+            </button>
+            <button type="button"
+                    class="u-button raised u-button-primary margin-right-10" id="editOk" data-bind="click: event.saveOkClick">保存
+            </button>
+            
+        </div>
+    </div>
+</div>
+

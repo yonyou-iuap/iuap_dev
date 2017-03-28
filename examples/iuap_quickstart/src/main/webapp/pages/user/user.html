@@ -1,0 +1,439 @@
+<div class="u-mdlayout" id="user-mdlayout">
+    <div class="u-mdlayout-btn u-row">
+        <div id="user_list_button_2" class="u-col-4 user-actions user_list_button_2 ">
+            <div class=" u-button-group margin-0 padding-0">
+            	<!--兼容ie9以下enter问题-->
+            	<!--[if lt IE 10]><button style="display:block;width:1px;height:1px;border:none;">1</button><![endif]-->
+                <button class="u-button u-button-primary u-button-sm " id="addBtn" data-bind="click: event.addClick">增加</button>
+                <button class="u-button u-button-primary u-button-sm " id="editBtn" data-bind="click: event.editClick">编辑</button>
+                <button class="u-button u-button-primary u-button-sm " id="delBtn" data-bind="click: event.delRow">删除</button>
+            </div>
+        </div>
+        <div class="u-col-4  center-title">
+            <span>用户管理</span>
+        </div>
+    </div>
+    <div class="u-mdlayout-btn u-row hide ">
+        <div id="user_card_button">
+            <div class="u-col-4  ufBack padding-bottom-5" data-bind="click:event.goBack">
+                <a id="backBtn"><i class="uf uf-aaleft"></i>返回</a>
+            </div>
+            <div class="u-col-4 padding-bottom-5 " style="text-align:center;">
+                <span>用户管理</span>
+            </div>
+            <div class="u-col-4 padding-bottom-5">
+                <button type="button" class=" u-button u-button-primary u-button-sm" style="float:right;" id="saveBtn"
+                        data-bind="click:event.saveClick">保存
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class=" form-search " style="z-index:0;">
+        <div class="u-panel-heading u-collapse-updown " u-data-toggle="collapse" href="#condition-row-user">
+            <span class="u-panel-title padding-5 padding-left-15  ">快速查询
+            <span class=" u-link u-right u-input-label sm" id="condition-toggle-user">
+                 <span>展开</span>                
+                 <i class="uf uf-arrow-down"></i>             
+             </span>
+             </span>
+        </div>
+        <div class="u-row u-panel-body collapse" id="condition-row-user">
+            <div class="u-col-8 u-col-sm-12">
+                <div class="u-col-2 u-col-sm-4" style="text-align: right; height: 100%;padding: 5px;">
+                    <label>所属组织</label>
+                </div>
+                <div class="u-col-4 u-col-sm-8 ">
+                    <input class="u-form-control sm input_search search-enter" id="org_name" placeholder=""
+                           name="orgname">
+                </div>
+                <div class="u-col-2 u-col-sm-4" style="text-align: right; height: 100%;padding: 5px;">
+                    <label>用户名称</label>
+                </div>
+                <div class="u-col-4 u-col-sm-8 ">
+                    <input class="u-form-control sm input_search search-enter" name="username" id="search_username"/>
+                </div>
+            </div>
+            <div class="u-col-4 u-col-sm-12">
+                <div class=" padding-top-2 ">
+                    <button class="u-button u-button-primary raised gray-btn u-button-pa margin-right-20"
+                            id="user-action-search" data-bind="click: event.search">搜索
+                    </button>
+                    <button class="u-button u-button-primary  raised gray-btn u-button-pa " id="user-action-cleanSearch"
+                            data-bind="click: event.cleanSearch">清空
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-mdlayout-detail width-full">
+        <!-- list -->
+        <div class="u-mdlayout-page u-navlayout-fixed-header current" id="list">
+            <div class="u-mdlayout-page-section">
+                <div class="user-datagrid" style="">
+                    <div class="table-container" style="height:100%">
+                        <table class="u-table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th name="userCheckbox" style="display: block;border-top:1px solid transparent;">
+                                    <label class="margin-top-5 u-checkbox only-style u-checkbox-floatl"
+                                           data-bind="click: userDa.toggleAllSelect.bind(userDa), css:{'is-checked': userDa.allSelected()}">
+                                        <input id="checkInput" type="checkbox" class="u-checkbox-input">
+                                        <span class="u-checkbox-label"></span>
+                                    </label>
+                                </th>
+                                <th>用户编码</th>
+                                <th>登录帐号</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>电子邮箱</th>
+                                <th>所属组织</th>
+                                <th>手机号码</th>
+                                <th>用户级别</th>
+                                <th>状态</th>
+                                <th>创建者</th>
+                                <th>创建时间</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach:{data:userDa.rows(),as:'row', afterAdd: event.afterAdd}">
+                            <tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}, click: $parent.event.rowClick">
+                                <td name="userCheckbox" class="checkbox1">
+                                    <label class="u-checkbox only-style u-checkbox-floatl"
+                                           data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}">
+                                        <input type="checkbox" class="u-checkbox-input">
+                                        <span class="u-checkbox-label"></span>
+                                    </label>
+                                </td>
+                                <td data-bind="text: row.ref('usercode')"></td>
+                                <td data-bind="text: row.ref('loginname')"></td>
+                                <td data-bind="text: row.ref('username')"></td>
+                                <td data-bind="text: $parent.event.changeSex(row.ref('sexid'))"></td>
+                                <td data-bind="text: row.ref('useremail')"></td>
+                                <td data-bind="text: row.ref('orgname')"></td>
+                                <td data-bind="text: row.ref('usermobile')"></td>
+                                <td data-bind="text: row.ref('levelname')"></td>
+                                <td data-bind="text: row.ref('statusname')"></td>
+                                <td data-bind="text: row.ref('creator')"></td>
+                                <td data-bind="text: u.dateRender(row.ref('createtime'))"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="user-no-data-tip" class='no-data-tip hide'>无数据</div>
+                    </div>
+                    <div class ="pagination-par">
+                    <div id='pagination' class='u-pagination pagination-sm '></div>
+                    </div>
+                </div>
+                <!-- user job  -->
+                <div class="user-datagrid " style="padding:15px 0px 15px 0px;">
+                    <div class="table-container">
+                        <table class="u-table" style="width:100%">
+                            <thead>
+                            <tr>
+                                <th>单位名称</th>
+                                <th>部门名称</th>
+                                <th>启用状态</th>
+                                <th>默认</th>
+                                <th>创建者</th>
+                                <th>创建时间</th>
+                            </tr>
+                            </thead>
+                            <tbody data-bind="foreach:{data:userJobDa.rows(),as:'row'}">
+                            <tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'rowindex': $index()}, click: $parent.event.selectUserJob">
+                                <!-- <td data-bind="text: row.ref('orgId')"></td>  
+                                <td data-bind="text: $parent.event.showOrgValueOnList(row.ref('orgId')())"></td>
+                                <td data-bind="text: $parent.event.showDeptValueOnList(row.ref('deptId')())"></td>
+                                -->
+                                <td data-bind="text: row.ref('orgname') "></td>
+                                <td data-bind="text: row.ref('deptname')"></td>
+                                <td data-bind="text: row.ref('isactive')()=='Y'?'是':'否'"></td>
+                                <td data-bind="text: row.ref('isdefault')()=='Y'?'是':'否'"></td>
+                                <td data-bind="text: row.ref('creator')"></td>
+                                <td data-bind="text: u.dateRender(row.ref('createtime'))"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div id="userjob-no-data-tip" class='no-data-tip'>无数据</div>
+                    </div>
+                    <div class ="pagination-par">
+                    	<div style="display:none" id='child_list_pagination' class='u-pagination pagination-sm '></div>
+                    </div>
+                    
+                </div>
+                <!-- end user job  -->
+            </div>
+        </div>
+        <!-- end list -->
+        <!-- addPage -->
+        <div class="u-mdlayout-page" id="addPage">
+            <div class="u-mdlayout-page-section" id="user-form">
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal" >
+                    <div class="u-container-fluid">
+                        <div class="u-row">
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>所属组织</label>
+
+                                    <div class="u-combo" id="orgname"
+                                         u-meta='{"type":"u-text","data":"userFormDa","field":"orgname","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <span class="u-form-control-feedback fa fa-list-ul"
+                                                  data-bind="click:event.selectOrg"></span>
+                                            <input class="u-form-control" readonly="readonly"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>登录帐号</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"userFormDa","field":"loginname"}'>
+                                        <div class="u-input-group-before" style="color: red;">*</div>
+                                        <input type="text" class="u-form-control" id="loginname">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>用户编码</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"userFormDa","field":"usercode"}'>
+                                        <div class="u-input-group-before" style="color: red;">*</div>
+                                        <input type="text" class="u-form-control" id="usercode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>姓名</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"userFormDa","field":"username"}'>
+                                        <div class="u-input-group-before" style="color: red;">*</div>
+                                        <input type="text" class="u-form-control" placeholder="" id="username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>性别</label>
+
+                                    <div class="u-combo" id="comboSex"
+                                         u-meta='{"type":"u-combobox","datasource":"dictSexs","data":"userFormDa","field":"sexid","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <div class="u-input-group-before" style="color: red;">*</div>
+                                            <span class="u-form-control-feedback fa fa-angle-down"
+                                                  data-role="combo-button"></span>
+                                            <input class="u-form-control" readonly/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>邮箱</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"userFormDa","field":"useremail"}'>
+                                        <div class="u-input-group-before" style="color: red;">*</div>
+                                        <input type="text" class="u-form-control" id="useremail"
+                                               placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>手机</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"userFormDa","field":"usermobile"}'>
+                                        <input type="text" class="u-form-control" id="usermobile">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>证件类型</label>
+
+                                    <div class="u-combo" id="comboCertificate"
+                                         u-meta='{"type":"u-combobox","datasource":"dictCertificates","data":"userFormDa","field":"certificateid","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <div class="u-input-group-before" style="color: red;">*</div>
+                                            <span class="u-form-control-feedback fa fa-angle-down"
+                                                  data-role="combo-button"></span>
+                                            <input class="u-form-control" readonly/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>证件号码</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-text","data":"userFormDa","field":"certificatecode"}'>
+                                        <input type="text" class="u-form-control" placeholder="" id="certificatecode">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>用户类别</label>
+
+                                    <div class="u-combo" id="comboLevel"
+                                         u-meta='{"type":"u-combobox","datasource":"dictUserLevels","data":"userFormDa","field":"levelid","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <div class="u-input-group-before" style="color: red;">*</div>
+                                            <span class="u-form-control-feedback fa fa-angle-down"
+                                                  data-role="combo-button"></span>
+                                            <input class="u-form-control" readonly/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>出生日期</label>
+
+                                    <div class="u-input-group u-has-feedback"
+                                         u-meta='{"type":"u-date","data":"userFormDa","field":"birthdate"}'>
+                                        <input type="text" class="u-form-control" placeholder="" id="birthdate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>用户状态</label>
+
+                                    <div class="u-combo" id="comboStatus"
+                                         u-meta='{"type":"u-combobox","datasource":"dictUserStatus","data":"userFormDa","field":"statusid","onlySelect":true}'>
+                                        <div class="u-input-group u-has-feedback">
+                                            <div class="u-input-group-before" style="color: red;">*</div>
+                                            <span class="u-form-control-feedback fa fa-angle-down"
+                                                  data-role="combo-button"></span>
+                                            <input class="u-form-control" readonly/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-col-md-4">
+                                <div class="u-form-group">
+                                    <label>入职日期</label>
+
+                                    <div class="u-input-group u-has-feedback u-datepicker "
+                                         u-meta='{"type":"u-date","data":"userFormDa","field":"registerdate"}'>
+                                        <input type="text" class="u-form-control u-input" placeholder="" id="registerdate">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="u-row">
+                            <!-- user job  -->
+                            <div id="userjob-form">
+                                <div class="u-row margin-bottom-15">
+                                    <div class="u-col-md-2">
+                                        <label>用户任职列表</label>
+                                    </div>
+                                    <div class="u-col-md-4">
+                                        <div class="userjob-actions">
+                                        	<button style="display:block;padding: 0;border:none;background-color: transparent;"></button>
+                                            <button class="u-button u-button-primary u-button-pa"
+                                                    id="userjob-action-addUserJob"
+                                                    data-bind="click: event.addUserJob">增加
+                                            </button>
+                                            <button class="u-button u-button-primary u-button-pa"
+                                                    id="userjob-action-delUserJob"
+                                                    data-bind="click: event.delUserJob">删除
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="table-container clearfix">
+                                    <div type="text" id="gridUserJob"
+                                         u-meta='{"id":"grid","type":"grid","data":"userJobFormDa","columnMenu":false,"canDrag":false,"sortable":false,"canSwap":false,"editable":true,"editType":"default"}'>
+                                        <div options='{"field":"orgname","dataType":"String","title":"所属组织","editType":"event.addUserJob_selectOrg","editOptions":{"validType":"string","required":true}}'></div>
+                                        <div options='{"field":"deptname","dataType":"String","title":"所属部门","editType":"event.addUserJob_selectDept","editOptions":{"validType":"string","required":true} }'></div>
+                                        <div options='{"field":"isactive","dataType":"String","title":"启用状态","editType":"combo","editOptions":{"id":"isActive","type":"combo","datasource":"isActiveItems"},"renderType":"comboRender"}'></div>
+                                        <div options='{"field":"isdefault","dataType":"String","title":"默认","editType":"combo","editOptions":{"id":"isDefault","type":"combo","datasource":"isDefaultItems"},"renderType":"comboRender"}'></div>
+                                        <div options='{"field":"userjobnote","dataType":"String","title":"任职说明","editType":"string"}'></div>
+                                    </div>
+                                     <div style="" id='child_card_pagination' class='u-pagination pagination-sm '></div>
+                                    
+                                </div>
+                            </div>
+                            <!-- end user job  -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- END FORM-->
+        </div>
+        <!-- end addPage -->
+        <!-- editPage -->
+        <!-- end editPage -->
+        <!-- showPage -->
+        <div class="u-mdlayout-page" id="showPage">
+            <div class="u-mdlayout-page-section">
+                <div class="u-col-md-12" style="margin:10px 5px 1px 20px;">
+                    <div class="u-widget">
+                        <button type="button" class="u-button u-button-primary u-button-pa" id="showPageBackBtn"
+                                data-bind="click:event.goBack">返回
+                        </button>
+                    </div>
+                </div>
+                <!-- BEGIN FORM-->
+                <form action="#" class="form-horizontal" id="user-view-form">
+                </form>
+            </div>
+            <!-- END FORM-->
+        </div>
+        <!-- end showPage -->
+
+    </div>
+</div>
+
+
+<!-- 树展示的弹出层  -->
+<div id="tree-modal" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom_org" class="ztree"
+             u-meta='{"id":"commonTree","data":"sysOrgDa","type":"tree","idField":"orgid","pidField":"parentid","nameField":"orgname","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+
+
+<!-- 部门树弹出层，  -->
+<div id="dept-tree-modal" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="dept-tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!-- <div class="ztree" id="deptTree"></div>   -->
+        <div id="treecom_dept" class="ztree"
+             u-meta='{"id":"deptTree","data":"sysDeptDa","type":"tree","idField":"pk_dept","pidField":"parentid","nameField":"deptname","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_dept" class="u-button u-button-primary pull-right ">确定</button>
+        <button type="button" id="cancleBtn" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+

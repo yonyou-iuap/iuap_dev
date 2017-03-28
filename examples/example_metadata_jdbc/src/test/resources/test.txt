@@ -1,0 +1,7 @@
+<dependency>
+  <groupId>mysql</groupId>
+  <artifactId>mysql-connector-java</artifactId>
+  <version>5.1.22</version>
+</dependency>
+
+这是一个测试文档。我是中文，我来检测是不是有乱码。我的格式是UTF-8.

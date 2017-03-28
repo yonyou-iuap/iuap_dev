@@ -1,0 +1,30 @@
+﻿{
+    "statusCode": 200,
+    "message": "操作成功",
+    "method": null,
+    "data": {
+            "products": [{
+		"field1": "用友",
+		"field2": "field3",
+		"field4": "张紫琼",
+		"field5": "male",
+		"field6": "用友",
+		"field7": "张紫琼",
+		"field8": "male",
+		"field9": "male"
+	}, {
+		"field1": "用友2",
+		"field2": "field3",
+		"field4": "张紫琼",
+		"field5": "male",
+		"field6": "用友",
+		"field7": "张紫琼",
+		"field8": "male",
+		"field9": "male"
+	}]
+    },
+    "callbackType": null
+}
+
+
+

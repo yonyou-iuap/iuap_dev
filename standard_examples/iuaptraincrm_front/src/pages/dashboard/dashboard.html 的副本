@@ -1,0 +1,252 @@
+<div class="u-mdlayout" id="dashboard-mdlayout" style="padding:15px 0px 30px 0px;background:transparent;box-shadow:none;">
+  <div class="u-mdlayout-detail" style="overflow-y: auto;background:transparent;">
+    <div class="page-bar" style="padding-top:5px;">
+      <ul class="page-breadcrumb">
+        <li>
+          <a href="index.html">系统管理</a>
+          <i class="fa fa-circle"></i>
+        </li>
+        <li>
+          <span>工作台</span>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+
+
+
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 blue" href="#basedata/customerinfo/customerinfo">
+          <div class="visual">
+            <i class="fa fa-comments"></i>
+          </div>
+          <div class="details">
+            <div class="number">
+              <span data-counter="counterup" data-bind="text:cardData.ref('customercounts')"></span>
+            </div>
+            <div class="desc">新增客户</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 red" href="#">
+          <div class="visual">
+            <i class="fa fa-bar-chart-o"></i>
+          </div>
+          <div class="details">
+            <div class="number">
+              <span data-counter="counterup" data-bind="text:cardData.ref('vehiclecounts')"></span>
+            </div>
+            <div class="desc">车辆数</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 green" href="#project/projectapplynew/projectapply">
+          <div class="visual">
+            <i class="fa fa-shopping-cart"></i>
+          </div>
+          <div class="details">
+            <div class="number">
+              <span data-counter="counterup" data-bind="text:cardData.ref('procounts')"></span>
+            </div>
+            <div class="desc">立项申请 </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <a class="dashboard-stat dashboard-stat-v2 purple" href="#project/production/poordermgr">
+          <div class="visual">
+            <i class="fa fa-globe"></i>
+          </div>
+          <div class="details">
+            <div class="number">
+              <span data-counter="counterup" data-bind="text:cardData.ref('pocounts')"></span>
+			</div>
+            <div class="desc">PO订单</div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+        <div class="todo-ui">
+          <div class="todo-sidebar" style="border:1px solid #eee;">
+            <div class="portlet light ">
+              <div class="portlet-title">
+                <div class="caption" data-toggle="collapse" data-target=".todo-project-list-content">
+                  <span class="caption-subject font-green-sharp bold uppercase">待办事项 </span>
+                </div>
+                <!--<div class="actions">
+                  <div class="btn-group">
+                    <a class="btn green btn-circle btn-outline btn-sm todo-projects-config" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                      <i>状态</i> &nbsp;
+                      <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                      <li>
+                        <a href="javascript:;"> 未完成
+                          <span class="badge badge-danger"> 4 </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;"> 已完成
+                          <span class="badge badge-success"> 2 </span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:;"> 废弃
+                          <span class="badge badge-warning"> 9 </span>
+                        </a>
+                      </li>
+
+                    </ul>
+                  </div>
+                </div>-->
+              </div>
+              <div class="portlet-body todo-project-list-content">
+                <div class="todo-project-list">
+                  <ul class="nav nav-stacked">
+                    <li>
+                      <a href="#project/projectaudit/projectaudit">
+                       	 待审核立项申请<span class="badge badge-info" data-bind="text:cardData.ref('proauditcounts')"></span>
+                      </a>
+                    </li>
+                   <li>
+                      <a href="#delivery/transapply/transExecut">
+                        	待执行发运申请<span class="badge badge-success" data-bind="text:cardData.ref('transcountsa')"></span> 
+                      </a>
+                    </li>
+                    <li class="active">
+                      <a href="#delivery/transapply/transConfirm">
+                                                                           待接车发运申请<span class="badge badge-success" data-bind="text:cardData.ref('transcountsb')"></span></a>
+                    </li>
+                    <li>
+                      <a href="#delivery/transapply/transDeliver">
+                        	待交付发运申请<span class="badge badge-default" data-bind="text:cardData.ref('transcountsb')"></span></a>
+                    </li>
+                    <!-- <li>
+                      <a href="javascript:;">
+                        <span class="badge badge-info"> 6 </span> AirAsia Ads </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge badge-danger"> 2 </span> Loop Inc Promo </a>
+                    </li>-->
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-6 col-xs-12 col-sm-12">
+        <div class="todo-ui">
+          <div class="todo-sidebar" style="border:1px solid #eee;">
+            <div class="portlet light ">
+              <div class="portlet-title">
+                <div class="caption" data-toggle="collapse" data-target=".todo-project-list-content">
+                  <span class="caption-subject font-green-sharp bold uppercase">系统动态 </span>
+                </div>
+
+                <!--<a href="#" class="btn dark btn-outline btn-circle btn-sm pull-right">更多..</a>-->
+                
+              </div>
+              <div class="portlet-body todo-project-list-content">
+                <div class="todo-project-list">
+                  <ul class="nav nav-stacked">
+                    <li>
+                      <a href="javascript:;">
+                        	本月新增线索<span class="badge badge-info"  data-bind="text:cardData.ref('newtracks')"></span></a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        	本月新增客户<span class="badge badge-success" data-bind="text:cardData.ref('newcustomers')"></span></a>
+                    </li>
+                    <li class="active">
+                      <a href="javascript:;">
+                        	本月新增充电站<span class="badge badge-success" data-bind="text:cardData.ref('newcharges')"></span></a>
+                    </li>
+                    <!--<li>
+                      <a href="javascript:;">
+                        <span class="badge badge-default"> 14 </span> Empire City </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge badge-info"> 6 </span> AirAsia Ads </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <span class="badge badge-danger"> 2 </span> Loop Inc Promo </a>
+                    </li>-->
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-9 col-lg-9 col-xs-12 col-sm-12">
+        <div class="todo-ui">
+          <div class="todo-sidebar" style="border:1px solid #eee;">
+            <div class="portlet light ">
+              <div class="portlet-title">
+                <div class="caption" data-toggle="collapse" data-target=".todo-project-list-content">
+                  <span class="caption-subject font-green-sharp bold uppercase">消息提醒 </span>
+                </div>
+              </div>
+              <div class="portlet-body todo-project-list-content">
+                <div class="todo-project-list">
+                	<table class="u-table" style="width:100%;">
+						<!--<thead>
+							<tr>
+								<th>内容</th>
+							</tr>
+						</thead>-->
+						<tbody data-bind="foreach:{data:alertListData.rows(),as:'row'}" >
+							<tr>
+								<!--click:$parent.showClick.bind($data, $index())-->
+								<td>
+									<a data-bind="attr:{ href:row.ref('vlinkaddress')},text: row.ref('vcontent')">111</a> 
+								</td>
+							</tr>
+						</tbody>
+					</table>
+                  <!--<ul class="nav nav-stacked">
+                    <li>
+                      <a href="#project/projectaudit/projectaudit">
+                        <span class="badge badge-info" data-bind="text:cardData.ref('proauditcounts')"></span>待审核立项申请
+                      </a>
+                    </li>
+                   <li>
+                      <a href="#delivery/transapply/transExecut">
+                        <span class="badge badge-success" data-bind="text:cardData.ref('transcountsa')"></span>待执行发运申请 
+                      </a>
+                    </li>
+                    <li class="active">
+                      <a href="#delivery/transapply/transConfirm">
+                        <span class="badge badge-success" data-bind="text:cardData.ref('transcountsb')"></span>待接车发运申请</a>
+                    </li>
+                    <li>
+                      <a href="#delivery/transapply/transDeliver">
+                        <span class="badge badge-default" data-bind="text:cardData.ref('transcountsb')"></span>待交付发运申请</a>
+                    </li>
+                  </ul>-->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,153 @@
+<!-- 内容 -->
+<div class="u-mdlayout functionactivity" id="demo-func-mdlayout">
+	<div class="u-mdlayout-master" style="display:none;"></div>
+	<div class="u-mdlayout-detail" style="overflow-y: auto;">
+		<div class="u-mdlayout-page  current  u-widget" id="bter_func_list">
+			<div class="u-mdlayout-page-section" >
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">系统管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>功能节点注册</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" >
+							<div class="u-widget mtb-1015" style="background-color:transparent;">
+								<button class="u-button raised primary" id="demo-table-add" data-bind="click: addClick, visible: gridStatus() =='read'">注册</button>
+								<button class="u-button raised primary" id="demo-table-edit" data-bind="click: editClick, visible: gridStatus() =='read'">修改</button>
+								<button class="u-button raised primary" id="demo-table-del" data-bind="click: delClick, visible: gridStatus() =='read'">删除</button>
+								<button class="u-button raised primary" id="demo-table-save" data-bind="click: saveClick, visible: gridStatus() =='edit'">保存</button>
+								<button class="u-button raised primary" id="demo-table-cancel" data-bind="click: cancelClick, visible: gridStatus() =='edit'">取消</button>
+								<button class="u-button raised primary" id="demo-table-qy" data-bind="click: qyClick, visible: gridStatus() =='read'">启用按钮权限</button>
+								<button class="u-button raised primary" id="demo-table-ty" data-bind="click: tyClick, visible: gridStatus() =='read'">停用按钮权限</button>
+							</div>
+						</div>	
+					</div>	
+					<div style="width:250px;float:left;padding-top:10px;overflow:auto;position:relative">
+						<div class="ztreeHeader">
+							<a  data-bind="click:" class="searchIcon"><span class="partingLineL"></span><img src="pages/pageImages/searchIcon.png" /><span class="partingLineR"></span></a>
+							<input type="text" name="searchtxt" id="searchtxt" value="请输入关键词" />
+						</div>
+						<div id="func_zhezhao" style="display:none;width:100%;height:100%;position:absolute;left:0;bottom:0;background:rgb(0,0,0,0.3);z-index:10001;"></div>
+						<div type="text" class="ztree" u-meta='{"id":"func_tree1","data":"treeData","type":"tree","idField":"id","pidField":"parentId","nameField":"funcName","setting":"treeSetting"}'></div>
+					</div>
+					<div class="demoe-page-content" style="margin-left: 255px;border:0px solid #E0E0E0" id="corpformref">
+						<div class="search-section " style="width:100%;display: inline-block;margin-top:10px;">
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">功能编码：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12" u-meta='{"id":"funcCode","name":"功能编码","type":"string","data":"listData","field":"funcCode"}' >
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" type="text" data-bind="value: listData.ref('funcCode'),enable: gridStatus() =='edit'"  >
+								</div>
+								
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">功能名称：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12"  u-meta='{"id":"funcName","name":"功能名称","type":"string","data":"listData","field":"funcName"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" data-bind="value: listData.ref('funcName'),enable: gridStatus() =='edit'" >
+								</div>
+							</div>
+							
+							<div class="u-row">
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">功能类名：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12" u-meta='{"id":"funcUrl","name":"功能类名","type":"string","data":"listData","field":"funcUrl"}' >
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" type="text"  data-bind="value: listData.ref('funcUrl'),enable: gridStatus() =='edit'"  >
+								</div>
+								
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">菜单URL：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12"  u-meta='{"id":"menuUrl","name":"菜单URL","type":"text","data":"listData","field":"menuUrl"}'>
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" data-bind="value: listData.ref('menuUrl'),enable: gridStatus() =='edit'" >
+								</div>
+							</div>
+							
+							<div class="u-row">
+								<!-- <div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">单据详情描述：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12" u-meta='{"id":"digest","type":"text","data":"listData","field":"digest"}' >
+									<div class="u-input-group-before " style="color: red;">*</div>
+									<input class="u-input u-input-write" type="text"  data-bind="value: listData.ref('digest'),enable: gridStatus() =='edit'"  >
+								</div> -->
+								
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">按钮权限：</label>
+								</div>
+								<div class="u-col-3 u-col-sm-8 u-col-xs-12" >
+									<div class="u-combo" u-meta='{"id":"combobox1","type":"u-combobox","data":"listData","field":"enableAction","datasource":"enable"}'>
+										<input class="u-input"  data-bind="enable: gridStatus() ==''">
+										<span class="u-form-control-feedback fa fa-caret-down demoe-icon-btn refer"></span>
+									</div>
+								</div>
+							</div>
+							
+							<!-- <div class="u-row">
+								<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+									<label class="u-input-label right">单据图标：</label>
+								</div>
+								<div class="u-combo u-col-3 u-col-sm-8 u-col-xs-12 m-b-md" u-meta='{"id":"imgcode","name":"单据图标","type":"u-combobox","data":"listData","datasource":"comboLog","field":"imgcode"}'>
+									<i id="imgcodeLog" class=""></i>
+									<input class="u-input"/>
+									<span class="u-combo-icon"></span>
+								</div>
+							</div> -->
+							<div class="u-row">
+								<div class="u-col-6 u-col-sm-12">
+									<label  class="u-checkbox" u-meta='{"id":"isactive","type":"u-checkbox","isGroup":false,"data":"listData","field":"isactive","checkedValue":"Y"}'>
+									<input type="checkbox"  class="u-checkbox-input">
+									<input type="hidden" data-bind="value: listData.ref('isactive'),enable: gridStatus() =='edit'" >
+									<span class="u-checkbox-label">是否启用功能</span> </label>
+								</div>
+								
+								<div class="u-col-6 u-col-sm-12">
+									<label  class="u-checkbox" u-meta='{"id":"iscontrol","type":"u-checkbox","isGroup":false,"data":"listData","field":"iscontrol","checkedValue":"Y"}'>
+									<input type="checkbox" class="u-checkbox-input">
+									<input type="hidden" data-bind="value: listData.ref('iscontrol'),enable: gridStatus() =='edit'" >
+									<span class="u-checkbox-label">是否启用业务活动权限</span> </label>
+								</div>
+							</div>
+							<div class="u-row">
+								<div class="u-col-6 u-col-sm-12">
+									<label  class="u-checkbox" u-meta='{"id":"isleaf","type":"u-checkbox","isGroup":false,"data":"listData","field":"isleaf","checkedValue":"Y"}'>
+									<input type="checkbox" class="u-checkbox-input">
+									<input type="hidden" data-bind="value: listData.ref('isleaf'),enable: gridStatus() =='edit'" >
+									<span class="u-checkbox-label">是否虚节点</span> </label>
+								</div>
+								
+								<div class="u-col-6 u-col-sm-12">
+									<label  class="u-checkbox" u-meta='{"id":"funcType","type":"u-checkbox","isGroup":false,"data":"listData","field":"funcType","checkedValue":"Y"}'>
+									<input type="checkbox" class="u-checkbox-input">
+									<input type="hidden" data-bind="value: listData.ref('funcType'),enable: gridStatus() =='edit'" >
+									<span class="u-checkbox-label">功能性质</span> </label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

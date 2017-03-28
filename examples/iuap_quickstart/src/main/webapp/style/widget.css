@@ -1,0 +1,234 @@
+header {
+    background: #41B6A6;
+    height: 44px;
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+   /*  box-shadow: 0px 3px 6px rgb(204, 204, 204); */
+}
+
+.foldingpad {
+    position: absolute;
+    top: 12px;
+    left: 210px;
+    width: 35px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 200;
+    color: #777;
+    font-size: 16px;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.foldingpad.rotate {
+    right: -18px;
+    z-index: 1;
+    left: 65px;
+}
+
+.foldingpad.rotate i {
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+/*左侧menu*/
+
+.page-sidebar {
+    z-index: 100;
+    width: 200px;
+    position: fixed;
+    top: 0px;
+    min-height: 100%;
+    height: 100%;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    /* background: #213049; */
+    /*margin-left: -200px;*/
+}
+
+.log {
+    height: 44px;
+    background: #0B57AB;
+    position: relative;
+}
+
+.log .title {
+    color: #FFF;
+    line-height: 55px;
+    font-size: 18px;
+    margin-left: 25px;
+}
+
+#menu .nav-li .uf, #nav-zone .nav-li .uf {
+    color: #fff;
+    font-size: 16px;
+}
+
+#nav-zone .nav-li > a {
+    text-decoration: none;
+    display: block;
+    height: 56px;
+    width: 100%;
+    text-align: center;
+}
+
+#nav-zone .nav-li {
+	list-style-type:none;
+    height: 50px;
+    line-height: 51px;
+    border-top: 1px solid transparent;
+    position: relative;
+    cursor: pointer;
+    /*  overflow-x: hidden; */
+    border-left: 6px solid transparent;
+}
+
+#nav-zone .nav-li-small .uf {
+    color: #fff;
+}
+
+ul#menu {
+    background: #0697E8;
+}
+
+ul#nav-zone,
+ul.nav-menu {
+    padding: 0px;
+    margin: 0px;
+}
+
+.nav-menu {
+    height: calc(100% - 45px)
+}
+
+.nav-menu li.nav-li {
+    height: 50px;
+    line-height: 51px;
+    border-top: 1px solid transparent;
+    position: relative;
+    cursor: pointer;
+    /* overflow-x: hidden; */
+    border-left: 6px solid transparent;
+}
+
+.nav-menu li.nav-li:hover {
+    background-color: #036FD3;
+    color: #fff;
+    border-left-color: #FF9800;
+}
+
+li.nav-li.live-hover:hover {
+    text-decoration: none;
+    background-color: #036FD3;
+    color: #fff;
+    border-left-color: #FF9800;
+}
+
+.nav-menu li.nav-li > a {
+    display: block;
+    height: 56px;
+    padding-left: 20px;
+}
+
+.page-small-sidebar {
+    width: 55px;
+    position: fixed;
+    top: 0px;
+    z-index: 100;
+    margin-left: 0px;
+    height: 100%;
+    background: #0697E8;
+}
+
+.samll-logo {
+    width: 40px;
+    position: relative;
+    left: 7px;
+    top: 15px;
+}
+
+.page-small-sidebar ul#nav-zone {
+    width: 100%;
+    background: #0697E8;
+}
+
+.nav-title {
+    color: #fff;
+}
+
+.nav-li-small {
+    height: 50px;
+    line-height: 50px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    position: relative;
+}
+
+.nav-li-small i {
+    font-size: 18px;
+    color: #A6ACB4;
+}
+
+.nav-li i.fa {
+    font-size: 16px;
+    color: #A6ACB4;
+}
+
+#menu a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+.specli {
+    background: #036FD3;
+    border-left-color: #FF9800 !important;
+}
+
+/* 2016.12.2修改导航折叠标签 */
+.foldingpad .uf {
+    color: #fff;
+}
+
+/* 20161206 导航条新增内容 */
+
+.text-right .u-navbar-toolbar > li > .u-badge {
+    margin-top: 16px;
+}
+
+a.u-badge.w-20 .uf {
+    color: #fff;
+}
+.u-navbar-toolbar > li > .u-badge{
+	margin-right:30px;
+}
+/*分页颜色统一变*/
+.u-pagination > .active > a, .u-pagination > .active > span, .u-pagination > .active > a:hover, .u-pagination > .active > span:hover, .u-pagination > .active > a:focus, .u-pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color:#1E7BE2;
+    border-color: #1E7BE2;
+}
+/* 按钮组样式 */
+ .u-button-group{
+	box-shadow:none;
+}
+.u-button-group .u-button {
+	padding:0;
+	background-color: #1E7BE2;
+    border: 1px #1E7BE2 solid;
+}
+.u-button-group .u-button:not(:last-child) {
+    border-right: 1px solid #fff;
+}

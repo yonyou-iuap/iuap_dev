@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5"  metadata-complete="true">
+  <display-name>example_iuap_restful</display-name>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>
+	  classpath*:/applicationContext.xml
+	</param-value>
+  </context-param>
+  
+  <context-param>
+    <param-name>spring-mvc-servlet-name</param-name>
+    <param-value>springServlet</param-value>
+  </context-param>
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <filter>
+    <filter-name>encodingFilter</filter-name>
+    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+    <init-param>
+      <param-name>encoding</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+    <init-param>
+      <param-name>forceEncoding</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>encodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!--测试上下文filter及顺序-->
+  <filter>
+    <filter-name>contextFilter2</filter-name>
+    <filter-class>com.yonyou.iuap.context.ContextOtherFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>contextFilter1</filter-name>
+    <filter-class>com.yonyou.iuap.context.ContextFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>contextFilter1</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>contextFilter2</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <!-- 签名验证过滤器 -->
+  <filter>    
+	<filter-name>ServerSignVerifyFilter</filter-name>    
+	<filter-class>com.yonyou.iuap.filter.ServerSignVerifyFilter</filter-class>  
+  </filter>    
+  <filter-mapping>    
+	<filter-name>ServerSignVerifyFilter</filter-name>    
+	<url-pattern>/rest/*</url-pattern>    
+  </filter-mapping>    
+  
+  <servlet>
+    <servlet-name>springServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/spring-mvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>springServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+</web-app>

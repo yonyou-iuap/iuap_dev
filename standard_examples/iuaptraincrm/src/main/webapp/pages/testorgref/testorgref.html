@@ -1,0 +1,187 @@
+<div class="list-panel" id="manager">
+    <div class="common-header-1" >
+      <div class="u-col-4 padding-right-0" style="float:right">
+         <div class="u-button-group margin-0" style="float:right;">
+            <button class="u-button u-button-primary "
+                    id="addButton" data-bind="click: event.addClick">新增
+            </button>             
+            <button class="u-button u-button-primary "
+                    id="editButton" data-bind="click: event.editClick">编辑
+            </button>         
+            <button class="u-button u-button-primary" id="delButton" data-bind="click: event.delClick">删除</button>
+         </div> 
+         </div>     
+        <div class="u-col-4" style="float:right;text-align:center;">
+             <span>组织参照测试</span>
+        </div>
+          
+    </div>
+    <div class="common-header-2" >
+         <div class="pull-left">
+            <div id="searchdiv" class="u-input-group u-has-feedback ">
+                <input type="text" class="u-form-control sm input_enter" id="search"
+                       placeholder="输入名称/城市"
+> 
+                       <span class="u-form-control-feedback uf uf-zoom"
+                    id="searchBtn" data-bind="click: event.searchClick"></span>
+            </div>
+        </div>
+    </div>
+    <!--table-->
+    <div class="main-container cartable-container">
+        <div class="hr-table ">
+            <div class="u-table b-table width-full"
+                 u-meta='{"id":"gridcardtable","type":"grid","data":"dt1","columnWidth":"150px"}'>
+                                        <div options='{"field":"name","dataType":"String","title":"名称","editType":"string"}'></div>
+                                        <div options='{"field":"city","dataType":"String","title":"城市","editType":"string"}'></div>
+                                        <div options='{"field":"creator","dataType":"String","title":"修改人","editType":"string"}'></div>
+										<div options='{"field":"org_name","dataType":"String","title":"组织","editType":"event.addtestorgref_selectBdCorpVO","editOptions":{"validType":"string","required":true} }'></div>
+										<div options='{"field":"pk_user_name","dataType":"String","title":"用户","editType":"event.addtestorgref_selectExtIeopUserVO","editOptions":{"validType":"string","required":true} }'></div>
+										<div options='{"field":"pk_psn_name","dataType":"String","title":"人员","editType":"event.addtestorgref_selectBdPsndocVO","editOptions":{"validType":"string","required":true} }'></div>
+            </div>
+        </div>
+        <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+    </div>
+</div>
+
+<!-编辑-->
+<div class="" id="editPage" style="background: #fff; display: none;">
+    <div class="u-msg-title">新增</div>
+    <div class="u-msg-content " id="edit2">
+        <div class=" system-row u-row margin-top-20">
+            <div class="u-col-2 ">
+                <label for="code" class="u-input-label right">名称:</label>
+            </div>
+            
+ 			<div class="u-col-4 ">
+				<div class="u-input-group-before padding-left-10 "
+                     style="color: red;">*
+                </div>   
+                <input type="text" id="code"
+                       class="u-form-control padding-left-15"
+                       u-meta='{"type":"string","data":"dtnew","field":"name"}'>
+            </div>
+            <div class="u-col-2 right-col">
+                <label class="u-input-label right">城市:</label>
+            </div>
+			<div class="u-col-4 ">
+                <input type="text" id="code"
+                       class="u-form-control padding-left-15"
+                       u-meta='{"type":"string","data":"dtnew","field":"city"}'>
+            </div>
+        </div>
+        <div class=" system-row u-row margin-top-20">
+            <div class="u-col-2 ">
+                <label for="code" class="u-input-label right">修改人:</label>
+            </div>
+            
+ 			<div class="u-col-4 ">
+				<div class="u-input-group-before padding-left-10 "
+                     style="color: red;">*
+                </div>   
+                <input type="text" id="code"
+                       class="u-form-control padding-left-15"
+                       u-meta='{"type":"string","data":"dtnew","field":"creator"}'>
+            </div>
+            <div class="u-col-2 right-col">
+                <label class="u-input-label right">组织:</label>
+            </div>
+            <div class="u-col-md-4 u-combo u-label-floating" u-meta='{"type":"u-text","data":"dtnew","field":"org_name","onlySelect":true}'>
+	           <div class="u-input-group u-has-feedback">
+	                <span class="u-form-control-feedback fa fa-list-ul"
+	                      data-bind="click:event.selectBdCorpVO_testorgref"></span>
+	                <input class="u-form-control" readonly="readonly"/>
+	            </div>
+	        </div>  
+        </div>
+        <div class=" system-row u-row margin-top-20">
+            <div class="u-col-2 ">
+                <label for="code" class="u-input-label right">用户:</label>
+            </div>
+            
+ 	        <div class="u-col-md-4 u-combo u-label-floating" u-meta='{"type":"u-text","data":"dtnew","field":"pk_user_name","onlySelect":true}'>
+	           <div class="u-input-group u-has-feedback">
+	                <span class="u-form-control-feedback fa fa-list-ul"
+	                      data-bind="click:event.selectExtIeopUserVO_testorgref"></span>
+	                <input class="u-form-control" readonly="readonly"/>
+	            </div>
+	        </div>              
+            <div class="u-col-2 right-col">
+                <label class="u-input-label right">人员:</label>
+            </div>
+            <div class="u-col-md-4 u-combo u-label-floating" u-meta='{"type":"u-text","data":"dtnew","field":"pk_psn_name","onlySelect":true}'>
+	           <div class="u-input-group u-has-feedback">
+	                <span class="u-form-control-feedback fa fa-list-ul"
+	                      data-bind="click:event.selectBdPsndocVO_testorgref"></span>
+	                <input class="u-form-control" readonly="readonly"/>
+	            </div>
+	        </div>  
+        </div>
+    </div>
+    <div class=" u-msg-footer ">
+        <div class="pull-right">
+            <button type="button" class="u-button u-button-white editCancel margin-right-15 "
+                    id="editCancel" data-bind="click: event.saveCancelClick">取消
+            </button>
+            <button type="button"
+                    class="u-button raised u-button-primary margin-right-10" id="editOk" data-bind="click: event.saveOkClick">保存
+            </button>
+            
+        </div>
+    </div>
+</div>
+
+<!-- 树展示的弹出层  -->
+<div id="tree-org_testFortestorgref" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"org_testFortestorgrefTree","data":"refBdCorpVODa","type":"tree","idField":"pk_corp","pidField":"parentid","nameField":"org","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_BdCorpVOTotestorgref" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="tree-ieop_userFortestorgref" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"ieop_userFortestorgrefTree","data":"refExtIeopUserVODa","type":"tree","idField":"id","pidField":"parentid","nameField":"name","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_ExtIeopUserVOTotestorgref" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>
+<!-- 树展示的弹出层  -->
+<div id="tree-psndocFortestorgref" tabindex="-1" role="dialog" style="display:none">
+    <div class="u-msg-title">
+        <h4 class="treetitle" id="tree-title"></h4>
+    </div>
+    <div class="u-msg-content">
+        <!--   <div class="ztree" id="commonTree"></div> -->
+        <div id="treecom" class="ztree"
+             u-meta='{"id":"psndocFortestorgrefTree","data":"refBdPsndocVODa","type":"tree","idField":"pk_psndoc","pidField":"parentid","nameField":"name","setting":"treeSetting"}'></div>
+    </div>
+    <div class="u-msg-footer">
+        <button type="button" id="confirm_select_BdPsndocVOTotestorgref" class="u-button u-button-primary pull-right">确定</button>
+        <button type="button" class="u-button button-cancel pull-right margin-right-15" data-bind="click:event.mdClose">
+            取消
+        </button>
+    </div>
+
+</div>

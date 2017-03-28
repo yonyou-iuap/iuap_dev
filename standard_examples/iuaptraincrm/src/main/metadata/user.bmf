@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><component conRouterType="曼哈顿直角" createIndustry="0" createTime="2017-03-08 15:11:14" creator="" description="" displayName="user" fromSourceBmf="true" gencodestyle="标准样式" help="" id="1c6e683f-cd93-4ec8-8030-68b2e28fceed" industry="0" industryChanged="false" industryIncrease="false" industryName="0" isSource="false" isbizmodel="false" mainEntity="6d34589d-8ca3-45d6-872c-bffd87525cc9" metaType=".bmf" modifier="" modifyIndustry="0" modifyTime="2017-03-16 11:53:27" name="user" namespace="iuaptraincrm" ownModule="iuaptraincrm" preLoad="false" programcode="0" resModuleName="user" resid="" version="10" versionType="0">
+    <celllist>
+        <entity accessorClassName="nc.md.model.access.javamap.POJOStyle" bizItfImpClassName="" componentID="1c6e683f-cd93-4ec8-8030-68b2e28fceed" createIndustry="0" createTime="2017-03-08 16:00:13" creator="" czlist="" description="" displayName="用户" fullClassName="com.yonyou.iuap.crm.user.entity.ExtIeopUserVO" height="100" help="" id="6d34589d-8ca3-45d6-872c-bffd87525cc9" industryChanged="false" isAuthen="true" isCreateSQL="true" isExtendBean="false" isPrimary="true" isSource="true" keyAttributeId="e9ccda82-7a86-42da-80b2-2c1498748875" modInfoClassName="" modifier="" modifyIndustry="0" modifyTime="2017-03-16 13:25:35" name="ieop_user" resid="" stereoType="" tableName="iuaptraincrm_ieop_user" userDefClassName="" versionType="0" visibility="public" width="100" x="197" y="130">
+            <attributelist>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="6d34589d-8ca3-45d6-872c-bffd87525cc9" createIndustry="0" dataType="BS000010000100001051" dataTypeStyle="SINGLE" dbtype="char" defaultValue="" description="" displayName="主键" dynamic="false" dynamicTable="" fieldName="id" fieldType="char" fixedLength="false" forLocale="false" help="" id="e9ccda82-7a86-42da-80b2-2c1498748875" industryChanged="false" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="true" isNullable="false" isReadOnly="false" isShare="false" isSource="true" length="36" maxValue="" minValue="" modifyIndustry="0" name="id" notSerialize="false" precise="" refModelName="" resid="" sequence="0" typeDisplayName="ID" typeName="ID" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="6d34589d-8ca3-45d6-872c-bffd87525cc9" createIndustry="0" dataType="BS000010000100001001" dataTypeStyle="SINGLE" dbtype="varchar" defaultValue="" description="" displayName="名称" dynamic="false" dynamicTable="" fieldName="name" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="b7cfe4f2-f92a-4e50-a81c-6a28da98e0b7" industryChanged="false" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" isSource="true" length="50" maxValue="" minValue="" modifyIndustry="0" name="name" notSerialize="false" precise="" refModelName="" resid="" sequence="1" typeDisplayName="String" typeName="String" versionType="0" visibility="public"/>
+                <attribute accessStrategy="" accesspower="false" accesspowergroup="" calculation="false" classID="6d34589d-8ca3-45d6-872c-bffd87525cc9" createIndustry="0" dataType="6d34589d-8ca3-45d6-872c-bffd87525cc9" dataTypeStyle="REF" dbtype="" defaultValue="~" description="" displayName="上级id" dynamic="false" dynamicTable="" fieldName="parent_id" fieldType="varchar" fixedLength="false" forLocale="false" help="" id="87c0313e-99d0-4288-b462-ade8aba89e15" industryChanged="false" isActive="true" isAuthorization="true" isDefaultDimensionAttribute="false" isDefaultMeasureAttribute="false" isFeature="false" isGlobalization="false" isHide="false" isKey="false" isNullable="true" isReadOnly="false" isShare="false" isSource="true" length="36" maxValue="" minValue="" modifyIndustry="0" name="parent_id" notSerialize="false" precise="" refModelName="" resid="" sequence="2" typeDisplayName="用户" typeName="ieop_user" versionType="0" visibility="public"/>
+            </attributelist>
+            <operationlist/>
+            <busiitfs/>
+            <busimaps/>
+            <canzhaolist/>
+            <accessor classFullname="nc.md.model.access.javamap.POJOStyle" displayName="POJO" name="pojo">
+                <properties/>
+            </accessor>
+        </entity>
+    </celllist>
+    <connectlist/>
+    <refdepends/>
+    <refdependLoseIDs/>
+    <cellRemoveLog/>
+    <rulers>
+        <ruler isHorizontal="true" unit="0">
+            <guideList/>
+        </ruler>
+        <ruler isHorizontal="false" unit="0">
+            <guideList/>
+        </ruler>
+    </rulers>
+</component>

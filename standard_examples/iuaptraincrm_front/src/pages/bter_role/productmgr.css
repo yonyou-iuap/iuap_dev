@@ -1,0 +1,188 @@
+.bterRole {
+  /*新增css*/
+  /*搜索区域*/
+  /*左边财务期间区域*/
+}
+.bterRole .demoe-page-content {
+  padding: 0;
+  border: 1px solid #E0E0E0;
+  margin-top: 10px;
+}
+.bterRole .demo-actions .u-button {
+  margin: 0 4px;
+}
+.bterRole .demo-datagrid {
+  width: 100%;
+}
+.bterRole .demo-card {
+  padding: 17px;
+}
+.bterRole .demo-card-wide {
+  width: 100%;
+  box-shadow: none;
+  border: 1px solid #e0e0e0;
+  min-height: auto;
+}
+.bterRole .u-table-editable .u-text {
+  width: 39px;
+}
+.bterRole .u-table-editable .not-focused .u-input {
+  border: none;
+}
+.bterRole .u-table-editable .not-focused .u-text:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bterRole .u-table-editable .not-focused .table-line-save-btn,
+.bterRole .u-table-editable .not-focused .table-line-cancel-btn {
+  display: none;
+}
+.bterRole .u-table-editable .is-focused .table-line-edit-btn,
+.bterRole .u-table-editable .is-focused .table-line-del-btn {
+  display: none;
+}
+.bterRole .demo-actions-float {
+  position: fixed;
+  top: 66px;
+  right: 76px;
+}
+.bterRole .demo-line-button {
+  color: #fff!important;
+  background-color: #2196f3;
+  font-size: 12px;
+  border: none;
+}
+.bterRole .white_content {
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  padding: 20px;
+  border: 5px solid black;
+  background-color: white;
+  z-index: 1002;
+  overflow: auto;
+}
+.bterRole .black_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=88);
+}
+
+
+.bterRole .ztreeHeader {
+  height: 30px;
+  background: #fb6e52;
+  position: relative;
+}
+.bterRole .ztreeHeader .searchIcon {
+  position: absolute;
+  left: 5px;
+  top: 3px;
+}
+.bterRole .ztreeHeader .searchIcon img {
+  padding: 0 5px;
+  /*border-left:1px solid #ecf0f1;*/
+  /*border-right:1px solid #ecf0f1;*/
+}
+.bterRole .ztreeHeader .searchIcon .partingLineL {
+  height: 16px;
+  width: 1px;
+  background: #ecf0f1;
+  float: left;
+  margin-top: 4px;
+}
+.bterRole .ztreeHeader .searchIcon .partingLineR {
+  height: 10px;
+  width: 1px;
+  background: #ecf0f1;
+  float: right;
+  margin-top: 8px;
+}
+.bterRole .ztreeHeader input {
+  background: #fb6e52;
+  padding-left: 50px;
+  padding-top: 1px;
+  color: #fff;
+  text-align: center;
+  width: 200px;
+  border: 0;
+  height: 30px;
+  line-height: 30px;
+}
+
+.bterRole .ztree li span.button {
+  background-image: none;
+}
+.bterRole .ztree li a.curSelectedNode {
+  color: #ed4047;
+}
+.bterRole .ztree li a {
+  height: 100%;
+}
+.bterRole .ztree li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  line-height: 30px;
+  text-align: left;
+  white-space: nowrap;
+  outline: 0;
+}
+.bterRole .ztree li a {
+  padding: 1px 3px 0 0;
+  margin: 0;
+  cursor: pointer;
+  height: 30px;
+  color: #333;
+  background-color: transparent;
+  text-decoration: none;
+  vertical-align: top;
+  display: inline-block;
+}
+.bterRole .ztree li a:hover {
+  text-decoration: underline;
+  color: #3949AB;
+  background-color: #eee;
+}
+.bterRole .ztree li span.button.ico_docu {
+  height: 100%!important;
+  line-height: 25px!important;
+}
+.bterRole .ztree li span.button.ico_docu:after {
+  top: 0!important;
+}
+.bterRole .ztree li span.button {
+  background: none;
+}
+.bterRole .ztree li span.button.switch.noline_close:after {
+  content: "\f105";
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+}
+.bterRole .ztree li span.button.switch.noline_open:after {
+  content: "\f107";
+  font-family: 'FontAwesome';
+  position: absolute;
+  top: 10px;
+  font-size: 16px;
+  left: 5px;
+}
+

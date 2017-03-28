@@ -1,0 +1,336 @@
+<!-- 内容 -->
+<div class="u-mdlayout bterRole" id="role-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+	<div class="u-mdlayout-detail" style="overflow-y: auto;">
+		<div class="u-mdlayout-page  current" id="role_list">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">系统管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>角色维护</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">角色编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write"  u-meta='{"type":"string", "data":"searchData", "field":"roleCode"}'>
+							</div>
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">角色名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"type":"string", "data":"searchData", "field":"roleName"}'>
+							</div>
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属公司：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"type":"string", "data":"searchData", "field":"pkCorp"}'>
+							</div>
+						</div>
+						<div class="u-row">
+						  	<div class="btnBox pull-right mb-5" >
+								<button class="u-button raised primary" id="table-search" data-bind="click: searchClick">查询</button>
+								<button class="u-button raised primary" id="table-add" data-bind="click:addClick">新增</button>
+								<button class="u-button raised primary" id="table-edit" data-bind="click:editClick">修改</button>
+								<button class="u-button raised primary" id="table-del" data-bind="click:delClick">删除</button>
+								<button class="u-button raised primary" id="table-positon" data-bind="click:assignuserClick">关联岗位</button>
+								<button class="u-button raised primary" id="table-funciton" data-bind="click:assignclick">分配功能权限</button>
+								<button class="u-button raised primary" id="table-button" data-bind="click:assignbtnclick">分配按钮权限</button>
+							</div>
+						</div>
+					</div>
+						<div class="u-widget-body">
+							<div class="page-content-box">
+								<div class="row">
+									<div class="col-md-12">
+										<div type="text" u-meta='{"id":"bter_role_grid1","data":"listData","type":"grid","editable":false,"multiSelect":true,"showNumCol":true,"onDblClickFun":"assignuserClick"}'>
+										<div options='{"field":"role_code","dataType":"String","title":"角色编码","width":400}'></div>
+										<div options='{"field":"role_name","dataType":"String","title":"角色名称","width":400}'></div>
+										<div options='{"field":"dataRole","dataType":"String","title":"数据权限","editType":"combo","width":125,"editOptions":{"id":"combobox1","type":"combo","datasource":"dataRole"},"renderType":"comboRender"}'></div> 
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="u-mdlayout-page" id="role_addPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">角色维护</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>编辑</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget mtb-1015" style="background-color:transparent;">
+								<button class="u-button raised primary" data-bind="click: saveClick, visible: gridStatus() =='init'">保存</button>
+								<button class="u-button raised primary" data-bind="click: backClick">返回</button>
+							</div>
+						</div>	
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">角色编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8"  u-meta='{"id":"role_code","name":"角色编码","type":"u-text","data":"listData","field":"role_code"}'>
+								<div class="u-input-group-before " style="color: red;">*</div>
+								<input type="text" class="u-input u-input-write" data-bind="value: refFormInputValue('role_code')(),enable: gridStatus() =='init'" >
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">角色名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8" u-meta='{"id":"role_name","name":"角色名称","type":"u-text","data":"listData","field":"role_name"}'>
+								<div class="u-input-group-before " style="color: red;">*</div>
+								<input type="text" class="u-input u-input-write" data-bind="value: refFormInputValue('role_name')(),enable: gridStatus() =='init'">
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">数据权限：</label>
+							</div>
+			            	<div class="u-combo u-col-2 u-col-sm-8" u-meta='{"name":"数据权限","type":"u-combobox","data":"listData","datasource":"dataRole","field":"dataRole"}'>
+								<input class="u-input"/>
+								<span class="u-combo-icon"></span>
+							</div>
+						</div>
+					</div>
+
+					<div class="row" id="role_userdiv">
+						<div class="u-widget mtb-1015" style="background-color:transparent;margin: 10px 15px 10px 15px;">
+							<button class="u-button raised primary" id="demo-table-add" data-bind="click: assuserClick">
+								新增关联岗位
+							</button>
+							<button class="u-button raised primary" id="demo-table-del" data-bind="click: deluserClick">
+								删除关联岗位
+							</button>
+							<!--<button class="u-button raised primary" data-bind="click: saveuserClick, visible: gridStatus() =='edit'">
+								保存
+							</button>
+							<button class="u-button raised primary" data-bind="click: cancelClick, visible: gridStatus() =='edit'">
+								取消
+							</button>-->
+						</div>
+						<div class="col-md-12">
+							<div type="text" u-meta='{"id":"bter_role_grid2","data":"userRoleData","type":"grid","editable":false,"multiSelect":true,"showNumCol":true,"editType":"default"}'>
+								<div options='{"field":"position_code","dataType":"String","title":"关联岗位编码","editType":"string"}'></div>
+								<div options='{"field":"position_name","dataType":"String","editType":"string","title":"关联岗位名称"}'></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="u-mdlayout-page" id="role_showPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">角色维护</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>分配功能权限</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget mtb-1015" style="background-color:transparent;">
+								<button class="u-button raised primary" data-bind="click: openAllClick">
+									全部展开
+								</button>
+								<button class="u-button raised primary" data-bind="click: closeAllClick">
+									全部收缩
+								</button>
+								<button class="u-button raised primary" data-bind="click: funcsaveClick">
+									分配
+								</button>
+								<button class="u-button raised primary" id="demo-table-del" data-bind="click: backClick">
+									返回
+								</button>
+							</div>
+						</div>	
+					</div>
+					
+					<div class="search-section">
+						<div >
+							<div class="row">
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">角色编码：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8"  u-meta='{"id":"role_code","type":"u-text","data":"listData","field":"role_code"}'>
+									<input type="text" class="u-input u-input-write" data-bind="value: refFormInputValue('role_code')(),enable:false" >
+								</div>
+								<div class="u-col-2 u-col-sm-4">
+									<label class="u-input-label right">角色名称：</label>
+								</div>
+								<div class="u-col-2 u-col-sm-8" u-meta='{"id":"role_name","type":"u-text","data":"listData","field":"role_name"}'>
+									<input type="text" class="u-input u-input-write" data-bind="value: refFormInputValue('role_name')(),enable:false">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="menuDiv" style="margin-left:50px;">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="u-mdlayout-page" id="role_showbtnPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">角色维护</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>按钮权限分配</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div style="width:250px;height:500px;float:left;padding-top:10px;overflow:auto;position:relative">
+						<div class="ztreeHeader">
+							<span>功能节点</span>
+						</div>
+						<div type="text" class="ztree" u-meta='{"id":"role_tree1","data":"functionData","type":"tree","idField":"id","pidField":"parentId","nameField":"funcName","setting":"treeSetting"}'></div>
+					</div>
+					<div style="margin-left: 255px;">
+						<div class="search-section " style="width:100%;display: inline-block;">
+							<div class="u-row" id="input1" disabled="true">
+								<div >
+									<div >
+										<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+											<label class="u-input-label right">角色编码：</label>
+										</div>
+										<div class="u-col-3 u-col-sm-8 u-col-xs-12" data-upgraded=",u.Text" >
+											<input class="u-input u-input-write" type="text" data-bind="value:functionData.ref('funcCode'),enable:false" >
+										</div>
+										<div class="u-col-3 u-col-sm-4 u-col-xs-12">
+											<label class="u-input-label right">角色名称：</label>
+										</div>
+										<div class="u-col-3 u-col-sm-8 u-col-xs-12" data-upgraded=",u.Text">
+											<input class="u-input u-input-write" type="text" data-bind="value:functionData.ref('funcName'),enable:false">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="u-row">
+								<div class="u-col-12" style="padding-bottom:15px;">
+									<button class ="u-button raised primary" data-bind="click: btnsaveClick">
+										分配
+									</button>
+									<button class ="u-button raised primary" data-bind="click: backClick">
+										返回
+									</button>
+								</div>
+							</div>
+							<div class="u-row">
+								<div class    ="col-md-12">
+									<div type     ="text" u-meta='{"id":"bter_role_grid3","data":"activityChildData","type":"grid","editable":true,"columnMenu":false,"canDrag":false,"sortable":false,"canSwap":false,"multiSelect":true}'>
+										<div options  ='{"field":"activityCode","dataType":"String","title":"按钮权限编码"}'></div>
+										<div options  ='{"field":"activityName","dataType":"String","title":"按钮权限名称"}'></div>
+										<!-- <div options  ='{"field":"funcCode","dataType":"String","title":"功能编码"}'></div> -->
+										<div options  ='{"field":"funcID","dataType":"String","title":"功能主键","visible":false}'></div>
+										<div options  ='{"field":"id","dataType":"String","title":"主键","visible":false}'></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="role_light" class="white_content" style="display: none">
+			<div style="width:100%;height:100%;" class="plat clearfix">
+				<div class="title clearfix" >
+					<h4><span class="glyphicon glyphicon-list"></span>关联岗位列表</h4>
+					<div class="btnBox pull-right" style="margin-right:15px">
+						<button class="u-button raised primary" id="demo-table-ok" data-bind="click: okClick">
+							确定 
+						</button>
+						<button class="u-button raised primary" id="demo-table-cancel" data-bind="click: canceluserClick">
+							取消
+						</button>
+					</div>
+				</div>
+				<div class="padding-bottom:10px;">
+					<div class="demoe-page-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div type="text" u-meta='{"id":"bter_role_grid6","data":"userData","type":"grid","multiSelect":true,"showNumCol":true,"editable":false,"editType":"default"}'>
+									<div options='{"field":"position_code","dataType":"String","title":"关联岗位编码","editType":"string"}'></div>
+									<div options='{"field":"position_name","dataType":"String","editType":"string","title":"关联岗位名称"}'></div>
+								</div>
+							</div>
+						</div>
+						<div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"userData","pageChange":"pageChangeFund","sizeChange":"sizeChangeFund"}'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="role_fade" class="black_overlay" style="display: none"></div>
+	</div>
+</div>

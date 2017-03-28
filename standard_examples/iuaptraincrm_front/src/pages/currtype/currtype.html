@@ -1,0 +1,74 @@
+<div class="u-mdlayout " id="dicttype-mdlayout">
+    <div class="u-mdlayout-btn u-row">
+        <div id="dicttype_list_button_2" class="u-col-4 user-actions">
+            <div class=" u-button-group margin-0 padding-0">
+                <button class="u-button u-button-primary u-button-sm" id="user-action-add"
+                        data-bind="click: event.addClick">增加
+                </button>
+                <button class="u-button u-button-primary u-button-sm" id="user-action-edit"
+                        data-bind="click: event.saveClick">保存
+                </button>
+                <button class="u-button u-button-primary u-button-sm" id="user-action-del"
+                        data-bind="click: event.delRow">删除
+                </button>
+            </div>
+        </div>
+        <div class="u-col-4  center-title">
+            <span>currtype</span>
+        </div>
+    </div>
+    <div class=" form-search " style="z-index:0;">
+        <div class="u-panel-heading  u-collapse-updown" u-data-toggle="collapse" href="#condition-row-dic">
+            <span class="u-panel-title padding-5 padding-left-15">快速查询
+            <span class="u-link u-right u-input-label sm">
+                 <span>展开</span>
+                 <a>
+                     <i class="uf uf-aadown"></i>
+                 </a>
+             </span>
+            </span>
+        </div>
+        <div class="u-row  u-panel-body  collapse" id="condition-row-dic">
+            <div class="u-col-6 u-col-sm-12">
+            </div>
+            <div class="u-col-6 u-col-sm-12">
+                <div class=" padding-top-2">
+                    <button class="u-button  u-button-primary raised gray-btn u-button-pa margin-right-20"
+                            id="user-action-search" data-bind="click: event.search">搜索
+                    </button>
+                    <button class="u-button u-button-primary raised gray-btn u-button-pa" id="user-action-cleanSearch"
+                            data-bind="click: event.cleanSearch">清空
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="u-mdlayout-detail ">
+        <!-- list -->
+        <div class="u-mdlayout-page u-navlayout-fixed-header current" id="list_currtype">
+            <div class="u-mdlayout-page-section">
+                <div class="user-page-content">
+                    <div class="user-datagrid ">
+                        <div class="table-container">
+                            <div type="text" id="currtype"
+                                 u-meta='{"id":"grid_currtype","data":"currtypeDa","type":"grid","editable":true,"multiSelect":true,"editType":"default","columnWidth":"150px"}'>
+                                        <div options='{"field":"code","dataType":"String","title":"币种编码","editType":"string"}'></div>
+                                        <div options='{"field":"name","dataType":"String","title":"币种名称","editType":"string"}'></div>
+                                        <div options='{"field":"currdigit","dataType":"String","title":"精度","editType":"string"}'></div>
+                                        <!-- <div options='{"field":"creator","dataType":"String","title":"创建人","editType":"string"}'></div>
+                                        <div options='{"field":"creationtime","dataType":"String","title":"创建时间","editType":"string"}'></div>
+                                        <div options='{"field":"modifier","dataType":"String","title":"修改人","editType":"string"}'></div>
+                                        <div options='{"field":"modifiedtime","dataType":"String","title":"修改时间","editType":"string"}'></div> -->
+                            </div>
+                            <div id='pagination' class='pagination u-pagination pagination-sm '
+                                 u-meta='{"type":"pagination","data":"currtypeDa","pageChange":"event.pageChange","sizeChange":"event.sizeChange"}'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end list -->
+    </div>
+</div>
+

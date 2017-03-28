@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<languages>
+	<language id="iuaplang1" langCode="zh_CN" dislpayName="简体中文" langSequence="0" isEnabled="Y" isDefault="Y"/>
+	<language id="iuaplang2" langCode="zh_TW" dislpayName="繁体中文" langSequence="1" isEnabled="Y" isDefault="N"/>
+	<language id="iuaplang3" langCode="en_US" dislpayName="美式英文" langSequence="2" isEnabled="Y" isDefault="N"/>
+	<language id="iuaplang4" langCode="fr_FR" dislpayName="法语" langSequence="3" isEnabled="Y" isDefault="N"/>
+	<language id="iuaplang5" langCode="de_DE" dislpayName="德语" langSequence="4" isEnabled="Y" isDefault="N"/>
+	<language id="iuaplang6" langCode="ja_JP" dislpayName="日语" langSequence="5" isEnabled="Y" isDefault="N"/>
+</languages>

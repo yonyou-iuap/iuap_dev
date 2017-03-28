@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.yonyou.iuap.example</groupId>
+	<artifactId>iuap-securitylog-rest-sdk-example</artifactId>
+	<version>3.1.0-RELEASE</version>
+	<name>example-iuap-securitylog-rest-sdk</name>
+	<packaging>war</packaging>
+
+	<properties>
+		<iuap.modules.version>3.1.0-RELEASE</iuap.modules.version>
+		<iuap.saas.modules.version>3.1.0-RC001</iuap.saas.modules.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yonyou.iuap</groupId>
+			<artifactId>iuap-securitylog-rest-sdk</artifactId>
+			<version>3.1.0-RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yonyou.iuap</groupId>
+			<artifactId>iuap-securitylog-service</artifactId>
+			<version>3.1.0-RELEASE</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>iuap-securitylog-rest-sdk-example</finalName>
+		<plugins>
+			<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn compile命令时会出现莫名的错误，因为系统默认使用GBK编码 -->
+					  <source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn命令时当发生文件资源copy时将使用系统默认使用GBK编码 -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

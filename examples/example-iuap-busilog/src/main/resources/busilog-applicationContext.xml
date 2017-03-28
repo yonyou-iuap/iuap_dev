@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"       
+       xsi:schemaLocation="
+	   		http://www.springframework.org/schema/context
+	   		http://www.springframework.org/schema/context/spring-context-3.2.xsd
+	   		http://www.springframework.org/schema/beans
+	   		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	   		http://www.springframework.org/schema/tx
+            http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	   		http://www.springframework.org/schema/aop
+	   		http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+	   		http://www.springframework.org/schema/mvc 
+      		http://www.springframework.org/schema/mvc/spring-mvc.xsd"
+	   		default-autowire="byName" default-lazy-init="true">   		
+	<context:annotation-config />
+	<!-- 自动扫描	除了@Controller注解以外的注解 
+	<context:component-scan base-package="com.yonyou.uap.busiog">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	-->
+	<!-- 加载组件配置文件 -->
+	<context:property-placeholder system-properties-mode="OVERRIDE"  ignore-unresolvable="true" location="classpath:busilog-systemConfig.properties" />
+
+	<!-- 注入日志拦截器 -->
+	<bean id="logInterceptor" class="com.yonyou.uap.ieop.busilog.BusiLogInterceptor">
+		<property name="threadPoolTaskExecutor" ref="busilogThreadPoolTaskExecutor" />
+		<property name="busiLogWriter">
+			<bean class="${businessLogExporter}" />
+		</property>
+	</bean>
+
+	<!-- 加了 proxy-target-class="true"，基于类的代理将被创建 -->
+	<aop:config proxy-target-class="true">
+		<aop:pointcut id="businessBehavior" expression="${pointcut}" />
+		<aop:aspect id="logAspect" ref="logInterceptor">
+			<aop:after-returning returning="result" method="logAfter" pointcut-ref="businessBehavior" />
+			<aop:after-throwing method="afterThrowing" pointcut-ref="businessBehavior" throwing="error" />
+		</aop:aspect>
+	</aop:config>
+
+	<!-- 异步线程池   -->
+	<bean id="busilogThreadPoolTaskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<!-- 核心线程数 -->
+		<property name="corePoolSize" value="${log.threadPool.corePoolSize}" />
+		<!-- 最大线程数 -->
+		<property name="maxPoolSize" value="${log.threadPool.maxPoolSize}" />
+		<!-- 队列最大长度 >=mainExecutor.maxSize -->
+		<property name="queueCapacity" value="${log.threadPool.queueCapacity}" />
+		<property name="keepAliveSeconds" value="${log.threadPool.keepAliveSeconds}" />
+		<!-- 线程池维护线程所允许的空闲时间 
+		线程池对拒绝任务(无线程可用)的处理策略 -->
+		<property name="rejectedExecutionHandler">
+			<bean class="${log.threadPool.rejectedExecutionHandler}" />
+		</property>
+		
+	</bean>
+	
+	<!-- mybatis的数据连接配置 -->
+	
+	<bean id="busilogDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${driver}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${busilog_username}" />
+		<property name="password" value="${busilog_password}" />
+		<!-- 初始化连接大小 -->
+		<property name="initialSize" value="${initialSize}"></property>
+		<!-- 连接池最大数量 -->
+		<property name="maxActive" value="${maxActive}"></property>
+		<!-- 连接池最大空闲 -->
+		<property name="maxIdle" value="${maxIdle}"></property>
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="${minIdle}"></property>
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="${maxWait}"></property>
+	</bean>
+
+	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+	<bean id="busilogSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="busilogDataSource" />
+		<!-- 自动扫描mapping.xml文件 -->
+		<property name="mapperLocations" value="classpath*:/BusilogMapper.xml"></property>
+	</bean>
+
+	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		  <property name="basePackage" value="com.yonyou.uap.busilog.dao" /> 
+		<property name="sqlSessionFactoryBeanName" value="busilogSqlSessionFactory"></property>
+	</bean>
+
+	<!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+	<bean id="busilogTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="busilogDataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="busilogTransactionManager" proxy-target-class="true"/>  
+	<bean id="exampleService" class="com.yonyou.uap.busiog.service.ExampleService"></bean>     
+</beans>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/rabbit
+	http://www.springframework.org/schema/rabbit/spring-rabbit-1.4.xsd">
+
+    <context:property-placeholder system-properties-mode="OVERRIDE" ignore-unresolvable="true"
+                                  location="classpath*:/application.properties"/>
+
+
+    <!-- 连接服务配置  -->
+    <rabbit:connection-factory id="connectionFactory" addresses="${mq.addresses}" username="${mq.username}"
+                               password="${mq.password}" publisher-confirms="false"/>
+
+    <rabbit:admin connection-factory="connectionFactory"/>
+
+    <!-- queue 队列声明-->
+    <rabbit:queue id="simple_queue" durable="true" auto-delete="false" exclusive="false" name="simple_queue"/>
+
+    <!-- exchange queue binging key 绑定，作为点对点模式使用 -->
+    <rabbit:direct-exchange name="iuap-direct-exchange" durable="true" auto-delete="false" id="iuap-direct-exchange">
+        <rabbit:bindings>
+            <rabbit:binding queue="simple_queue" key="simple_queue_key"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!-- spring amqp默认的是jackson 的一个插件,目的将生产者生产的数据转换为json存入消息队列，由于fastjson的速度快于jackson,这里替换为fastjson的一个实现 -->
+    <bean id="jsonMessageConverter" class="com.yonyou.iuap.mq.rabbit.FastJsonMessageConverter"></bean>
+
+    <!-- 通用 template声明 -->
+    <rabbit:template id="rabbitTemplate" retry-template="retryConnTemplate" connection-factory="connectionFactory"
+                     message-converter="jsonMessageConverter"/>
+
+    <!-- 通用RabbitMQ producer声明 -->
+    <bean id="rabbitMQProducer" class="com.yonyou.iuap.mq.rabbit.RabbitMQProducer">
+        <property name="rabbitTemplate" ref="rabbitTemplate"></property>
+    </bean>
+
+
+    <!-- 增加失败重试机制，发送失败之后，会尝试重发三次，重发间隔(ms)为
+        第一次 initialInterval
+        此后：initialInterval*multiplier > maxInterval ? maxInterval : initialInterval*multiplier。
+        配合集群使用的时候，当mq集群中一个down掉之后，重试机制尝试其他可用的mq。
+     -->
+    <bean id="retryConnTemplate" class="org.springframework.retry.support.RetryTemplate">
+        <property name="backOffPolicy">
+            <bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+                <property name="initialInterval" value="500"/>
+                <property name="multiplier" value="10.0"/>
+                <property name="maxInterval" value="5000"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="mqSender" class="com.yonyou.iuap.rabbit.MQSender">
+        <property name="rabbitMQProducer" ref="rabbitMQProducer"/>
+    </bean>
+
+    <bean id="searcClient" class="com.yonyou.iuap.search.processor.SearchClient">
+        <property name="messageSender" ref="mqSender"/>
+    </bean>
+</beans>

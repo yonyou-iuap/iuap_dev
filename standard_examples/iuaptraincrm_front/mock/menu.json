@@ -1,0 +1,110 @@
+﻿{
+	"draw": 1,
+	"statusCode": 200,
+	"message": "成功",
+	"recordsTotal": 3,
+	"recordsFilered": 3,
+	"data": [
+		{
+			"id": "1bacd149-fc9f-11e5-800d-005056837511",
+			"parentId": null,
+			"funCode": "01",
+			"funName": "系统管理",
+			"funUrl": null,
+			"sort": "0",
+			"dr": "0",
+			"ts": null,
+			"children": [
+				{
+					"id": "1bacd149-fc9f-11e5-800d-005056837519",
+					"parentId": "1bacd149-fc9f-11e5-800d-005056837511",
+					"funCode": "0101",
+					"funName": "菜单管理",
+					"funUrl": null,
+					"sort": "1",
+					"dr": "0",
+					"ts": null,
+					"children": null
+				},
+				{
+					"id": "1bacd149-fc9f-11e5-800d-005056837513",
+					"parentId": "1bacd149-fc9f-11e5-800d-005056837511",
+					"funCode": "0102",
+					"funName": "用户管理",
+					"funUrl": null,
+					"sort": "2",
+					"dr": "0",
+					"ts": null,
+					"children": null
+				},
+				{
+					"id": "1bacd149-fc9f-11e5-800d-005056837515",
+					"parentId": "1bacd149-fc9f-11e5-800d-005056837511",
+					"funCode": "0103",
+					"funName": "角色管理",
+					"funUrl": null,
+					"sort": "3",
+					"dr": "0",
+					"ts": null,
+					"children": null
+				},
+				{
+					"id": "1bacd149-fc9f-11e5-800d-005056837517",
+					"parentId": "1bacd149-fc9f-11e5-800d-005056837511",
+					"funCode": "0104",
+					"funName": "系统日志",
+					"funUrl": null,
+					"sort": "4",
+					"dr": "0",
+					"ts": null,
+					"children": null
+				}
+			]
+		},
+		{
+			"id": "1bacd149-fc9f-11e5-800d-005056837512",
+			"parentId": "",
+			"funCode": "02",
+			"funName": "集团产品管理",
+			"funUrl": null,
+			"sort": "0",
+			"dr": "0",
+			"ts": null,
+			"children": [
+				{
+					"id": "1bacd149-fc9f-11e5-800d-005056837514",
+					"parentId": "1bacd149-fc9f-11e5-800d-005056837512",
+					"funCode": "0201",
+					"funName": "产品分类管理",
+					"funUrl": null,
+					"sort": "1",
+					"dr": "0",
+					"ts": null,
+					"children": null
+				},
+				{
+					"id": "1bacd149-fc9f-11e5-800d-005056837516",
+					"parentId": "1bacd149-fc9f-11e5-800d-005056837512",
+					"funCode": "0202",
+					"funName": "产品线管理",
+					"funUrl": null,
+					"sort": "2",
+					"dr": "0",
+					"ts": null,
+					"children": null
+				},
+				{
+					"id": "1bacd149-fc9f-11e5-800d-005056837518",
+					"parentId": "1bacd149-fc9f-11e5-800d-005056837512",
+					"funCode": "0203",
+					"funName": "产品标签管理",
+					"funUrl": null,
+					"sort": "3",
+					"dr": "0",
+					"ts": null,
+					"children": null
+				}
+			]
+		}
+	]
+}

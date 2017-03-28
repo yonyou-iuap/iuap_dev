@@ -1,0 +1,44 @@
+package com.sample
+ 
+import com.toolkit.drools.bean.User;
+
+// 钻石会员,积分大于50000
+
+rule "RANK_DIAMOND"
+	no-loop  true
+	lock-on-active true
+	activation-group "user rank"
+	
+    when
+        $user : User( credit >= 50000 ) 
+    then
+		$user.setRank(99);	
+end
+
+// 普通会员，积分大于5000，小于50000
+
+rule "RANK_MEMBER"
+	no-loop  true
+	lock-on-active true
+	activation-group "user rank"
+    
+    when
+        $user : User( credit>=5000 && credit<50000 ) 
+    then
+		$user.setRank(1);	
+end
+
+// 普通用户，积分大于500小于5000
+
+rule "RANK_GENERAL"
+	no-loop  true
+	lock-on-active true
+	activation-group "user rank"
+	
+    when
+        $user : User( credit<5000 ) 
+    then
+		$user.setRank(0);
+end
+ 
+ 

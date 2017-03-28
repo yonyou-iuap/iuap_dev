@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans.xsd 
+      http://code.alibabatech.com/schema/dubbo
+      http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:application.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!-- dubbo 配置 -->
+    <dubbo:application name="${dubbo.application.name}"/>
+    <dubbo:registry address="${dubbo.registry.address}"/>
+    <!--dubbo协议默认端口20880，使用-1代表会分配一个没有被占用的端口，分配的端口在协议缺省端口的基础上增长，请确保端口段可控。-->
+    <dubbo:protocol name="${dubbo.protocol.name}" port="-1"/>
+
+    <dubbo:monitor protocol="registry"></dubbo:monitor>
+
+    <!-- 生产者声明 -->
+    <bean id="dubboxProvider" class="uap.web.dubbox.DubboxProviderImplTest"/>
+    
+    <dubbo:service interface="uap.web.dubbox.DubboxProviderItfTest" ref="dubboxProvider" version="0.1" retries="0" timeout="35000" loadbalance="${dubbo.service.loadbalance}" filter="logcontext"/>
+</beans>

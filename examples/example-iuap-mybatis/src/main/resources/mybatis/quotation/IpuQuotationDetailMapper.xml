@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yonyou.iuap.repository.quotation.IpuQuotationDetailMapper">
+    <resultMap id="BaseResultMap" type="com.yonyou.iuap.entity.quotation.IpuQuotationDetail">
+        <id column="ipuquotationdetailid" property="ipuquotationdetailid" jdbcType="CHAR"/>
+        <result column="productdesc" property="productdesc" jdbcType="VARCHAR"/>
+        <result column="productname" property="productname" jdbcType="VARCHAR"/>
+        <result column="purchaseamount" property="purchaseamount" jdbcType="NUMERIC"/>
+        <result column="unit" property="unit" jdbcType="VARCHAR"/>
+        <result column="ipuquotaionid" property="ipuquotaionid" jdbcType="CHAR"/>
+        <result column="ts" property="ts" jdbcType="TIMESTAMP"/>
+        <result column="dr" property="dr" jdbcType="SMALLINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        ipuquotationdetailid, productdesc, productname, purchaseamount, unit, ipuquotaionid,
+        ts, dr
+      </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from ipuquotationdetail
+        where ipuquotationdetailid = #{ipuquotationdetailid,jdbcType=CHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+      delete from ipuquotationdetail
+        where ipuquotationdetailid = #{ipuquotationdetailid,jdbcType=CHAR}
+      </delete>
+    <delete id="reomveDetailByQuotationid" parameterType="string">
+        delete from ipuquotationdetail
+        where ipuquotaionid = #{quotaionid}
+    </delete>
+    <insert id="insert" parameterType="com.yonyou.iuap.entity.quotation.IpuQuotationDetail">
+    insert into ipuquotationdetail (ipuquotationdetailid, productdesc, productname,
+      purchaseamount, unit, ipuquotaionid,ts, dr)
+    values (#{ipuquotationdetailid,jdbcType=CHAR}, #{productdesc,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR},
+      #{purchaseamount,jdbcType=NUMERIC}, #{unit,jdbcType=VARCHAR}, #{ipuquotaionid,jdbcType=CHAR},
+      #{ts,jdbcType=TIMESTAMP}, #{dr,jdbcType=SMALLINT})
+  </insert>
+
+    <insert id="saveBatch" parameterType="java.util.List">
+        insert into ipuquotationdetail (ipuquotationdetailid, productdesc, productname,
+        purchaseamount, unit, ipuquotaionid,ts, dr)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.ipuquotationdetailid,jdbcType=CHAR}, #{item.productdesc,jdbcType=VARCHAR},
+            #{item.productname,jdbcType=VARCHAR},
+            #{item.purchaseamount,jdbcType=NUMERIC}, #{item.unit,jdbcType=VARCHAR}, #{item.ipuquotaionid,jdbcType=CHAR},
+            #{item.ts,jdbcType=TIMESTAMP}, #{item.dr,jdbcType=SMALLINT})
+        </foreach>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.yonyou.iuap.entity.quotation.IpuQuotationDetail">
+        update ipuquotationdetail
+        <set>
+            <if test="productdesc != null">
+                productdesc = #{productdesc,jdbcType=VARCHAR},
+            </if>
+            <if test="productname != null">
+                productname = #{productname,jdbcType=VARCHAR},
+            </if>
+            <if test="purchaseamount != null">
+                purchaseamount = #{purchaseamount,jdbcType=NUMERIC},
+            </if>
+            <if test="unit != null">
+                unit = #{unit,jdbcType=VARCHAR},
+            </if>
+            <if test="ipuquotaionid != null">
+                ipuquotaionid = #{ipuquotaionid,jdbcType=CHAR},
+            </if>
+            <if test="ts != null">
+                ts = #{ts,jdbcType=TIMESTAMP},
+            </if>
+            <if test="dr != null">
+                dr = #{dr,jdbcType=SMALLINT},
+            </if>
+        </set>
+        where ipuquotationdetailid = #{ipuquotationdetailid,jdbcType=CHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.yonyou.iuap.entity.quotation.IpuQuotationDetail">
+        update ipuquotationdetail
+        set productdesc = #{productdesc,jdbcType=VARCHAR},
+          productname = #{productname,jdbcType=VARCHAR},
+          purchaseamount = #{purchaseamount,jdbcType=NUMERIC},
+          unit = #{unit,jdbcType=VARCHAR},
+          ipuquotaionid = #{ipuquotaionid,jdbcType=CHAR},
+          ts = #{ts,jdbcType=TIMESTAMP},
+          dr = #{dr,jdbcType=SMALLINT}
+        where ipuquotationdetailid = #{ipuquotationdetailid,jdbcType=CHAR}
+  </update>
+</mapper>

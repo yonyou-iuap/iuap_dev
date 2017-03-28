@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>readme</title>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(171, 178, 191); overflow: auto; background-color: rgb(40, 44, 52); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(124, 135, 156); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 139, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(124, 135, 156); border-color: rgb(75, 83, 98); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top-width: 2px; border-top-style: dashed; border-top-color: rgb(75, 83, 98); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(255, 255, 255); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(75, 83, 98); }
+.markdown-preview:not([data-use-github-style]) code { color: rgb(255, 255, 255); background-color: rgb(58, 63, 75); }
+.markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(49, 54, 63); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(255, 255, 255); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(75, 83, 98) rgb(75, 83, 98) rgb(62, 68, 81); background-color: rgb(58, 63, 75); }
+.markdown-preview[data-use-github-style] { font-family: 'Helvetica Neue', Helvetica, 'Segoe UI', Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left-width: 4px; border-left-style: solid; border-left-color: rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top-width: 1px; border-top-style: solid; border-top-color: rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-style: solid; border-width: 1px; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors::shadow .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover::shadow .horizontal-scrollbar { visibility: visible; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+
+pre.editor-colors,
+.host {
+  background-color: #282c34;
+  color: #abb2bf;
+}
+pre.editor-colors .line.cursor-line,
+.host .line.cursor-line {
+  background-color: rgba(153, 187, 255, 0.04);
+}
+pre.editor-colors .invisible,
+.host .invisible {
+  color: #abb2bf;
+}
+pre.editor-colors .cursor,
+.host .cursor {
+  border-left: 2px solid #528bff;
+}
+pre.editor-colors .selection .region,
+.host .selection .region {
+  background-color: #3e4451;
+}
+pre.editor-colors .bracket-matcher .region,
+.host .bracket-matcher .region {
+  border-bottom: 1px solid #528bff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character,
+.host .invisible-character {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .indent-guide,
+.host .indent-guide {
+  color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .wrap-guide,
+.host .wrap-guide {
+  background-color: rgba(171, 178, 191, 0.15);
+}
+pre.editor-colors .gutter .line-number,
+.host .gutter .line-number {
+  color: #636d83;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line,
+.host .gutter .line-number.cursor-line {
+  color: #abb2bf;
+  background-color: #2c313a;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection,
+.host .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right,
+.host .gutter .line-number .icon-right {
+  color: #abb2bf;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after,
+.host .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(224, 82, 82, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+.host .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+.host .gutter .line-number:after,
+pre.editor-colors .fold-marker:after,
+.host .fold-marker:after {
+  color: #abb2bf;
+}
+.comment {
+  color: #5c6370;
+  font-style: italic;
+}
+.comment .markup.link {
+  color: #5c6370;
+}
+.entity.name.type {
+  color: #e5c07b;
+}
+.entity.other.inherited-class {
+  color: #98c379;
+}
+.keyword {
+  color: #c678dd;
+}
+.keyword.control {
+  color: #c678dd;
+}
+.keyword.operator {
+  color: #abb2bf;
+}
+.keyword.other.special-method {
+  color: #61afef;
+}
+.keyword.other.unit {
+  color: #d19a66;
+}
+.storage {
+  color: #c678dd;
+}
+.storage.type.annotation,
+.storage.type.primitive {
+  color: #c678dd;
+}
+.storage.modifier.package,
+.storage.modifier.import {
+  color: #abb2bf;
+}
+.constant {
+  color: #d19a66;
+}
+.constant.variable {
+  color: #d19a66;
+}
+.constant.character.escape {
+  color: #56b6c2;
+}
+.constant.numeric {
+  color: #d19a66;
+}
+.constant.other.color {
+  color: #56b6c2;
+}
+.constant.other.symbol {
+  color: #56b6c2;
+}
+.variable {
+  color: #e06c75;
+}
+.variable.interpolation {
+  color: #be5046;
+}
+.variable.parameter {
+  color: #abb2bf;
+}
+.string {
+  color: #98c379;
+}
+.string.regexp {
+  color: #56b6c2;
+}
+.string.regexp .source.ruby.embedded {
+  color: #e5c07b;
+}
+.string.other.link {
+  color: #e06c75;
+}
+.punctuation.definition.comment {
+  color: #5c6370;
+}
+.punctuation.definition.method-parameters,
+.punctuation.definition.function-parameters,
+.punctuation.definition.parameters,
+.punctuation.definition.separator,
+.punctuation.definition.seperator,
+.punctuation.definition.array {
+  color: #abb2bf;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #61afef;
+}
+.punctuation.definition.bold {
+  color: #e5c07b;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #be5046;
+}
+.punctuation.section.method,
+.punctuation.section.class,
+.punctuation.section.inner-class {
+  color: #abb2bf;
+}
+.support.class {
+  color: #e5c07b;
+}
+.support.type {
+  color: #56b6c2;
+}
+.support.function {
+  color: #56b6c2;
+}
+.support.function.any-method {
+  color: #61afef;
+}
+.entity.name.function {
+  color: #61afef;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #e5c07b;
+}
+.entity.name.section {
+  color: #61afef;
+}
+.entity.name.tag {
+  color: #e06c75;
+}
+.entity.other.attribute-name {
+  color: #d19a66;
+}
+.entity.other.attribute-name.id {
+  color: #61afef;
+}
+.meta.class {
+  color: #e5c07b;
+}
+.meta.class.body {
+  color: #abb2bf;
+}
+.meta.method-call,
+.meta.method {
+  color: #abb2bf;
+}
+.meta.definition.variable {
+  color: #e06c75;
+}
+.meta.link {
+  color: #d19a66;
+}
+.meta.require {
+  color: #61afef;
+}
+.meta.selector {
+  color: #c678dd;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #abb2bf;
+}
+.meta.tag {
+  color: #abb2bf;
+}
+.underline {
+  text-decoration: underline;
+}
+.none {
+  color: #abb2bf;
+}
+.invalid.deprecated {
+  color: #523d14 !important;
+  background-color: #e0c285 !important;
+}
+.invalid.illegal {
+  color: #ffffff !important;
+  background-color: #e05252 !important;
+}
+.markup.bold {
+  color: #d19a66;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #c678dd;
+}
+.markup.deleted {
+  color: #e06c75;
+}
+.markup.italic {
+  color: #c678dd;
+  font-style: italic;
+}
+.markup.heading {
+  color: #e06c75;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #61afef;
+}
+.markup.link {
+  color: #c678dd;
+}
+.markup.inserted {
+  color: #98c379;
+}
+.markup.quote {
+  color: #d19a66;
+}
+.markup.raw {
+  color: #98c379;
+}
+.source.cs .keyword.operator {
+  color: #c678dd;
+}
+.source.css .property-name,
+.source.css .property-value {
+  color: #828997;
+}
+.source.css .property-name.support,
+.source.css .property-value.support {
+  color: #abb2bf;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .link .entity {
+  color: #61afef;
+}
+.source.ini .keyword.other.definition.ini {
+  color: #e06c75;
+}
+.source.java .storage.modifier.import {
+  color: #e5c07b;
+}
+.source.java .storage.type {
+  color: #e5c07b;
+}
+.source.java-properties .meta.key-pair {
+  color: #e06c75;
+}
+.source.java-properties .meta.key-pair > .punctuation {
+  color: #abb2bf;
+}
+.source.js .keyword.operator {
+  color: #56b6c2;
+}
+.source.js .keyword.operator.delete,
+.source.js .keyword.operator.in,
+.source.js .keyword.operator.of,
+.source.js .keyword.operator.instanceof,
+.source.js .keyword.operator.new,
+.source.js .keyword.operator.typeof,
+.source.js .keyword.operator.void {
+  color: #c678dd;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #e06c75;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #98c379;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #56b6c2;
+}
+.source.ruby .constant.other.symbol > .punctuation {
+  color: inherit;
+}
+.source.python .keyword.operator.logical.python {
+  color: #c678dd;
+}
+.source.python .variable.parameter {
+  color: #d19a66;
+}
+</style>
+  </head>
+  <body class='markdown-preview' data-use-github-style><h1 id="-">项目示例概述</h1>
+<h2 id="-">项目功能说明</h2>
+<p>本系统作为示例项目，提供了后台管理的基本功能，预留了三个模块；分别为系统管理、基础档案、补贴管理；</p>
+<p>其中系统管理包含基础数据（人员档案）、组织管理（组织维护、部门维护）、权限管理（用户管理、功能节点注册、角色管理、功能按钮注册、岗位维护、用户申请、用户审核）<br>
+基础档案包含产品信息（品牌维护、车辆类别维护、车系维护、车系毛利维护、车型维护、提成系数）、竞品管理（竞品品牌、竞品车型维护）、客户信息（客户信息维护）<br>
+补贴管理包含补贴维护（国补申报）
+以上为该系统的所有功能；</p>
+<h3 id="-">典型的场景应用:</h3>
+<p><strong>系统管理-基础数据-人员档案</strong> ：该界面比较复杂又比较典型；提供了查询区，为卡片列表界面；列表界面显示人员信息，通过新增或者修改进入编辑界面即卡片界面，提供了主子结构，主为人员信息的编辑，子为任职信息的显示；
+并且查询区域中使用了参照控件，其中所属组织及所属部门控件存在关联操作；可供开发参考；<br>
+<strong>系统管理-组织管理-组织维护</strong>：典型的左树右卡界面；并且对于界面的状态进行了控制，分为编辑态和浏览态；其中像组织类型与组织状态都为下拉控件，演示了下拉控件的使用及不可编辑的特性<br>
+<strong>系统管理-权限管理-用户管理</strong>：典型的单实体卡片列表界面；包含分页及查询区域的特性，及表格中参照翻译的处理<br>
+<strong>基础档案-产品信息-车型维护/车型毛利维护</strong>：提供了导出、下载、导入功能<br>
+<strong>基础档案-产品信息-车型维护</strong>：列表卡片界面，并且在列表中提供超链接的方式跳转到浏览界面；浏览界面通过tab页签的方式实现了多子表展现；并在卡片界面的电池电量的点击事件弹出模态框的特性<br>
+<strong>基础档案-竞品管理-竞品品牌</strong>：单实体卡片列表界面，该节点中品牌编码使用编码规则组件的api，完成品牌编码的生成<br>
+<strong>补贴管理-补贴维护-国补申报</strong>：项目中保留的业务单据，具有快速查询区域、列表卡片方式、表格超链接进入浏览界面、导入、导出、文件上传、单据号生成（编码规则组件）、参照组件使用、一主多子、分页及相关字段的编辑校验及保存校验的场景</p>
+<h2 id="-">项目代码说明</h2>
+<p>本代码为示例系统，项目代码分为前端项目及后端项目，并在开发上采用了前后端分离的开发方式； 前端项目iuaptraincrm_front、后端项目iuaptraincrm;前后端基于iuap的开发框架进行开发；项目中使用了参照及附件上传组件作为服务；故在环境搭建时，还需要同时搭建参照服务及上传组件的服务；</p>
+<h3 id="-">前端代码示例结构说明：</h3>
+<ul>
+<li>basedata 基础数据</li>
+<li>bter_corp 公司、组织</li>
+<li>bter_dept 部门</li>
+<li>bter_func 功能节点注册</li>
+<li>bter_FunctionActivity 按钮注册</li>
+<li>bter_position 岗位维护</li>
+<li>bter_psndoc 人员档案</li>
+<li>bter_role 角色管理</li>
+<li>dashboard 首页消息</li>
+<li>subsidy 国补申报</li>
+<li>tools 工具；error异常的处理；iReferComp参照相关动作（如参照过滤、参照翻译等）；util保存动作校验逻辑</li>
+<li>user 用户管理</li>
+</ul>
+<h3 id="-">后端代码示例结构说明：</h3>
+<ul>
+<li>basedata 基础数据</li>
+<li>billcode 编码规则公共服务，用来生成单据号等</li>
+<li>common 后台公共模块，含validator校验器、ref参照控制模型、listener启动监听设置、exception后台异常处理、base.repository封装的持久化层、auth.realm扩展的认证域</li>
+<li>corp 公司、组织</li>
+<li>dept 部门</li>
+<li>enums 枚举工具类</li>
+<li>ieop security基于rbac权限模型的扩展</li>
+<li>psn 人员档案</li>
+<li>ref 参照本身服务</li>
+<li>subsidy 国补申报</li>
+<li>system 系统登陆及首页信息服务</li>
+<li>user 用户管理</li>
+</ul>
+<h2 id="-">环境搭建说明</h2>
+<p>环境包里包括：</p>
+<ul>
+<li>前端项目iuaptraincrm_front</li>
+</ul>
+<blockquote>
+<p>由于项目采用全后端分离的开发方式，并且前端开发是基于nodejs；对于需要运行环境的可以通过安装nodejs及gulp模块等；通过gulp方式即可启动前端服务；
+也可以通过nginx进行配置资源路径到dist目录下进行访问；</p>
+</blockquote>
+<ul>
+<li>后端项目iuaptraincrm</li>
+</ul>
+<blockquote>
+<p>application.properties数据源的正确设置
+redis及zookeeper的服务支持</p>
+</blockquote>
+<ul>
+<li>iuaptraincrm.sql；</li>
+<li>运行环境需要uitemplate_web（uui）提供参照服务；</li>
+</ul>
+<blockquote>
+<p>注意修改:uitemplate_web\WEB-INF\conf\uitemplate目录下的uitemplate.properties配置文件及datasource.properties配置文件
+对于uitemplate.properties中refctx=<a href="http://127.0.0.1:8090&#x8FD9;&#x4E2A;&#x5730;&#x5740;&#x8981;&#x6539;&#x4E3A;&#x793A;&#x4F8B;&#x7CFB;&#x7EDF;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x7684;&#x5730;&#x5740;&#xFF1B;">http://127.0.0.1:8090这个地址要改为示例系统后端服务的地址；</a>
+datasource.properties中修改数据源的连接配置信息（与后端示例系统配置的一致即可）</p>
+</blockquote>
+<ul>
+<li>iuap-saas-filesystem-service提供文件服务；</li>
+</ul>
+<blockquote>
+<p>文件上传服务使用的是Alioss，也可以直接切换为FDFS；这里使用Alioss需要注意几项设置
+application.properties中数据源的设置
+iuapfile.properties对应的阿里oss账户中的defaultBucket设置与defaultBucketRead设置</p>
+</blockquote>
+<h2 id="-">其他说明</h2>
+<ul>
+<li>applicationContext-cache.xml缓存配置文件</li>
+<li>applicationContext-persistence.xml持久化配置文件；持久化层使用的是基于iuapjdbc的方式，并且采用uapoid方式（可参考对象OID组件开发）生成唯一性主键；</li>
+<li>applicationContext-restful.xml提供restful方式调用服务</li>
+<li>applicationContext-shiro.xml登陆认证及权限认证配置</li>
+<li>billcode-applicationContext.xml编码规则配置</li>
+<li>applicationContext.xml总装配置文件</li>
+<li>spring-mvc.xml</li>
+<li>web.xml</li>
+</ul>
+<h3 id="-">编码规则生成单据号</h3>
+<p>例如：国补申报单的单据编号需要符合<strong><em>GBSB+[日期]20161109+[流水号]0001</em></strong>规范</p>
+<ul>
+<li>1.配置billcode-applicationContext.xml文件，编码规则组件需要zookeeper做分布式锁，所以保证zk服务正常，还需要依赖数据库服务，也需要正常设置</li>
+<li>2.后端代码中com.yonyou.iuap.crm.billcode下的代码进行了编码规则的封装，提供了统一的api；
+<strong><em> 补充说明：由于业务上没有要求进行单据号的断号补齐，编码连续；故提供了获取单据号的方法，在业务层面只调用该服务去获取单据号，对于在业务层面获取单据号出现异常，也就没有考虑退号操作，而对于编码规则组件本身提供了事务补偿机制，如果需要，可以在异常处理中通过退号操作以保证断号补齐 </em></strong></li>
+</ul>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>public&nbsp;interface&nbsp;ICommonComponentsService&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>/**</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;根据编码号获取单据号</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;TODO&nbsp;description</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@author</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@date&nbsp;2016年12月9日</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@param&nbsp;ruleCode</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@return</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@throws&nbsp;AppBusinessException</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>/</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>public&nbsp;String&nbsp;generateOrderNo(String&nbsp;ruleCode)&nbsp;throws&nbsp;AppBusinessException;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><ul>
+<li>3.在数据库中需要注册相应的编码规则pub_bcr_rulebase及编码元素
+pub_bcr_elem</li>
+</ul>
+<h4 id="-pub_bcr_rulebase">编码规则主表 pub_bcr_rulebase</h4>
+<table>
+<thead>
+<tr>
+<th>主键</th>
+<th>编码</th>
+<th>名称</th>
+<th>编码方式</th>
+<th>是否可编辑</th>
+<th>断号补齐</th>
+<th>是否默认</th>
+<th>是否启用</th>
+<th>序列号是否补零</th>
+<th>是否随机数</th>
+<th>创建时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pk_billcodebase</td>
+<td>rulecode</td>
+<td>rulename</td>
+<td>codemode</td>
+<td>iseditable</td>
+<td>isautofill</td>
+<td>isdefault</td>
+<td>isused</td>
+<td>islenvar</td>
+<td>isgetpk</td>
+<td>createdate</td>
+</tr>
+<tr>
+<td>bydsycbillcode000001</td>
+<td>CS</td>
+<td>国补申报</td>
+<td>after</td>
+<td>N</td>
+<td>N</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>N</td>
+<td>sysdate()</td>
+</tr>
+</tbody>
+</table>
+<p><code>insert into pub_bcr_rulebase(pk_billcodebase,rulecode,rulename,codemode,iseditable,isautofill,isdefault,isused,islenvar,isgetpk,createdate) values (&#39;bydsycbillcode000001&#39;,&#39;CS&#39;,&#39;国补申报&#39;,&#39;after&#39;,&#39;N&#39;,&#39;N&#39;,&#39;Y&#39;,&#39;Y&#39;,&#39;Y&#39;,&#39;N&#39;,sysdate());</code></p>
+<h4 id="-pub_bcr_elem">编码元素 pub_bcr_elem</h4>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>元素类型</th>
+<th>元素值</th>
+<th>元素长度</th>
+<th>流水号依据</th>
+<th>补位方式</th>
+<th>日期格式</th>
+<th>补位符</th>
+<th>创建时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>备注</td>
+<td>0：流水号<br>1：常量<br>2：系统时间<br>3：随机数</td>
+<td>0：数字<br>1：数字+字母</td>
+<td></td>
+<td>0：不作为流水依据<br>1：按年流水<br>2：按月流水<br>3：按日流水</td>
+<td>0：不补位<br>1：左补位<br>2：右补位</td>
+<td>yy<br>yyyy<br>yyMM<br>yyyyMM<br>yyMMdd<br>yyyyMMdd</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>eorder</td>
+<td>elemtype</td>
+<td>elemvalue</td>
+<td>elemlenth</td>
+<td>isrefer</td>
+<td>fillstyle</td>
+<td>datedisplayformat</td>
+<td>fillsign</td>
+<td>createdate</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>GBSB</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td></td>
+<td></td>
+<td>sysdate()</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td></td>
+<td>6</td>
+<td>2</td>
+<td>0</td>
+<td>yyMMdd</td>
+<td></td>
+<td>sysdate()</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td></td>
+<td>0</td>
+<td>sysdate()</td>
+</tr>
+</tbody>
+</table>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>insert&nbsp;into&nbsp;pub_bcr_elem(pk_billcodeelem,pk_billcodebase,eorder,elemtype,elemvalue,elemlenth,isrefer,fillstyle,datedisplayformat,fillsign,createdate)&nbsp;values&nbsp;(&#39;bydsycbillitem000001&#39;,&#39;bydsycbillcode000001&#39;,&#39;0&#39;,&#39;1&#39;,&#39;GBSB&#39;,&#39;4&#39;,&#39;0&#39;,&#39;0&#39;,&#39;&#39;,&#39;&#39;,sysdate());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>insert&nbsp;into&nbsp;pub_bcr_elem(pk_billcodeelem,pk_billcodebase,eorder,elemtype,elemvalue,elemlenth,isrefer,fillstyle,datedisplayformat,fillsign,createdate)&nbsp;values&nbsp;(&#39;bydsycbillitem000002&#39;,&#39;bydsycbillcode000001&#39;,&#39;1&#39;,&#39;2&#39;,&#39;&#39;,&#39;6&#39;,&#39;2&#39;,&#39;0&#39;,&#39;yyMMdd&#39;,&#39;&#39;,sysdate());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>insert&nbsp;into&nbsp;pub_bcr_elem(pk_billcodeelem,pk_billcodebase,eorder,elemtype,elemvalue,elemlenth,isrefer,fillstyle,datedisplayformat,fillsign,createdate)&nbsp;values&nbsp;(&#39;bydsycbillitem000003&#39;,&#39;bydsycbillcode000001&#39;,&#39;2&#39;,&#39;0&#39;,&#39;0&#39;,&#39;4&#39;,&#39;0&#39;,&#39;1&#39;,&#39;&#39;,&#39;0&#39;,sysdate());</span></span></span></div></pre><ul>
+<li>4.在保存单据的逻辑处，调用api生成单据号，并保持单据</li>
+</ul>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>@RequestMapping(value&nbsp;=&nbsp;&quot;/save&quot;,&nbsp;method&nbsp;=&nbsp;RequestMethod.POST)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>public&nbsp;@ResponseBody&nbsp;Object&nbsp;saveOrderInfo(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@RequestBody&nbsp;CountrysubsidyVO&nbsp;mainVo,&nbsp;ModelMap&nbsp;model,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HttpServletRequest&nbsp;request)&nbsp;throws&nbsp;BusinessException&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Map&lt;String,Object&gt;&nbsp;result&nbsp;=&nbsp;new&nbsp;HashMap&lt;String,Object&gt;();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>…………</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainVo.setStatus(VOStatus.NEW);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainVo.setVstatus(DictCode.COUNTRY_SUBSIDY_STATUS_SAVE);//已保存</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainVo.setVbillno(commonService.generateOrderNo(&quot;CS&quot;));//单号生成规则</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainVo.setPk_org(AppInvocationInfoProxy.getPk_Corp());//组织</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainVo.setVdeclaredept(AppInvocationInfoProxy.getPk_Dept());//部门</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mainVo.setCreator(AppInvocationInfoProxy.getPk_User());//取登录用户的组织和部门信息</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;service.saveCountrysbusidy(mainVo);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;…………</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.put(&quot;msg&quot;,&nbsp;&quot;保存成功!&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.put(&quot;flag&quot;,&nbsp;&quot;success&quot;);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}&nbsp;catch&nbsp;(Exception&nbsp;e)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>result.put(&quot;msg&quot;,&nbsp;&quot;保存失败!&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.put(&quot;flag&quot;,&nbsp;&quot;fail&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;AppBusinessException(e.getMessage());</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;result;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;}</span></span></span></div></pre><h3 id="-">上下文信息</h3>
+<p>对于实际应用中，会需要全局的上下文信息，平台有提供InvocationInfoProxy，对于更多业务层面的东西，我们需要去做扩展，那么应该如何去做呢？
+有两种方式实现，一种通过cookie机制实现，另外一种需要使用sessionManager来实现；</p>
+<ul>
+<li>方案一：</li>
+</ul>
+<p>如下代码示例，平台提供了InvocationInfoProxy，业务上对此进行了扩展，在上下文中提供了提供了公司、部门等更多的信息；</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>public&nbsp;class&nbsp;AppInvocationInfoProxy&nbsp;extends&nbsp;InvocationInfoProxy{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>/**</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;TODO&nbsp;获取当前公司或组织pk</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@author</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@date&nbsp;2016年12月9日</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@return</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>/</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>public&nbsp;static&nbsp;String&nbsp;getPk_Corp()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;(String)&nbsp;InvocationInfoProxy.getParameter(&quot;pk_corp&quot;);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>/**</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;TODO&nbsp;设置当前公司或组织pk</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@author</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@date&nbsp;2016年12月9日</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>&nbsp;@param&nbsp;pk_corp</span></span></span></div><div class="line"><span class="text plain"><span class="meta bullet-point star text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="punctuation definition item text"><span>*</span></span><span>/</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>public&nbsp;static&nbsp;void&nbsp;setPk_Corp(String&nbsp;pk_corp)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>InvocationInfoProxy.setParameter(&quot;pk_corp&quot;,&nbsp;pk_corp);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;……………</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><p>在登陆逻辑logincontroller中设置相关用户信息，通过将相关信息写入cookie的方式；每次浏览器端请求都会携带cookie进行访问，结合iuap-auth认证组件；会自动从cookie中恢复信息至上下文中；</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>@RequestMapping(method&nbsp;=&nbsp;RequestMethod.POST,value=&quot;formLogin&quot;)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@ResponseBody</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Map&lt;String,String&gt;&nbsp;formLogin(HttpServletRequest&nbsp;request,&nbsp;HttpServletResponse&nbsp;response,&nbsp;Model&nbsp;model)&nbsp;throws&nbsp;AppBusinessException&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>……</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>try&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>tp.getExt().put(&quot;userCNName&quot;&nbsp;,&nbsp;URLEncoder.encode(user.getName(),&nbsp;&quot;UTF-8&quot;));</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}&nbsp;catch&nbsp;(UnsupportedEncodingException&nbsp;e)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>logger.error(&quot;encode&nbsp;error!&quot;,&nbsp;e);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>tp.getExt().put(&quot;pk_user&quot;&nbsp;,&nbsp;user.getId());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;tp.getExt().put(&quot;pk_corp&quot;&nbsp;,&nbsp;user.getPkCorp());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;tp.getExt().put(&quot;pk_dept&quot;&nbsp;,&nbsp;user.getPkDept());</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Cookie[]&nbsp;cookies&nbsp;=&nbsp;webTokenProcessor.getCookieFromTokenParameter(tp);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;……</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><ul>
+<li>方案二：</li>
+</ul>
+<p>对于敏感数据不希望通过cookie暴露至浏览器端的，可以在logincontroller，通过sessionManager保存信息；</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>@RequestMapping(method&nbsp;=&nbsp;RequestMethod.POST,value=&quot;formLogin&quot;)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@ResponseBody</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Map&lt;String,String&gt;&nbsp;formLogin(HttpServletRequest&nbsp;request,&nbsp;HttpServletResponse&nbsp;response,&nbsp;Model&nbsp;model)&nbsp;throws&nbsp;AppBusinessException&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>……</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>String&nbsp;token&nbsp;=&nbsp;CookieUtil.findCookieValue(cookies,&nbsp;&quot;token&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>sessionManager.putSessionCacheAttribute(token,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>user.getLoginName(),&nbsp;user.getName());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>sessionManager.putSessionCacheAttribute(token,&nbsp;&quot;pk_user&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>user.getId());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//设置当前组织或者公司</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>sessionManager.putSessionCacheAttribute(token,&nbsp;&quot;pk_corp&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>user.getPkCorp());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>//设置当前部门</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>sessionManager.putSessionCacheAttribute(token,&nbsp;&quot;pk_dept&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>user.getPkDept());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><p>基于shiro的认证机制，平台提供了statelessRealm；用来实现对每次请求的访问认证；在此，我们可以扩展这个认证过程，对于认证成功的情况下，将需要的信息从sessionManager中恢复至上下文中；代码如下：</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>public&nbsp;class&nbsp;ExtStatelessRealm&nbsp;extends&nbsp;StatelessRealm&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@Autowired</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;SessionManager&nbsp;sessionManager;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@Override</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;AuthenticationInfo&nbsp;doGetAuthenticationInfo(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>AuthenticationToken&nbsp;arg0)&nbsp;throws&nbsp;AuthenticationException&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>SimpleAuthenticationInfo&nbsp;info&nbsp;=&nbsp;&nbsp;(SimpleAuthenticationInfo)super.doGetAuthenticationInfo(arg0);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;token&nbsp;=&nbsp;(String)info.getCredentials();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;StatelessToken&nbsp;token1&nbsp;=&nbsp;(StatelessToken)arg0;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;uname&nbsp;=&nbsp;(String)token1.getPrincipal();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;userCNName&nbsp;=&nbsp;(String)sessionManager.getSessionCacheAttribute(token,&nbsp;uname);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;pk_user&nbsp;=&nbsp;(String)sessionManager.getSessionCacheAttribute(token,&nbsp;&quot;pk_user&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;pk_corp&nbsp;=&nbsp;(String)sessionManager.getSessionCacheAttribute(token,&nbsp;&quot;pk_corp&quot;);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;pk_dept&nbsp;=&nbsp;(String)sessionManager.getSessionCacheAttribute(token,&nbsp;&quot;pk_dept&quot;);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>AppInvocationInfoProxy.setUserCNName(userCNName);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppInvocationInfoProxy.setPk_User(pk_user);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppInvocationInfoProxy.setPk_Corp(pk_corp);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppInvocationInfoProxy.setPk_Dept(pk_dept);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;info;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div></pre><p>并且需要在applicationContext-shiro.xml文件中进行配置：</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;bean&nbsp;id=&quot;statelessRealm&quot;&nbsp;class=&quot;com.yonyou.iuap.auth.shiro.StatelessRealm&quot;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;property&nbsp;name=&quot;cachingEnabled&quot;&nbsp;value=&quot;false&quot;&nbsp;/&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/bean&gt;</span></span></span></div></pre><h3 id="-">数据字典枚举的处理</h3>
+<p>数据字典枚举使用，在前台控件上的表现为下拉控件；想要实现数据字典与界面UI控件的解耦，需要动态的获取数据字典的数据；由于该类数据不会经常更新，所以可以使用redis的缓存机制；对于缓存的数据如何更新，我们只有通过数据字典的维护界面进行更新，并主动的刷新缓存；这里主要讨论下拉控件如何动态获取数据；
+如下代码，后台提供可以获取枚举数据的服务；并在applicationContext-cache.xml中配置了缓存管理器，结合使用缓存的API</p>
+<p><code>//通过cacheManager进行数据的缓存操作
+List&lt;ArrayList&lt;AppEnumVO&gt;&gt; list = saasCacheManager.hmget(tenantId, key, vtype);</code></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>@Controller</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>@RequestMapping(value&nbsp;=&nbsp;&quot;/bd/enums&quot;)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>public&nbsp;class&nbsp;AppEnumController&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@Autowired</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;IAppEnumService&nbsp;enumService;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@RequestMapping(value&nbsp;=&nbsp;&quot;/queryByVtype/{vtype}&quot;,&nbsp;method&nbsp;=&nbsp;RequestMethod.GET)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;@ResponseBody&nbsp;List&lt;Map&lt;String,String&gt;&gt;&nbsp;queryByVtype(@PathVariable(&quot;vtype&quot;)&nbsp;String&nbsp;vtype)&nbsp;throws&nbsp;DAOException{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>List&lt;Map&lt;String,String&gt;&gt;&nbsp;enums=&nbsp;new&nbsp;ArrayList();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&lt;AppEnumVO&gt;&nbsp;enumlist&nbsp;=&nbsp;enumService.queryByVtype(vtype);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(AppEnumVO&nbsp;appEnumVO&nbsp;:&nbsp;enumlist)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>Map&lt;String,String&gt;&nbsp;enummap&nbsp;=&nbsp;new&nbsp;HashMap();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enummap.put(&quot;name&quot;,&nbsp;appEnumVO.getVname());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enummap.put(&quot;value&quot;,&nbsp;appEnumVO.getVcode());</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;enums.add(enummap);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;enums;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><p>前台项目中index.js中提供了公共的方法，向后台发请求，并将枚举数据缓存至window.syc_fixcode_map中；</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>function&nbsp;enumerate(type){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;retData&nbsp;=&nbsp;[];</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;$.ajax({</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type:&nbsp;&#39;get&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;window.cturl+&quot;/bd/enums/queryByVtype/&quot;+type,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contentType:&nbsp;&quot;application/json&nbsp;;&nbsp;charset=utf-8&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;async:false,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success:&nbsp;function(data)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>retData&nbsp;=&nbsp;data;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(null&nbsp;!=&nbsp;data){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>for(var&nbsp;i=0;i&lt;data.length;i++){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>window.syc_fixcode_map[data[i].value]=data[i].name;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error:&nbsp;function(XMLHttpRequest,&nbsp;textStatus,&nbsp;errorThrown)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>errors.error(XMLHttpRequest);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;retData;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><p>以国补申报界面为例countrysubsidy.js；其中国补申报状态是一个枚举类型</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>1.定义DataTable</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>searchData:&nbsp;new&nbsp;u.DataTable({</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>meta:{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>…………</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;search_vstatus:&nbsp;{type:&nbsp;&#39;string&#39;}//国补申报状态</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>})</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>2.定义枚举数据源vsubsidyStatus</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>enums&nbsp;=&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//国补申报状态</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;vsubsidyStatus:&nbsp;enumerate(3001)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>};</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>3.进行初始化</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>viewModel&nbsp;=&nbsp;u.extend(basicDatas,events,enums,comValueNameMap)</span></span></span></div></pre><p>countrysubsidy.html界面控件设置如下：</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;div&nbsp;class=&quot;u-combo&nbsp;u-col-2&nbsp;u-col-sm-8&quot;&nbsp;u-meta=&#39;{&quot;id&quot;:&quot;search_vstatus&quot;,&quot;name&quot;:&quot;状态&quot;,&quot;type&quot;:&quot;u-combobox&quot;,&quot;data&quot;:&quot;searchData&quot;,&quot;datasource&quot;:&quot;vsubsidyStatus&quot;,&quot;field&quot;:&quot;search_vstatus&quot;}&#39;&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;input&nbsp;class=&quot;u-input&quot;/&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&nbsp;class=&quot;u-combo-icon&quot;&gt;&lt;/span&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/div&gt;</span></span></span></div></pre><h3 id="-">统一的异常处理</h3>
+<ul>
+<li><p>1.spring-mvc.xml中进行配置</p>
+<p><code>&lt;bean id=&quot;iwebExceptionHandler&quot; class=&quot;com.yonyou.iuap.crm.common.exception.handler.AppWebExceptionHandler&quot;/&gt;</code></p>
+</li>
+<li><p>2.编写AppWebExceptionHandler继承HandlerExceptionResolver，并通过AppExceptionView返回异常信息，AppExceptionView详细请查阅代码</p>
+</li>
+</ul>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>public&nbsp;class&nbsp;AppWebExceptionHandler&nbsp;implements&nbsp;HandlerExceptionResolver&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>@Override</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;ModelAndView&nbsp;resolveException(HttpServletRequest&nbsp;request,&nbsp;HttpServletResponse&nbsp;response,&nbsp;Object&nbsp;arg2,&nbsp;Exception&nbsp;ex)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>ModelAndView&nbsp;mv&nbsp;=&nbsp;new&nbsp;ModelAndView();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View&nbsp;view&nbsp;=&nbsp;new&nbsp;AppExceptionView(ex);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mv.setView(view);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;mv;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><h3 id="-">权限控制</h3>
+<h4 id="-">功能权限控制</h4>
+<p>功能权限控制是通过动态渲染菜单实现的，通过后台ExtFunctionController.getRootMenu()提供的服务，获取当前用户具有权限的功能；</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>@RequestMapping(value&nbsp;=&nbsp;&quot;rootmenu&quot;,&nbsp;method&nbsp;=&nbsp;RequestMethod.GET)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>public&nbsp;@ResponseBody&nbsp;ExtFunction&nbsp;getRootMenu(Model&nbsp;model,&nbsp;HttpServletRequest&nbsp;request)&nbsp;throws&nbsp;AppBusinessException&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>String&nbsp;username&nbsp;=&nbsp;null;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(SecurityUtils.getSubject().getPrincipal()&nbsp;!=&nbsp;null)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>username&nbsp;=&nbsp;(String)&nbsp;SecurityUtils.getSubject().getPrincipal();</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>if&nbsp;(username&nbsp;==&nbsp;null&nbsp;||&nbsp;SecurityUtils.getSubject().hasRole(&quot;admin&quot;))&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>try&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;service.getFuncRoot();</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}&nbsp;catch&nbsp;(AppBusinessException&nbsp;e)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>throw&nbsp;new&nbsp;AppBusinessException(&quot;获取菜单树出错&quot;,e);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SecurityUser&nbsp;cuser&nbsp;=&nbsp;null;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>cuser&nbsp;=&nbsp;accountService.findUserByLoginName(username);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}&nbsp;catch&nbsp;(Exception&nbsp;e)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>throw&nbsp;new&nbsp;AppBusinessException(&quot;查询登陆用户错误&quot;,e);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(cuser!=null)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>try&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;service.getFuncRootByUser(cuser.getId());</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}&nbsp;catch&nbsp;(AppBusinessException&nbsp;e)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>throw&nbsp;new&nbsp;AppBusinessException(&quot;获取菜单树出错&quot;,e);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}else{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>return&nbsp;null;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div></pre><p>前端界面初始化进行动态渲染菜单；index.js中相关代码如下：</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$(function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$.ajax({</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;:&nbsp;&#39;GET&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url&nbsp;:&nbsp;window.cturl&nbsp;+&nbsp;&quot;/security/extfunction/rootmenu&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data&nbsp;:&nbsp;&#39;&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataType&nbsp;:&nbsp;&#39;json&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success&nbsp;:&nbsp;function(data)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>initFuncTree(data);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.router.init();</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>…………</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>});</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>});</span></span></span></div></pre><h4 id="-">按钮权限控制</h4>
+<p>按钮权限控制应该从两个方面实现控制：</p>
+<ul>
+<li>一，对于具体单据节点实现界面上，不同角色、不同用户授权了不同的按钮，应该加载不同的按钮操作；这里控制界面的展现；</li>
+<li><p>二，按钮权限的第二层控制则是，对于不同角色、不同用户进行了权限控制的动作操作，不能够通过url非法的请求后台服务；
+这里对于按钮权限的控制提供一种思路，建议使用将相关数据进行cache缓存；</p>
+</li>
+<li><p>1.对于每个节点需要将该节点的按钮都应该在按钮表中进行注册做预置数据；对于节点注册和按钮注册提供了维护界面，这里我们可以从界面上进行维护；并在角色管理节点进行授权；</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>activity_name</th>
+<th>activity_code</th>
+<th>func_code</th>
+<th>func_id</th>
+<th>isactive</th>
+<th>createdate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>19c65ec3e1bb4cceb8543ac9062190a1</td>
+<td>完结</td>
+<td>/subsidy/country/finish</td>
+<td>F070101</td>
+<td>60000000000000000003</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>2a862751dd8546179241b8b5f0f155a0</td>
+<td>修改</td>
+<td>/subsidy/country/update</td>
+<td>F070101</td>
+<td>60000000000000000003</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>6989e50703254e1c8470b1b2d23f6cfa</td>
+<td>删除</td>
+<td>/subsidy/country/delete</td>
+<td>F070101</td>
+<td>60000000000000000003</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>b405a214cd844d578bb68d01a1d54c0b</td>
+<td>撤销完结</td>
+<td>/subsidy/country/unfinish</td>
+<td>F070101</td>
+<td>60000000000000000003</td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>d7c2a98c10cc41f484c5443bccd3dc76</td>
+<td>新增</td>
+<td>/subsidy/country/save</td>
+<td>F070101</td>
+<td>60000000000000000003</td>
+<td>Y</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>2.后台服务提供，通过访问<a href="http://ip:port/iuaptraincrm/security/authBtn/auth?funcCode=F070101&#x6839;&#x636E;&#x8282;&#x70B9;&#x7F16;&#x7801;&#x83B7;&#x53D6;&#x6240;&#x6709;&#x6709;&#x6743;&#x9650;&#x7684;&#x6309;&#x94AE;&#x540D;&#x79F0;&#xFF1B;">http://ip:port/iuaptraincrm/security/authBtn/auth?funcCode=F070101根据节点编码获取所有有权限的按钮名称；</a>
+其中对于没有启用按钮权限的则会返回所有的按钮；如下类中有方法，可查阅：</li>
+</ul>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>com.yonyou.iuap.crm.ieop.security.web.controller.MyBtnAuthController.handleBtnGroups(String)</span></span></span></div></pre><ul>
+<li>3.按钮界面控制实现：</li>
+</ul>
+<p>界面UI层，添加按钮实现时，需要对visible属性的ko绑定的动态控制；countrysubsidy.html中相关代码如下：</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;button&nbsp;class=&quot;u-button&nbsp;raised&nbsp;primary&quot;&nbsp;id=&quot;table-search&quot;&nbsp;data-bind=&quot;click:&nbsp;searchClick&quot;&gt;查询&lt;/button&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;button&nbsp;class=&quot;u-button&nbsp;raised&nbsp;primary&quot;&nbsp;id=&quot;table-add&quot;&nbsp;data-bind=&quot;click:&nbsp;addClick,***visible:&nbsp;addFunShow***&quot;&gt;新增&lt;/button&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;button&nbsp;class=&quot;u-button&nbsp;raised&nbsp;primary&quot;&nbsp;id=&quot;table-edit&quot;&nbsp;data-bind=&quot;click:&nbsp;editClick,***visible:&nbsp;editFunShow***&quot;&gt;修改&lt;/button&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;button&nbsp;class=&quot;u-button&nbsp;raised&nbsp;primary&quot;&nbsp;id=&quot;table-del&quot;&nbsp;data-bind=&quot;click:&nbsp;delClick,***visible:&nbsp;delFunShow***&quot;&gt;删除&lt;/button&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;button&nbsp;class=&quot;u-button&nbsp;raised&nbsp;primary&quot;&nbsp;id=&quot;table-finish&quot;&nbsp;data-bind=&quot;click:&nbsp;finishClick,***visible:&nbsp;finishFunShow***&quot;&gt;完结&lt;/button&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;button&nbsp;class=&quot;u-button&nbsp;raised&nbsp;primary&quot;&nbsp;id=&quot;table-unfinish&quot;&nbsp;data-bind=&quot;click:&nbsp;unFinishClick,***visible:&nbsp;unFinishFunShow***&quot;&gt;撤销完结&lt;/button&gt;</span></span></span></div></pre><p>数据集中对于visible中ko的绑定，并且也页面初始化数据时，向服务器端发起请求获取当前功能节点对应的有权限的按钮，并设置按钮的可见性，countrysubsidy.js中相关代码如下：</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>basicDatas&nbsp;=&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//新增</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>addFunShow&nbsp;:&nbsp;ko.observable(false),</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//修改</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;editFunShow&nbsp;:&nbsp;ko.observable(false),</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//删除</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;delFunShow&nbsp;:&nbsp;ko.observable(false),</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//完结</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;finishFunShow&nbsp;:&nbsp;ko.observable(false),</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//撤销完结</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unFinishFunShow&nbsp;:&nbsp;ko.observable(false)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>events&nbsp;=&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//点击查询按钮</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;searchClick:&nbsp;function(){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;queryFunData&nbsp;=&nbsp;{};</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>$.ajax({</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type:&nbsp;&#39;get&#39;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url:&nbsp;ctxRoot+&quot;/security/authBtn/auth?funcCode=F070101&quot;,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;success:&nbsp;function(data)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;funList&nbsp;=&nbsp;data;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(null&nbsp;!=&nbsp;funList){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>for(var&nbsp;i=0;i&lt;funList.length;i++){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>var&nbsp;funTemp&nbsp;=&nbsp;funList[i];</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if(&quot;新增&quot;==funTemp){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>viewModel.addFunShow(true);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}else&nbsp;if(&quot;修改&quot;==funTemp){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>viewModel.editFunShow(true);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}else&nbsp;if(&quot;删除&quot;==funTemp){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>viewModel.delFunShow(true);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}else&nbsp;if(&quot;完结&quot;==funTemp){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>viewModel.finishFunShow(true);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}else&nbsp;if(&quot;撤销完结&quot;==funTemp){</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>viewModel.unFinishFunShow(true);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error:&nbsp;function(XMLHttpRequest,&nbsp;textStatus,&nbsp;errorThrown)&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>errors.error(XMLHttpRequest);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>})</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>},</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;……………</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>viewModel&nbsp;=&nbsp;u.extend(basicDatas,events,enums,comValueNameMap)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>var&nbsp;getInitData&nbsp;=&nbsp;function()&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>viewModel.searchData.createEmptyRow();</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;viewModel.searchClick();</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>…………</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre><ul>
+<li>4.权限拦截器用于实现上述的第二个方面的请求控制，该拦截器需要配置在shiroFilter的后面即iuap-auth认证组件的之后，只有请求经过登陆认证组件验证过的请求，才需要进行权限拦截；</li>
+</ul>
+<p><strong><em> 在web.xml中进行拦截器的配置 </em></strong></p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&lt;filter&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;init-param&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;param-name&gt;targetFilterLifecycle&lt;/param-name&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;param-value&gt;true&lt;/param-value&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/init-param&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/filter&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&lt;filter-mapping&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;filter-name&gt;shiroFilter&lt;/filter-name&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/filter-mapping&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&lt;filter&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;filter-name&gt;authorizationCheckFilter&lt;/filter-name&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;filter-class&gt;com.yonyou.iuap.crm.ieop.security.filter.AuthorizationCheckFilter&lt;/filter-class&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/filter&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&lt;filter-mapping&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;filter-name&gt;authorizationCheckFilter&lt;/filter-name&gt;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;</span><span class="meta paragraph text"><span>&lt;/filter-mapping&gt;</span></span></span></div></pre><p>在拦截器中需要验证当前用户是否具有当前请求即操作的功能节点的权限，并且对于该节点的按钮操作是否有权限的验证；详细实现，可查阅AuthorizationCheckFilter代码实现：</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>com.yonyou.iuap.crm.ieop.security.filter.AuthorizationCheckFilter</span></span></span></div></pre></body>
+</html>

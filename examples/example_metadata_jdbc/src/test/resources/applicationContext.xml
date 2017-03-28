@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+       default-lazy-init="true">
+
+    <description>Spring公共配置</description>
+
+    <!-- spring 事务配置 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="crossDBDataSource"/>
+    </bean>
+
+    <context:component-scan base-package="com.yonyou.metadata.mybatis.dao"/>
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
+    <context:property-placeholder system-properties-mode="OVERRIDE" ignore-unresolvable="true"
+                                  location="application.properties"/>
+
+    <util:properties id="settings" location="classpath:jdbc.properties"/>
+
+    <!-- 数据源配置, 使用Tomcat JDBC连接池 -->
+    <bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
+        <!-- Connection Info -->
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <!-- Connection Pooling Info -->
+        <property name="maxActive" value="${jdbc.pool.maxActive}"/>
+        <property name="maxIdle" value="${jdbc.pool.maxIdle}"/>
+        <property name="minIdle" value="0"/>
+        <property name="maxWait" value="${jdbc.pool.maxWait}"/>
+        <property name="defaultAutoCommit" value="true"/>
+
+        <property name="minEvictableIdleTimeMillis" value="${jdbc.pool.minEvictableIdleTimeMillis}"/>
+        <property name="removeAbandoned" value="${jdbc.pool.removeAbandoned}"/>
+        <property name="removeAbandonedTimeout" value="${jdbc.pool.removeAbandonedTimeout}"/>
+    </bean>
+
+    <!-- uapjdbc数据源，对接应用数据源 -->
+    <bean id="crossDBDataSource" class="com.yonyou.iuap.persistence.bs.framework.ds.CrossdbDataSource"
+          lazy-init="false">
+        <!-- 此数据源对接应用的实际数据源 -->
+        <constructor-arg name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 数据源配置,使用应用服务器的数据库连接池 -->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="crossDBDataSource"></property>
+    </bean>
+
+    <bean id="baseDAO" class="com.yonyou.iuap.persistence.bs.dao.MetadataDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <property name="dbMetaHelper" ref="dbMetaInfo"/>
+        <property name="saasCacheManager" ref="saasCacheManager"/>
+        <property name="dataChangeNotifier" ref="dataChangeNotifier"/>
+    </bean>
+
+    <bean id="dbMetaInfo" class="com.yonyou.iuap.persistence.bs.util.MetadataDBMetaHelper">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <!--<property name="dbType" value="#{T(uap.web.persist.jdbc.framework.util.DBConsts).POSTGRESQL}"/>-->
+    </bean>
+
+    <bean id="baseDAO1" class="com.yonyou.iuap.persistence.bs.dao.BaseDAO">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <property name="dbMetaHelper" ref="dbMetaInfo1"/>
+    </bean>
+
+    <bean id="dbMetaInfo1" class="com.yonyou.iuap.persistence.bs.util.DBMetaHelper">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+        <!--<property name="dbType" value="#{T(uap.web.persist.jdbc.framework.util.DBConsts).POSTGRESQL}"/>-->
+    </bean>
+
+    <!-- 数据源配置,使用应用服务器的数据库连接池 -->
+    <bean id="jt" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <bean id="redisPool" class="com.yonyou.iuap.cache.redis.RedisPoolFactory"
+          scope="prototype" factory-method="createJedisPool">
+        <constructor-arg value="${redis.url}"/>
+    </bean>
+
+    <bean id="jedisTemplate" class="org.springside.modules.nosql.redis.JedisTemplate">
+        <constructor-arg ref="redisPool"></constructor-arg>
+    </bean>
+
+
+    <bean id="saasCacheManager" class="com.yonyou.iuap.cache.SaasCacheManager">
+        <property name="cacheManager">
+            <bean class="com.yonyou.iuap.cache.CacheManager">
+                <property name="jedisTemplate" ref="jedisTemplate"/>
+                <property name="serializer">
+                    <bean class="com.yonyou.iuap.persistence.bs.cache.serializer.MetaFastJsonSerializer">
+                        <property name="metadataDBMetaHelper" ref="dbMetaInfo"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="dataChangeNotifier" class="com.yonyou.iuap.persistence.bs.notifier.DataChangeNotifier">
+    </bean>
+
+
+    <!-- MyBatis配置,注意配置的ds为dynamicDataSource -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
+        <property name="typeAliasesPackage"
+                  value="com.yonyou.iuap.entity,com.yonyou.metadata.spi,com.yonyou.metadata.mybatis.util.publish.model" />
+        <!-- 显式指定Mapper文件位置 -->
+        <property name="mapperLocations" value="classpath*:/mybatis/**/*.xml" />
+    </bean>
+    <!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage"
+                  value="com.yonyou.iuap.repository,com.yonyou.metadata.mybatis.dao" />
+        <property name="annotationClass"
+                  value="com.yonyou.iuap.persistence.mybatis.anotation.MyBatisRepository" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+    </bean>
+    <bean class="com.yonyou.metadata.mybatis.service.MyBatisMetadataService">
+    </bean>
+
+</beans>

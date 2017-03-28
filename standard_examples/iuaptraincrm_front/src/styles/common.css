@@ -1,0 +1,306 @@
+/**
+ * ---公共样式提取---
+ * 通过require引用:
+ * 例:var common = require('css!../../styles/common.css');
+ */
+
+/**
+ * 按钮样式和划过样式
+ * 按钮类型：头部绿色、弹出框白色、弹出框红色
+ */
+#content .green-button{
+	background:#39b588;
+	border:1px solid #39b588;
+	border-radius:0;
+	color:#fff;
+	outline: none;
+	margin-right:12px;
+}
+#content .green-button:hover{
+	background:#33a37a;
+	color:#fff;
+	outline: none;
+}
+#content .white-button{
+	background:#ffffff;
+}
+#content .white-button:hover{
+	background:#ebebeb;
+}
+#content .red-button{
+	background:#ed4047;
+}
+#content .red-button:hover{
+	background:#d53940;
+}
+/**
+ *常用属性：
+ *可根据个人页面添加常用字体、属性样式
+ */
+.position-rel{
+	position:relative;
+}
+.cursor-point{
+	cursor: pointer;
+}
+.block{
+	display:block;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.pad-left30{
+	padding-left:30px;
+}
+.font-yahei{
+	font-family: "microsoft yahei";
+}
+#content .text-center{
+	text-align: center;
+}
+.thead th{
+	text-align: left;
+}
+#content button{
+	outline:none;
+}
+/**
+ *头部样式：
+ *高度、字体、位置样式
+ */
+.common-header {
+	margin-bottom: 20px;
+}
+.common-header .header-container {
+	height: 32px;
+	line-height: 32px;
+	padding-bottom: 47px;
+	border-bottom: 1px solid #d7d7d7;
+}
+.common-header .name {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 32px;
+	font-family: "微软雅黑";
+	color: #232a34;
+	float: left;
+	margin: 0;
+}
+.common-header .fa-plus{
+	font-size:14px;
+	padding-right:4px;
+}
+.common-header .star {
+	float: left;
+	margin: 10px 20px 0 10px;
+	color: #FB9611;
+	font-size: 18px;
+}
+.common-header .btn-lg {
+	padding: 6px 13px;
+	/*margin-top: 15px;*/
+}
+.common-header .btn {
+	float: left;
+	font-size: 14px;
+}
+.common-header form {
+	float: right;
+}
+.common-header form input {
+	height: 32px;
+	line-height: 32px;
+	font-size: 12px;
+	color: #232a34;
+	padding: 0 6px;
+}
+
+/**
+ * 头部右上输入框
+ * 下拉列表
+ */
+.common-header .head-search{
+	border:1px solid #BFBFBF;
+}
+.common-header .head-search input{
+	border: none;
+	border-right:1px solid #BFBFBF;
+	background:#fff;
+	outline:none;
+	height:30px;
+	line-height: 30px;
+	width:167px;
+	padding-left:6px;
+	font-size: 12px;
+	font-family: "microsoft yahei";
+}
+.common-header .head-search button{
+	background:#FFF;
+	width:52px;
+	border:none;
+	padding:0;
+	height:30px;
+	outline:none;
+
+}
+select {
+  border: solid 1px #BFBFBF;
+
+  /*默认的select选择框样式清除*/
+  appearance:none;
+  -moz-appearance:none;
+  -webkit-appearance:none;
+
+  /*在选择框的最右侧中间显示小箭头图片*/
+  background: url(../../../hrcloud/static/img/selectDown.png) #fff no-repeat 95% center ;
+
+  /*为下拉小箭头留出一点位置，避免被文字覆盖*/
+  padding-right: 14px;
+
+  width:168px;
+  height:32px;
+  outline: none;
+}
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand { display: none; }
+
+.common-header .select-cont{
+	margin: 0 30px 0 0 ;
+}
+.common-header .select-cont span{
+	line-height:30px;
+	padding-right:10px;
+}
+
+/**
+ *卡片公共样式：
+ *高度、宽度、部分字体样式
+ */
+
+.card-content {
+	margin-top: 15px;
+	width: 100%;
+}
+.card-info {
+	/*width: 380px;*/
+	width:32%;
+	height: 210px;
+	background: #FFF;
+	border:1px solid #DADBDD;
+	float: left;
+	position: relative;
+	margin:15px 10px 0 0;
+}
+.card-info:hover{
+	background:#EDF8FF;
+	cursor: pointer;
+}
+
+.star{
+	float:left;
+	margin:25px 20px 0 10px;
+	color:#FB9611;
+}
+
+.modal-footer .footbtn-pad{
+	padding: 5px 22px;
+}
+.modal-footer .btn-default{
+	border-radius: 0;
+}
+.modal-footer .btn-default:hover{
+	background:#ebebeb;
+}
+.modal-title {
+	font-size:16px;
+	color:#232933;
+	font-family: "微软雅黑";
+}
+
+.font-styles{
+	font-size:14px;
+	color:#212121;
+	padding-left:10px;
+	font-weight: normal;
+}
+.title-fontsyle{
+	font-family: "微软雅黑";
+	font-size: 30px;
+	color:#272727;
+}
+.time-title{
+	font-size:12px;
+	color:#919193;
+}
+
+.delete-shift{
+	float:left;
+	/*width:72px;*/
+	height:32px;
+	background:#FFF;
+	border:#CCCCCC 1px solid;
+	color:#E9573E;
+	font-size:14px;
+	font-family: "微软雅黑";
+	margin-left:25px;
+}
+.save-new{
+	width:88px;
+	height:32px;
+	border:1px solid #CCCCCC;
+	background:#fff;
+	margin-right:18px;
+	margin-top:1px;
+}
+.input-size{
+	width:130px;
+	height:38px;
+}
+.line{
+	display: inline-block;
+	width:14px;
+	margin:0 7px ;
+	height:19px;
+	border-bottom: 1px solid #BFBFBF;
+	float:left;
+}
+
+.form-name span,
+.form-start span,
+.default-name{
+	font-size:14px;
+	color:#656565;
+	padding-right:15px;
+	font-family: "microsoft yahei";
+}
+.form-name input{
+	width:289px;
+	height:38px;
+	border:#BFBFBF 1px solid;
+	font-family: "microsoft yahei";
+	font-size:14px;
+}
+
+/**
+ *表格样式：
+ *以人员为参考设置表格基本样式
+ */
+#content .thead th{
+	height:40px;
+	font-size: 14px;
+	color:#212121;
+	font-family: "microsoft yahei";
+	font-weight: normal;
+	border-bottom: 1px solid #D6D7D6;
+}
+#content tbody tr td,
+#content tbody tr{
+	height:40px;
+}
+#content tbody tr:hover{
+	background:#EFF9FC;
+}

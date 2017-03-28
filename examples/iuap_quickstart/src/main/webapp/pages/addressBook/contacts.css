@@ -1,0 +1,302 @@
+/*a, address, b, big, blockquote, body, center, cite, code, dd, del, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, i, iframe, img, ins, label, legend, li, ol, p, pre, small, span, strong, u, ul, var {
+    margin: 0;
+    padding: 0;
+}*/
+
+ol, ul {
+    list-style: none;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table td:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+table th {
+    width: 150px;
+}
+
+.u-grid-header-link {
+    padding-right: 0;
+}
+
+.dt {
+    color: #007DC4;
+    padding: 8px 13px 5px;
+}
+
+.p1 {
+    float: left;
+}
+
+/*加入分割线 左树*/
+.lefttree {
+    background-color: #fff;
+    min-height: 617px;
+    padding: 10px 0;
+}
+
+.ztree li a.focusNode {
+    background-color: #1E7BE2 !important;
+}
+
+#tree2Around {
+    border-top: 1px solid #cecece;
+}
+
+.ec-search {
+    padding: 10px 15px 0 15px;
+    width: 100%;
+    position: relative;
+}
+
+.ec-search .u-button-group {
+    float: left;
+}
+
+.u-button-change {
+    border-radius: 0 ! important;
+}
+
+.u-button-white {
+    color: #C5C5C5 ! important;
+    border: 1px #C5C5C5 solid ! important;
+    border-radius: 0.25rem;
+}
+
+.ztree li span.button {
+    width: 0;
+}
+
+.u-input-group .u-form-control:first-child {
+    /*height: 26px;
+    padding: 4px 12px;
+    border-radius: 0;*/
+    border-radius: 4px;
+}
+
+.control-label {
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 30px;
+}
+
+#Dialg_depart {
+    width: 30% !important;
+    height: 60%;
+}
+
+#Dialg_man {
+    width: 50%;
+    height: 80%;
+}
+
+.u-msg-dialog .u-msg-footer {
+    margin-top: -21px;
+}
+
+.u-widget-body {
+    padding: 0 0 !important;
+    position: relative;
+    background-color: #ECEFF1;
+}
+
+.treefrom {
+    background-color: #fff;
+    min-height: 570px;
+    border-top: 1px solid #cecece;
+}
+
+table th {
+    width: auto;
+}
+
+.glyphicon {
+    color: #26C6DA;
+}
+
+.table-list tr:hover .pro_oper {
+    visibility: visible;
+}
+
+.table-list .pro_oper {
+    visibility: hidden;
+}
+
+/*ue统一调节风格*/
+/*outside frame*/
+div#content {
+    background: #ECEFF1;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+.u-navlayout-fixed-drawer .u-navlayout-content {
+    margin-left: 200px;
+}
+
+header > .u-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header > .u-container > .u-row {
+    margin-left: 0;
+    margin-right: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.u-col-xs-12.u-col-sm-12.text-right {
+    padding-right: 0;
+}
+
+.hr-table .u-table {
+    position: static;
+}
+
+/*z左树上面的按钮*/
+input#deletetree {
+    border-radius: 0.25rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.group-spec .u-button {
+    border-radius: 0;
+    background-color: white;
+    border: none;
+}
+
+.group-spec .u-button:hover {
+    background-color: #F7F7F7;
+}
+
+.group-spec .u-button-floating {
+    height: 32px;
+    width: 32px;
+    min-width: 32px;
+}
+
+.group-spec .u-button-floating .uf {
+    font-size: 14px;
+}
+
+/*表格上面详细信息*/
+.infoPanel {
+    line-height: 46px;
+    text-align: center;
+    display: block;
+    height: 46px;
+    background: #fff;
+}
+
+/*表格*/
+thead#gridaddress_header_thead .u-grid-header-link {
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    display: block;
+    padding: 0 18px 0 18px;
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 12px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+}
+
+div#gridaddress {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+
+/*分页*/
+.contacts-container {
+    text-align: center;
+}
+
+.contacts-container .pagination {
+    display: inline-block !important;
+}
+
+/*测试模态框尺寸*/
+@media (min-width: 800px) {
+    .u-msg-dialog {
+        max-width: 600px;
+    }
+}
+
+@media (max-width: 800px) {
+    .u-msg-dialog {
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 500px) {
+    .u-msg-dialog {
+        width: 300px;
+    }
+}
+
+/* 模态框 */
+.u-msg-title h4 {
+    font-size: 16px;
+}
+
+.u-msg-dialog .u-msg-title {
+    padding: 15px;
+}
+
+hr {
+    margin: 0;
+}
+
+#add_man .u-msg-content, #add_depart .u-msg-content, #edit_depart .u-msg-content, #edit_man .u-msg-content {
+    padding: 30px 0 50px 0;
+}
+
+#add_man .u-msg-content .u-col-md-12, #add_depart .u-msg-content .u-col-md-12, #edit_depart .u-msg-content .u-col-md-12, #edit_man .u-msg-content .u-col-md-12 {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#add_man .form-group .u-col-md-3, #add_depart .form-group .u-col-md-3, #edit_depart .form-group .u-col-md-3, #edit_man .form-group .u-col-md-3 {
+    padding-right: 0;
+
+}
+
+#add_man .u-msg-footer, #add_depart .u-msg-footer, #edit_man .u-msg-footer {
+    height: 65px;
+    padding: 15px;
+}
+
+#add_man .u-msg-footer .u-msg-cancel, #add_depart .u-msg-footer .u-msg-cancel, #edit_depart .u-msg-footer .u-msg-cancel, #edit_man .u-msg-footer .u-msg-cancel {
+    margin-right: 15px;
+
+}
+
+.ie8-bg{
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+/*兼容ie9输入框*/
+#search{
+	padding: 0 0 0 5px \9;
+}

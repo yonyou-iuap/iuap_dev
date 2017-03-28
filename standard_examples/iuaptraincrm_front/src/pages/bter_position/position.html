@@ -1,0 +1,171 @@
+<!-- 内容 -->
+<div class="u-mdlayout user" id="position-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+
+	<div class="u-mdlayout-detail" style="overflow-y: auto;">
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="position_list">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">系统管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>岗位维护</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">岗位编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write"  u-meta='{"type":"string", "data":"searchData", "field":"position_code"}'>
+							</div>
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">岗位名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"type":"string", "data":"searchData", "field":"position_name"}'>
+							</div>
+						</div>
+						<div class="u-row">
+						  	<div class="btnBox pull-right mb-5" >
+								<button class="u-button raised primary" id="table-search" data-bind="click: searchClick">查询</button>
+								<button class="u-button raised primary" id="table-add" data-bind="click:addClick">新增</button>
+								<button class="u-button raised primary" id="table-edit" data-bind="click:editClick">修改</button>
+								<button class="u-button raised primary" id="table-unfinish" data-bind="click:openClick">启用/停用</button>
+								<button class="u-button raised primary" id="table-unfinish" data-bind="click:editClickrole">关联角色</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-widget-body">
+						<div class="page-content-box">
+							<div class="row">
+								<div class="col-md-12">
+									<div type="text" u-meta='{"id":"bter_position_grid3","data":"listData","type":"grid","editable":true,"multiSelect":true,"showNumCol":true}'>
+										<div options='{"field":"position_code","dataType":"String","title":"岗位编码"}'></div>
+										<div options='{"field":"position_name","dataType":"String","title":"岗位名称"}'></div>
+										<div options='{"field":"position_status","dataType":"combo","title":"岗位状态","editType":"combo" ,"editOptions":{"id":"orderStatusid","mutil":false,"datasource":"orderStatus"},"renderType":"comboRender"}'></div>
+							     	</div>
+								</div>
+							</div>
+						</div>
+						<div id='pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="position_addPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+	                            <ul class="page-breadcrumb">
+	                                <li>
+	                                    <a href="#">权限管理</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <a href="#">岗位维护</a>
+	                                    <i class="fa fa-circle"></i>
+	                                </li>
+	                                <li>
+	                                    <span>编辑</span>
+	                                </li>
+	                            </ul>
+	
+	                        </div>
+						</div>	
+					</div>
+					<div>
+						<div class="u-row">
+							<div class="u-col-12" style="padding-bottom:15px;">
+								<div class="u-widget mtb-1015" style="background-color:transparent;">
+									<button class="u-button raised primary" data-bind="click: saveClick">保存</button>
+									<button class="u-button raised primary" data-bind="click: canlClick">返回</button
+								</div>
+							</div>	
+						</div>
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">岗位编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8"  u-meta='{"id":"loginName","name":"岗位编码","type":"u-text","data":"cardData","field":"position_code"}'>
+								<div class="u-input-group-before " style="color: red;">*</div>
+								<input type="text" class="u-input u-input-write" data-bind="enable: gridStatus() =='edit'" >
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">岗位名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8" u-meta='{"id":"name","name":"岗位名称","type":"u-text","data":"cardData","field":"position_name"}'>
+								<div class="u-input-group-before " style="color: red;">*</div>
+								<input type="text" class="u-input u-input-write" data-bind="enable: gridStatus() =='edit'">
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">岗位状态：</label>
+							</div>
+							<div class="u-combo u-col-2 u-col-sm-8 " u-meta='{"id":"position_status","name":"岗位状态","type":"u-combobox","data":"cardData","datasource":"orderStatus","field":"position_status"}'>
+								<input class="u-input" data-bind="enable: false"/>
+								<span class="u-combo-icon"></span>
+							</div>
+						</div>
+					</div>
+					
+					<div class="row" id="rolediv"style="display: none">
+						<div class="u-widget mtb-1015" style="background-color:transparent;margin: 10px 15px 10px 15px;">
+							<button class="u-button raised primary" data-bind="click:roleaddClick">关联角色</button>
+							<button class="u-button raised primary" data-bind="click:deluserClick">删除关联角色</button>
+						</div>
+	
+						<div type="text" style="margin:0px 15px 0px 15px" u-meta='{"id":"bter_position_grid2","data":"rolelistData","type":"grid","editable":false,"multiSelect":true,"showNumCol":true}'>
+							<div options='{"field":"role_code","dataType":"String","title":"角色编码"}'></div>
+							<div options='{"field":"role_name","dataType":"String","title":"角色名称"}'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
+		<div id="position_light" class="white_content" style="display: none">
+			<div style="width:100%" class="plat clearfix">
+				<div class="title clearfix">
+					<h4><span class="glyphicon glyphicon-list" style="color:#ed4047"></span>关联角色列表</h4>
+					<div class="btnBox pull-right" style="margin-right:15px;margin-bottom:10px;">
+						<button class="u-button raised primary" id="demo-table-ok" data-bind="click: okClick">确定</button>
+						<button class="u-button raised primary" id="demo-table-cancel" data-bind="click: canceluserClick">取消</button>
+					</div>
+				</div>
+				<div class="padding-bottom:10px;">
+					<div class="demoe-page-content">
+						<div class="row">
+							<div class="col-md-12">
+								<div type="text" u-meta='{"id":"bter_position_grid4","data":"roleData","type":"grid","multiSelect":true,"showNumCol":true,"editable":false,"editType":"default"}'>
+									<div options='{"field":"role_code","dataType":"String","title":"关联角色编码","editType":"string"}'></div>
+									<div options='{"field":"role_name","dataType":"String","editType":"string","title":"关联角色名称"}'></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="position_fade" class="black_overlay" style="display: none"></div>
+	</div>
+</div>

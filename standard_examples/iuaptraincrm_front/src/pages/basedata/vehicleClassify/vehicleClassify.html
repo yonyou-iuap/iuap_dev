@@ -1,0 +1,230 @@
+<div class="u-mdlayout" id="vehicleClassify-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+	
+	<div class="u-mdlayout-detail" style="overflow-y: auto">
+		<!--车辆类别列表界面-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="vehicleClassify_listpage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础数据</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">车辆类别信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>列表</span>
+									</li>
+								</ul>
+
+							</div>
+						</div>	
+					</div>
+					<!--查询栏-->
+					<div class="search-section">
+						<div class="u-row">
+							
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车辆类别编码：</label>
+							</div>	
+							<div class="u-col-2 u-col-sm-8" u-meta='{"id":"vclasscode","data":"searchData","field":"vclasscode","type":"u-text"}'>
+								<input type="text" class="u-form-control u-input-write"/>
+							</div>
+
+
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车辆类别名称：</label>
+							</div>	
+							<div class="u-col-2 u-col-sm-8" u-meta='{"id":"vclassname","data":"searchData","field":"vclassname","type":"u-text"}'>
+								<input type="text" class="u-form-control u-input-write"/>
+							</div>
+
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属品牌：</label>
+							</div>	
+							<div class="u-col-2 u-col-sm-8">
+								<div id="vehicleClassify_brand" class="input-group vehicleClassify_brand" u-meta='{"refCode":"brand","type":"uiRefer","data":"searchData","field":"pk_brand"}'>
+									<input type="text" class="u-form-control"/>
+									<span class="u-form-control-feedback fa fa-search refer"></span>
+								</div>
+							</div>
+
+						</div>
+						<div class="u-row">
+							
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属事业部：</label>
+							</div>	
+							<div class="u-col-2 u-col-sm-8">
+								<div id="vehicleClassify_org" class="input-group vehicleClassify_corp" u-meta='{"refCode":"corpref","type":"uiRefer","data":"searchData","field":"pk_org"}'>
+									<input type="text" class="u-form-control" data-bind="event:{mousedown:filterData}"/>
+									<span class="u-form-control-feedback fa fa-search refer" data-bind="click:filterData"></span>
+								</div>
+							</div>
+
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">状态：</label>
+							</div>	
+							<div id="vehicleClassify_vstatus" class="u-combo u-col-2 u-col-sm-8" u-meta='{"id":"vstatus","name":"状态","type":"u-combobox","onlySelect":true,"isContainNull":true,"data":"searchData","datasource":"statusEnums","field":"vstatus"}'>
+								<input class="u-input u-form-control readonly" />
+								<span class="u-combo-icon"></span>
+							</div>
+
+							
+						</div>
+						<div class="u-row">
+							<div class="btnBox pull-right" >
+								<button class="u-button raised primary" id="table-search" data-bind="click: searchClick">查询</button>
+							<!-- 	<button class="u-button raised primary" id="table-search" data-bind="click: queryTest">查询2</button> -->
+								<button class="u-button raised primary" id="table-add" data-bind="click: addClick,visible: addFunShow">新增</button>
+								<button class="u-button raised primary" id="table-edit" data-bind="click: updateClick,visible: updateFunShow">修改</button>
+								<button class="u-button raised primary" id="table-edit" data-bind="click: startClick,visible: startFunShow">启用</button>
+								<button class="u-button raised primary" id="table-edit" data-bind="click: stopClick,visible: stopFunShow">停用</button>
+							</div>
+						</div>
+					</div>
+					<!-- 车辆类别信息列表 -->
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-body">
+									<table class="u-table" style="width:100%;">
+										<thead>
+											<tr>
+												<th>选择</th>
+												<th>车辆类别编码</th>
+												<th>车辆类别名称</th>
+												<th>所属品牌</th>
+												<th>所属事业部</th>
+												<th>状态</th>
+											</tr>
+										</thead>
+										<tbody data-bind="foreach:{data:listData.rows(),as:'row', afterAdd: afterAdd}" >
+											<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+												<td class="checkbox1"><span data-bind="text: $index() + 1"></span><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+													<input type="checkbox" class="u-checkbox-input">
+													<span class="u-checkbox-label"></span> </label></td>
+													<td data-bind="text: row.getSimpleData().vclasscode"></td>
+													<td data-bind="text: row.getSimpleData().vclassname"></td>
+													<td data-bind="text: row.getSimpleData().vbrandname"></td>
+													<td data-bind="text: row.getSimpleData().unitname"></td>
+													<td data-bind="text: comToName(row.getSimpleData().vstatus)"></td>		
+												</tr>
+											</tbody>
+											<tbody data-bind="css: { 'table-is-hidden' : listData.rows().length>0 }">
+												<tr>
+													<td colspan="6">无数据</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div id='vehicleClassify_pagination' class='u-pagination pagination table_pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+							</div>
+							
+						</div>
+					</div> 
+				</div>
+			</div>
+
+			<!--新增/修改 车辆类别 界面 START-->
+			<div class="u-mdlayout-page u-navlayout-fixed-header" id="vehicleClassify_cardpage">
+				<div class="u-mdlayout-page-section">
+					<div class="u-container-fluid u-widget-bg example">
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="page-bar">
+									<ul class="page-breadcrumb">
+										<li>
+											<a href="#">基础数据</a>
+											<i class="fa fa-circle"></i>
+										</li>
+										<li>
+											<a href="#">车辆类别信息</a>
+											<i class="fa fa-circle"></i>
+										</li>
+										<li>
+											<span id="vehicleClassify_cardpage-title">编辑</span>
+										</li>
+									</ul>
+
+								</div>
+							</div>	
+						</div>
+						
+						<div class="u-row">
+							<div class="u-col-12" style="padding-bottom:15px;">
+								<div class="u-widget mtb-1015" style="background-color:transparent;">
+									<button class="u-button raised primary" data-bind="click:saveClick">保存</button>
+									<button class="u-button raised primary" data-bind="click:backClick">返回</button>
+								</div>
+							</div>	
+						</div>	
+						<!-- <hr class="hr-15"> -->
+						<div class="search-section">
+							<div class="u-row">
+								<div class="u-col-12 clear_pd_0">
+									<div class="u-widget">
+										<div class="u-widget-body form-container">
+											<div class="u-container-fluid">
+
+												<div class="u-row">
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">车辆类别编码：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8">
+														<div class="u-input-group-before " style="color: red;">*</div>
+														<input type="text" class="u-form-control u-input-write" u-meta='{"id":"vclasscode","type":"string","data":"cardData","field":"vclasscode","name":"车辆类别编码"}'>
+													</div>
+
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">车辆类别名称：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8" u-meta='{"id":"vclassname","type":"string","data":"cardData","field":"vclassname","name":"车辆类别名称"}'>
+														<div class="u-input-group-before " style="color: red;">*</div>
+														<input type="text" class="u-input u-form-control u-input-write"/>
+													</div>
+
+													
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">所属品牌：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8">
+														<div id="vehicleClassify_brand2" class="input-group vehicleClassify_brand" u-meta='{"refCode":"brand","type":"uiRefer","data":"cardData","field":"pk_brand", "name":"所属品牌"}'>
+															<div class="u-input-group-before " style="color: red;">*</div>
+															<input type="text" class="u-form-control u-input-readonly" />
+															<span class="u-form-control-feedback fa fa-search refer"></span>
+														</div>
+													</div>
+												</div>		
+												<div class="u-row">
+													<div class="u-col-2 u-col-sm-4">
+														<label class="u-input-label right">所属事业部：</label>
+													</div>
+													<div class="u-col-2 u-col-sm-8">
+														<div id="vehicleClassify_pk_org" class="input-group vehicleClassify_corp" u-meta='{"refCode":"corpref","type":"uiRefer","data":"cardData","field":"pk_org", "name":"所属事业部"}'>
+															<div class="u-input-group-before " style="color: red;">*</div>
+															<input type="text" class="u-form-control u-input-readonly" data-bind="event:{mousedown:filerData}"/>
+															<span class="u-form-control-feedback fa fa-search refer" data-bind="click:filerData"></span>
+														</div>
+													</div>
+												</div>		
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>		
+						</div>
+					</div>
+				</div>
+			</div>		
+			<!-- 新增/修改 车辆类别信息 END -->
+		</div>

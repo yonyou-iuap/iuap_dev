@@ -1,0 +1,1262 @@
+<div class="u-mdlayout" id="tmModel-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+	
+	<div class="u-mdlayout-detail" style="overflow-y: auto">
+		<!--列表界面-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="tmModel_listpage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<!-- 导航兰--> 
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+			                      <ul class="page-breadcrumb">
+			                            <li>
+			                                <a href="#">基础档案</a>
+			                                <i class="fa fa-circle"></i>
+			                            </li>
+			                            <li>
+			                                 <a href="#">产品信息</a>
+			                                 <i class="fa fa-circle"></i>
+			                            </li>
+			                            <li>
+			                                  <span>列表</span>
+			                            </li>
+			                       </ul>
+			                  </div>
+						</div>	
+					</div>
+					<!-- 查询-->
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车型编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"name":"车型编码","type":"string","data":"searchData","field":"vmodelcode"}'>
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属类别：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<div id="search_tmmodel_vehicleclassifyref" class="input-group" u-meta='{"refCode":"vehicleclassifyref","type":"uiRefer", "data":"searchData", "field":"pk_veicleclass"}'>
+									<input class="u-input" type="text">
+									<span class="u-form-control-feedback fa fa-search refer"></span>
+								</div>
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属车系：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<div id="search_tmmodel_tmseries" class="input-group" u-meta='{"refCode":"series","type":"uiRefer", "data":"searchData", "field":"pk_series"}'>
+									<input class="u-input" type="text" data-bind="event:{mousedown:fseriesData('#search_tmmodel_tmseries',searchData.getCurrentRow())}">
+									<span class="u-form-control-feedback fa fa-search refer" data-bind="event:{mousedown:fseriesData('#search_tmmodel_tmseries',searchData.getCurrentRow())}"></span>
+								</div>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车型名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write" u-meta='{"name":"车型名称","type":"string","data":"searchData","field":"vmodelname"}'>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="btnBox pull-right mb-5" >
+								<button class="u-button raised primary m-r-sm" id="table-add" data-bind="click: searchClick">
+									查询
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-add" data-bind="click: addClick,visible:addFunShow">
+									新增
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-mdf" data-bind="click: editClick,visible:editFunShow">
+									修改
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-del" data-bind="click: startClick,visible:startFunShow">
+									启用
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-del" data-bind="click: stopClick,visible:stopFunShow">
+									停用
+								</button>
+								<button class="u-button raised primary m-r-sm" id="table-del" data-bind="click: onDownloadExcel,visible:exportFunShow">
+									导出
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-body">
+									<div class="table-responsive">
+									<table class="u-table" style="width:100%;">
+										<thead>
+											<tr>
+												<th>选择</th>
+												<th>车辆型号</th>
+												<th>车型名称</th>
+												<th>电池电量(kWh)</th>
+												<th>所属车系</th>
+												<th>所属类别</th>
+												<th>所属品牌</th>
+												<th>新能源车辆推广目录</th>
+												<th>免购置税目录</th>
+												<th>工信部车辆公告</th>
+												<th>公告有效日期</th>
+												<th>车型状态</th>
+												<th>质保年限</th>
+												<th>质保里程</th>
+												<th>轮胎质保里程</th>
+												<th>备注</th>
+												<th>状态</th>
+												<th>车型编码</th>
+											</tr>
+										</thead>
+										<tbody data-bind="foreach:{data:modelListData.rows(),as:'row',afterAdd: afterAdd}" >
+											<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+												<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+													<input type="checkbox" class="u-checkbox-input">
+													<span class="u-checkbox-label"></span></label>
+												</td>
+												<td><a href="javascript:;" data-bind="click:$parent.showClick.bind($data, $index())" ><span data-bind="text:row.ref('vannouncenum')"></span></a></td>
+												<td data-bind="text: row.ref('vmodelname')"></td>
+												<td data-bind="text: row.ref('nvbatterypower')"></td>
+												<td data-bind="text: row.ref('seriesname')"></td>
+												<td data-bind="text: row.ref('vehicelname')"></td>
+												<td data-bind="text: row.ref('brandname')"></td>
+												<td data-bind="text: comToName(row.getSimpleData().vmarketcatalog)"></td>
+												<td data-bind="text: comToName(row.getSimpleData().vistaxfree)"></td>
+												<td data-bind="text: comToName(row.getSimpleData().vvehicleannouncement)"></td>
+												<td data-bind="text: u.dateRender(row.ref('vannouncevaliddate'))"></td>
+												<td data-bind="text: comToName(row.getSimpleData().vstatus)"></td>
+												<td data-bind="text: row.ref('vwarranty')"></td>
+												<td data-bind="text: row.ref('vmilewarranty')"></td>
+												<td data-bind="text: row.ref('vtirewarranty')"></td>
+												<td data-bind="text: row.ref('vremark')"></td>
+												<td data-bind="text: comToName(row.getSimpleData().vusestatus)"></td>
+												<td data-bind="text: row.ref('vmodelcode')"></td>
+											</tr>
+										</tbody>
+										<tbody data-bind="css: { 'table-is-hidden' : modelListData.rows().length>0 }">
+											<tr>
+												<td colspan="18">无数据</td>
+											</tr>
+										</tbody>
+									</table>
+									</div>
+								</div>
+							</div>
+						</div>
+			            <div id='pagination' class='u-pagination pagination table_pagination'  u-meta='{"type":"pagination","data":"modelListData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 新增界面 start -->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="tmModel_addPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础档案</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">产品信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>编辑</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget mtb-1015" style="background-color:transparent;">
+								<button class="u-button raised primary" data-bind="click:addOrEditRow">
+									保存
+								</button>
+								<button class="u-button raised primary" data-bind="click:goBack">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-12 clear_pd_0">
+								<div class="u-widget">
+									<div class="u-widget-body form-container">
+										<div class="u-container-fluid">
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车型编码：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write" disabled="disabled" u-meta='{"name":"车型编码","data":"modelCardData","field":"vmodelcode"}'/>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车型名称：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<div class="u-input-group-before " style="color: red;">
+														*
+													</div>
+													<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vmodelname","name":"车型名称"}'>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属车系：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<div id="new_tmmodel_tmseries" class="input-group tmseries" u-meta='{"refCode":"series","type":"uiRefer", "data":"modelCardData", "field":"pk_series","name":"所属车系"}'>
+														<div class="u-input-group-before " style="color: red;">
+															*
+														</div>
+														<input class="u-form-control u-input" type="text" >
+														<span class="u-form-control-feedback fa fa-search refer" ></span>
+													</div>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属类别：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-input u-input-readonly" data-bind="enable: false" u-meta='{"data":"modelCardData","field":"vehicelname"}'  >
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属品牌：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-input u-input-readonly" data-bind="enable: false" u-meta='{"data":"modelCardData","field":"brandname"}' >
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">新能源车辆推广目录：</label>
+												</div>
+												<div class="u-combo u-col-2 u-col-sm-8" u-meta='{"name":"新能源车辆推广目录","type":"u-combobox","data":"modelCardData","datasource":"yesORno","field":"vmarketcatalog","onlySelect":true}'>
+													<input class="u-input"/>
+													<span class="u-combo-icon"></span>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">免购置税目录：</label>
+												</div>
+												<div class="u-combo u-col-2 u-col-sm-8" u-meta='{"name":"免购置税目录","type":"u-combobox","data":"modelCardData","datasource":"yesORno","field":"vistaxfree","onlySelect":true}'>
+													<input class="u-input"/>
+													<span class="u-combo-icon"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">工信部公告：</label>
+												</div>
+												<div class="u-combo u-col-2 u-col-sm-8" u-meta='{"name":"工信部公告","type":"u-combobox","data":"modelCardData","datasource":"vehicleannouncement","field":"vvehicleannouncement","onlySelect":true}'>
+													<input class="u-input"/>
+													<span class="u-combo-icon"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车辆型号：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<div class="u-input-group-before " style="color: red;">
+														*
+													</div>
+													<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vannouncenum"}'>
+												</div>
+
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">电池电量(kWh)</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8" >
+													<div class="input-group" u-meta='{"data":"modelCardData","field":"nvbatterypower","name":"电池电量(kWh)"}'>
+													<div class="u-input-group-before " style="color: red;">
+														*
+													</div>
+													<input class="u-form-control u-input" type="text" disabled="disabled"/>
+													<span class="input-group-addon" data-bind="click: dialogClick" style="border: 0;"> <span>...</span> </span> 
+													</div>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车辆状态：</label>
+												</div>
+												<div class="u-combo u-col-2 u-col-sm-8" u-meta='{"name":"车辆状态","type":"u-combobox","data":"modelCardData","datasource":"vehicleStatus","field":"vstatus","onlySelect":true}'>
+													<input type="text" class="u-input"/>
+													<span class="u-combo-icon"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">质保年限：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vwarranty","type":"integer","name":"质保年限"}'>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">公告有效日期：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-4" style="padding:0px !important">
+													<div class="u-datepicke input-group fx-datepicker" u-meta='{"name":"录入日期","data":"modelCardData","field":"vannouncevaliddate","type":"u-datetime","format":"YYYY-MM-DD"}'>
+														<input type="text" class="u-input"/>
+														<span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span> </span>
+													</div>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">质保里程(万公里)：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vmilewarranty","type":"integer","name":"质保里程"}'>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">轮胎质保里程(万公里)：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vtirewarranty","type":"integer","name":"轮胎质保里程"}'>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">最新公告批次：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vnewnoticenum","name":"最新公告批次"}'>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">备注：</label>
+												</div>
+												<div class="u-col-6 u-col-sm-8 m-b-md" u-meta='{"type":"textarea","data":"modelCardData","field":"vremark"}'>
+													<textarea  data-bind="" rows="3" cols="70"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!--tabs控件 切换active状态包括线性跟随和背景跟随 tabs控件依赖 u-tabs 类，状态类是共用的。 改变修饰类可以改变active样式。 默认是active状态为线性跟随 添加修饰类.u-tabs-pill 为背景跟随-->
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-tabs u-tab-inner-left">
+								<div class="u-tabs__tab-bar">
+									<a href="#tab-panel-1" class="u-tabs__tab is-active">技术参数</a>
+									<a href="#tab-panel-2" class="u-tabs__tab" data-bind="visible: gridStatus() !='new'">竞品信息</a>
+									<a href="#tab-panel-edit_file" class="u-tabs__tab" data-bind="visible: gridStatus() !='new'">附件信息</a>
+								</div>
+								<div class="u-tabs__panel is-active" id="tab-panel-1">
+									<div class="search-section" style="padding-top: 0px; padding-bottom: 0px;">
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">长(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vlength","name":"长(mm)","type": "integer"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">宽(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vwidth","name":"宽(mm)","type": "integer"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">高(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vheight","name":"高(mm)","type": "integer"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">轴距(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"nwheelbase","name":"轴距","type":"integer"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">前悬/后悬(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" name="nsuspensionbase" u-meta='{"data":"modelCardData","field":"nsuspensionbase"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">离地间隙(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"ngroundclearanc","name":"离地间隙","type":"integer"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">接近角/离去角(° )：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"vdriveangle"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">入口高度(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"ninheight"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">地板高度(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text"  class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"nfloorheight"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">车内最低高度(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"nminheight"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">轮包通道宽前/后(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" name="vhubcapwidth"  u-meta='{"data":"modelCardData","field":"vhubcapwidth"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">座位数：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" name="nseat"  u-meta='{"data":"modelCardData","field":"nseat"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">载客数：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"npasenger"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">站立面积(㎡)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"nstandarea"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">车门：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"ncardoor","name":"车门","type":"string"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">车门净宽(mm)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"ndoorwidth"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">轮胎型式：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vtyreform"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">驱动型式：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vdriveform"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">最高车速(km/h)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"nmaxspeed"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">0-50km加速时间(s)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"nspeeduptime"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">静态侧倾角(°)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write" u-meta='{"data":"modelCardData","field":"nrollangle"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">通道圆半径(m)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"nradii"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">续驶里程(40km/h等速，不开空调)(km)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"ndrivingcourse"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">续驶里程(40km/h等速,摆渡车运营状况)(km)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"ndrivingcourse2"}'>
+										</div>
+
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">电机额定/最大功率(kW)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vmotorpower","name":"电机额定/最大功率(kW)"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">电机额定/最大扭矩(N·m)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vmotortorque","name":"电机额定/最大扭矩(N·m)"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">电池型式：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vbatteryclass","name":"电池型式"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">最大爬坡度：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vmaxclaim","name":"最大爬坡度"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">转弯半径：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vturnradii","name":"转弯半径"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">充电枪个数：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"nchargegun","name":"充电枪个数"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">充电时间(h)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"nchargetime","name":"充电时间(h)"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">充电功率(kW)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"nchargepower","name":"充电功率"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">充电方式：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vchargetype","name":"充电方式"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">电池组成箱型号：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vbattarycagetype","name":"电池组成箱型号"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">驱动电机型号：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"vdrivemotortype","name":"驱动电机型号"}'>
+										</div>
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">整备质量(kg)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"ncurbweight","type":"integer","min":"0","name":"整备质量(kg)"}'>
+										</div>
+									</div>
+									<div class="u-row">
+										
+										<div class="u-col-2 u-col-sm-4">
+											<label class="u-input-label right">最大质量(kg)：</label>
+										</div>
+										<div class="u-col-2 u-col-sm-8">
+											<input type="text" class="u-form-control u-input-write"  u-meta='{"data":"modelCardData","field":"nmaxweight","type":"integer","min":"0","name":"最大质量(kg)"}'>
+										</div>
+									</div>
+									</div>
+								</div>
+								<div class="u-tabs__panel" id="tab-panel-2" style="float:clear;">
+									<div class="search-section" style="padding-top: 0px; padding-bottom: 0px;">
+										<div u-meta='{"id":"competbrand_GridEditDiv","data":"competListData","type":"grid","columnMenu":true,"multiSelect":false,"showNumCol":true}'>
+											<div options='{"field":"combrandname","dataType":"String","title":"品牌"}'></div>
+											<div options='{"field":"vmodelname","dataType":"String","title":"车型"}'></div>
+											<div options='{"field":"nvbatterypower","dataType":"String","title":"电池电量(kWh)"}'></div>
+											<div options='{"field":"clength","dataType":"String","title":"长(mm)"}'></div>
+											<div options='{"field":"cwidth","dataType":"String","title":"宽(mm)"}'></div>
+											<div options='{"field":"cheight","dataType":"String","title":"高(mm)"}'></div>
+											<div options='{"field":"nwheelbase","dataType":"String","title":"轴距(mm)"}'></div>
+											<div options='{"field":"ncurbweight","dataType":"String","title":"整备质量(kg)"}'></div>
+											<div options='{"field":"nmaxweight","dataType":"String","title":"最大质量(kg)"}'></div>
+											<div options='{"field":"nsuspensionbase","dataType":"String","title":"前悬/后悬(mm)"}'></div>
+											<div options='{"field":"ngroundclearanc","dataType":"String","title":"离地间隙(mm)"}'></div>
+											<div options='{"field":"vdriveangle","dataType":"String","title":"接近角/离去角(°)"}'></div>
+											<div options='{"field":"ninheight","dataType":"String","title":"入口高度(mm)"}'></div>
+											<div options='{"field":"nfloorheight","dataType":"String","title":"地板高度(mm)"}'></div>
+											<div options='{"field":"nminheight","dataType":"String","title":"车内最低高度(mm)"}'></div>
+											<div options='{"field":"vhubcapwidth","dataType":"String","title":"轮包通道宽前/后(mm)"}'></div>
+											<div options='{"field":"nseat","dataType":"String","title":"座位数"}'></div>
+											<div options='{"field":"npasenger","dataType":"String","title":"载客数"}'></div>
+											<div options='{"field":"nstandarea","dataType":"String","title":"站立面积(㎡)"}'></div>
+											<div options='{"field":"ncardoor","dataType":"String","title":"车门"}'></div>
+											<div options='{"field":"ndoorwidth","dataType":"String","title":"车门净宽(mm)"}'></div>
+											<div options='{"field":"vtyreform","dataType":"String","title":"轮胎型式"}'></div>
+											<div options='{"field":"vdriveform","dataType":"String","title":"驱动型式"}'></div>
+											<div options='{"field":"nmaxspeed","dataType":"String","title":"最高车速(km/h)"}'></div>
+											<div options='{"field":"nspeeduptime","dataType":"String","title":"0-50km加速时间"}'></div>
+											<div options='{"field":"nrollangle","dataType":"String","title":"静态侧倾角"}'></div>
+											<div options='{"field":"nradii","dataType":"String","title":"通道圆半径(m)"}'></div>
+											<div options='{"field":"ndrivingcourse","dataType":"String","title":"续驶里程(40km/h等速，不开空调)(km)"}'></div>
+											<div options='{"field":"ndrivingcourse2","dataType":"String","title":"续驶里程(摆渡车运营工况)(km)"}'></div>
+											<div options='{"field":"vmotorpower","dataType":"String","title":"电机额定/最大功率(kW)"}'></div>
+											<div options='{"field":"vmotortorque","dataType":"String","title":"电机额定/最大扭矩(N·m)"}'></div>
+											<div options='{"field":"vbatteryclass","dataType":"String","title":"电池型式"}'></div>
+											<div options='{"field":"nchargepower","dataType":"String","title":"充电功率(kW)"}'></div>
+											<div options='{"field":"nchargetime","dataType":"String","title":"充电时间(h)"}'></div>
+										</div>
+									</div>
+								</div>
+								<div class="u-tabs__panel" id="tab-panel-edit_file">
+									<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+										<button class="u-button raised primary" data-bind="click:onOpenUploadWin">
+											上传
+										</button>
+										<button class="u-button raised primary" data-bind="click:fileDownload">
+											下载
+										</button>
+										<button class="u-button raised primary" data-bind="click:fileDelete">
+											删除
+										</button>
+									</div>
+									<div class="search-section" style="padding-top: 0px; padding-bottom: 0px;">
+										<div class="u-row">
+											<div class="u-col-12">
+												<div class="u-widget">
+													<div class="u-widget-body">
+														<table class="u-table" style="width:100%;">
+															<thead>
+																<tr>
+																	<th>选择</th>
+																	<th>文件名称</th>
+																	<th>文件大小</th>
+																	<th>上传时间</th>
+																</tr>
+															</thead>
+															<tbody data-bind="foreach:{data:fileData.rows(),as:'row', afterAdd: afterAdd}" >
+																<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																	<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																		<input type="checkbox" class="u-checkbox-input">
+																		<span class="u-checkbox-label"></span> </label></td>
+																	<td data-bind="text: row.ref('filename')"></td>
+																	<td data-bind="text: row.ref('filesize')"></td>
+																	<td data-bind="text: row.ref('uploadtime')"></td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 查看界面 start -->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="tmModel_showPage">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg example">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#">基础档案</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#">产品信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>查看</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget mtb-1015" style="background-color:transparent;">
+								<button class="u-button raised primary" data-bind="click:goBack">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-12 clear_pd_0">
+								<div class="u-widget">
+									<div class="u-widget-body form-container">
+										<div class="u-container-fluid">
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车型编码：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vmodelcode')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车型名称：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vmodelname')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属车系：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('seriesname')"></span>
+												</div>
+
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属类别：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vehicelname')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属品牌：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('brandname')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">新能源车辆推广目录：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:comToName(modelCardData.ref('vmarketcatalog')(),vm.vehicleannouncement)"></span>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">免购置税目录：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:comToName(modelCardData.ref('vistaxfree')(),vm.vehicleannouncement)"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">工信部公告：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:comToName(modelCardData.ref('vvehicleannouncement')(),vm.vehicleannouncement)"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车辆型号：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vannouncenum')"></span>
+												</div>
+
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">电池电量(kWh)：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('nvbatterypower')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车辆状态：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:comToName(modelCardData.ref('vstatus')(),vm.vehicleannouncement)"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">公告有效日期：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vannouncevaliddate')"></span>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">质保期：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vwarranty')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">质保里程：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vmilewarranty')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">轮胎质保里程：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vtirewarranty')"></span>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">最新公告批次：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<span data-bind="text:modelCardData.ref('vnewnoticenum')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">备注：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 m-b-md">
+													<textarea  data-bind="text:modelCardData.ref('vremark')" rows="3" cols="70"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<!--tabs控件 切换active状态包括线性跟随和背景跟随 tabs控件依赖 u-tabs 类，状态类是共用的。 改变修饰类可以改变active样式。 默认是active状态为线性跟随 添加修饰类.u-tabs-pill 为背景跟随-->
+							<div class="u-tabs u-tab-inner-left">
+								<div class="u-tabs__tab-bar">
+									<a href="#tab-panel-1" class="u-tabs__tab is-active">技术参数</a>
+									<a href="#tab-panel-2" class="u-tabs__tab">竞品信息</a>
+									<a href="#tab-panel-view_file" class="u-tabs__tab">附件信息</a>
+								</div>
+								<div class="u-tabs__panel is-active" id="tab-panel-1">
+									<div class="search-section" style="padding-top: 0px; padding-bottom: 0px;">
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">长(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vlength')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">宽(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vwidth')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">高(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vheight')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">轴距(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nwheelbase')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">前悬/后悬(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nsuspensionbase')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">离地间隙(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('ngroundclearanc')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">接近角/离去角(°)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vdriveangle')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">入口高度(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('ninheight')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">地板高度(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nfloorheight')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">车内最低高度(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nminheight')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">轮包通道宽前/后(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vhubcapwidth')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">座位数：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nseat')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">载客数：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('npasenger')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">站立面积(㎡)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nstandarea')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">车门：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('ncardoor')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">车门净宽(mm)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('ndoorwidth')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">轮胎型式：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vtyreform')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">驱动型式：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vdriveform')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">最高车速(km/h)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nmaxspeed')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">0-50km加速时间(s)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nspeeduptime')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">静态侧倾角(°)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nrollangle')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">通道圆半径(m)：
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nradii')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">续驶里程(40km/h等速，不开空调)(km)：
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('ndrivingcourse')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">续驶里程(40km/h等速,摆渡车运营状况)(km)：
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('ndrivingcourse2')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">电机/额定最大功率(kW)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vmotorpower')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">电机/额定最大扭矩(N*m)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vmotortorque')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">电池型式：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vbatteryclass')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">最大爬坡度：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8">
+												<span data-bind="text:modelCardData.ref('vmaxclaim')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">转弯半径：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8">
+												<span data-bind="text:modelCardData.ref('vturnradii')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">充电枪个数：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8">
+												<span data-bind="text:modelCardData.ref('nchargegun')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">充电时间(h)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nchargetime')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">充电功率：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('nchargepower')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">充电方式：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8 m-b-md">
+												<span data-bind="text:modelCardData.ref('vchargetype')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">电池组成箱型号：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8">
+												<span data-bind="text:modelCardData.ref('vbattarycagetype')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">驱动电机型号：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8">
+												<span data-bind="text:modelCardData.ref('vdrivemotortype')"></span>
+											</div>
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">整备质量(kg)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8">
+												<span data-bind="text:modelCardData.ref('ncurbweight')"></span>
+											</div>
+										</div>
+										<div class="u-row">
+											<div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">最大质量(kg)：</label>
+											</div>
+											<div class="u-col-2 u-col-sm-8">
+												<span data-bind="text:modelCardData.ref('nmaxweight')"></span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="u-tabs__panel" id="tab-panel-2">
+									<div class="search-section" style="padding-top: 0px; padding-bottom: 0px;">
+										<div u-meta='{"id":"competbrand_GridShowDiv","data":"competListData","type":"grid","columnMenu":true,"multiSelect":false,"showNumCol":true}'>
+											<div options='{"field":"combrandname","dataType":"String","title":"品牌"}'></div>
+											<div options='{"field":"vmodelname","dataType":"String","title":"车型"}'></div>
+											<div options='{"field":"nvbatterypower","dataType":"String","title":"电池电量(kWh)"}'></div>
+											<div options='{"field":"clength","dataType":"String","title":"长(mm)"}'></div>
+											<div options='{"field":"cwidth","dataType":"String","title":"宽(mm)"}'></div>
+											<div options='{"field":"cheight","dataType":"String","title":"高(mm)"}'></div>
+											<div options='{"field":"nwheelbase","dataType":"String","title":"轴距(mm)"}'></div>
+											<div options='{"field":"ncurbweight","dataType":"String","title":"整备质量(kg)"}'></div>
+											<div options='{"field":"nmaxweight","dataType":"String","title":"最大质量(kg)"}'></div>
+											<div options='{"field":"nsuspensionbase","dataType":"String","title":"前悬/后悬(mm)"}'></div>
+											<div options='{"field":"ngroundclearanc","dataType":"String","title":"离地间隙(mm)"}'></div>
+											<div options='{"field":"vdriveangle","dataType":"String","title":"接近角/离去角(°)"}'></div>
+											<div options='{"field":"ninheight","dataType":"String","title":"入口高度(mm)"}'></div>
+											<div options='{"field":"nfloorheight","dataType":"String","title":"地板高度(mm)"}'></div>
+											<div options='{"field":"nminheight","dataType":"String","title":"车内最低高度(mm)"}'></div>
+											<div options='{"field":"vhubcapwidth","dataType":"String","title":"轮包通道宽前/后(mm)"}'></div>
+											<div options='{"field":"nseat","dataType":"String","title":"座位数"}'></div>
+											<div options='{"field":"npasenger","dataType":"String","title":"载客数"}'></div>
+											<div options='{"field":"nstandarea","dataType":"String","title":"站立面积(㎡)"}'></div>
+											<div options='{"field":"ncardoor","dataType":"String","title":"车门"}'></div>
+											<div options='{"field":"ndoorwidth","dataType":"String","title":"车门净宽(mm)"}'></div>
+											<div options='{"field":"vtyreform","dataType":"String","title":"轮胎型式"}'></div>
+											<div options='{"field":"vdriveform","dataType":"String","title":"驱动型式"}'></div>
+											<div options='{"field":"nmaxspeed","dataType":"String","title":"最高车速(km/h)"}'></div>
+											<div options='{"field":"nspeeduptime","dataType":"String","title":"0-50km加速时间"}'></div>
+											<div options='{"field":"nrollangle","dataType":"String","title":"静态侧倾角"}'></div>
+											<div options='{"field":"nradii","dataType":"String","title":"通道圆半径(m)"}'></div>
+											<div options='{"field":"ndrivingcourse","dataType":"String","title":"续驶里程(40km/h等速，不开空调)(km)"}'></div>
+											<div options='{"field":"ndrivingcourse2","dataType":"String","title":"续驶里程(摆渡车运营工况)(km)"}'></div>
+											<div options='{"field":"vmotorpower","dataType":"String","title":"电机额定/最大功率(kW)"}'></div>
+											<div options='{"field":"vmotortorque","dataType":"String","title":"电机额定/最大扭矩(N·m)"}'></div>
+											<div options='{"field":"vbatteryclass","dataType":"String","title":"电池型式"}'></div>
+											<div options='{"field":"nchargepower","dataType":"String","title":"充电功率(kW)"}'></div>
+											<div options='{"field":"nchargetime","dataType":"String","title":"充电时间(h)"}'></div>
+										</div>
+									</div>
+								</div>
+								<div class="u-tabs__panel" id="tab-panel-view_file">
+									<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+										<button class="u-button raised primary" data-bind="click:fileDownload">
+											下载
+										</button>
+									</div>
+									<div class="search-section" style="padding-top: 0px; padding-bottom: 0px;">
+										<div class="u-row">
+											<div class="u-col-12">
+												<div class="u-widget">
+													<div class="u-widget-body">
+														<table class="u-table" style="width:100%;">
+															<thead>
+																<tr>
+																	<th>选择</th>
+																	<th>文件名称</th>
+																	<th>文件大小</th>
+																	<th>上传时间</th>
+																</tr>
+															</thead>
+															<tbody data-bind="foreach:{data:fileData.rows(),as:'row', afterAdd: afterAdd}" >
+																<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																	<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																		<input type="checkbox" class="u-checkbox-input">
+																		<span class="u-checkbox-label"></span> </label></td>
+																	<td data-bind="text: row.ref('filename')"></td>
+																	<td data-bind="text: row.ref('filesize')"></td>
+																	<td data-bind="text: row.ref('uploadtime')"></td>
+																</tr>
+															</tbody>
+															<tbody data-bind="css: { 'table-is-hidden' : fileData.rows().length>0 }">
+																<tr>
+																	<td colspan="4">无数据</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--messageDialog 调用提示模态框-->
+		<div id="tmModel_dialog_content"  style="display:none;">
+		    <div class="u-msg-title">
+		        <h4>电池电量(kWh)</h4>
+		    </div>
+		    <div class="u-msg-content">
+		    	<div class="btnBox pull-right">
+					<button class="u-button raised primary m-r-sm" id="table-del" data-bind="click: dialog_addRow">增行</button>
+					<button class="u-button raised primary m-r-sm" id="table-del" data-bind="click: dialog_delRow">删行</button>
+					<button class="u-button raised primary m-r-sm" id="table-del" data-bind="click: dialog_saveClick">保存</button>
+				</div>
+		        <div class="row">
+					<div class="col-md-12">
+						<div type="text" u-meta='{"id":"dialogGrid","data":"dialogListData","type":"grid","editable":true,"multiSelect":true,"showNumCol":true}'>
+							<div options='{"field":"batpower","editOptions":{"validType":"float", "required":true,"min":0,"name":"电池电量(kWh)"},"dataType":"String","title":"电池电量(kWh)","width":125}'></div>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div> 
+	</div>
+	<!-- 模态框(附件上传)start-->
+	<div id="tmModel_dialog_uploadfile" style="display:none;">
+		<div class="u-msg-title">
+			<h4>附件上传</h4>
+		</div>
+		<div class="u-msg-content">
+			<div class="u-row">
+				<div class="u-col-12" style="margin-bottom: 20px;">
+					<div class="u-widget">
+						<div class="menu">
+							<button class="u-button raised primary sub-list1-new"  data-bind="click:onFileUpload">
+								上传
+							</button>
+							<button class="u-button raised primary sub-list1-cancel"  data-bind="click:onCloseFileWindow">
+								取消
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="u-row">
+				<div class="u-col-12">
+					<div class="u-widget">
+						<div class="form">
+							<div class="u-col-3 u-col-xs-4 u-col-sm-4 u-col-md-3" style=" width: 330px; padding-left: 0px; ">
+								<div class="u-text u-label-floating-always" >
+									<input class="u-input"type="file" name="addfile" id = "tmModel_uploadbatch_id" multiple="multiple"/>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div><!--模态框(申报车辆信息导入)end-->
+</div>

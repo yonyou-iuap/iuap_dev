@@ -1,0 +1,234 @@
+<!-- 列表区域  -->
+<div class="u-container-fluid u-widget-bg padding-0">
+    <div class="u-widget margin-0">
+        <div class="u-widget-body">
+            <div class="u-row margin-left-0 margin-right-0">
+                <!--树表  -->
+                <div class="u-col-md-3 lefttree" id="treeT">
+                    <div class="" style=" line-height: 30px;float: left;margin-left:15px;">
+                        <span>组织机构</span>
+                    </div>
+                    <div class=" u-button-group group-spec margin-left-15" style="margin-bottom:4px;float:right;">
+                    	<!--兼容ie9以下enter问题-->
+                    	<!--[if lt IE 10]><button style="display:block;width:1px;height:1px;border:none;">1</button><![endif]-->
+                        <button class="u-button u-button-floating" id="addinstitBtn" data-bind="click: event.addinstitClick">
+                            <i class="uf uf-plus"></i>
+                            <div class="ie8-bg">
+                            	<img src="./static/plus.png" alt="..." style="width:60%;height:60%;">
+                            </div>
+                        </button>
+                        <button class="u-button u-button-floating " id="editinstitBtn" data-bind="click: event.editinstitClick">
+                            <i class="uf uf-pencil"></i>
+                            <div class="ie8-bg">
+                            	<img src="./static/pencil.png" alt="..." style="width:60%;height:60%;">
+                            </div>
+                        </button>
+                        <button class="u-button u-button-floating del-bg" id="delinstitBtn" data-bind="click: event.delinstitClick">
+                            <i class="uf uf-del"></i>
+                            <div class="ie8-bg">
+                            	<img src="./static/del.png" alt="..." style="width:60%;height:60%;">
+                            </div>
+                        </button>
+                        <!--instit编辑对话框-->
+                        <div id="dialog_content_instit" style="display:none;">
+                            <div class="u-msg-title">
+                                <h4>新增部门</h4>
+                            </div>
+                            <HR width="100%" color=#F8F9FB SIZE=3 align="center"/>
+                            <div class="u-msg-content add-depart">
+                                <div class="u-form">
+                                    <div class="u-col-md-12 form-group">
+                                        <div class="u-col-md-3 control-label">
+                                            <label style="color: red;">*</label>
+                                            <label>编码</label>
+                                        </div>
+                                        <input type="text" id="institcode"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"institdatanew","field":"institcode"}'
+                                               placeholder="请输入编码">
+                                    </div>
+                                    <div class="u-col-md-12 form-group">
+                                        <div class="u-col-md-3 control-label">
+                                            <label style="color: red;">*</label>
+                                            <label>组织名称</label>
+                                        </div>
+                                        <input type="text" id="institname"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"institdatanew","field":"institname"}'
+                                               placeholder="请输入组织名称">
+                                    </div>
+                                    <div class="u-col-md-12 form-group">
+                                        <label class="u-col-md-3 control-label">上级</label>
+                                        <input type="text" id="parentname"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"institdatanew","field":"parentname"}'
+                                               placeholder="上级"
+                                               disabled="disabled">
+                                    </div>
+                                    <div class="u-col-md-12 form-group" style="display:none">
+                                        <label class="u-col-md-3 control-label">父ID</label>
+                                        <input type="text" id="parentid"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"institdatanew","field":"parentid"}'
+                                               placeholder="请输入父ID">
+                                    </div>
+                                    <div class="u-col-md-12 form-group">
+                                        <label class="u-col-md-3 control-label">组织名称缩写</label>
+                                        <input type="text" id="shortname"
+                                               class="u-col-md-9 u-form-control"
+                                               u-meta='{"type":"string","data":"institdatanew","field":"shortname"}'
+                                               placeholder="请输入缩写">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="u-msg-footer">
+                                <div class="pull-right">
+                                    <button id="canceltree" class="u-button editCancel raised back"
+                                            data-bind="click: event.cancelinstitClick">取消<span
+                                            class="u-button-container"><span
+                                            class="u-ripple"></span></span>
+                                    </button>
+                                    
+                                    <button id="savetree" class="u-button raised u-button-primary margin-right-10"
+                                            data-bind="click: event.saveinstitClick">
+                                                                                                                                                        保存<span class="u-button-container"><span class="u-ripple"></span></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <HR class="hide" width="100%" color=#F8F9FB SIZE=30 align="center"/>
+                    </div>
+                    <!--tree-->
+                    <div class="u-col-md-3" id="tree2Around" style="width:100%;">
+                        <div id="tree2" class="ztree"
+                             u-meta='{"id":"tree2","data":"institdata","type":"tree","idField":"institid","pidField":"parentid","nameField":"institname","setting":"treeSetting"}'>
+                        </div>
+                    </div>
+                </div>
+
+                <!--telbook电话簿-->
+                <div class="u-col-md-9 padding-left-0 padding-right-0" style="border-left:1px solid #cecece;">
+                    <div class="infoPanel" id="infoPanel"></div>
+                    <div class="treefrom">
+                        <div class="ec-search u-col-md-12 u-col-sm-12  ">
+                            <div class="u-button-group">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="add_man" value="新增人员"
+                                        style="" data-bind="click: event.addManClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="edit_man" value="编辑人员"
+                                        style="" data-bind="click: event.editManClick">
+                                <input
+                                        type="button" class="u-button u-button-primary u-buttom-sm"
+                                        id="del_man" value="删除人员"
+                                        style="" data-bind="click: event.delManClick">
+                            </div>
+                            <!--telbook编辑对话框-->
+                            <div id="dialog_content_man" class="modal-dialog" style="display:none;">
+                                <div class="u-msg-title">
+                                    <h4>新增人员</h4>
+                                </div>
+                                <HR width="100%" color=#F8F9FB SIZE=3 align="center"/>
+                                <div class="u-msg-content add-man">
+                                    <div class="u-form" id="add-form">
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label style="color: red;">*</label>
+                                                <label>姓名</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_peoname"
+                                                   u-meta='{"type":"string","data":"telbookdatanew","field":"peoname"}'
+                                                   placeholder="请输入姓名"
+                                                    />
+                                           </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label style="color: red;">*</label>
+                                                <label>员工编号</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_peocode"
+                                                   u-meta='{"type":"string","data":"telbookdatanew","field":"peocode"}'
+                                                   placeholder="请输入员工编号"
+                                                    />
+                                        </div>
+
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >办公电话</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_worktel"
+                                                   u-meta='{"type":"string","data":"telbookdatanew","field":"worktel"}'
+                                                   placeholder="请输入办公电话"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >电子邮件</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="add_email"
+                                                   u-meta='{"type":"string","data":"telbookdatanew","field":"email"}'
+                                                   placeholder="请输入电子邮件"
+                                                    />
+                                        </div>
+                                        <div class="u-col-md-12 form-group">
+                                            <div class="u-col-md-3 control-label">
+                                                <label >所属机构</label>
+                                            </div>
+                                            <input class="u-col-md-9 u-form-control " type="text" id="userinstitname"
+                                                   placeholder="请输入所属机构" disabled="disabled"
+                                                   u-meta='{"type":"string","data":"telbookdatanew","field":"institname"}'
+                                                    />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="u-msg-footer">
+                                    <button id="saveman" class="u-msg-ok u-button u-button-primary"
+                                            data-bind="click: event.saveManClick">保存
+                                        <span class="u-button-container"></span>
+                                    </button>
+                                    <button id="cancelman" class="u-msg-cancel u-button u-button-white"
+                                            data-bind="click: event.cancelManClick">取消
+                                        <span class="u-button-container"></span>
+                                    </button>
+                                    
+                                </div>
+                            </div>
+                            <div id="searchdiv" class="u-input-group u-has-feedback pull-right input_enter">
+                                <input type="text" class="u-form-control sm " id="search"
+                                       placeholder="姓名/编码/邮件">
+                                <span class="u-form-control-feedback uf uf-search-light-2" id="searchBtn"
+                                      data-bind="click: event.searchClick"></span>
+                            </div>
+                        </div>
+
+
+                        <!--telbooktable-->
+                        <div class="main-container padding-0 contacts-container">
+                            <div class="hr-table ">
+                                <div class="u-table b-table width-full"
+                                     u-meta='{"id":"gridaddress","type":"grid","data":"telbookdata","columnWidth":"150px"}'>
+                                    <div
+                                            options='{"field":"peoname","title":"姓名","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"peocode","title":"员工编号","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"institname","title":"所属机构","dataType":"String","editType":"string"}'></div>
+                                    <div
+                                            options='{"field":"worktel","title":"办公电话","dataType":"String","editType":"string"}'>
+                                    </div>
+                                    <div
+                                            options='{"field":"email","title":"电子邮箱","dataType":"String","editType":"string"}'>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id='pagination' class='pagination u-pagination pagination-sm'></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

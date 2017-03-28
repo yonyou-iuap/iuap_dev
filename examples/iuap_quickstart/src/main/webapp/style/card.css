@@ -1,0 +1,97 @@
+/**
+ *卡片公共样式：
+ *高度、宽度、部分字体样式
+ *form: lizhik
+ */
+
+.card-content {
+	margin-top: 15px;
+	width: 100%;
+}
+.card-info {
+	/*width: 380px;*/
+	width:32%;
+	height: 210px;
+	background-color: #FFF;
+	border:1px solid #DADBDD;
+	float: left;
+	position: relative;
+	margin:15px 10px 0 0;
+}
+.card-info:hover{
+	background-color:#EDF8FF;
+	cursor: pointer;
+}
+
+.modal-footer .footbtn-pad{
+	padding: 5px 22px;
+}
+.modal-footer .btn-default{
+	border-radius: 0;
+}
+.modal-footer .btn-default:hover{
+	background-color:#ebebeb;
+}
+.modal-title {
+	color:#232933;
+	font: 16px "microsoft yahei" ;
+}
+
+.font-styles{
+	color:#212121;
+	padding-left:10px;
+	font : 14px "microsoft yahei" normal   ;
+}
+.title-fontsyle{
+	font: 30px "microsoft yahei" ;
+	color:#272727;
+}
+.time-title{
+	font :12px "microsoft yahei" normal ;
+	color:#919193;
+}
+
+.delete-shift{
+	float:left;
+	/*width:72px;*/
+	height:32px;
+	background-color:#FFF;
+	border:#CCCCCC 1px solid;
+	color:#E9573E;
+	margin-left:25px;
+	font : 14px "microsoft yahei" normal   ;
+}
+.modal .save-new{
+	width:88px;
+	height:32px;
+	border:1px solid #CCCCCC;
+	background-color:#fff;
+	margin-right:18px;
+	margin-top:1px;
+}
+.input-size{
+	width:130px;
+	height:38px;
+}
+.line{
+	display: inline-block;
+	width:14px;
+	margin:0 7px ;
+	height:19px;
+	border-bottom: 1px solid #BFBFBF;
+	float:left;
+}
+
+.form-name span,
+.form-start span,
+.default-name{
+	color:#656565;
+	padding-right:15px;
+	font:14px  "microsoft yahei" ;
+}
+.form-name input{
+	width:289px;
+	height:38px;
+	border:#BFBFBF 1px solid;
+	font: 14px "microsoft yahei" ;
+}

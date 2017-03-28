@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- Shiro的Web过滤器 -->
+	<!-- 此处的bean id需要和web.xml定义的shiro组件过滤器filter-name保持一致 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口，必须属性 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 非必须属性，登录页面地址，如如果不写，会寻找工程根目录下的"/login.jsp"页面 -->
+		<property name="loginUrl" value="/login/jump" />
+		<!-- 非必须属性，如果登录成功后的跳转页面在处理逻辑LoginController中有指定，可以不写 -->
+		<!-- <property name="successUrl" value="loginSuccess.jsp"/> -->
+		<!-- 用户访问未对其授权的链接时，所显示的连接 -->
+		<property name="unauthorizedUrl" value="/login/403" />
+		<property name="filters">
+			<util:map>
+				<!-- 登录验证Filter -->
+				<entry key="authc" value-ref="authcationFilter" />
+			</util:map>
+		</property>
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- 静态资源可以直接通过 -->
+				/resources/** = anon
+				/login/** = anon
+				/images/** = anon
+				/index.jsp = anon
+				/print.jsp = anon
+				/pay/jump = anon
+				/logout/** = logout
+				<!--只有admin角色才能访问/user/save-->
+				/user/save = roles[admin]
+				<!--所有的请求都要通过验证-->
+<!-- 				/** = authc -->
+			</value>
+		</property>
+	</bean>
+
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!--可配制多个认证授权Realm，此处只配置了一个自定义的shiroDbRealm -->
+		<property name="realm" ref="myShiroDbRealm" />
+		<!-- 配置缓存，提高查询效率 -->
+<!-- 		<property name="cacheManager"ref="cacheManager"/> -->
+	</bean>
+
+	<!-- Shiro生命周期处理器 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+	
+	<!-- 缓存管理器 -->
+<!-- 	<bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/> -->
+
+	<!-- 启用验证码检验 -->
+	<bean id="authcationFilter" class="com.yonyou.login.filter.CaptchaFormAuthenticationFilter" />
+
+</beans>

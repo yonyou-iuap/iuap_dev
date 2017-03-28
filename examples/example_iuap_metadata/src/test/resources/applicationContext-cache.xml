@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd"
+	default-lazy-init="true">
+
+	<description>saas cache</description>
+
+	<!-- 说明，如果想为业务配置多份的cache，需要配置多个pool，连接多个不同的url。 用bean id区分并注入，避免采用@Autowired的方式按类型注入。 -->
+
+
+	<bean id="redisPool" class="com.yonyou.iuap.cache.redis.RedisPoolFactory"
+		scope="prototype" factory-method="createJedisPool">
+		<constructor-arg value="${redis.url}" />
+	</bean>
+
+	<bean id="jedisTemplate" class="org.springside.modules.nosql.redis.JedisTemplate">
+		<constructor-arg ref="redisPool"></constructor-arg>
+	</bean>
+
+	<bean id="redisShardedPool" class="com.yonyou.iuap.cache.redis.RedisPoolFactory"
+		scope="prototype" factory-method="createShardedJedisPools">
+		<constructor-arg value="${redis.shardedurl}" />
+	</bean>
+
+	<bean id="jedisShardedTemplate" class="org.springside.modules.nosql.redis.JedisShardedTemplate">
+		<constructor-arg ref="redisShardedPool"></constructor-arg>
+	</bean>
+
+	<bean id="cacheManager" class="com.yonyou.iuap.cache.CacheManager">
+		<property name="jedisTemplate" ref="jedisTemplate" />
+	</bean>
+
+	<bean id="saasCacheManager" class="com.yonyou.iuap.cache.SaasCacheManager">
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+	<bean id="metadataCache" class="com.yonyou.metadata.mybatis.util.MetadataCache">
+		<property name="saasCacheMgr" ref="saasCacheManager" />
+		<property name="cacheManager" ref="cacheManager" />
+	</bean>
+</beans>

@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.yonyou.iuap.example</groupId>
+	<artifactId>iuap-message-example</artifactId>
+	<packaging>jar</packaging>
+	<version>3.1.0-RELEASE</version>
+	<name>example-iuap-message</name>
+
+	<!-- 依赖项版本号定义 -->
+	<properties>
+    <iuap.modules.version>3.1.0-RELEASE</iuap.modules.version>
+    <iuap.saas.modules.version>3.1.0-RC001</iuap.saas.modules.version>
+		<package-type>example-iuap-message</package-type>
+		<junit.version>4.11</junit.version>
+	</properties>
+
+	<!-- 依赖项定义 -->
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.yonyou.iuap</groupId>
+			<artifactId>iuap-message</artifactId>
+			<version>3.1.0-RELEASE</version>
+		</dependency>
+	</dependencies>
+
+	<!-- 编译插件定义 -->
+	<build>
+		<finalName>example-iuap-message</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding><!-- 指定编码格式，否则在DOS下运行mvn compile命令时会出现莫名的错误，因为系统默认使用GBK编码 -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

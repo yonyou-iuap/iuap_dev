@@ -1,0 +1,60 @@
+package com.sample
+
+import com.toolkit.drools.bean.Order;
+
+	
+// 钻石会员 8折
+
+rule "DIAMOND_DISCOUNT"
+	no-loop  true
+	lock-on-active true
+	activation-group "discount"
+	salience 3
+	
+    when
+        $order : Order(userRank == 99) 
+    then
+		$order.doDiscount(0.8); 	
+end
+
+// 普通会员9.5折
+
+rule "MEMBER_DISCOUNT"
+	no-loop  true
+	lock-on-active true
+	activation-group "discount"
+	salience 2
+	
+    when
+        $order : Order(userRank == 1) 
+    then
+		$order.doDiscount(0.95); 		
+end
+
+// 普通用户原价
+
+rule "GENERAL_DISCOUNT"
+	no-loop  true
+	lock-on-active true
+	activation-group "discount"
+	salience 1
+    
+    when
+        $order : Order( userRank == 0) 
+    then
+		$order.doDiscount(1);  	 	
+end
+
+
+// 促销价格
+
+rule "SALES_PROMOTION_DISCOUNT"
+	no-loop  true
+	lock-on-active true
+    
+    when
+        $order : Order( ) 
+    then
+		$order.doDiscount(0.8);  	 	
+end
+ 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd"
+       default-lazy-init="false">
+
+    <description>Spring公共配置</description>
+
+    <context:property-placeholder system-properties-mode="OVERRIDE" ignore-unresolvable="true"
+                                  location="classpath*:/application.properties"/>
+
+    <bean id="searchClient" class="com.yonyou.iuap.search.processor.SearchClient">
+        <property name="httpConfig">
+            <bean class="com.yonyou.iuap.search.processor.SolrHttpConfig">
+            </bean>
+        </property>
+        <property name="cloudConfig">
+            <bean class="com.yonyou.iuap.search.processor.SolrCloudConfig"/>
+        </property>
+    </bean>
+
+    <bean id="httpSearchClient" class="com.yonyou.iuap.search.processor.impl.HttpSearchClient">
+        <property name="baseUrl" value="${solr.http.url}"/>
+    </bean>
+
+    <bean id="cloudSearchClient" class="com.yonyou.iuap.search.processor.impl.CloudSearchClient">
+        <property name="zkHost" value="${solr.zk.url}"/>
+        <property name="collection" value="${solr.zk.collection}"/>
+    </bean>
+
+</beans>

@@ -1,0 +1,756 @@
+<div class="u-mdlayout" id="series-mdlayout">
+	<div class="u-mdlayout-master" style="display:none"></div>
+	<div class="u-mdlayout-detail" style="overflow-y: auto">
+		<!--列表界面-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header current" id="series_list">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#dashboard/dashboard">基础档案</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#basedata/series/series">车系信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>车系信息列表</span>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					<!--查询-->
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车系编码：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vseriescode","name":"车系编码","type":"string","data":"searchData","field":"vseriescode"}'>
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">车系名称：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vseriesname","name":"车系名称","type":"string","data":"searchData","field":"vseriesname"}'>
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属类别：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<div class="input-group pkvehicleclassify" id="series_vehicleclassifylist" u-meta='{"refCode":"vehicleclassifyref","type":"uiRefer", "data":"searchData", "field":"pk_vehicleclassify"}'>
+									<input  class="u-input" type="text"data-bind="enable: true" >
+									<span class="u-form-control-feedback fa fa-search refer" data-bind="enable: true"></span>
+								</div>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">所属品牌：</label>
+							</div>
+							<div class="u-col-2 u-col-sm-8">
+								<div class="input-group pkbrand" id="series_brandlist" u-meta='{"refCode":"brand","type":"uiRefer", "data":"searchData", "field":"pk_brand"}'>
+									<input class="u-input" type="text"data-bind="enable: true" >
+									<span class="u-form-control-feedback fa fa-search refer" data-bind="enable: true"></span>
+								</div>
+							</div>
+							<div class="u-col-2 u-col-sm-4">
+								<label class="u-input-label right">状态：</label>
+							</div>
+							<div id="SeriesVstatus" class="u-combo u-col-2 u-col-sm-8" u-meta='{"id":"SeriesVstatus","name":"状态","type":"u-combobox","onlySelect":true,"isContainNull":true, "data":"searchData","datasource":"vstatusData","field":"vstatus"}'>
+								<input class="u-input u-form-control readonly"/>
+								<span class="u-combo-icon"></span>
+							</div>
+						</div>
+						<div class="u-row">
+							<div class="btnBox pull-right mb-5" >
+								<button class="u-button raised primary m-r-sm" id="series_table-search" data-bind="click: searchClick">
+									查询
+								</button>
+								<button class="u-button raised primary m-r-sm" id="series_table-add" data-bind="click: addClick,visible: addFunShow">
+									新增
+								</button>
+								<button class="u-button raised primary m-r-sm" id="series_table-edi" data-bind="click: editClick,visible: editFunShow">
+									修改
+								</button>
+								<button class="u-button raised primary m-r-sm" id="series_table-start" data-bind="click: startClick,visible: startFunShow">
+									启用
+								</button>
+								<button class="u-button raised primary m-r-sm" id="series_table-stop" data-bind="click: stopClick,visible: stopFunShow">
+									停用
+								</button>
+								<button class="u-button raised primary m-r-sm" id="series_table-export" data-bind="click:exportClick,visible: exportFunShow">
+									导出全部车系信息
+								</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="u-widget-body">
+									<div class="table-responsive">
+										<table class="u-table" style="width:100%;">
+											<thead>
+												<tr>
+													<th>选择</th>
+													<th>车系编码</th>
+													<th>车系名称</th>
+													<th>所属类别</th>
+													<th>所属品牌</th>
+													<th>车系描述</th>
+													<th>状态</th>
+												</tr>
+											</thead>
+											<tbody data-bind="foreach:{data:listData.rows(),as:'row', afterAdd: afterAdd}" >
+												<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+													<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+														<input type="checkbox" class="u-checkbox-input">
+														<span class="u-checkbox-label"></span> </label></td>
+													<!-- <td data-bind="text: row.ref('vseriescode')"></td> -->
+													<td><a href="javascript:;" data-bind="click:$parent.showClick.bind($data, $index())" ><span data-bind="text:row.ref('vseriescode')"></span></a></td>
+													<td data-bind="text: row.ref('vseriesname')"></td>
+													<td data-bind="text: row.ref('vehiclename')"></td>
+													<td data-bind="text: row.ref('brandname')"></td>
+													<td data-bind="text: row.ref('vcomments')"></td>
+													<td data-bind="text: comToName(row.getSimpleData().vstatus)"></td>
+													<!-- <td data-bind="text: function(){  return row.getSimpleData().vstatus === '10051001' ? '已启用' : '已停用' }();"></td> -->
+												</tr>
+											</tbody>
+											<tbody data-bind="css: { 'table-is-hidden' : listData.rows().length>0 }">
+												<tr>
+													<td colspan="7">无数据</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+							<div id='series_pagination' class='u-pagination pagination'  u-meta='{"type":"pagination","data":"listData","pageChange":"pageChangeFunc","sizeChange":"sizeChangeFunc"}'></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--新增界面-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="series_new">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#dashboard/dashboard">基础数据</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#basedata/series/series">车系信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>车系信息维护</span>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised primary m-r-sm" data-bind="click:onSaveClick">
+									保存
+								</button>
+								<button class="u-button raised primary m-r-sm" data-bind="click: onBackClick">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget">
+									<div class="u-widget-body form-container">
+										<div class="u-container-fluid">
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车系编码：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 ">
+													<div class="u-input-group-before " style="color: red;">
+														*
+													</div>
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vseriescode","name":"车系编码","type":"string","data":"cardData","field":"vseriescode"}'>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车系名称：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 ">
+													<div class="u-input-group-before " style="color: red;">
+														*
+													</div>
+													<input type="text" class="u-form-control u-input-write"  u-meta='{"id":"vseriesname","name":"车系名称","type":"string","data":"cardData","field":"vseriesname"}'>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属类别：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 ">
+													<div class="input-group pkvehicleclassify" id="series_vehicleclassifycar"  u-meta='{"refCode":"vehicleclassifyref","name":"所属类别","type":"uiRefer", "data":"cardData", "field":"pk_vehicleclassify"}'>
+														<div class="u-input-group-before " style="color: red;">
+															*
+														</div>
+														<input class="u-form-control u-input-readonly"  type="text" data-bind="enable: true" >
+														<span class="u-form-control-feedback fa fa-search refer" data-bind="enable: true"></span>
+													</div>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属品牌：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 ">
+													<input type="text" disabled="disabled" class="u-form-control "  u-meta='{"id":"brandname","name":"所属品牌","type":"string","data":"cardData","field":"brandname"}'>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车系描述：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 ">
+													<div class="u-text pull-left" u-meta='{"id":"vcomments","name":"车系描述","type":"textarea","data":"cardData","field":"vcomments"}'>
+														<textarea rows="5" cols="100"></textarea>
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-tabs u-tab-inner-left">
+									<div class="u-tabs__tab-bar">
+										<a href="#series_tab-panel-view_file" class="u-tabs__tab is-active">车系外观图片</a>
+										<a href="#series_tab-panel-view_file2" class="u-tabs__tab">车系内饰图片</a>
+										<a href="#series_tab-panel-view_file3" class="u-tabs__tab">车系略缩图片</a>
+									</div>
+									<!--车型外观图片上传-->
+									<div class="u-tabs__panel is-active" id="series_tab-panel-view_file">
+										<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+											<button class="u-button raised primary" data-bind="click:onOpenUploadWin">
+												上传
+											</button>
+											<button class="u-button raised primary" data-bind="click:fileDownload">
+												下载
+											</button>
+											<button class="u-button raised primary" data-bind="click:fileDelete">
+												删除
+											</button>
+											<!--<button class="u-button raised primary" data-bind="click:fileView">
+											查看
+											</button>-->
+										</div>
+										<div class="" style="padding-top: 0px; padding-bottom: 0px;">
+											<div class="u-row">
+												<div class="u-col-12">
+													<div class="u-widget">
+														<div class="u-widget-body">
+															<table class="u-table" style="width:100%;">
+																<thead>
+																	<tr>
+																		<th>选择</th>
+																		<th>文件名称</th>
+																		<th>文件大小</th>
+																		<th>上传时间</th>
+																	</tr>
+																</thead>
+																<tbody data-bind="foreach:{data:fileData.rows(),as:'row', afterAdd: afterAdd}" >
+																	<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																		<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																			<input type="checkbox" class="u-checkbox-input">
+																			<span class="u-checkbox-label"></span> </label></td>
+																		<td data-bind="text: row.ref('filename')"></td>
+																		<td data-bind="text: row.ref('filesize')"></td>
+																		<td data-bind="text: row.ref('uploadtime')"></td>
+																	</tr>
+																</tbody>
+																<tbody data-bind="css: { 'table-is-hidden' : fileData.rows().length>0 }">
+																	<tr>
+																		<td colspan="4">无数据</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--车型外观图片上传end-->
+									<!--车型内饰图片上传-->
+									<div class="u-tabs__panel" id="series_tab-panel-view_file2">
+										<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+											<button class="u-button raised primary" data-bind="click:onOpenUploadWin2">
+												上传
+											</button>
+											<button class="u-button raised primary" data-bind="click:fileDownload2">
+												下载
+											</button>
+											<button class="u-button raised primary" data-bind="click:fileDelete2">
+												删除
+											</button>
+											<!--<button class="u-button raised primary" data-bind="click:fileView2">
+											查看
+											</button>-->
+										</div>
+										<div class="" style="padding-top: 0px; padding-bottom: 0px;">
+											<div class="u-row">
+												<div class="u-col-12">
+													<div class="u-widget">
+														<div class="u-widget-body">
+															<table class="u-table" style="width:100%;">
+																<thead>
+																	<tr>
+																		<th>选择</th>
+																		<th>文件名称</th>
+																		<th>文件大小</th>
+																		<th>上传时间</th>
+																	</tr>
+																</thead>
+																<tbody data-bind="foreach:{data:fileInData.rows(),as:'row', afterAdd: afterAdd}" >
+																	<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																		<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																			<input type="checkbox" class="u-checkbox-input">
+																			<span class="u-checkbox-label"></span> </label></td>
+																		<td data-bind="text: row.ref('filename')"></td>
+																		<td data-bind="text: row.ref('filesize')"></td>
+																		<td data-bind="text: row.ref('uploadtime')"></td>
+																	</tr>
+																</tbody>
+																<tbody data-bind="css: { 'table-is-hidden' : fileInData.rows().length>0 }">
+																	<tr>
+																		<td colspan="4">无数据</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--车型内饰图片上传end-->
+									<!--车型略缩图片上传-->
+									<div class="u-tabs__panel" id="series_tab-panel-view_file3">
+										<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+											<button class="u-button raised primary" data-bind="click:onOpenUploadWin3">
+												上传
+											</button>
+											<button class="u-button raised primary" data-bind="click:fileDownload3">
+												下载
+											</button>
+											<button class="u-button raised primary" data-bind="click:fileDelete3">
+												删除
+											</button>
+											<!--<button class="u-button raised primary" data-bind="click:fileView3">
+											查看
+											</button>-->
+										</div>
+										<div class="" style="padding-top: 0px; padding-bottom: 0px;">
+											<div class="u-row">
+												<div class="u-col-12">
+													<div class="u-widget">
+														<div class="u-widget-body">
+															<table class="u-table" style="width:100%;">
+																<thead>
+																	<tr>
+																		<th>选择</th>
+																		<th>文件名称</th>
+																		<th>文件大小</th>
+																		<th>上传时间</th>
+																	</tr>
+																</thead>
+																<tbody data-bind="foreach:{data:fileThumbData.rows(),as:'row', afterAdd: afterAdd}" >
+																	<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																		<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																			<input type="checkbox" class="u-checkbox-input">
+																			<span class="u-checkbox-label"></span> </label></td>
+																		<td data-bind="text: row.ref('filename')"></td>
+																		<td data-bind="text: row.ref('filesize')"></td>
+																		<td data-bind="text: row.ref('uploadtime')"></td>
+																	</tr>
+																</tbody>
+																<tbody data-bind="css: { 'table-is-hidden' : fileThumbData.rows().length>0 }">
+																	<tr>
+																		<td colspan="4">无数据</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--车型略缩图片上传end-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 模态框(附件上传)start 外观-->
+			<div id="series_dialog_uploadfile" style="display:none;">
+				<div class="u-msg-title">
+					<h4>附件上传</h4>
+				</div>
+				<div class="u-msg-content">
+					<div class="u-row">
+						<div class="u-col-12" style="margin-bottom: 20px;">
+							<div class="u-widget">
+								<div class="menu">
+									<button class="u-button raised primary sub-list1-new"  data-bind="click:onFileUpload">
+										上传
+									</button>
+									<button class="u-button raised primary sub-list1-cancel"  data-bind="click:onCloseFileWindow">
+										取消
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="form">
+									<div class="u-col-3 u-col-xs-4 u-col-sm-4 u-col-md-3" style=" width: 330px; padding-left: 0px; ">
+										<div class="u-text u-label-floating-always">
+											<input class="u-input"type="file" name="addfile" id = "series_uploadbatch_id" multiple="multiple"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 模态框(附件上传)start 内饰-->
+			<div id="series_dialog_uploadfile2" style="display:none;">
+				<div class="u-msg-title">
+					<h4>附件上传</h4>
+				</div>
+				<div class="u-msg-content">
+					<div class="u-row">
+						<div class="u-col-12" style="margin-bottom: 20px;">
+							<div class="u-widget">
+								<div class="menu">
+									<button class="u-button raised primary sub-list1-new"  data-bind="click:onFileUpload2">
+										上传
+									</button>
+									<button class="u-button raised primary sub-list1-cancel"  data-bind="click:onCloseFileWindow">
+										取消
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="form">
+									<div class="u-col-3 u-col-xs-4 u-col-sm-4 u-col-md-3" style=" width: 330px; padding-left: 0px; ">
+										<div class="u-text u-label-floating-always">
+											<input class="u-input"type="file" name="addfile2" id = "series_uploadbatch_id2" multiple="multiple"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 模态框(附件上传)start 缩略图-->
+			<div id="series_dialog_uploadfile3" style="display:none;">
+				<div class="u-msg-title">
+					<h4>附件上传</h4>
+				</div>
+				<div class="u-msg-content">
+					<div class="u-row">
+						<div class="u-col-12"  style="margin-bottom: 20px;">
+							<div class="u-widget">
+								<div class="menu">
+									<button class="u-button raised primary sub-list1-new"  data-bind="click:onFileUpload3">
+										上传
+									</button>
+									<button class="u-button raised primary sub-list1-cancel"  data-bind="click:onCloseFileWindow">
+										取消
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="u-widget">
+								<div class="form">
+									<div class="u-col-3 u-col-xs-4 u-col-sm-4 u-col-md-3" style=" width: 330px; padding-left: 0px; ">
+										<div class="u-text u-label-floating-always">
+											<input class="u-input"type="file" name="addfile3" id = "series_uploadbatch_id3" multiple="multiple"/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--查看界面-->
+		<div class="u-mdlayout-page u-navlayout-fixed-header" id="series_view">
+			<div class="u-mdlayout-page-section">
+				<div class="u-container-fluid u-widget-bg">
+					<div class="u-row">
+						<div class="u-col-12">
+							<div class="page-bar">
+								<ul class="page-breadcrumb">
+									<li>
+										<a href="#dashboard/dashboard">基础数据</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<a href="#basedata/series/series">车系信息</a>
+										<i class="fa fa-circle"></i>
+									</li>
+									<li>
+										<span>车系信息维护</span>
+									</li>
+								</ul>
+
+							</div>
+						</div>
+					</div>
+					<div class="u-row">
+						<div class="u-col-12" style="padding-bottom:15px;">
+							<div class="u-widget" style="background-color:transparent">
+								<button class="u-button raised primary m-r-sm" data-bind="click: onBackClick">
+									返回
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="search-section">
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-widget">
+									<div class="u-widget-body form-container">
+										<div class="u-container-fluid">
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车系编码：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<span data-bind="text:cardData.ref('vseriescode')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车系名称：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<span data-bind="text:cardData.ref('vseriesname')"></span>
+												</div>
+											</div>
+											<div class="u-row">
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属类别：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<span data-bind="text:cardData.ref('vehiclename')"></span>
+												</div>
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">所属品牌：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8">
+													<span data-bind="text:cardData.ref('brandname')"></span>
+												</div>
+											</div>
+											<div class="u-row">
+												<!-- <div class="u-col-2 u-col-sm-4">
+												<label class="u-input-label right">车系描述：</label>
+												</div>
+												<div class="u-col-6 u-col-sm-8">
+												<span data-bind="text:cardData.ref('vcomments')"></span>
+												</div> -->
+												<div class="u-col-2 u-col-sm-4">
+													<label class="u-input-label right">车系描述：</label>
+												</div>
+												<div class="u-col-2 u-col-sm-8 ">
+													<div class="u-text pull-left" u-meta='{"id":"vcomments","name":"车系描述","type":"textarea","data":"cardData","field":"vcomments"}'>
+														<textarea disabled="disabled" rows="5" cols="100"></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<hr />
+						<div class="u-row">
+							<div class="u-col-12">
+								<div class="u-tabs u-tab-inner-left">
+									<div class="u-tabs__tab-bar">
+										<a href="#series_tab-panel-view_file_look" class="u-tabs__tab is-active">车系外观图片</a>
+										<a href="#series_tab-panel-view_file2_look" class="u-tabs__tab">车系内饰图片</a>
+										<a href="#series_tab-panel-view_file3_look" class="u-tabs__tab">车系略缩图片</a>
+									</div>
+									<!--车型外观图片上传-->
+									<div class="u-tabs__panel is-active" id="series_tab-panel-view_file_look">
+										<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+											<button class="u-button raised primary" data-bind="click:fileDownload">
+												下载
+											</button>
+										</div>
+										<div class="" style="padding-top: 0px; padding-bottom: 0px;">
+											<div class="u-row">
+												<div class="u-col-12">
+													<div class="u-widget">
+														<div class="u-widget-body">
+															<table class="u-table" style="width:100%;">
+																<thead>
+																	<tr>
+																		<th>选择</th>
+																		<th>文件名称</th>
+																		<th>文件大小</th>
+																		<th>上传时间</th>
+																	</tr>
+																</thead>
+																<tbody data-bind="foreach:{data:fileData.rows(),as:'row', afterAdd: afterAdd}" >
+																	<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																		<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																			<input type="checkbox" class="u-checkbox-input">
+																			<span class="u-checkbox-label"></span> </label></td>
+																		<td data-bind="text: row.ref('filename')"></td>
+																		<td data-bind="text: row.ref('filesize')"></td>
+																		<td data-bind="text: row.ref('uploadtime')"></td>
+																	</tr>
+																</tbody>
+																<tbody data-bind="css: { 'table-is-hidden' : fileData.rows().length>0 }">
+																	<tr>
+																		<td colspan="4">无数据</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--车型外观图片上传end-->
+									<!--车型内饰图片上传-->
+									<div class="u-tabs__panel" id="series_tab-panel-view_file2_look">
+										<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+											<button class="u-button raised primary" data-bind="click:fileDownload2">
+												下载
+											</button>
+										</div>
+										<div class="" style="padding-top: 0px; padding-bottom: 0px;">
+											<div class="u-row">
+												<div class="u-col-12">
+													<div class="u-widget">
+														<div class="u-widget-body">
+															<table class="u-table" style="width:100%;">
+																<thead>
+																	<tr>
+																		<th>选择</th>
+																		<th>文件名称</th>
+																		<th>文件大小</th>
+																		<th>上传时间</th>
+																	</tr>
+																</thead>
+																<tbody data-bind="foreach:{data:fileInData.rows(),as:'row', afterAdd: afterAdd}" >
+																	<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																		<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																			<input type="checkbox" class="u-checkbox-input">
+																			<span class="u-checkbox-label"></span> </label></td>
+																		<td data-bind="text: row.ref('filename')"></td>
+																		<td data-bind="text: row.ref('filesize')"></td>
+																		<td data-bind="text: row.ref('uploadtime')"></td>
+																	</tr>
+																</tbody>
+																<tbody data-bind="css: { 'table-is-hidden' : fileInData.rows().length>0 }">
+																	<tr>
+																		<td colspan="4">无数据</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--车型内饰图片上传end-->
+									<!--车型略缩图片上传-->
+									<div class="u-tabs__panel" id="series_tab-panel-view_file3_look">
+										<div class="u-widget mtb-5" style="background-color:transparent;margin: 10px 0 10px 0;">
+											<button class="u-button raised primary" data-bind="click:fileDownload3">
+												下载
+											</button>
+										</div>
+										<div class="" style="padding-top: 0px; padding-bottom: 0px;">
+											<div class="u-row">
+												<div class="u-col-12">
+													<div class="u-widget">
+														<div class="u-widget-body">
+															<table class="u-table" style="width:100%;">
+																<thead>
+																	<tr>
+																		<th>选择</th>
+																		<th>文件名称</th>
+																		<th>文件大小</th>
+																		<th>上传时间</th>
+																	</tr>
+																</thead>
+																<tbody data-bind="foreach:{data:fileThumbData.rows(),as:'row', afterAdd: afterAdd}" >
+																	<tr data-bind="css: { 'is-selected' : row.selected() } ,attr:{'id': $index()}">
+																		<td class="checkbox1"><label class="u-checkbox only-style u-checkbox-floatl" data-bind="click: row.multiSelect, css:{'is-checked': row.selected()}" style="height:20px">
+																			<input type="checkbox" class="u-checkbox-input">
+																			<span class="u-checkbox-label"></span> </label></td>
+																		<td data-bind="text: row.ref('filename')"></td>
+																		<td data-bind="text: row.ref('filesize')"></td>
+																		<td data-bind="text: row.ref('uploadtime')"></td>
+																	</tr>
+																</tbody>
+																<tbody data-bind="css: { 'table-is-hidden' : fileThumbData.rows().length>0 }">
+																	<tr>
+																		<td colspan="4">无数据</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--车型略缩图片上传end-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>

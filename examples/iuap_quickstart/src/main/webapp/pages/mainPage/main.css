@@ -1,0 +1,279 @@
+/*outside frame*/
+div#content {
+    background: #ECEFF1;
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    margin-left: 200px;
+}
+
+div#content .u-mdlayout {
+    box-shadow: none;
+    overflow-y: auto;
+}
+
+div #mainPage-mdlayout {
+    background: #fff !important;
+}
+
+header > .u-container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header > .u-container > .u-row {
+    margin-left: 0;
+    margin-right: 15px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/*上层布局*/
+#mainPage-mdlayout .top-layout {
+    /*  中屏默认 */
+    height: 270px;
+    margin: 20px 30px 0 30px;
+    background: #d4e4eb;
+    overflow: hidden;
+}
+
+/*上层图片*/
+.top-layout img {
+    position: absolute;
+}
+
+.left-image img {
+    width: 70%;
+    margin-top: 27px;
+}
+
+.center-image img {
+    padding-left: 20%;
+    bottom: 0;
+    height: 90%;
+}
+
+.font-image {
+    margin-top: 30px;
+}
+
+.right-image img {
+    bottom: 0;
+    right: 0;
+    height: 80%;
+    width: 60%;
+}
+
+/*上层中间文字*/
+.u-col-5 .u-form-group .u-col-4 {
+    width: 100%;
+    padding: 0;
+}
+
+.top-layout .u-form-group {
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.font-top {
+    line-height: 1em;
+    font-size: 2em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #071c3c;
+    font-weight: bold;
+    font-family: "Microsoft YaHei", "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+}
+
+.u-form-group .fontop-spec {
+    color: #f47a14;
+    margin-right: -5px;
+}
+
+span.inner-spec {
+    color: #f47a14;
+}
+
+.font-center {
+    margin-bottom: 10px;
+    font-size: 1em;
+    font-family: "Microsoft YaHei", "Helvetica", "Arial", sans-serif;
+    color: #071c3c;
+}
+
+.font-center p {
+    line-height: 2.2em;
+
+}
+
+.font-bottom {
+    padding: 10px;
+    background: #ecf3f6;
+    font-size: 0.7em;
+    color: #666666;
+}
+
+.font-bottom p {
+    line-height: 1.8em;
+    font-family: "Microsoft YaHei", "Helvetica", "Arial", sans-serif;
+}
+
+.font-center p, .font-bottom p {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+/*上层最右侧链接*/
+.link-group {
+    margin-left: 15px;
+}
+
+.link-col ul {
+    float: left;
+    -webkit-padding-start: 0;
+    -webkit-margin-before: 25px;
+    margin-top: 25px;
+    z-index: 2001;
+}
+
+.link-col a {
+    text-decoration: none;
+    color: #0372d4;
+    font-size: 0.875em;
+}
+
+li.topleft-link {
+    list-style-type: square;
+    color: #f47a14;
+}
+
+li.topright-link {
+    list-style-type: square;
+    color: #f47a14;
+}
+
+.link-col li {
+    float: left;
+}
+
+/*下面开始底层布局*/
+/* 布局 */
+#mainPage-mdlayout .bottom-layout {
+    padding: 0 30px 0 30px;
+}
+
+.content .u-form-group {
+    width: 100%;
+}
+
+.bottom-layout a {
+    text-decoration: none;
+    color: #40c4ff;
+}
+
+/* svg样式调整 */
+.bottom-layout .content-svg {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.bottom-layout .content-svg img {
+    width: 55%;
+}
+
+.st10 {
+    font-size: 8px;
+}
+
+.st3 {
+    font-size: 12px;
+}
+
+/*中间标题样式*/
+.bottom-layout .content-title {
+    font-size: 0.81em;
+    font-family: "Microsoft YaHei", "Helvetica", "Arial", sans-serif;
+    margin-bottom: 11px;
+}
+
+.bottom-layout .content-title span {
+    line-height: 1.8em;
+}
+
+/*最下面的ul的li样式*/
+.bottom-layout ul {
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 15px;
+    padding-left: 15px;
+
+}
+
+.bottom-layout .content-li {
+    font-size: 0.75em;
+    font-family: "Microsoft YaHei", "Helvetica", "Arial", sans-serif;
+}
+
+.content-li li {
+    list-style-type: disc;
+    color: #f47a14;
+}
+
+.content-li li span {
+    color: #071c3c;
+}
+
+.bottom-layout .content-title li {
+    line-height: 1.8em;
+}
+
+
+/*文字大小与上面的布局高度随着屏幕大小的改变而改变*/
+@media screen and (min-width: 1300px) {
+    #mainPage-mdlayout .u-form-group {
+        font-size: 18px !important;
+    }
+
+    .bottom-layout .content-svg {
+        margin-bottom: 40px;
+        margin-top: 70px;
+    }
+
+    .bottom-layout .content-title {
+        margin-bottom: 22px;
+    }
+
+    #mainPage-mdlayout .top-layout {
+        height: 315px !important;
+    }
+
+    .bottom-layout .content-svg img {
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width: 980px) {
+    #mainPage-mdlayout .u-form-group {
+        font-size: 10px !important;
+    }
+
+    .bottom-layout .content-svg {
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+
+    #mainPage-mdlayout .top-layout {
+        height: 210px !important;
+    }
+
+    .bottom-layout .content-svg img {
+        width: 50%;
+    }
+}
+
